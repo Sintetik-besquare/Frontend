@@ -1,13 +1,13 @@
 function Form() {
   return (
     <form>
-      <div className="justify-between">
-        <input type="text" className="w-50"/>
-        <input type="text" className="w-50"/>
+      <div>
+        <input type="text" />
+        <input type="text" />
       </div>
-      
-      <input type="text" className="w-100" />
-      <button className="w-100">submit</button>
+
+      <input type="text" />
+      <button>submit</button>
     </form>
   );
 }

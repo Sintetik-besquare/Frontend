@@ -1,6 +1,6 @@
 function Chart() {
     return (
-      <div className="justify-between">
+      <div>
           <h1>Chart</h1>
       </div>
     );

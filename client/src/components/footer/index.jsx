@@ -5,21 +5,20 @@ import Form from "./form";
 
 export const Footer = () => {
   return (
-    <div className="footer">
+    <div>
       <hr />
-      <h1 style={{ textAlign: "center" }}>Footer</h1>
-      <footer className="justify-around">
-        <span className="w-30">
+      <h1>Footer</h1>
+      <footer>
+        <span>
           <Info />
         </span>
-        <span className="w-30">
-          <Socials className="w-30" />
+        <span>
+          <Socials />
         </span>
-        <span className="w-30">
-          <Form className="w-30" />
+        <span>
+          <Form />
         </span>
       </footer>
-
     </div>
   );
 };

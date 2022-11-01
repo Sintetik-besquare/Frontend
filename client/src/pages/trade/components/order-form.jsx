@@ -1,6 +1,6 @@
 function OrderForm() {
     return (
-      <div className="justify-between">
+      <div>
           <h1>place order</h1>
       </div>
     );

@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 // import io from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -10,6 +10,8 @@ import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup.jsx";
 import Signin from "./pages/auth/signin.jsx";
 
+import Component from "./dump/components"
+
 // const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -20,7 +22,8 @@ function App() {
 
   return (
     <div>
-      <BrowserRouter>
+      <Component />
+      {/* <BrowserRouter>
         <Nav />
 
         <Routes>
@@ -33,7 +36,7 @@ function App() {
         </Routes>
 
         <Footer />
-      </BrowserRouter>
+      </BrowserRouter> */}
     </div>
   );
 }

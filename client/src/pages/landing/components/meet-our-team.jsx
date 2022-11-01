@@ -1,11 +1,44 @@
+import people from "../../../data/team.json";
+
 function MeetOurTeam() {
-    return (
-      <div className="" id="about">
-          <h1>Meet Our Team</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam cumque est cupiditate eaque dolores perferendis facilis, delectus ut consectetur fuga minima aliquid dolore nostrum distinctio eligendi, voluptatum quisquam laborum. Odio maiores nisi aliquid placeat consectetur minus quibusdam saepe, dolore molestiae facilis unde voluptatibus impedit fuga eum soluta quisquam, quos reiciendis.</p>
-      </div>
-    );
-  }
-  
-  export default MeetOurTeam;
-  
+  return (
+    <div id="about">
+      <h1>Meet The Team</h1>
+      {people.map((e) => {
+        return (
+          <span key={e.i}>
+            <div>
+              {e.id % 2 === 0 ? (
+                <div>
+                  <img src={e.photo} alt="unavailable"/>
+                </div>
+              ) : (
+                <></>
+              )}
+              <div>
+                <b>{e.name}</b>
+                <p>{e.role}</p>
+                <div>
+                  {e.interest.map((int, index) => (
+                    <span key={index}>
+                      <li>{int}</li>
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {e.id % 2 !== 0 ? (
+                <div>
+                  <img src={e.photo} alt="unavailable"/>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+export default MeetOurTeam;

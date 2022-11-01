@@ -1,15 +1,25 @@
+import Logo from "../../../assets/logo-sintetik.jpg";
+import Crypto from "../../../assets/crypto-graphics.png";
+import Desktop from "../../../assets/desktop-charts.png";
+
 function Hero() {
   return (
     <div id="home">
-      <h1>Landing Hero</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
-        molestiae, et officiis maxime error dolores tempora voluptatem facilis
-        voluptas id, possimus sunt excepturi, reprehenderit laudantium!
-        Reprehenderit nostrum similique ipsa vel neque exercitationem dicta
-        delectus corporis. Molestiae repellat dolorem tempora voluptate vel
-        placeat rerum, fugit itaque quasi suscipit quaerat, asperiores iusto?
-      </p>
+      <div >
+        <img src={Logo} alt="Logo"/>
+        <h1>SINTETIK</h1>
+        <b>The Right Way Of Trading</b>
+        <p>
+          Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
+          indices, and commodities.
+        </p>
+        <button>SIGN UP</button>
+        <button>SIGN IN</button>
+      </div>
+      <div>
+        <img src={Crypto} alt="Logo"/>
+        <img src={Desktop} alt="Logo"/>
+      </div>
     </div>
   );
 }
