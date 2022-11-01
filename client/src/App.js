@@ -10,7 +10,7 @@ import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup.jsx";
 import Signin from "./pages/auth/signin.jsx";
 
-import Component from "./dump/components"
+// import Component from "./dump/components"
 
 // const socket = io.connect("http://localhost:3001");
 
@@ -22,8 +22,8 @@ function App() {
 
   return (
     <div>
-      <Component />
-      {/* <BrowserRouter>
+      {/* <Component /> */}
+      <BrowserRouter>
         <Nav />
 
         <Routes>
@@ -36,7 +36,7 @@ function App() {
         </Routes>
 
         <Footer />
-      </BrowserRouter> */}
+      </BrowserRouter>
     </div>
   );
 }

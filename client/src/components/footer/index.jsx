@@ -5,20 +5,18 @@ import Form from "./form";
 
 export const Footer = () => {
   return (
-    <div>
-      <hr />
-      <h1>Footer</h1>
-      <footer>
-        <span>
+    <div style={{ background: "black", color: "white" }}>
+      <div className="flex">
+        <div style={{ width: "30%" }}>
           <Info />
-        </span>
-        <span>
+        </div>
+        <div style={{ width: "30%" }}>
           <Socials />
-        </span>
-        <span>
+        </div>
+        <div style={{ width: "30%" }}>
           <Form />
-        </span>
-      </footer>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,25 @@
+import Logo from "../../assets/logo-sintetik.jpg";
+
 function Info() {
   return (
     <div>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus suscipit perspiciatis recusandae tempora enim facere nostrum, sed nulla consectetur quia necessitatibus aliquid, unde eum facilis delectus? Porro saepe cupiditate, ut est enim alias nemo possimus expedita sequi voluptatibus perferendis maiores ipsa accusantium aspernatur ex rerum. Nesciunt incidunt modi commodi recusandae?
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img src={Logo} alt="logo" style={{ width: "20%" }} />
+        <div>
+          <h1>SINTETIK</h1>
+          <p>The Right Way of Trading</p>
+        </div>
+      </div>
+      <p style={{textAlign:'justify'}}>
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout. The point of
+        using Lorem Ipsum is that it has a more-or-less normal distribution of
+        letters, as opposed to using 'Content here, content here', making it
+        look like readable English. Many desktop publishing packages and web
+        page editors now use Lorem Ipsum as their default model text, and a
+        search for askdjhksa aksjhdkj jsahdjk sa spiece of gumball fell on my
+        head for no reason cant’ tell wh
+      </p>
     </div>
   );
 }

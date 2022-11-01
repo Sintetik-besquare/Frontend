@@ -1,7 +1,7 @@
 // VARIABLES
 $black: black;
 $red: red;
-$green: green;
+$green: rgb(0, 204, 0);
 $colour-4: orange;
 $colour-5: purple;
 
@@ -16,7 +16,7 @@ $colour-5: purple;
   -moz-box-shadow: 0 0 3px $button-color;
   -webkit-box-shadow: 0 0 3px $button-color;
   box-shadow: 0px 0px 3px $button-color;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: $black;
   transition: 0.7s;
 
   &:hover {

@@ -1,3 +1,64 @@
-@import './styles/base.scss';
-@import './styles/component.scss';
-@import './styles/layout.scss';
+@import "./styles/base.scss";
+@import "./styles/component.scss";
+@import "./styles/layout.scss";
+
+#home {
+  background-color: $black;
+  color: white;
+}
+
+.landing_hero_logo{
+  text-align: center;
+}
+
+.landing_hero_graphics {
+  position: relative;
+  img {
+    width: 50%;
+  }
+}
+
+#graphic_desktop {
+  position: absolute;
+  bottom: -5rem;
+  right: 50%;
+}
+#graphic_crypto {
+  position: absolute;
+  top: -15rem;
+  right: 20%;
+}
+
+@media only screen and (max-width: 1500px) {
+  .landing_hero_graphics {
+    img {
+      width: 50%;
+    }
+  }
+  #graphic_desktop {
+    bottom: -3rem;
+    right: 40%;
+  }
+  #graphic_crypto {
+    top: -8rem;
+    right: 10%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  #graphic_desktop {
+    width:350px;
+    margin:auto;
+    top:-5rem;
+    right:0;
+  }
+  #graphic_crypto {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .landing_hero_graphics {
+    display: none;
+  }
+}

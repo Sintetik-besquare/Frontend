@@ -4,7 +4,7 @@ import MeetOurTeam from "./components/meet-our-team";
 
 export const Index = () => {
   return (
-    <div>
+    <div >
       <Hero />
       <MeetOurTeam />
     </div>
