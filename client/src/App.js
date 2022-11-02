@@ -10,8 +10,6 @@ import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup.jsx";
 import Signin from "./pages/auth/signin.jsx";
 
-// import Component from "./dump/components"
-
 // const socket = io.connect("http://localhost:3001");
 
 function App() {
@@ -22,7 +20,6 @@ function App() {
 
   return (
     <div>
-      {/* <Component /> */}
       <BrowserRouter>
         <Nav />
 
