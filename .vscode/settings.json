@@ -1,4 +1,6 @@
 {
-    "js/ts.implicitProjectConfig.experimentalDecorators": true,
-    "editor.colorDecorators": true
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "editor.colorDecorators": true,
+  "RPC.showFile": false,
+  "RPC.showWorkspace": false
 }
