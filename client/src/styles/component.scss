@@ -13,7 +13,8 @@ button {
   align-items: center;
   padding: 0.5rem;
 
-  .li, li {
+  .li,
+  li {
     text-decoration: none;
     list-style: none;
     color: white;
@@ -35,7 +36,7 @@ button {
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  color:$black;
+  color: $black;
 
   input {
     width: 100%;
@@ -65,7 +66,10 @@ button {
     border-radius: 1rem;
   }
 }
-
+.container {
+  padding-left: 20%;
+  padding-right: 20%;
+}
 .card {
   @include drop-shadow;
   // border: 1px solid $black;
@@ -98,18 +102,18 @@ button {
   justify-content: space-between;
   align-items: center;
   height: 200px;
-  width: 50%;
+  width: 100%;
   margin: auto;
-  margin-top:15px;
-  margin-bottom:15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 
   img {
     height: 100%;
     width: 40%;
     object-fit: cover;
   }
-  div{
-    width:60%;
+  div {
+    width: 60%;
   }
 }
 
@@ -120,6 +124,10 @@ button {
     img {
       height: 45%;
     }
+  }
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
   }
   .card-horizontal {
     width: 70%;
@@ -133,6 +141,9 @@ button {
       margin-left: 0.1rem;
       margin-right: 0.1rem;
     }
+  }
+  .container {
+    padding: 0;
   }
   .card {
     width: 100%;

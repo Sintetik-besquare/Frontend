@@ -6,14 +6,14 @@ import Form from "./form";
 export const Footer = () => {
   return (
     <div style={{ background: "black", color: "white" }}>
-      <div className="flex">
-        <div style={{ width: "30%" }}>
+      <div className="flex-block footer">
+        <div>
           <Info />
         </div>
-        <div style={{ width: "30%" }}>
+        <div>
           <Socials />
         </div>
-        <div style={{ width: "30%" }}>
+        <div>
           <Form />
         </div>
       </div>
