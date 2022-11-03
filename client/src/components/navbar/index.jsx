@@ -1,11 +1,14 @@
 import React from "react";
+// import ReactDOM from "react-dom"
+// import { makeAutoObservable } from "mobx"
+// import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/logo-sintetik.jpg";
 
-function NavBar() {
+const NavBar = () => {
   return (
-    <div className="flex" style={{background:'black'}}>
+    <div className="flex" style={{ background: "black" }}>
       <div>
         <HashLink smooth to="/#home">
           <img src={Logo} alt="Logo" style={{ width: 50 }} />
@@ -26,11 +29,22 @@ function NavBar() {
           </Link>
 
           <Link to="/news" className="li">
-          <li> News</li>
+            <li> News</li>
           </Link>
-          <li> <button className="button-green">SIGN UP</button></li>
-          <li><button className="button-red">SIGN IN</button></li>
-        
+          {/* {clientStore.isLogin === true ? (
+            <li>
+              <button className="button-red" onClick={()=>{clientStore.logout()}}>LOG OUT</button>
+            </li>
+          ) : (
+            <> */}
+              <li>
+                <button className="button-green">SIGN UP</button>
+              </li>
+              <li>
+                <button className="button-red" onClick={()=>{}}>SIGN IN</button>
+              </li>
+            {/* </>
+          )} */}
         </ul>
       </div>
     </div>
