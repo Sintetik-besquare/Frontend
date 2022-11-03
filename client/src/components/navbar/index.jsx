@@ -1,14 +1,12 @@
 import React from "react";
-import ReactDOM from "react-dom"
-import { makeAutoObservable } from "mobx"
-import { inject, observer } from 'mobx-react';
+// import ReactDOM from "react-dom"
+// import { makeAutoObservable } from "mobx"
+// import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../assets/logo-sintetik.jpg";
-import clientStore from "../../store/client-store";
 
-
-function NavBar() {
+const NavBar = () => {
   return (
     <div className="flex" style={{ background: "black" }}>
       <div>
@@ -33,24 +31,24 @@ function NavBar() {
           <Link to="/news" className="li">
             <li> News</li>
           </Link>
-          {clientStore.loggedin === true ? (
+          {/* {clientStore.isLogin === true ? (
             <li>
               <button className="button-red" onClick={()=>{clientStore.logout()}}>LOG OUT</button>
             </li>
           ) : (
-            <>
+            <> */}
               <li>
                 <button className="button-green">SIGN UP</button>
               </li>
               <li>
-                <button className="button-red" onClick={()=>{clientStore.login()}}>SIGN IN</button>
+                <button className="button-red" onClick={()=>{}}>SIGN IN</button>
               </li>
-            </>
-          )}
+            {/* </>
+          )} */}
         </ul>
       </div>
     </div>
   );
 }
 
-export default observer(NavBar);
+export default NavBar;
