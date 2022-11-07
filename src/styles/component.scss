@@ -29,6 +29,32 @@ button {
   }
 }
 
+.nav_modal {
+  @include drop-shadow;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20vw;
+  background-color: white;
+  border-radius: 10px;
+
+  .button_red_light {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+  }
+
+  li {
+    padding: 10px;
+    list-style: none;
+  }
+
+  li:hover {
+    cursor: pointer;
+  }
+}
+
 .input {
   @include drop-shadow;
   // border: 1px solid $black;
@@ -41,6 +67,7 @@ button {
   input {
     width: 100%;
     padding: 1rem;
+    // margin: 1rem;
     border: none;
     outline: none;
   }
@@ -138,7 +165,7 @@ button {
   .navbar {
     .li,
     li {
-      margin:0;
+      margin: 0;
       // margin-left: 0.1rem;
       // margin-right: 0.1rem;
     }

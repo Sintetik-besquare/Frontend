@@ -2,16 +2,18 @@ import React from "react";
 import { useStores } from "../../store";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import { FaUserCircle } from "react-icons/fa";
+import { observer } from "mobx-react-lite";
 
 import Logo from "../../assets/logo-sintetik.jpg";
-import { observer } from "mobx-react-lite";
+import NavModal from "./nav-modal";
 
 const NavBar = () => {
   const { app_store, main_store } = useStores();
 
   React.useEffect(() => {
     //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin]);
+  }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
     <div className="flex" style={{ background: "black" }}>
@@ -40,19 +42,19 @@ const NavBar = () => {
           {app_store.is_loggedin === true ? (
             <li>
               <button
-                className="button-red"
+                className="button_red_dark"
                 onClick={() => {
-                  app_store.setLogin(false);
+                  app_store.setShowModal(true);
                 }}
               >
-                ICON <br /> ${main_store.wallet}
+                <FaUserCircle /> ${main_store.wallet}
               </button>
             </li>
           ) : (
             <>
               <li>
                 <button
-                  className="button-green"
+                  className="button_green_dark"
                   onClick={() => {
                     app_store.setLogin(true);
                   }}
@@ -62,7 +64,7 @@ const NavBar = () => {
               </li>
               <li>
                 <button
-                  className="button-red"
+                  className="button_red_dark"
                   onClick={() => {
                     app_store.setLogin(true);
                   }}
@@ -74,6 +76,12 @@ const NavBar = () => {
           )}
         </ul>
       </div>
+
+      {app_store.show_modal === true ? (
+        <NavModal/>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
