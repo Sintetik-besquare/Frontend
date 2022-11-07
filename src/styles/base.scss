@@ -42,4 +42,15 @@ $colour-5: purple;
   @include button-shared($red);
 }
 
+.button-orange {
+  @include button-shared($colour-4);
+}
+
+#signin {
+  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
 // RESETS
