@@ -1,20 +1,25 @@
-import { observable, computed, action, decorate } from "mobx";
+import { observable, decorate, action, autorun } from "mobx";
 
 export default class AppStore {
-  start = Date.now();
-  current = Date.now();
+  is_loggedin = false;
+  is_deposited = false;
 
-  get elapsedTime() {
-    return this.current - this.start + "milliseconds";
+  setLogin(isLogin) {
+    // console.log(" " + this.is_loggedin + " " + isLogin);
+    return (this.is_loggedin = isLogin);
   }
 
-  tick() {
-    this.current = Date.now();
+  deposit() {
+    return (this.is_deposited = !this.is_deposited);
   }
 }
 decorate(AppStore, {
-  start: observable,
-  current: observable,
-  elapsedTime: computed,
-  tick: action,
+  is_loggedin: observable,
+  is_deposited: observable,
+  setLogin: action,
+  deposit: action,
 });
+
+// autorun(() => {
+//   alert("");
+// });

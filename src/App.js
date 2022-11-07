@@ -1,6 +1,8 @@
+import React from "react";
 import "./App.scss";
 // import io from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useStores } from "./store";
 
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
@@ -10,10 +12,12 @@ import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup.jsx";
 import Signin from "./pages/auth/signin.jsx";
 
-// const socket = io.connect("http://localhost:3001");
+// const socket = io.connect("http://localhost:3002");
 
 function App() {
-  //To get price feed
+  const { app_store, main_store } = useStores();
+
+  // // To get price feed
   // socket.on("getfeed", (price) => {
   //   console.log(price);
   // });
