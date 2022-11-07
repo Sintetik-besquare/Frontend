@@ -3,7 +3,7 @@ $black: black;
 $red: red;
 $green: rgb(0, 204, 0);
 $colour-4: orange;
-$colour-5: purple;
+$colour-5: rgba(255,255,255,0.7);
 
 // MIXINS
 @mixin drop-shadow {
@@ -16,9 +16,8 @@ $colour-5: purple;
   -moz-box-shadow: 0 0 3px $button-color;
   -webkit-box-shadow: 0 0 3px $button-color;
   box-shadow: 0px 0px 3px $button-color;
-  background-color: $black;
   transition: 0.7s;
-
+  
   &:hover {
     -moz-box-shadow: 0 0 6px $button-color;
     -webkit-box-shadow: 0 0 6px $button-color;
@@ -32,14 +31,27 @@ $colour-5: purple;
 
 .button-black {
   @include button-shared($black);
+  background-color: $black;
 }
 
-.button-green {
+.button_green_dark {
   @include button-shared($green);
+  background-color: $black;
 }
 
-.button-red {
+.button_red_dark {
   @include button-shared($red);
+  background-color: $black;
+}
+
+.button_green_light {
+  @include button-shared($green);
+  background-color: white;
+}
+
+.button_red_light {
+  @include button-shared($red);
+  background-color: white;
 }
 
 // RESETS

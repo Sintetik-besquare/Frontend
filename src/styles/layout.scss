@@ -24,6 +24,12 @@
   display: flex;
 }
 
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
   .cards-container {
     flex-wrap: wrap;
