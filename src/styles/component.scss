@@ -13,14 +13,13 @@ button {
   align-items: center;
   padding: 0.5rem;
 
-  .li,
+  // .li,
   li {
     text-decoration: none;
     list-style: none;
     color: white;
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding: 0px 10px;
   }
 
   .li:hover {
@@ -34,9 +33,10 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 20vw;
+  width: 30vw;
   background-color: white;
   border-radius: 10px;
+  z-index:1000;
 
   .button_red_light {
     position: absolute;
@@ -169,6 +169,9 @@ button {
       // margin-left: 0.1rem;
       // margin-right: 0.1rem;
     }
+  }
+  .nav_modal {
+    width:60vw;
   }
   .container {
     padding: 0;

@@ -8,9 +8,24 @@ import { MdLogout } from "react-icons/md";
 const NavModal = () => {
   const { app_store } = useStores();
 
+  function viewProfile() {
+    alert("viewProfile");
+    app_store.setShowModal(false);
+  }
+
+  function logout() {
+    app_store.setLogin(false);
+    app_store.setShowModal(false);
+  }
+
+  function resetWallet() {
+    alert("wallet resetted");
+    app_store.setShowModal(false);
+  }
+
   React.useEffect(() => {
     //rerender UI when store.isloggedin change
-  }, [app_store.show_modal]);
+  }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
     <div className="nav_modal">
@@ -21,9 +36,28 @@ const NavModal = () => {
         }}
       />
       <ul>
-        <li onClick={()=>{alert("View Profile")}}><FaUserCircle/> View Profile</li>
-        <li onClick={()=>{alert("Reset Wallet")}}><FaWallet/> Reset Wallet</li>
-        <li onClick={()=>{alert("logout")}}><MdLogout/> Logout</li>
+        <li
+          onClick={() => {
+            viewProfile();
+          }}
+        >
+          <FaUserCircle /> View Profile
+        </li>
+        <li
+          onClick={() => {
+            if (window.confirm("Are you sure you wish to reset your wallet ?"))
+              resetWallet();
+          }}
+        >
+          <FaWallet /> Reset Wallet
+        </li>
+        <li
+          onClick={() => {
+            if (window.confirm("Are you sure you wish to logout ?")) logout();
+          }}
+        >
+          <MdLogout /> Logout
+        </li>
       </ul>
     </div>
   );
