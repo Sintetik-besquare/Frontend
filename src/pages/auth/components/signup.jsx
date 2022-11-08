@@ -17,7 +17,7 @@ function SignUp() {
           </h2>
         </p>
         <form>
-          <p style={{ color: "yellow", fontSize: "20" }}>
+          <p style={{ color: "yellow", fontSize: "20", fontFamily: "Poppins" }}>
             Let's get started shall we...
           </p>
           &nbsp;
@@ -67,7 +67,7 @@ function SignUp() {
             &nbsp;
           </center>
           <center>
-            <p style={{ color: "white", flexBasis: "49.5%" }}>
+            <p style={{ color: "white", fontFamily: "Poppins" }}>
               Already have an account?{" "}
               <a href="https://www.google.com">Sign in</a>{" "}
             </p>

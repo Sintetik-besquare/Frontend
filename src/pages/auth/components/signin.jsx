@@ -9,7 +9,7 @@ function SigninPage() {
         class="signin-image-card"
         style={{ borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}
       >
-        <img src={MobileLogin} alt="N/A" />
+        <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
       </div>
       <div
         class="signin-details-card"
@@ -26,7 +26,7 @@ function SigninPage() {
           </h2>
         </p>
         <form>
-          <p style={{ color: "yellow", fontSize: "20" }}>
+          <p style={{ color: "yellow", fontSize: "20", fontFamily: "Poppins" }}>
             Welcome back!
             <br />
             Good to see you again.
@@ -53,7 +53,9 @@ function SigninPage() {
               }}
             />
           </div>
-          <p style={{ color: "red" }}>Forgot password?</p>
+          <p style={{ color: "red", fontFamily: "Poppins" }}>
+            Forgot password?
+          </p>
           &nbsp;
           <center>
             <button className="square-button">
@@ -69,7 +71,7 @@ function SigninPage() {
             &nbsp;
           </center>
           <center>
-            <p style={{ color: "white" }}>
+            <p style={{ color: "white", fontFamily: "Poppins" }}>
               Need an account?{" "}
               <a href="https://www.google.com">Create one here</a>
             </p>
