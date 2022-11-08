@@ -2,10 +2,9 @@ import React from "react";
 import { useStores } from "../../store";
 import { useNavigate, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+import Logo from "../../assets/logo-sintetik.png";
 import { FaUserCircle } from "react-icons/fa";
 import { observer } from "mobx-react-lite";
-
-import Logo from "../../assets/logo-sintetik.jpg";
 import NavModal from "./nav-modal";
 
 const NavBar = () => {
