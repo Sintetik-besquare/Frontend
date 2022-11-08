@@ -4,7 +4,7 @@ $red: red;
 $green: rgb(0, 204, 0);
 $colour-4: orange;
 $colour-5: purple;
-$main_font: arial;
+$yellow: rgba(245, 220, 12, 1);
 
 // MIXINS
 @mixin drop-shadow {
@@ -17,9 +17,8 @@ $main_font: arial;
   -moz-box-shadow: 0 0 3px $button-color;
   -webkit-box-shadow: 0 0 3px $button-color;
   box-shadow: 0px 0px 3px $button-color;
-  background-color: $black;
   transition: 0.7s;
-
+  
   &:hover {
     -moz-box-shadow: 0 0 6px $button-color;
     -webkit-box-shadow: 0 0 6px $button-color;
@@ -33,15 +32,46 @@ $main_font: arial;
 
 .button-black {
   @include button-shared($black);
+  background-color: $black;
 }
 
-.button-green {
+.button_green_dark {
   @include button-shared($green);
+  background-color: $black;
 }
 
-.button-red {
+.button_red_dark {
   @include button-shared($red);
+  background-color: $black;
 }
 
+.button_green_light {
+  @include button-shared($green);
+  background-color: white;
+}
+
+.button_red_light {
+  @include button-shared($red);
+  background-color: white;
+}
+
+.button-orange {
+  @include button-shared($yellow);
+}
+
+#signin {
+  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+#signup {
+  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
 
 // RESETS

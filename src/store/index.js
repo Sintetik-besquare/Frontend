@@ -1,14 +1,11 @@
 import React from "react";
 import AppStore from "./app-store";
-import MainStore from "./main-store";
+import ChartStore from "./chart-store";
 
-/**
-* This class servers as parent store of all stores inside the application
-*/
 class RootStore {
   constructor() {
     this.app_store = new AppStore(this);
-    this.main_store = new MainStore(this);
+    this.chart_store = new ChartStore(this);
   }
 }
 
@@ -20,7 +17,7 @@ export const useStores = () => {
 
     stores_context = React.createContext({
       app_store: root_store.app_store,
-      main_store: root_store.main_store,
+      chart_store: root_store.chart_store,
       client_store: root_store.client_store,
     });
   }

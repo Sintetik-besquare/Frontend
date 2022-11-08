@@ -4,7 +4,8 @@ function MeetOurTeam() {
   return (
     <div id="about">
       <h1 style={{ textAlign: "center" }}>Meet The Team</h1>
-      <div className="card_container">
+
+      <div className="container">
         {people.map((p) => {
           return (
             <span key={p.i}>

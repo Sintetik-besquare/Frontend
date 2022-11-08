@@ -3,8 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left:2rem;
-  padding-right:2rem;
 }
 
 .block {
@@ -26,11 +24,17 @@
   display: flex;
 }
 
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 @media only screen and (max-width: 1000px) {
   .cards-container {
     flex-wrap: wrap;
   }
-  .footer{
+  .footer {
     display: block;
   }
 }
