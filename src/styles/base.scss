@@ -4,6 +4,7 @@ $red: red;
 $green: rgb(0, 204, 0);
 $colour-4: orange;
 $colour-5: purple;
+$yellow: rgba(245, 220, 12, 1);
 
 // MIXINS
 @mixin drop-shadow {
@@ -47,6 +48,13 @@ $colour-5: purple;
 }
 
 #signin {
+  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+#signup {
   background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
   padding-top: 15px;
   padding-bottom: 15px;
