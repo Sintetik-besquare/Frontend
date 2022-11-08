@@ -20,10 +20,10 @@ const Component = () => {
       <div className="flex-block">
         <div>
           <button className="button-black">SIGN UP</button>
-          <button className="button-green">SIGN IN</button>
-          <button className="button-red">SIGN OUT</button>
-          <button className="button-green">BUY</button>
-          <button className="button-red">SELL</button>
+          <button className="button_green_dark">SIGN IN</button>
+          <button className="button_red_dark">SIGN OUT</button>
+          <button className="button_green_dark">BUY</button>
+          <button className="button_red_dark">SELL</button>
         </div>
 
         <div className="input">

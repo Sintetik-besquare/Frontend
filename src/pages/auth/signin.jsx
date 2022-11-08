@@ -1,24 +1,47 @@
-import SignupImage from "../../../assets/Sign up-cuate (1) 1.svg";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useStores } from "../../store";
+import { observer } from "mobx-react-lite";
+import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
-import { FiUpload } from "react-icons/fi";
+import { BiExit } from "react-icons/bi";
 
-function SignUp() {
+const SigninPage = () => {
+  const { app_store } = useStores();
+  const navigate = useNavigate();
+
+  function login() {
+    navigate("/", { replace: true });
+    app_store.setLogin(true);
+  }
+
   return (
-    <div id="signup">
+    <div id="signin">
+      <div
+        class="signin-image-card"
+        style={{ borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}
+      >
+        <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
+      </div>
       <div
         class="signin-details-card"
-        style={{ borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}
+        style={{
+          borderTopRightRadius: "10px",
+          borderBottomRightRadius: "10px",
+        }}
       >
         <p style={{ color: "white", alignContent: "center" }}>
           <h2>
             <b>
-              <center>SIGN UP</center>
+              <center>SIGN IN</center>
             </b>
           </h2>
         </p>
         <form>
           <p style={{ color: "yellow", fontSize: "20", fontFamily: "Poppins" }}>
-            Let's get started shall we...
+            Welcome back!
+            <br />
+            Good to see you again.
           </p>
           &nbsp;
           <div className="signin-input">
@@ -42,22 +65,20 @@ function SignUp() {
               }}
             />
           </div>
-          &nbsp;
-          <div style={{ display: "flex", flex: "space-evenly" }}>
-            <input type="checkbox" />
-            <p style={{ color: "white", fontSize: "15px" }}>
-              I agree to the{" "}
-              <a href="https://www.google.com" target="blank">
-                terms & conditions
-              </a>
-            </p>
-          </div>
+          <p style={{ color: "red", fontFamily: "Poppins" }}>
+            Forgot password?
+          </p>
           &nbsp;
           <center>
-            <button className="square-button">
-              <b>Register</b>
+            <button
+              className="button_green_dark"
+              onClick={() => {
+                login();
+              }}
+            >
+              <b>Log In</b>
               <div>
-                <FiUpload
+                <BiExit
                   style={{
                     fontSize: "20px",
                   }}
@@ -68,23 +89,14 @@ function SignUp() {
           </center>
           <center>
             <p style={{ color: "white", fontFamily: "Poppins" }}>
-              Already have an account?{" "}
-              <a href="https://www.google.com">Sign in</a>{" "}
+              Need an account?{" "}
+              <a href="https://www.google.com">Create one here</a>
             </p>
           </center>
         </form>
       </div>
-      <div
-        class="signin-image-card"
-        style={{
-          borderTopRightRadius: "10px",
-          borderBottomRightRadius: "10px",
-        }}
-      >
-        <img src={SignupImage} alt="N/A" />
-      </div>
     </div>
   );
-}
+};
 
-export default SignUp;
+export default observer(SigninPage);
