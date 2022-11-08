@@ -22,9 +22,10 @@ h2 {
   font-size: 64px;
 }
 
-a {
-  color: $red;
-}
+// a {
+//   color: $red;
+// }
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -129,8 +130,8 @@ a {
     list-style: none;
     font-size: smaller;
     padding: 5px 10px;
-    color: $colour-4;
-    border: 1px solid $colour-4;
+    color: $yellow;
+    border: 1px solid $yellow;
     border-radius: 1rem;
   }
 }
