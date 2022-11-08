@@ -4,7 +4,6 @@ function MeetOurTeam() {
   return (
     <div id="about">
       <h1 style={{ textAlign: "center" }}>Meet The Team</h1>
-
       <div className="card_container">
         {people.map((p) => {
           return (
@@ -12,10 +11,10 @@ function MeetOurTeam() {
               {p.id % 2 === 0 ? (
                 <div className="card-horizontal">
                   <img src={p.photo} alt="N/A" />
-                  <div style={{textAlign:'left'}}>
+                  <div style={{ textAlign: "left" }}>
                     <b>{p.name}</b>
                     <p>{p.role}</p>
-                    <ul className="tags" style={{paddingLeft:'0'}}>
+                    <ul className="tags" style={{ paddingLeft: "0" }}>
                       {p.interest.map((i, index) => (
                         <span key={index}>
                           <li>{i}</li>
@@ -26,10 +25,10 @@ function MeetOurTeam() {
                 </div>
               ) : (
                 <div className="card-horizontal">
-                  <div style={{textAlign:'right'}}>
+                  <div style={{ textAlign: "right" }}>
                     <b>{p.name}</b>
                     <p>{p.role}</p>
-                    <ul className="tags" style={{float:'right'}}>
+                    <ul className="tags" style={{ float: "right" }}>
                       {p.interest.map((i, index) => (
                         <span key={index}>
                           <li>{i}</li>

@@ -4,7 +4,7 @@ import React from "react";
 // import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import Logo from "../../assets/logo-sintetik.jpg";
+import Logo from "../../assets/logo-sintetik.png";
 
 const NavBar = () => {
   return (
@@ -37,18 +37,20 @@ const NavBar = () => {
             </li>
           ) : (
             <> */}
-              <li>
-                <button className="button-green">SIGN UP</button>
-              </li>
-              <li>
-                <button className="button-red" onClick={()=>{}}>SIGN IN</button>
-              </li>
-            {/* </>
+          <li>
+            <button className="button-green">SIGN UP</button>
+          </li>
+          <li>
+            <button className="button-red" onClick={() => {}}>
+              SIGN IN
+            </button>
+          </li>
+          {/* </>
           )} */}
         </ul>
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;

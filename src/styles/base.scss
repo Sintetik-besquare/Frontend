@@ -4,6 +4,7 @@ $red: red;
 $green: rgb(0, 204, 0);
 $colour-4: orange;
 $colour-5: purple;
+$main_font: arial;
 
 // MIXINS
 @mixin drop-shadow {
@@ -41,5 +42,6 @@ $colour-5: purple;
 .button-red {
   @include button-shared($red);
 }
+
 
 // RESETS

@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo-sintetik.jpg";
+import Logo from "../../assets/logo-sintetik.png";
 
 function Info() {
   return (
@@ -10,7 +10,7 @@ function Info() {
           <p>The Right Way of Trading</p>
         </div>
       </div>
-      <p style={{textAlign:'justify'}}>
+      <p style={{ textAlign: "justify" }}>
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
         using Lorem Ipsum is that it has a more-or-less normal distribution of
