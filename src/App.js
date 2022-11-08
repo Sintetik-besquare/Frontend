@@ -9,8 +9,8 @@ import Footer from "./components/footer";
 import Landing from "./pages/landing/index.jsx";
 import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
-import Signup from "./pages/auth/signup.jsx";
-import Signin from "./pages/auth/signin.jsx";
+import Signup from "./pages/auth/components/signup.jsx";
+import Signin from "./pages/auth/components/signin.jsx";
 
 // const socket = io.connect("http://localhost:3002");
 
