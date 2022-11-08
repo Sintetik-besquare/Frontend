@@ -3,8 +3,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-left:2rem;
-  padding-right:2rem;
 }
 
 .block {
@@ -30,7 +28,7 @@
   .cards-container {
     flex-wrap: wrap;
   }
-  .footer{
+  .footer {
     display: block;
   }
 }

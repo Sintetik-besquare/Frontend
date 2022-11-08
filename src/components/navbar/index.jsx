@@ -1,12 +1,18 @@
 import React from "react";
-// import ReactDOM from "react-dom"
-// import { makeAutoObservable } from "mobx"
-// import { observer } from "mobx-react";
+import { useStores } from "../../store";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
+
 import Logo from "../../assets/logo-sintetik.jpg";
+import { observer } from "mobx-react-lite";
 
 const NavBar = () => {
+  const { app_store, main_store } = useStores();
+
+  React.useEffect(() => {
+    //rerender UI when store.isloggedin change
+  }, [app_store.is_loggedin]);
+
   return (
     <div className="flex" style={{ background: "black" }}>
       <div>
@@ -29,26 +35,47 @@ const NavBar = () => {
           </Link>
 
           <Link to="/news" className="li">
-            <li> News</li>
+            <li>News</li>
           </Link>
-          {/* {clientStore.isLogin === true ? (
+          {app_store.is_loggedin === true ? (
             <li>
-              <button className="button-red" onClick={()=>{clientStore.logout()}}>LOG OUT</button>
+              <button
+                className="button-red"
+                onClick={() => {
+                  app_store.setLogin(false);
+                }}
+              >
+                ICON <br /> ${main_store.wallet}
+              </button>
             </li>
           ) : (
-            <> */}
+            <>
               <li>
-                <button className="button-green">SIGN UP</button>
+                <button
+                  className="button-green"
+                  onClick={() => {
+                    app_store.setLogin(true);
+                  }}
+                >
+                  SIGN UP
+                </button>
               </li>
               <li>
-                <button className="button-red" onClick={()=>{}}>SIGN IN</button>
+                <button
+                  className="button-red"
+                  onClick={() => {
+                    app_store.setLogin(true);
+                  }}
+                >
+                  SIGN IN
+                </button>
               </li>
-            {/* </>
-          )} */}
+            </>
+          )}
         </ul>
       </div>
     </div>
   );
-}
+};
 
-export default NavBar;
+export default observer(NavBar);

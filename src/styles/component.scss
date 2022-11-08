@@ -197,8 +197,9 @@ a {
   .navbar {
     .li,
     li {
-      margin-left: 0.1rem;
-      margin-right: 0.1rem;
+      margin:0;
+      // margin-left: 0.1rem;
+      // margin-right: 0.1rem;
     }
   }
   .container {
@@ -212,7 +213,8 @@ a {
     }
   }
   .card-horizontal {
-    height: 25vh;
+    // height: 25vh;
     width: 95%;
+    font-size: smaller;
   }
 }
