@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import { MdOutlineClose } from "react-icons/md";
@@ -6,10 +7,11 @@ import { FaUserCircle, FaWallet } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 
 const NavModal = () => {
-  const { app_store } = useStores();
+  const { app_store, chart_store } = useStores();
+  const navigate = useNavigate();
 
   function viewProfile() {
-    alert("viewProfile");
+    navigate("/trade", { replace: true });
     app_store.setShowModal(false);
   }
 
@@ -19,6 +21,7 @@ const NavModal = () => {
   }
 
   function resetWallet() {
+    chart_store.resetWallet();
     alert("wallet resetted");
     app_store.setShowModal(false);
   }

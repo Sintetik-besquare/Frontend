@@ -1,6 +1,6 @@
 import React from "react";
 import { useStores } from "../../store";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { FaUserCircle } from "react-icons/fa";
 import { observer } from "mobx-react-lite";
@@ -9,7 +9,18 @@ import Logo from "../../assets/logo-sintetik.jpg";
 import NavModal from "./nav-modal";
 
 const NavBar = () => {
-  const { app_store, main_store } = useStores();
+  const { app_store, chart_store } = useStores();
+  const navigate = useNavigate();
+
+  function signin(){
+    navigate("/signin", { replace: true });
+    // app_store.setLogin(true);
+  }
+
+  function signup(){
+    navigate("/signup", { replace: true });
+    // app_store.setLogin(true);
+  }
 
   React.useEffect(() => {
     //rerender UI when store.isloggedin change
@@ -47,7 +58,7 @@ const NavBar = () => {
                   app_store.setShowModal(true);
                 }}
               >
-                <FaUserCircle /> ${main_store.wallet}
+                <FaUserCircle /> ${chart_store.wallet}
               </button>
             </li>
           ) : (
@@ -55,9 +66,7 @@ const NavBar = () => {
               <li>
                 <button
                   className="button_green_dark"
-                  onClick={() => {
-                    app_store.setLogin(true);
-                  }}
+                  onClick={() => {signup()}}
                 >
                   SIGN UP
                 </button>
@@ -65,9 +74,7 @@ const NavBar = () => {
               <li>
                 <button
                   className="button_red_dark"
-                  onClick={() => {
-                    app_store.setLogin(true);
-                  }}
+                  onClick={() => {signin()}}
                 >
                   SIGN IN
                 </button>

@@ -1,34 +1,81 @@
-// import Logo from "../../../assets/logo-sintetik.jpg";
 import MobileLogin from "../../../assets/Mobile login-cuate 1.svg";
-import { FaUserCircle, FaEyeSlash } from "react-icons/fa";
-
+import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { BiExit } from "react-icons/bi";
 
 function SigninPage() {
   return (
     <div id="signin">
-        <div class="signin-card" style={{backgroundColor:"rgba(56, 56, 56, 1)"}}>
-            <img src={MobileLogin} alt='N/A'/>
-        </div>
-        <div class="signin-card" style={{backgroundColor:"rgba(29, 29, 29, 1)"}}>
-            <p style={{color:"white", alignContent:"center"}}><h2><b><center>SIGN IN</center></b></h2></p>
-                <form>
-                <p style={{color: "yellow"}}>Welcome back!<br/>Good to see you again.
-                </p>
-                    <div className="input">
-                        <input type="text" placeholder="Username" />
-                        <FaUserCircle />
-                    </div>
-                    &nbsp;
-                    <div className="input">
-                        <input type="text" placeholder="Password" />
-                        <FaEyeSlash />
-                    </div>
-                    <p style={{color: "red"}}>Forgot password?</p>
-                    &nbsp;
-                    <center><button className="button-orange">Log In</button></center>
-                        <center><p style={{color: "white", flexBasis:"49.5%"}}>Need an account? <a href='https://www.google.com'>Create one here</a> </p></center>
-                </form>
-        </div>
+      <div
+        class="signin-image-card"
+        style={{ borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}
+      >
+        <img src={MobileLogin} alt="N/A" />
+      </div>
+      <div
+        class="signin-details-card"
+        style={{
+          borderTopRightRadius: "10px",
+          borderBottomRightRadius: "10px",
+        }}
+      >
+        <p style={{ color: "white", alignContent: "center" }}>
+          <h2>
+            <b>
+              <center>SIGN IN</center>
+            </b>
+          </h2>
+        </p>
+        <form>
+          <p style={{ color: "yellow", fontSize: "20" }}>
+            Welcome back!
+            <br />
+            Good to see you again.
+          </p>
+          &nbsp;
+          <div className="signin-input">
+            <input type="text" placeholder="Username" />
+            <FaRegUserCircle
+              style={{
+                color: "rgba(187, 187, 187, 0.8)",
+                backgroundColor: "rgba(29, 29, 29, 1)",
+                fontSize: "20px",
+              }}
+            />
+          </div>
+          &nbsp;
+          <div className="signin-input">
+            <input type="password" placeholder="Password" />
+            <FaEyeSlash
+              style={{
+                color: "rgba(187, 187, 187, 0.8)",
+                backgroundColor: "rgba(29, 29, 29, 1)",
+                fontSize: "20px",
+              }}
+            />
+          </div>
+          <p style={{ color: "red" }}>Forgot password?</p>
+          &nbsp;
+          <center>
+            <button className="square-button">
+              <b>Log In</b>
+              <div>
+                <BiExit
+                  style={{
+                    fontSize: "20px",
+                  }}
+                />
+              </div>
+            </button>
+            &nbsp;
+          </center>
+          <center>
+            <p style={{ color: "white" }}>
+              Need an account?{" "}
+              <a href="https://www.google.com">Create one here</a>
+            </p>
+          </center>
+        </form>
+      </div>
     </div>
   );
 }
