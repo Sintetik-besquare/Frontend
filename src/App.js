@@ -9,13 +9,8 @@ import Footer from "./components/footer";
 import Landing from "./pages/landing/index.jsx";
 import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
-<<<<<<< HEAD
-import Signup from "./pages/auth/components/signup.jsx";
-import Signin from "./pages/auth/components/signin.jsx";
-=======
 import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
->>>>>>> 6beb4dfa9ee543c1dc1c797e0d9eaa876b31d341
 
 
 import { getHistoricalFeed } from "./services/historical-feed";
