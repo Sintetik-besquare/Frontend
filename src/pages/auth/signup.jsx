@@ -1,8 +1,21 @@
-import SignupImage from "../../../assets/Sign up-cuate (1) 1.svg";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useStores } from "../../store";
+import { observer } from "mobx-react-lite";
+import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 
-function SignUp() {
+const SignUp = () => {
+  const { app_store } = useStores();
+  const navigate = useNavigate();
+
+
+  function register() {
+    navigate("/", { replace: true });
+    app_store.setLogin(true);
+  }
+
   return (
     <div id="signup">
       <div
@@ -54,7 +67,10 @@ function SignUp() {
           </div>
           &nbsp;
           <center>
-            <button className="square-button">
+          <button
+                  className="button_green_dark"
+                  onClick={() => {register()}}
+                >
               <b>Register</b>
               <div>
                 <FiUpload
@@ -85,6 +101,6 @@ function SignUp() {
       </div>
     </div>
   );
-}
+};
 
-export default SignUp;
+export default observer(SignUp);

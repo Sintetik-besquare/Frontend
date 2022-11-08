@@ -1,8 +1,20 @@
-import MobileLogin from "../../../assets/Mobile login-cuate 1.svg";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useStores } from "../../store";
+import { observer } from "mobx-react-lite";
+import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 
-function SigninPage() {
+const SigninPage = () => {
+  const { app_store } = useStores();
+  const navigate = useNavigate();
+
+  function login() {
+    navigate("/", { replace: true });
+    app_store.setLogin(true);
+  }
+
   return (
     <div id="signin">
       <div
@@ -56,7 +68,12 @@ function SigninPage() {
           <p style={{ color: "red" }}>Forgot password?</p>
           &nbsp;
           <center>
-            <button className="square-button">
+            <button
+              className="button_green_dark"
+              onClick={() => {
+                login();
+              }}
+            >
               <b>Log In</b>
               <div>
                 <BiExit
@@ -70,7 +87,7 @@ function SigninPage() {
           </center>
           <center>
             <p style={{ color: "white" }}>
-              Need an account?{" "}
+              Need an account? <br />
               <a href="https://www.google.com">Create one here</a>
             </p>
           </center>
@@ -78,6 +95,6 @@ function SigninPage() {
       </div>
     </div>
   );
-}
+};
 
-export default SigninPage;
+export default observer(SigninPage);
