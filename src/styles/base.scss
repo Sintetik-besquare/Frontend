@@ -59,20 +59,19 @@ $yellow: rgba(245, 220, 12, 1);
   @include button-shared($yellow);
 }
 
-#signin {
+#signin-background,
+#signup-background {
   background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
   padding-top: 5rem;
-    padding-bottom: 15rem;
+  padding-bottom: 15rem;
   display: flex;
   justify-content: center;
 }
 
+#signin,
 #signup {
-  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  padding-top: 5rem;
-    padding-bottom: 15rem;
+  float: center;
+    width: 50%;
   display: flex;
-  justify-content: center;
 }
-
 // RESETS

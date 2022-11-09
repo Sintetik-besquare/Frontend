@@ -16,84 +16,59 @@ const SigninPage = () => {
   }
 
   return (
-    <div id="signin">
-      <div
-        class="signin-image-card"
-        style={{ borderTopLeftRadius: "10px", borderBottomLeftRadius: "10px" }}
-      >
-        <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
-      </div>
-      <div
-        class="signin-details-card"
-        style={{
-          borderTopRightRadius: "10px",
-          borderBottomRightRadius: "10px",
-        }}
-      >
-        <p style={{ color: "white", alignContent: "center" }}>
+    <div id="signin-background">
+      <div id="signin">
+        <div class="signin-image-card">
+          <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
+        </div>
+        <div class="signin-details-card">
           <h2>
             <b>
               <center>SIGN IN</center>
             </b>
           </h2>
-        </p>
-        <form>
-          <p style={{ color: "yellow", fontSize: "20", fontFamily: "Poppins" }}>
-            Welcome back!
-            <br />
-            Good to see you again.
-          </p>
-          &nbsp;
-          <div className="signin-input">
-            <input type="text" placeholder="Username" />
-            <FaRegUserCircle
-              style={{
-                color: "rgba(187, 187, 187, 0.8)",
-                backgroundColor: "rgba(29, 29, 29, 1)",
-                fontSize: "20px",
-              }}
-            />
-          </div>
-          &nbsp;
-          <div className="signin-input">
-            <input type="password" placeholder="Password" />
-            <FaEyeSlash
-              style={{
-                color: "rgba(187, 187, 187, 0.8)",
-                backgroundColor: "rgba(29, 29, 29, 1)",
-                fontSize: "20px",
-              }}
-            />
-          </div>
-          <p style={{ color: "red", fontFamily: "Poppins" }}>
-            Forgot password?
-          </p>
-          &nbsp;
-          <center>
-            <button
-              className="button_green_dark"
-              onClick={() => {
-                login();
-              }}
-            >
-              <b>Log In</b>
-              <div>
-                <BiExit
-                  style={{
-                    fontSize: "20px",
-                  }}
-                />
-              </div>
-            </button>
+          <form className="signin-form">
+            <h4>
+              Welcome back!
+              <br />
+              Good to see you again.
+            </h4>{" "}
             &nbsp;
-          </center>
-          <center>
-            <p style={{ color: "white", fontFamily: "Poppins" }}>
-              Need an account?{" "}
-              <a href="https://www.google.com">Create one here</a>
-            </p>
-          </center>
-        </form>
+            <div className="signin-input">
+              <input type="text" placeholder="Username" id="uname-input" />
+              <FaRegUserCircle id="username-icon" />
+            </div>
+            &nbsp;
+            <div className="signin-input">
+              <input type="password" placeholder="Password" id="pw-input" />
+              <FaEyeSlash id="password-icon" />
+            </div>
+            <h5>Forgot password?</h5>
+            &nbsp;
+            <center>
+              <button
+                className="button_green_dark"
+                onClick={() => {
+                  login();
+                }}
+              >
+                <b>Log In</b>
+                <div>
+                  <BiExit id="button-icon" />
+                </div>
+              </button>
+              &nbsp;
+            </center>
+            <center>
+              <h6>
+                Need an account?{" "}
+                <a href="signup" style={{ color: "red" }}>
+                  Create one here
+                </a>
+              </h6>
+            </center>
+          </form>
+        </div>
       </div>
     </div>
   );
