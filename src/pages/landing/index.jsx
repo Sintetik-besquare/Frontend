@@ -6,13 +6,13 @@ import OurCompany from "./components/our-company";
 export const Index = () => {
   return (
     <div>
-      <Hero />
       <div
         style={{
           backgroundImage:
             "linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1))",
         }}
       >
+        <Hero />
         <OurCompany />
         <MeetOurTeam />
       </div>
