@@ -1,12 +1,16 @@
 import React from "react";
-import Hero from './components/hero'
-import AllNews from "./components/all-news";
+import Hero from "./components/hero";
+import HorizontalCard from "./components/horizontal-card";
+import NewsList from "./components/news-vertical";
 
 export const Index = () => {
   return (
     <div>
       <Hero />
-      <AllNews />
+      <div className="padding-container-news">
+        <HorizontalCard />
+        <NewsList />
+      </div>
     </div>
   );
 };

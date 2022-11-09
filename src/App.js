@@ -28,10 +28,10 @@ function App() {
         <Nav />
 
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<News />} />
+          <Route path="/landing" element={<Landing />} />
           <Route path="/app" element={<Landing />} />
           <Route path="/trade" element={<Trade />} />
-          <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
