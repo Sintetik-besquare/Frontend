@@ -28,7 +28,13 @@ const SigninPage = () => {
             </b>
           </h2>
           <form className="signin-form">
-            <h4>
+            <h4
+              style={{
+                paddingLeft: "0rem",
+                textAlign: "center",
+                marginRight: "3rem",
+              }}
+            >
               Welcome back!
               <br />
               Good to see you again.
@@ -43,6 +49,7 @@ const SigninPage = () => {
               <input type="password" placeholder="Password" id="pw-input" />
               <FaEyeSlash id="password-icon" />
             </div>
+            &nbsp;
             <h5>Forgot password?</h5>
             &nbsp;
             <center>
