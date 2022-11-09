@@ -3,7 +3,7 @@ import SigninPage from "./components/signin";
 import SignupPage from "./components/signup";
 
 function AuthPage() {
-  let login = true;
+  let login = false;
   return <div>{login === true ? <SigninPage /> : <SignupPage />}</div>;
 }
 

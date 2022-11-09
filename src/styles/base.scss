@@ -17,9 +17,8 @@ $yellow: rgba(245, 220, 12, 1);
   -moz-box-shadow: 0 0 3px $button-color;
   -webkit-box-shadow: 0 0 3px $button-color;
   box-shadow: 0px 0px 3px $button-color;
-  background-color: $black;
   transition: 0.7s;
-
+  
   &:hover {
     -moz-box-shadow: 0 0 6px $button-color;
     -webkit-box-shadow: 0 0 6px $button-color;
@@ -33,32 +32,46 @@ $yellow: rgba(245, 220, 12, 1);
 
 .button-black {
   @include button-shared($black);
+  background-color: $black;
 }
 
-.button-green {
+.button_green_dark {
   @include button-shared($green);
+  background-color: $black;
 }
 
-.button-red {
+.button_red_dark {
   @include button-shared($red);
+  background-color: $black;
+}
+
+.button_green_light {
+  @include button-shared($green);
+  background-color: white;
+}
+
+.button_red_light {
+  @include button-shared($red);
+  background-color: white;
 }
 
 .button-orange {
-  @include button-shared($colour-4);
+  @include button-shared($yellow);
 }
 
-#signin {
+#signin-background,
+#signup-background {
   background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 5rem;
+  padding-bottom: 15rem;
   display: flex;
   justify-content: center;
 }
+
+#signin,
 #signup {
-  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  padding-top: 15px;
-  padding-bottom: 15px;
+  float: center;
+    width: 50%;
   display: flex;
-  justify-content: center;
 }
 // RESETS

@@ -1,12 +1,21 @@
 import React from "react";
 import Hero from "./components/hero";
 import MeetOurTeam from "./components/meet-our-team";
+import OurCompany from "./components/our-company";
 
 export const Index = () => {
   return (
-    <div >
+    <div>
       <Hero />
-      <MeetOurTeam />
+      <div
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1))",
+        }}
+      >
+        <OurCompany />
+        <MeetOurTeam />
+      </div>
     </div>
   );
 };
