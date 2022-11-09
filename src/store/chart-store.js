@@ -3,7 +3,7 @@ import { observable, action, decorate } from "mobx";
 export default class ChartStore {
   start = Date.now();
   current = Date.now();
-  price_array = [];
+  historical_price = [];
   wallet = 10000;
 
   get elapsedTime() {
@@ -17,11 +17,16 @@ export default class ChartStore {
   resetWallet() {
     this.wallet += 500;
   }
+
+  updateHistory(stream){
+    this.historical_price = stream;
+  }
 }
 decorate(ChartStore, {
   start: observable,
   current: observable,
-  price_array: observable,
+  historical_price: observable,
+  updateHistory: action,
   wallet: observable,
   setWallet: action,
   resetWallet: action,

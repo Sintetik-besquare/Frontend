@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import "./App.scss";
 import io from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,24 +13,22 @@ import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
 
-
 import { getHistoricalFeed } from "./services/historical-feed";
-
 
 const App = () => {
   const socket = io.connect("http://localhost:3002");
   const { chart_store } = useStores();
-  const [history, setHistory] = React.useState([]);
-  
+  const [history, setHistory] = React.useState(chart_store.historical_price);
+
   // wrap fetch in useEffect watch empty array (triggers on Mount)
   useEffect(() => {
     getHistoricalFeed().then(setHistory);
-    console.log(history)
+    // chart_store.historical_price = history
+    chart_store.updateHistory(history)
   }, []);
 
   // To get price feed
   socket.on("getfeed", (price) => {
-    // chart_store.price_array.push(price)
     // console.log(price);
   });
 
@@ -37,6 +36,8 @@ const App = () => {
     <div>
       <BrowserRouter>
         <Nav />
+        <h4>useState.history:</h4> {history}
+        <h4>chart_store.historical_price:</h4> {chart_store.historical_price}
 
         <Routes>
           <Route path="/" element={<Landing />} />
@@ -51,6 +52,6 @@ const App = () => {
       </BrowserRouter>
     </div>
   );
-}
+};
 
-export default App;
+export default observer(App);
