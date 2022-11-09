@@ -1,13 +1,14 @@
 @import "./styles/base.scss";
 @import "./styles/component.scss";
 @import "./styles/layout.scss";
+@import "./styles/newspage.scss";
 
 #home {
   background-color: $black;
   color: white;
 }
 
-.landing_hero_logo{
+.landing_hero_logo {
   text-align: center;
 }
 
@@ -47,10 +48,10 @@
 
 @media only screen and (max-width: 1000px) {
   #graphic_desktop {
-    width:350px;
-    margin:auto;
-    top:-5rem;
-    right:0;
+    width: 350px;
+    margin: auto;
+    top: -5rem;
+    right: 0;
   }
   #graphic_crypto {
     display: none;

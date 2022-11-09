@@ -1,0 +1,123 @@
+.news-container {
+  margin-inline: auto;
+  max-width: 1280px;
+  margin-top: 2em;
+}
+
+.news-container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, auto));
+  place-content: center;
+  grid-gap: 1.5em;
+  justify-items: center;
+  margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: auto;
+  }
+
+  @media (max-width: 450px) {
+    row-gap: 1.5em;
+  }
+}
+
+.news-card-styles {
+  color: black;
+  backdrop-filter: blur(8.2px);
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+
+  .card {
+    min-width: 20vw;
+    max-height: 40vh;
+    border-radius: 25px;
+
+    img {
+      border-radius: 25px 25px 0 0;
+    }
+
+    .card-news-title {
+    }
+    @media (max-width: 450px) {
+      .news-title {
+        line-height: 1;
+      }
+    }
+  }
+  .card-news-paragraph {
+    margin: 1.2em 0em;
+    color: rgb(34, 33, 33);
+    p {
+      font-size: clamp(12px, 2.5vw, 15px);
+    }
+  }
+
+  .card-news-minute {
+    position: absolute;
+    color: rgb(97, 97, 97);
+    bottom: 1px;
+    right: 30px;
+  }
+}
+
+a:hover {
+  transition: 500ms;
+  transform: scale(1.001);
+  box-shadow: 0 4px 30px 5px rgb(179, 180, 85);
+  border-radius: 25px;
+}
+
+button.news-load-btn {
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: block;
+  justify-content: center;
+  cursor: pointer;
+
+  :hover {
+    color: coral;
+  }
+}
+
+.button-40 {
+  background-color: #111827;
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-family: "Inter var", ui-sans-serif, system-ui, -apple-system, system-ui,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: 0.75rem 1.2rem;
+  text-align: center;
+  text-decoration: none #6b7280 solid;
+  text-decoration-thickness: auto;
+  transition-duration: 0.2s;
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+}
+
+.button-40:hover {
+  background-color: #374151;
+}
+
+.button-40:focus {
+  box-shadow: none;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .button-40 {
+    padding: 0.75rem 1.5rem;
+  }
+}
