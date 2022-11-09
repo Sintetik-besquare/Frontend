@@ -5,9 +5,9 @@
         "role":"lorem ipsum dolor sit amet",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
-            "Option1",
-            "Option2",
-            "Option3"
+            "Quality Assurance",
+            "Product Design",
+            "Cybersecurity"
         ],
         "socials": {
             "LN": {

@@ -1,5 +1,3 @@
-import Office from "../../../assets/office.png";
-
 function OurCompany() {
   return (
     <div id="company" className="">
@@ -7,13 +5,10 @@ function OurCompany() {
         ABOUT US
       </h1>
       <div>
-        <img
-          src={Office}
-          alt="Office"
-          style={{ width: "100%" }}
-          className="paralax"
-        />
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          data-aos="fade-up"
+        >
           <h1 className="sintetik-is-one-of-t poppins-bold-white-40px-22">
             <span className="poppins-bold-white-40px2">SINTETIK</span>&nbsp;
             <span className="poppins-normal-pink-swan-20px">

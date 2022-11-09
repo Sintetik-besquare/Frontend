@@ -7,10 +7,11 @@
   color: white;
 }
 
-.landing_hero_logo{
+.landing_hero_logo {
   text-align: center;
 }
 
+// probably useless
 .landing_hero_graphics {
   position: relative;
   img {
@@ -18,15 +19,24 @@
   }
 }
 
-#graphic_desktop {
-  position: absolute;
-  bottom: -5rem;
-  right: 50%;
-}
 #graphic_crypto {
   position: absolute;
-  top: -15rem;
-  right: 20%;
+  top: -29rem;
+  right: -25%;
+  width: 120%;
+}
+
+#graphic_laptop {
+  position: absolute;
+  top: -16rem;
+  right: -110%;
+  width: 70%;
+}
+#graphic_desktop {
+  position: absolute;
+  bottom: -23rem;
+  right: -79%;
+  width: 90%;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -47,10 +57,10 @@
 
 @media only screen and (max-width: 1000px) {
   #graphic_desktop {
-    width:350px;
-    margin:auto;
-    top:-5rem;
-    right:0;
+    width: 350px;
+    margin: auto;
+    top: -5rem;
+    right: 0;
   }
   #graphic_crypto {
     display: none;
