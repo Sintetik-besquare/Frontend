@@ -1,4 +1,5 @@
 @import "./base.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 // REUSABLE COMPONENTS (BTN, NAV, LINK, CARD, ETC)
 button {
@@ -7,25 +8,70 @@ button {
   border-radius: 1rem;
 }
 
+.square-button {
+  border: $black;
+  border-radius: 0%;
+  width: 25%;
+  height: auto;
+  background-color: $yellow;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+h2 {
+  font-size: 64px;
+}
+
+// a {
+//   color: $red;
+// }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5rem;
 
-  .li,
+  // .li,
   li {
     text-decoration: none;
     list-style: none;
     color: white;
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
-    margin-left: 1rem;
-    margin-right: 1rem;
+    padding: 0px 10px;
   }
 
   .li:hover {
     text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 92px #f00,
       0 0 102px #f00, 0 0 151px #f00;
+  }
+}
+
+.nav_modal {
+  @include drop-shadow;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30vw;
+  background-color: white;
+  border-radius: 10px;
+  z-index:1000;
+
+  .button_red_light {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 5px;
+  }
+
+  li {
+    padding: 10px;
+    list-style: none;
+  }
+
+  li:hover {
+    cursor: pointer;
   }
 }
 
@@ -41,6 +87,7 @@ button {
   input {
     width: 100%;
     padding: 1rem;
+    // margin: 1rem;
     border: none;
     outline: none;
   }
@@ -50,6 +97,29 @@ button {
   }
 }
 
+.signin-input {
+  @include drop-shadow;
+  border: 1px solid rgba(187, 187, 187, 0.8);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $black;
+  border-radius: 5px;
+  width: 90%;
+
+  input {
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgba(29, 29, 29, 1);
+    color: rgba(187, 187, 187, 0.8);
+  }
+
+  b {
+    padding: 1rem;
+  }
+}
 .tags {
   // width: 100%;
   display: flex;
@@ -61,8 +131,8 @@ button {
     list-style: none;
     font-size: smaller;
     padding: 5px 10px;
-    color: $colour-4;
-    border: 1px solid $colour-4;
+    color: $yellow;
+    border: 1px solid $yellow;
     border-radius: 1rem;
   }
 }
@@ -96,6 +166,24 @@ button {
   }
 }
 
+.signin-image-card {
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  margin-top: 15px;
+  background-color: rgba(56, 56, 56, 1);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .signin-details-card {
+    display: inline-block;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    margin-top: 15px;
+    width: 25%;
+    background-color: rgba(29, 29, 29, 1);
+}
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -138,10 +226,13 @@ button {
   .navbar {
     .li,
     li {
-      margin:0;
+      margin: 0;
       // margin-left: 0.1rem;
       // margin-right: 0.1rem;
     }
+  }
+  .nav_modal {
+    width:60vw;
   }
   .container {
     padding: 0;
@@ -159,3 +250,56 @@ button {
     font-size: smaller;
   }
 }
+
+.sintetik-is-one-of-t {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  line-height: normal;
+  min-height: 197px;
+  text-align: justify;
+  width: 976px;
+  color: #bbb;
+  font-family: "Poppins";
+  font-size: 22px;
+  line-height: 180%;
+}
+
+.poppins-bold-white-40px2,
+h1,
+h2 {
+  font-size: 50px;
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 900;
+}
+
+h3,
+b,
+p {
+  size: 20px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  height: 90px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+}
+
+.paralax {
+  background-image: url("../assets/office.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+

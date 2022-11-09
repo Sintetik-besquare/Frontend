@@ -1,8 +1,9 @@
 import { observable, action, decorate } from "mobx";
 
-export default class MainStore {
+export default class ChartStore {
   start = Date.now();
   current = Date.now();
+  price_array = [];
   wallet = 10000;
 
   get elapsedTime() {
@@ -14,12 +15,13 @@ export default class MainStore {
   }
 
   resetWallet() {
-    this.wallet = 10000;
+    this.wallet += 500;
   }
 }
-decorate(MainStore, {
+decorate(ChartStore, {
   start: observable,
   current: observable,
+  price_array: observable,
   wallet: observable,
   setWallet: action,
   resetWallet: action,

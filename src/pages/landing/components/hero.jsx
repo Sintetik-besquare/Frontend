@@ -1,4 +1,4 @@
-import Logo from "../../../assets/logo-sintetik.jpg";
+import Logo from "../../../assets/logo-sintetik.png";
 import Crypto from "../../../assets/crypto-graphics.png";
 import Desktop from "../../../assets/desktop-charts.png";
 

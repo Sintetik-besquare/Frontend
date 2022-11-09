@@ -1,3 +1,6 @@
+import { MdEmail, MdSend } from "react-icons/md";
+import { FaPencilAlt } from "react-icons/fa";
+
 function Form() {
   return (
     <form>
@@ -6,14 +9,16 @@ function Form() {
       </p>
       <div className="input">
         <input type="text" placeholder="Enter your Email" />
-        <b>icon</b>
+        <MdEmail />
       </div>
 
       <div className="input">
         <input type="text" placeholder="Write your Review" />
-        <b>icon</b>
+        <FaPencilAlt />
       </div>
-      <button className="button-green">SUBMIT</button>
+      <button className="button_green_dark">
+        SUBMIT <MdSend />
+      </button>
     </form>
   );
 }

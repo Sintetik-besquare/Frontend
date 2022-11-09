@@ -5,8 +5,8 @@ import Form from "./form";
 
 export const Footer = () => {
   return (
-    <div style={{ background: "black", color: "white" }}>
-      <div className="flex-block footer">
+    <div className="footer" style={{ background: "black", color: "white" }}>
+      <div className="flex-block">
         <div>
           <Info />
         </div>
