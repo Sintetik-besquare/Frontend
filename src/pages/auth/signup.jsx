@@ -38,7 +38,6 @@ const SignUp = () => {
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
-            {/* <div style={{ display: "flex", flex: "space-evenly" }}> */}
             <div
               style={{
                 display: "flex",
