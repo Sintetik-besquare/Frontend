@@ -62,7 +62,9 @@ $yellow: rgba(245, 220, 12, 1);
 
 #signin-background,
 #signup-background {
-  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+    background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
+    // background-color: $yellow;
   padding-top: 5rem;
   padding-bottom: 15rem;
   display: flex;
