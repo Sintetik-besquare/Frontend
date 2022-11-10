@@ -25,7 +25,7 @@ const SignUp = () => {
               <center>SIGN UP</center>
             </b>
           </h2>
-          <form>
+          {/* <form> */}
           <form className="signin-form">
             <h4>Let's get started shall we...</h4>
             &nbsp;
@@ -39,7 +39,7 @@ const SignUp = () => {
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
-            <div style={{ display: "flex", flex: "space-evenly" }}>
+            {/* <div style={{ display: "flex", flex: "space-evenly" }}> */}
             <div
               style={{
                 display: "flex",
