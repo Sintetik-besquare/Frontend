@@ -90,7 +90,7 @@ $yellow: rgba(245, 220, 12, 1);
 #home {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-  overflow: hidden;
+  // overflow: hidden;
   padding-top: 200px;
   padding-bottom: 350px;
   display: flex;
@@ -99,19 +99,20 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #about {
+  background: opacity($color: #ffffff80) ;
   // height: 100%;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-  overflow: hidden;
-  padding-top: 200px;
+  // background: linear-gradient( to bottom right, #2c99ff , rgb(0, 0, 0));
+  // overflow: hidden;
+  padding-top: 100px;
   // display: flex;
   // justify-content: center;
   // background-size: cover;
 }
 
 #company {
-  background: #f5dc0c;
-  padding-top: 100px;
-  padding-bottom: 230px;
+  background: opacity($color: #00000000) ;
+  // padding-top: 100px;
+  padding-bottom: 500px;
   // display: flex;
   // justify-content: center;
   // background-size: cover;
@@ -673,9 +674,9 @@ $yellow: rgba(245, 220, 12, 1);
 #title {
   // position: absolute;
   // top: 95%;
-  // left: 55%;
+  // margin-left: 55%;
   // right: 50%;
-  // color: #FFF;
+  // color: #000000;
   text-align: left;
   font-family: "Poppins", sans-serif;
   font-weight: 900;

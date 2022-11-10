@@ -8,6 +8,9 @@ button {
   border-radius: 0rem;
 }
 
+.hide-when-big {
+  display: none;
+}
 .square-button {
   border: $black;
   border-radius: 0%;
@@ -283,6 +286,45 @@ h6 {
   font-family: "Poppins";
 }
 
+.team-card-tags {
+  padding-left: 0;
+  float: left;
+  display: inline;
+
+  li {
+    font-size: smaller;
+    padding: 10px;
+    color: white;
+    background-color: rgba(251, 64, 77, 1);
+    margin: 5px;
+    text-align: left;
+    width: 10rem;
+  }
+}
+
+.team-card-details {
+  padding-left: 1rem;
+}
+
+.team-card-name-font {
+  font-family: "Poppins";
+  font-size: 20px;
+  color: $black;
+  font-weight: bolder;
+  display: flex;
+  width: 25rem;
+  text-align: left;
+}
+
+.team-card-role-font {
+  font-family: "Poppins";
+  color: $black;
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 1rem;
+  text-align: left;
+  width: 25rem;
+}
 .valign-text-middle {
   display: flex;
   flex-direction: column;
@@ -340,12 +382,79 @@ h6 {
   // height: 25vh;
   width: 95%;
   font-size: smaller;
+  margin-left: 1rem;
+    margin-right: 1rem;
+    flex-direction: column;
 }
 h1,
 h2 {
   font-size: 25px;
 }
 
+.sintetik-is-one-of-t {
+  margin-top: 200px;
+  margin-bottom: 100px;
+  // margin-left: px;
+  line-height: normal;
+  min-height: 197px;
+  text-align: justify;
+  width: 720px;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins";
+  line-height: 180%;
+}
+
+.poppins-bold-white-40px2 {
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins";
+  font-weight: 900;
+  margin-top: 0px;
+}
+
+.poppins-bold-white-40px-22 {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  // width: 50%;
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 27px;
+  margin-left: -150px;
+}
+
+.card-horizontal {
+  // height: 25vh;
+  width: 95%;
+  font-size: smaller;
+}
+
+h1,
+h2 {
+  font-size: 25px;
+}
+
+h3,
+b,
+p {
+  size: 7px;
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0px;
+  align-items: center;
+
+  h4 {
+    font-size: 10px;
+  }
+  h5 {
+    font-size: 8px;
+  }
+
+  h6 {
+    font-size: 9px;
 h3,
 b,
 p {
@@ -374,6 +483,74 @@ h6 {
     font-size: 12px;
   }
 }
+
+  .signin-input {
+    width: 80%;
+
+    input {
+      padding-top: 6px;
+      padding-bottom: 6px;
+      width: 40%;
+      font-size: 12px;
+    }
+  }
+
+  .signin-image-card,
+  .signup-image-card {
+    display: none;
+  }
+
+  .signin-details-card,
+  .signup-details-card {
+    width: 100%;
+    margin: 0rem;
+    padding-left: 5rem;
+    border-radius: 0px;
+  }
+
+  #password-icon {
+    font-size: 12px;
+  }
+
+  #username-icon {
+    font-size: 12px;
+  }
+
+  #signin-background,
+  #signup-background {
+    padding: 0rem;
+    width: 100%;
+  }
+
+  #signin,
+  #signup {
+    width: 100%;
+  }
+
+  .signin-form {
+    padding-left: 5px;
+  }
+}
+
+.landing_hero_graphics {
+  animation-name: landing_hero_graphics;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+@keyframes landing_hero_graphics {
+  from {
+    transform: translate(0, 0px);
+  }
+  55% {
+    transform: translate(0, 15px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
 
 .signin-image-card,
 .signup-image-card {
@@ -411,6 +588,35 @@ h6 {
 .signin-form {
   padding-left: 3rem;
 }
+.hide-when-small {
+  display: none;
+}
+
+.hide-when-big {
+  display: block;
+}
+
+#about {
+  padding-top: 0;
+}
+
+.small-card-horizontal {
+  height: fit-content;
+  justify-content: justify;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+#team-card-images-small {
+  width: 100%;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.member-name {
+  text-align: center;
+  justify-content: center;
+}
 }
 .landing_hero_graphics {
     animation-name: landing_hero_graphics;
@@ -434,3 +640,31 @@ h6 {
         transform: translate(0, -0px);
       }
 }
+
+// .aboutus {
+//   // position: p;
+//   // top: 50%;
+//   // left: 50%;
+//   font-size: 100px;
+//   letter-spacing: 0.1em;
+//   -webkit-text-fill-color: transparent;
+//   -webkit-text-stroke-width: 3px;
+//   -webkit-text-stroke-color: white;
+//   text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+//   text-align: center; 
+// }
+
+.aboutus {
+  background: radial-gradient(
+    #F5DC0C, 
+    hsl(200 100% 60%) 
+  ) fixed;
+  background: conic-gradient(
+    #77ff33, 
+    hsl(200 100% 60%), 
+    hsl(100 100% 60%) 
+  ) fixed;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  font-family: Poppins;
+} 
