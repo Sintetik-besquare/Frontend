@@ -12,15 +12,15 @@ function Hero() {
       <div id="stars3"></div>
       <div className="flex-block">
         <div id="title" data-aos="fade-right">
-          <span style={{ fontSize: "35px", WebkitTextFillColor: "#F5DC0C" }}>
+          <span style={{ fontSize: "45px", WebkitTextFillColor: "#F5DC0C" }}>
             SINTETIK
           </span>
           <br />
           <span style={{ fontSize: "80px", WebkitTextFillColor: "#FFF" }}>
-            It Just Get's Better and Better
+            It Just Gets Better and Better
           </span>
           <br />
-          <span style={{ fontSize: "25px", WebkitTextFillColor: "#8080" }}>
+          <span style={{ fontSize: "25px", WebkitTextFillColor: "#2c99ff" }}>
             Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
             indices, and commodities.
           </span>
