@@ -26,7 +26,7 @@ const NavBar = () => {
   }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
-    <div className="flex-block" style={{ background: "black" }}>
+    <div className="flex" style={{ background: "black" }}>
       <div style={{ display: "flex" }}>
         <img src={Logo} alt="Logo" style={{ width: "10%", height: "10%" }} />
         <h3 style={{ float: "left" }}>SINTETIK</h3>

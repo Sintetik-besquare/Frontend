@@ -23,18 +23,12 @@ h2 {
   font-size: 64px;
 }
 
-
-// a {
-//   color: $red;
-// }
-
 .navbar {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0.5rem;
 
-  // .li,
   li {
     text-decoration: none;
     list-style: none;
@@ -57,7 +51,7 @@ h2 {
   width: 30vw;
   background-color: white;
   border-radius: 10px;
-  z-index:1000;
+  z-index: 1000;
 
   .button_red_light {
     position: absolute;
@@ -140,7 +134,6 @@ h2 {
 .container {
   padding-left: 25%;
   padding-right: 25%;
-
 }
 
 .card {
@@ -177,18 +170,19 @@ h2 {
   padding: 15px;
   margin-top: 15px;
   background-color: rgba(56, 56, 56, 1);
-    display: flex;
-    justify-content: center;
-  }
-  
-  .signin-details-card {
-    display: inline-block;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    margin-top: 15px;
-    width: 25%;
-    background-color: rgba(29, 29, 29, 1);
+  display: flex;
+  justify-content: center;
 }
+
+.signin-details-card {
+  display: inline-block;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  margin-top: 15px;
+  width: 25%;
+  background-color: rgba(29, 29, 29, 1);
+}
+
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -200,14 +194,13 @@ h2 {
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 1rem;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 
   img {
     height: 100%;
     width: 40%;
     object-fit: cover;
     border-radius: 1rem;
-    
   }
   div {
     width: 60%;
@@ -233,15 +226,15 @@ h2 {
 
 @media only screen and (max-width: 800px) {
   .navbar {
+    flex-wrap: nowrap;
+
     .li,
     li {
       margin: 0;
-      // margin-left: 0.1rem;
-      // margin-right: 0.1rem;
     }
   }
   .nav_modal {
-    width:60vw;
+    width: 60vw;
   }
   .container {
     padding: 0;
@@ -258,8 +251,14 @@ h2 {
     width: 95%;
     font-size: smaller;
   }
+
+  #chart_area {
+    height: 50vh;
+    overflow: scroll;
+  }
 }
 
+// Aaron's css for the landing page
 .sintetik-is-one-of-t {
   margin-top: 200px;
   margin-bottom: 200px;
@@ -304,17 +303,23 @@ p {
   width: 100%;
 }
 
-.landing_hero_graphics {  
-    animation-name: landing_hero_graphics;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
-    margin-left: 30px;
-    margin-top: 5px;
+.landing_hero_graphics {
+  animation-name: landing_hero_graphics;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  margin-left: 30px;
+  margin-top: 5px;
 }
 
 @keyframes landing_hero_graphics {
-    from { transform: translate(0,  0px); }
-    55%  { transform: translate(0, 15px); }
-    to   { transform: translate(0, -0px); }    
+  from {
+    transform: translate(0, 0px);
+  }
+  55% {
+    transform: translate(0, 15px);
+  }
+  to {
+    transform: translate(0, -0px);
+  }
 }

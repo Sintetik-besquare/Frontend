@@ -18,7 +18,6 @@ export const useStores = () => {
     stores_context = React.createContext({
       app_store: root_store.app_store,
       chart_store: root_store.chart_store,
-      client_store: root_store.client_store,
     });
   }
 

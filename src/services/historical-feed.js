@@ -12,7 +12,7 @@ async function getHistoricalFeed() {
       return response.json();
     })
     .then((json) => {
-      console.table(json.message);
+      // console.table(json.message);
       return json.message;
     });
 }
