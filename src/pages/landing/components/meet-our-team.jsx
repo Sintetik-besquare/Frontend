@@ -3,7 +3,9 @@ import people from "../../../data/team.json";
 function MeetOurTeam() {
   return (
     <div id="about">
-      <h1 style={{ textAlign: "center" }}>Meet The Team</h1>
+      <h1 className="valign-text-middle poppins-bold-white-40px2 aboutus">
+        Meet The Team
+      </h1>
       <div className="container">
         {people.map((p) => {
           return (
