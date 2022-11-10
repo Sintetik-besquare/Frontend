@@ -11,7 +11,7 @@ button {
 .square-button {
   border: $black;
   border-radius: 0%;
-  width: 25%;
+  width: 40%;
   height: auto;
   background-color: $yellow;
   display: flex;
@@ -19,10 +19,16 @@ button {
   align-items: center;
 }
 
-h2 {
-  font-size: 64px;
+#password-icon,
+#username-icon {
+  color: rgba(187, 187, 187, 0.8);
+  background-color: rgba(29, 29, 29, 1);
+  font-size: 20px;
 }
 
+#button-icon {
+  font-size: 20px;
+}
 
 // a {
 //   color: $red;
@@ -104,23 +110,20 @@ h2 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: $black;
   border-radius: 5px;
-  width: 90%;
+  width: 100%;
 
   input {
-    width: 80%;
+  width: 60%;
     padding: 1rem;
     border: none;
     outline: none;
     background-color: rgba(29, 29, 29, 1);
     color: rgba(187, 187, 187, 0.8);
-  }
-
-  b {
-    padding: 1rem;
-  }
+  
 }
+}
+    
 .tags {
   // width: 100%;
   display: flex;
@@ -171,23 +174,39 @@ h2 {
   }
 }
 
-.signin-image-card {
+.signin-image-card,
+.signup-image-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: rgba(56, 56, 56, 1);
+  display: flex;
+    justify-content: center;
+border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.signin-details-card,
+.signup-details-card {
   display: inline-block;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 15px;
-  margin-top: 15px;
-  background-color: rgba(56, 56, 56, 1);
-    display: flex;
-    justify-content: center;
-  }
-  
-  .signin-details-card {
-    display: inline-block;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 40px;
-    margin-top: 15px;
-    width: 25%;
-    background-color: rgba(29, 29, 29, 1);
+  padding: 2rem;
+  margin-top: 2rem;
+width: 40%;
+  background-color: rgba(29, 29, 29, 1);
+border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.signup-details-card {
+  border-radius: 0px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.signup-image-card {
+  border-radius: 0px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 .card-horizontal {
   @include drop-shadow;
@@ -214,6 +233,77 @@ h2 {
   }
 }
 
+.sintetik-is-one-of-t {
+  margin-top: 200px;
+  margin-bottom: 200px;
+  line-height: normal;
+  min-height: 197px;
+  text-align: justify;
+  width: 976px;
+  color: #bbb;
+  font-family: "Poppins";
+  font-size: 22px;
+  line-height: 180%;
+}
+
+.poppins-bold-white-40px2,
+h1,
+h2 {
+  font-size: 60px;
+  color: #fff;
+  font-family: "Poppins";
+  font-weight: 900;
+}
+
+h3,
+b,
+p {
+  size: 20px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+h4 {
+  font-size: 15px;
+  color: $yellow;
+  font-family: "Poppins";
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 13px;
+  color: $red;
+  font-family: "Poppins";
+
+}
+
+h6 {
+  font-size: 16px;
+  color: #fff;
+  font-family: "Poppins";
+}
+
+.valign-text-middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  height: 90px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  width: 100%;
+}
+
+.paralax {
+  background-image: url("../assets/office.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 @media only screen and (max-width: 1500px) {
   .card {
     width: 35vw;
@@ -253,57 +343,80 @@ h2 {
       height: 60%;
     }
   }
-  .card-horizontal {
-    // height: 25vh;
-    width: 95%;
-    font-size: smaller;
-  }
+.card-horizontal {
+  // height: 25vh;
+  width: 95%;
+  font-size: smaller;
 }
-
-.sintetik-is-one-of-t {
-  margin-top: 200px;
-  margin-bottom: 200px;
-  line-height: normal;
-  min-height: 197px;
-  text-align: justify;
-  width: 976px;
-  color: #bbb;
-  font-family: "Poppins";
-  font-size: 22px;
-  line-height: 180%;
-}
-
-.poppins-bold-white-40px2,
 h1,
 h2 {
-  font-size: 50px;
-  color: #fff;
-  font-family: "Poppins";
-  font-weight: 900;
+  font-size: 25px;
 }
 
 h3,
 b,
 p {
-  size: 20px;
-  color: #fff;
-  font-family: "Poppins";
+  size: 7px;
 }
 
-.valign-text-middle {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+h4 {
+  font-size: 10px;
+}
+h5 {
+  font-size: 8px;
 }
 
-.title {
-  height: 90px;
-  letter-spacing: 0;
-  line-height: normal;
-  text-align: center;
+h6 {
+  font-size: 9px;
+}
+
+.signin-input {
+  width: 80%;
+
+  input {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    width: 40%;
+    font-size: 12px;
+  }
+}
+
+.signin-image-card,
+.signup-image-card {
+  display: none;
+}
+
+.signin-details-card,
+.signup-details-card {
+  width: 100%;
+  margin: 0rem;
+  padding-left: 5rem;
+  border-radius: 0px;
+}
+
+#password-icon {
+  font-size: 12px;
+}
+
+#username-icon {
+  font-size: 12px;
+}
+
+#signin-background,
+#signup-background {
+  padding: 0rem;
   width: 100%;
 }
 
+#signin,
+#signup {
+  width: 100%;
+}
+
+.signin-form {
+  padding-left: 5px;
+}
+}
 .landing_hero_graphics {  
     animation-name: landing_hero_graphics;
     animation-duration: 2.5s;
