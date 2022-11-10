@@ -2,8 +2,9 @@
 @import "./styles/component.scss";
 @import "./styles/layout.scss";
 @import "./styles/newspage.scss";
+@import "./styles/horizontal-card.scss";
 
-#home {
+home {
   background-color: $black;
   color: white;
 }

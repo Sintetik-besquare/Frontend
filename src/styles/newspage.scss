@@ -35,18 +35,11 @@
     img {
       border-radius: 25px 25px 0 0;
     }
-
-    .card-news-title {
-    }
-    @media (max-width: 450px) {
-      .news-title {
-        line-height: 1;
-      }
-    }
   }
   .card-news-paragraph {
     margin: 1.2em 0em;
     color: rgb(34, 33, 33);
+
     p {
       font-size: clamp(12px, 2.5vw, 15px);
     }
@@ -119,5 +112,13 @@ button.news-load-btn {
 @media (min-width: 768px) {
   .button-40 {
     padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (max-height: 450px) {
+  .card {
+    p {
+      display: none;
+    }
   }
 }

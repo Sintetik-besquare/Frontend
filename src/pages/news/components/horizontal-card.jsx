@@ -1,25 +1,46 @@
-function HorizontalCard() {
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import HorizontalNewsItem from "./horizontal-news-item";
+
+const HorizontalCard = () => {
+  const [topheadlines, setTopheadline] = useState([]);
+
+  //Get top headline
+  useEffect(() => {
+    const APIKEY = process.env.REACT_APP_NEWS_API_KEY;
+    const getArticles = async () => {
+      const response = await axios.get(
+        `https://newsapi.org/v2/top-headlines?q=economy&apiKey=${APIKEY}`
+      );
+      setTopheadline(response.data.articles);
+      console.log(response);
+    };
+
+    getArticles();
+  }, []);
+
+  if (!topheadlines) return <h1>Loading..</h1>;
+
   return (
-    <div className="card-horizontal">
-      <img
-        src="https://media.istockphoto.com/vectors/thumbnail-image-vector-graphic-vector-id1147544807?k=20&m=1147544807&s=612x612&w=0&h=pBhz1dkwsCMq37Udtp9sfxbjaMl27JUapoyYpQm0anc="
-        alt="N/A"
-      />
-      <div>
-        <b>My Sad Breakfast Story</b>
-        <p>
-          i couldn’t eat breakfast today as lashween was late for work thus
-          making me skip breakfast and ruining my day. I’m writing here to
-          spread awareness on what skipping breakfast can do to a person. I hope
-          this will not happen to another humankind or so...
-        </p>
-        <ul className="tags">
-          <li>Devops</li>
-          <li>Trading</li>
-          <li>Mobile</li>
-        </ul>
+    <>
+      <div className="news-container">
+        <div className="news-container-grid">
+          {topheadlines
+            ?.slice()
+            .slice(0, 1)
+            .map((topheadline, i) => (
+              <HorizontalNewsItem
+                title={topheadline.title}
+                date={topheadline.publishedAt}
+                description={topheadline.description}
+                url={topheadline.url}
+                urlToImage={topheadline.urlToImage}
+                key={i}
+              />
+            ))}
+        </div>
       </div>
-    </div>
+    </>
   );
-}
+};
 export default HorizontalCard;

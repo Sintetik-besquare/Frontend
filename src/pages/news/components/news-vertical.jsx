@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NewsItem from "./news-items";
+import AOS from "aos";
 
 const NewsList = () => {
   const [articles, setArticles] = useState([]);
 
+  //Get every related news
   useEffect(() => {
     const headline = "everything";
     const q = "economy";
@@ -22,9 +24,9 @@ const NewsList = () => {
     getArticles();
   }, []);
 
-  const [cardsAvailable, setCardsAvailable] = useState(6);
+  const [cardsAvailable, setCardsAvailable] = useState(9);
   const showMoreCards = () => {
-    setCardsAvailable((preValue) => preValue + 3);
+    setCardsAvailable((defaultCards) => defaultCards + 9);
   };
 
   useEffect(() => {
@@ -53,15 +55,9 @@ const NewsList = () => {
             ))}
         </div>
       </div>
-      <div>
-        <button
-          onClick={showMoreCards}
-          className="news-load-btn button-40"
-          role="button"
-        >
-          View More
-        </button>
-      </div>
+      <button onClick={showMoreCards} className="news-load-btn button-40">
+        View More
+      </button>
     </>
   );
 };
