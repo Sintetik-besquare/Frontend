@@ -11,12 +11,12 @@ const NavBar = () => {
   const { app_store, chart_store } = useStores();
   const navigate = useNavigate();
 
-  function signin(){
+  function signin() {
     navigate("/signin", { replace: true });
     // app_store.setLogin(true);
   }
 
-  function signup(){
+  function signup() {
     navigate("/signup", { replace: true });
     // app_store.setLogin(true);
   }
@@ -26,29 +26,33 @@ const NavBar = () => {
   }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
-    <div className="flex" style={{ background: "black" }}>
-      <div>
-        <HashLink smooth to="/#home">
-          <img src={Logo} alt="Logo" style={{ width: 50 }} />
-        </HashLink>
-      </div>
-      <div>
-        <ul className="navbar">
-          <HashLink smooth to="/#home" className="li">
-            <li>Home</li>
-          </HashLink>
+    <div id="header">
+      <div className="flex-block" style={{ background:  "#000000" }}>
+        <div style={{ display: "flex" }}>
+          <img src={Logo} alt="Logo" style={{ width: "10%", height: "10%" }} />
+          <h3 style={{ float: "left" }}>SINTETIK</h3>
+        </div>
+        <div>
+          <ul className="navbar">
+            <HashLink smooth to="/#header" className="li">
+              <li>Home</li>
+            </HashLink>
 
-          <HashLink smooth to="/#about" className="li">
-            <li>About</li>
-          </HashLink>
+            <HashLink smooth to="/#company" className="li">
+              <li>About</li>
+            </HashLink>
 
-          <Link to="/trade" className="li">
-            <li>Trade</li>
-          </Link>
+            <Link to="/trade" className="li">
+              <li>Trade</li>
+            </Link>
 
-          <Link to="/news" className="li">
-            <li>News</li>
-          </Link>
+            <Link to="/news" className="li">
+              <li>News</li>
+            </Link>
+          </ul>
+        </div>
+
+        <div className="flex-end">
           {app_store.is_loggedin === true ? (
             <li>
               <button
@@ -65,7 +69,9 @@ const NavBar = () => {
               <li>
                 <button
                   className="button_green_dark"
-                  onClick={() => {signup()}}
+                  onClick={() => {
+                    signup();
+                  }}
                 >
                   SIGN UP
                 </button>
@@ -73,21 +79,19 @@ const NavBar = () => {
               <li>
                 <button
                   className="button_red_dark"
-                  onClick={() => {signin()}}
+                  onClick={() => {
+                    signin();
+                  }}
                 >
                   SIGN IN
                 </button>
               </li>
             </>
           )}
-        </ul>
-      </div>
+        </div>
 
-      {app_store.show_modal === true ? (
-        <NavModal/>
-      ) : (
-        <></>
-      )}
+        {app_store.show_modal === true ? <NavModal /> : <></>}
+      </div>
     </div>
   );
 };

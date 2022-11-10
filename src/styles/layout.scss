@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  
 }
 
 .block {
@@ -13,11 +14,19 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: transparent;
+  
 
   div {
     width: 100%;
     // padding:5rem;
   }
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+  
 }
 
 .cards-container {
