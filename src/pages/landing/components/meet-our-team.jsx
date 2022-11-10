@@ -8,8 +8,8 @@ function MeetOurTeam() {
         {people.map((p) => {
           return (
             <span key={p.i}>
-              {p.id % 2 === 0 ? ( 
-                <div className="card-horizontal">
+              {p.id % 2 === 0 ? (
+                <div className="card-horizontal" data-aos="fade-left">
                   <img src={p.photo} alt="N/A" />
                   <div style={{ textAlign: "center" }}>
                     <h3>
@@ -26,7 +26,7 @@ function MeetOurTeam() {
                   </div>
                 </div>
               ) : (
-                <div className="card-horizontal">
+                <div className="card-horizontal" data-aos="fade-right">
                   <div style={{ textAlign: "right" }}>
                     <h3>
                       {p.name} &nbsp; {p.id}
