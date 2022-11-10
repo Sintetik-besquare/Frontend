@@ -13,11 +13,17 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
 
   div {
     width: 100%;
     // padding:5rem;
   }
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .cards-container {

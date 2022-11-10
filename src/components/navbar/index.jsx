@@ -11,12 +11,12 @@ const NavBar = () => {
   const { app_store, chart_store } = useStores();
   const navigate = useNavigate();
 
-  function signin(){
+  function signin() {
     navigate("/signin", { replace: true });
     // app_store.setLogin(true);
   }
 
-  function signup(){
+  function signup() {
     navigate("/signup", { replace: true });
     // app_store.setLogin(true);
   }
@@ -26,12 +26,12 @@ const NavBar = () => {
   }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
-    <div className="flex" style={{ background: "black" }}>
-      <div>
-        <HashLink smooth to="/#home">
-          <img src={Logo} alt="Logo" style={{ width: 50 }} />
-        </HashLink>
+    <div className="flex-block" style={{ background: "black" }}>
+      <div style={{ display: "flex" }}>
+        <img src={Logo} alt="Logo" style={{ width: "10%", height: "10%" }} />
+        <h3 style={{ float: "left" }}>SINTETIK</h3>
       </div>
+
       <div>
         <ul className="navbar">
           <HashLink smooth to="/#home" className="li">
@@ -49,45 +49,48 @@ const NavBar = () => {
           <Link to="/news" className="li">
             <li>News</li>
           </Link>
-          {app_store.is_loggedin === true ? (
+        </ul>
+      </div>
+
+      <div className="flex-end">
+        {app_store.is_loggedin === true ? (
+          <li>
+            <button
+              className="button_red_dark"
+              onClick={() => {
+                app_store.setShowModal(true);
+              }}
+            >
+              <FaUserCircle /> ${chart_store.wallet}
+            </button>
+          </li>
+        ) : (
+          <>
+            <li>
+              <button
+                className="button_green_dark"
+                onClick={() => {
+                  signup();
+                }}
+              >
+                SIGN UP
+              </button>
+            </li>
             <li>
               <button
                 className="button_red_dark"
                 onClick={() => {
-                  app_store.setShowModal(true);
+                  signin();
                 }}
               >
-                <FaUserCircle /> ${chart_store.wallet}
+                SIGN IN
               </button>
             </li>
-          ) : (
-            <>
-              <li>
-                <button
-                  className="button_green_dark"
-                  onClick={() => {signup()}}
-                >
-                  SIGN UP
-                </button>
-              </li>
-              <li>
-                <button
-                  className="button_red_dark"
-                  onClick={() => {signin()}}
-                >
-                  SIGN IN
-                </button>
-              </li>
-            </>
-          )}
-        </ul>
+          </>
+        )}
       </div>
 
-      {app_store.show_modal === true ? (
-        <NavModal/>
-      ) : (
-        <></>
-      )}
+      {app_store.show_modal === true ? <NavModal /> : <></>}
     </div>
   );
 };
