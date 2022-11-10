@@ -140,6 +140,7 @@ h2 {
 .container {
   padding-left: 25%;
   padding-right: 25%;
+  padding-bottom: 5%;
 
 }
 
@@ -195,7 +196,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   height: 350px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
@@ -261,23 +262,29 @@ h2 {
 }
 
 .sintetik-is-one-of-t {
-  margin-top: 200px;
-  margin-bottom: 200px;
+  margin-top: 230px;
+  margin-bottom: 100px;
+  margin-left: 80px;
   line-height: normal;
   min-height: 197px;
   text-align: justify;
-  width: 976px;
-  color: #bbb;
+  width: 800px;
+  color: rgb(0, 0, 0);
   font-family: "Poppins";
   font-size: 22px;
   line-height: 180%;
 }
 
-.poppins-bold-white-40px2,
-h1,
-h2 {
-  font-size: 50px;
-  color: #fff;
+.poppins-bold-white-40px2 {
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins";
+  font-weight: 900;
+}
+
+.poppins-bold-white-40px-22{
+font-size: 27px;
+  color: rgb(0, 0, 0);
   font-family: "Poppins";
   font-weight: 900;
 }
@@ -294,6 +301,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 0px;
 }
 
 .title {
