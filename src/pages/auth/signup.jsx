@@ -26,6 +26,7 @@ const SignUp = () => {
             </b>
           </h2>
           <form>
+          <form className="signin-form">
             <h4>Let's get started shall we...</h4>
             &nbsp;
             <div className="signin-input">
@@ -39,6 +40,11 @@ const SignUp = () => {
             </div>
             &nbsp;
             <div style={{ display: "flex", flex: "space-evenly" }}>
+            <div
+              style={{
+                display: "flex",
+              }}
+            >
               <input type="checkbox" />
               <h6>
                 {" "}
