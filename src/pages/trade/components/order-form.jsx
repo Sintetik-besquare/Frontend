@@ -7,6 +7,7 @@ const OrderForm = () => {
   const [stake, setStake] = useState(0);
 
   React.useEffect(() => {
+    console.log(chart_store.index);
     //rerender UI when store.isloggedin change
   }, [app_store.is_loggedin, chart_store]);
 
@@ -20,9 +21,11 @@ const OrderForm = () => {
 
   return (
     <div>
-      <h1>{chart_store.index}</h1>
-      <h1>{chart_store.option_type}</h1>
-      <h1>{chart_store.ticks}</h1>
+      <h1 style={{ color: "black" }}>
+        {chart_store.index}<br />
+        {chart_store.option_type}<br />
+        {chart_store.ticks}
+      </h1>
       <div className="input flex">
         <button
           disabled={stake <= 0}
@@ -48,10 +51,18 @@ const OrderForm = () => {
         </span>
       ) : (
         <span>
-          <button onClick={() => {promptLogin();}}>
+          <button
+            onClick={() => {
+              promptLogin();
+            }}
+          >
             BUY
           </button>
-          <button onClick={() => { promptLogin();}}>
+          <button
+            onClick={() => {
+              promptLogin();
+            }}
+          >
             SELL
           </button>
         </span>

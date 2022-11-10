@@ -8,7 +8,6 @@ import { useStores } from "../../../store";
 import { getHistoricalFeed } from "../../../services/historical-feed";
 
 const LineChart = () => {
-  const socket = io.connect("http://localhost:3002");
   const { chart_store } = useStores();
   const [history, setHistory] = React.useState(chart_store.historical_price);
   
@@ -40,7 +39,9 @@ const LineChart = () => {
 
   // fetch subsequent feed from socket emits
   useEffect(() => {
+    const socket = io.connect("http://localhost:3002");
     socket.on("getfeed", (price) => {
+      console.log(price)
       // price = JSON.parse(price);
       // console.log(
       //   price.symbol_name + "  " + price.price + "  " + price.timestamp
@@ -50,6 +51,7 @@ const LineChart = () => {
       setX_axis((oldX) => [...oldX, JSON.parse(price).timestamp]);
       setY_axis((oldY) => [...oldY, JSON.parse(price).price]);
     });
+    return ()=>socket.disconnect(true)
   }, []);
 
   return (
