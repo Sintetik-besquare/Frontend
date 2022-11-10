@@ -79,6 +79,7 @@ $yellow: rgba(245, 220, 12, 1);
   justify-content: center;
 }
 
+#signin,
 #signup {
   background-image: linear-gradient(
     rgba(34, 33, 40, 1),
@@ -87,7 +88,6 @@ $yellow: rgba(245, 220, 12, 1);
   padding-top: 15px;
   padding-bottom: 15px;
   display: flex;
-  justify-content: center;
 }
 
 #home {
@@ -706,5 +706,4 @@ $yellow: rgba(245, 220, 12, 1);
     transform: translateY(-2000px);
   }
 }
-
 // RESETS
