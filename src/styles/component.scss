@@ -36,7 +36,7 @@ button {
 
 .navbar {
   display: flex;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0.5rem;
 
@@ -63,7 +63,7 @@ button {
   width: 30vw;
   background-color: white;
   border-radius: 10px;
-  z-index:1000;
+  z-index: 1000;
 
   .button_red_light {
     position: absolute;
@@ -114,16 +114,20 @@ button {
   width: 100%;
 
   input {
+    width: 60%;
   width: 60%;
     padding: 1rem;
     border: none;
     outline: none;
     background-color: rgba(29, 29, 29, 1);
     color: rgba(187, 187, 187, 0.8);
+  }
+}
+
   
 }
 }
-    
+   
 .tags {
   // width: 100%;
   display: flex;
@@ -143,7 +147,7 @@ button {
 .container {
   padding-left: 25%;
   padding-right: 25%;
-
+  padding-bottom: 5%;
 }
 
 .card {
@@ -181,6 +185,8 @@ button {
   margin-top: 2rem;
   background-color: rgba(56, 56, 56, 1);
   display: flex;
+  justify-content: center;
+  border-top-left-radius: 10px;
     justify-content: center;
 border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -191,6 +197,9 @@ border-top-left-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin-top: 2rem;
+  width: 40%;
+  background-color: rgba(29, 29, 29, 1);
+  border-top-right-radius: 10px;
 width: 40%;
   background-color: rgba(29, 29, 29, 1);
 border-top-right-radius: 10px;
@@ -214,19 +223,18 @@ border-top-right-radius: 10px;
   justify-content: space-between;
   align-items: center;
   height: 350px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 1rem;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 
   img {
     height: 100%;
     width: 40%;
     object-fit: cover;
     border-radius: 1rem;
-    
   }
   div {
     width: 60%;
@@ -297,6 +305,15 @@ h6 {
   width: 100%;
 }
 
+
+// .paralax {
+//   background-image: url("../assets/office.png");
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
+
 @media only screen and (max-width: 1500px) {
   .card {
     width: 35vw;
@@ -324,7 +341,7 @@ h6 {
     }
   }
   .nav_modal {
-    width:60vw;
+    width: 60vw;
   }
   .container {
     padding: 0;
@@ -336,6 +353,122 @@ h6 {
       height: 60%;
     }
   }
+  .card-horizontal {
+    // height: 25vh;
+    width: 95%;
+    font-size: smaller;
+  }
+}
+
+.sintetik-is-one-of-t {
+  margin-top: 230px;
+  margin-bottom: 100px;
+  margin-left: 80px;
+  line-height: normal;
+  min-height: 197px;
+  text-align: justify;
+  width: 800px;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins";
+  font-size: 22px;
+  line-height: 180%;
+}
+
+.poppins-bold-white-40px2 {
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins";
+  font-weight: 900;
+}
+
+.poppins-bold-white-40px-22 {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins";
+  font-weight: 900;
+
+  .card-horizontal {
+    // height: 25vh;
+    width: 95%;
+    font-size: smaller;
+  }
+  h1,
+  h2 {
+    font-size: 25px;
+  }
+
+  h3,
+  b,
+  p {
+    size: 7px;
+  }
+
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+
+    h4 {
+      font-size: 10px;
+    }
+    h5 {
+      font-size: 8px;
+    }
+
+    h6 {
+      font-size: 9px;
+    }
+
+    .signin-input {
+      width: 80%;
+
+      input {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        width: 40%;
+        font-size: 12px;
+      }
+    }
+
+    .signin-image-card,
+    .signup-image-card {
+      display: none;
+    }
+
+    .signin-details-card,
+    .signup-details-card {
+      width: 100%;
+      margin: 0rem;
+      padding-left: 5rem;
+      border-radius: 0px;
+    }
+
+    #password-icon {
+      font-size: 12px;
+    }
+
+    #username-icon {
+      font-size: 12px;
+    }
+
+    #signin-background,
+    #signup-background {
+      padding: 0rem;
+      width: 100%;
+    }
+
+    #signin,
+    #signup {
+      width: 100%;
+    }
+
+    .signin-form {
+      padding-left: 5px;
+    }
+  }
+  .landing_hero_graphics {
+
 .card-horizontal {
   // height: 25vh;
   width: 95%;
@@ -413,16 +546,31 @@ h6 {
 }
 }
 .landing_hero_graphics {  
+
     animation-name: landing_hero_graphics;
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     margin-left: 30px;
     margin-top: 5px;
-}
+  }
+
+
+  @keyframes landing_hero_graphics {
+    from {
+      transform: translate(0, 0px);
+    }
+    55% {
+      transform: translate(0, 15px);
+    }
+    to {
+      transform: translate(0, -0px);
+    }
+  }
 
 @keyframes landing_hero_graphics {
     from { transform: translate(0,  0px); }
     55%  { transform: translate(0, 15px); }
     to   { transform: translate(0, -0px); }    
+
 }
