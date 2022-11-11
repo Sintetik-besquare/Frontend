@@ -8,7 +8,7 @@ function Hero() {
       <div id="stars2"></div>
       <div id="stars3"></div>
       <div className="flex-block hero-page-flex-block">
-        <div className="landing_hero_graphics hide-when-big" data-aos="fade-up">
+        <div className="landing_hero_graphics hide-when-big">
           <img src={Crypto} alt="Logo" id="graphic_crypto" />
         </div>
         <div id="title" data-aos="fade-right">
@@ -18,6 +18,7 @@ function Hero() {
           >
             SINTETIK
           </span>
+          <br />
           <br />
           <span
             className="homepage-heading2"
@@ -47,10 +48,8 @@ function Hero() {
             <CgArrowTopRight id="button-icon2" />
           </button>
         </div>
-        <div className="landing_hero_graphics" data-aos="fade-up">
-          {/* <img src={Desktop} alt="Logo" id="graphic_desktop" /> */}
+        <div className="landing_hero_graphics hide-when-small" data-aos="fade-up">
           <img src={Crypto} alt="Logo" id="graphic_crypto" />
-          {/* <img src={Laptop} alt="Logo" id="graphic_laptop" /> */}
         </div>
       </div>
     </div>

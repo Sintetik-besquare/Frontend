@@ -9,8 +9,9 @@ function OurCompany() {
       <div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <span className="image2" data-aos="fade-left">
-            <img src={Crypto2} alt="Logo" id="graphic_crypto2" />
+            <img src={Crypto2} altpo="Logo" id="graphic_crypto2" />
           </span>
+          <div className="about-us-text">
           <h2
             className="sintetik-is-one-of-t poppins-bold-white-40px-22"
             data-aos="fade-up"
@@ -29,6 +30,7 @@ function OurCompany() {
               the globe.
             </span>
           </h2>
+          </div>
         </div>
       </div>
     </div>

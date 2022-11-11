@@ -6,15 +6,14 @@ function MeetOurTeam() {
       <h1 className="valign-text-middle poppins-bold-white-40px2 aboutus">
         Meet The Team
       </h1>
-      <div className="container">
+      <div className="container meet-the-team-page">
         {people.map((p) => {
           return (
             <span key={p.i}>
               {p.id % 2 === 0 ? (
                 <div
-                  className="card-horizontal small-card-horizontal"
+                  className="card-horizontal card-horizontal-right"
                   data-aos="fade-left"
-                  style={{ marginRight: "0" }}
                 >
                   <img src={p.photo} alt="N/A" id="team-card-images-small" />
                   <div
@@ -53,9 +52,8 @@ function MeetOurTeam() {
                 </div>
               ) : (
                 <div
-                  className="card-horizontal small-card-horizontal"
+                  className="card-horizontal card-horizontal-left"
                   data-aos="fade-right"
-                  style={{ marginLeft: "0" }}
                 >
                   <img
                     src={p.photo}
