@@ -21,11 +21,24 @@ const LineChart = () => {
     datasets: [
       {
         label: chart_name,
-        backgroundColor: "yellow",
+        backgroundColor: "black",
         borderColor: "black",
         data: y_axis,
+        pointStyle: "dash",
+        pointBorderWidth:0,
       },
     ],
+    options: {
+      animation: false,
+      position: "right",
+      responsive: false,
+      scales: {
+        y: {
+          // beginAtZero: false,
+          // stacked: true
+        },
+      },
+    },
   };
 
   // fetch historical feed ONCE
@@ -40,9 +53,21 @@ const LineChart = () => {
   // fetch subsequent feed from socket emits
   useEffect(() => {
     const socket = io.connect("http://localhost:3002");
+    // JJ's code (z limit)
+    /**
+     *
+     * @param {any[]} z
+     * @returns
+     */
+    const limit = (z) => {
+      if (z.length > 100) {
+        return z.slice(-100);
+      }
+      return z;
+    };
     socket.on("getfeed", (price) => {
-      setX_axis((oldX) => [...oldX, JSON.parse(price).timestamp]);
-      setY_axis((oldY) => [...oldY, JSON.parse(price).price]);
+      setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
+      setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
     });
     return () => socket.disconnect(true);
   }, []);

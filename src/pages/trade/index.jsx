@@ -7,7 +7,7 @@ export const Index = () => {
   return (
     <div className="trade_page">
       <span style={{width:"80%"}}><Chart /></span>
-      <span style={{width:"20%"}}><OrderForm/></span>
+      <span><OrderForm/></span>
     </div>
   );
 };

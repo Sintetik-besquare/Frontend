@@ -37,7 +37,7 @@
 
 .trade_page {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -50,11 +50,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-  }
-  .form_row {
-    width: 200px;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    .form_row {
+      width: 200px;
+    }
   }
 }
 
