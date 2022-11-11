@@ -5,9 +5,9 @@ import OrderForm from "./components/order-form";
 export const Index = () => {
   
   return (
-    <div className="flex-block">
-      <Chart />
-      <OrderForm />
+    <div className="trade_page">
+      <span style={{width:"80%"}}><Chart /></span>
+      <span style={{width:"20%"}}><OrderForm/></span>
     </div>
   );
 };

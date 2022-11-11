@@ -20,52 +20,117 @@ const OrderForm = () => {
   }
 
   return (
-    <div>
-      <h1 style={{ color: "black" }}>
-        {chart_store.index}<br />
-        {chart_store.option_type}<br />
-        {chart_store.ticks}
-      </h1>
-      <div className="input flex">
+    <div className="form_container">
+      <h3 style={{ color: "black" }}>
+        stake {chart_store.stake}, {chart_store.ticks} ticks <br/>
+        {chart_store.option_type} {chart_store.index} <br />
+        <br />
+      </h3>
+      <div className="form_row">
+        <span>Left</span>
+        <div> {chart_store.index}</div>
+        <span>Right</span>
+      </div>
+
+      <div className="form_row">
+        <span>Left</span>
+        <div>Rise / Fall</div>
+        <span>Right</span>
+      </div>
+
+      <div className="form_row">
         <button
-          disabled={stake <= 0}
+          disabled={chart_store.ticks <= 0}
           onClick={() => {
-            setStake(stake - 1);
+            chart_store.ticks(chart_store.ticks--);
           }}
         >
           -
         </button>
-        <input type="text" placeholder={stake} onChange={setStakeFromInput} />
+        <input
+          type="number"
+          placeholder={chart_store.ticks}
+          style={{ width: "100%" }}
+          onChange={(e) => {
+            chart_store.setTicks(e.target.value);
+          }}
+        />
         <button
+          disabled={chart_store.ticks >= 10}
           onClick={() => {
-            setStake(stake + 1);
+            chart_store.ticks(chart_store.ticks++);
           }}
         >
           +
         </button>
       </div>
-      {app_store.is_loggedin === true ? (
-        <span>
-          <button className="button_green_light">BUY</button>
-          <button className="button_red_light">SELL</button>
-        </span>
+
+      <div className="form_row">
+        <button
+          disabled={chart_store.stake <= 0}
+          onClick={() => {
+            chart_store.stake(chart_store.stake--);
+          }}
+        >
+          -
+        </button>
+        <input
+          type="number"
+          placeholder={chart_store.stake}
+          style={{ width: "100%" }}
+          onChange={(e) => {
+            chart_store.setStake(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            chart_store.stake(chart_store.stake++);
+          }}
+        >
+          +
+        </button>
+      </div>
+
+      {app_store.is_loggedin === true &&
+      chart_store.stake > 0 &&
+      chart_store.ticks > 0 ? (
+        <>
+          <button
+            className="form_row button_green_light"
+            onClick={(e) => {
+              chart_store.setOptionType("CALL");
+            }}
+          >
+            CALL
+          </button>
+          <button
+            className="form_row button_red_light"
+            onClick={(e) => {
+              chart_store.setOptionType("PUT");
+            }}
+          >
+            PUT
+          </button>
+        </>
       ) : (
-        <span>
+        <>
           <button
-            onClick={() => {
-              promptLogin();
+            className="form_row "
+            onClick={(e) => {
+              chart_store.setOptionType("CALL");
             }}
           >
-            BUY
+            CALL
           </button>
           <button
-            onClick={() => {
-              promptLogin();
+            className="form_row "
+            onClick={(e) => {
+              chart_store.setOptionType("PUT");
             }}
           >
-            SELL
+            PUT
           </button>
-        </span>
+        </>
       )}
     </div>
   );

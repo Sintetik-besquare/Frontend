@@ -13,7 +13,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
 
   div {
     width: 100%;
@@ -34,6 +33,29 @@
   left: 0;
   bottom: 0;
   width: 100%;
+}
+
+.trade_page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1500px) {
+  .trade_page {
+    display: block;
+  }
+  .form_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .form_row {
+    width: 200px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 @media only screen and (max-width: 1000px) {

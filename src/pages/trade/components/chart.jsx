@@ -10,9 +10,9 @@ import { getHistoricalFeed } from "../../../services/historical-feed";
 const LineChart = () => {
   const { chart_store } = useStores();
   const [history, setHistory] = React.useState(chart_store.historical_price);
-  
+
   const chart_name = "Volatility 10";
-  chart_store.index=chart_name;
+  chart_store.index = chart_name;
 
   const [x_axis, setX_axis] = React.useState([]);
   const [y_axis, setY_axis] = React.useState([]);
@@ -41,35 +41,22 @@ const LineChart = () => {
   useEffect(() => {
     const socket = io.connect("http://localhost:3002");
     socket.on("getfeed", (price) => {
-      console.log(price)
-      // price = JSON.parse(price);
-      // console.log(
-      //   price.symbol_name + "  " + price.price + "  " + price.timestamp
-      // );
-      // below method will append the whole array instead of appending the new value
-      // somehow it worked already after restarting my laptop??
       setX_axis((oldX) => [...oldX, JSON.parse(price).timestamp]);
       setY_axis((oldY) => [...oldY, JSON.parse(price).price]);
     });
-    return ()=>socket.disconnect(true)
+    return () => socket.disconnect(true);
   }, []);
 
   return (
     <div id="">
-      <h1 style={{ color: "black" }}>{chart_name}</h1>
       <Line data={data} style={{ width: "100%" }} />
-
     </div>
   );
 };
 
 export default observer(LineChart);
 
-// Fix:
-// #1: store history OR the DOM state update unless refresh
-// #2: emits from socket.io console logged redundantly
-
-
+// destructure the array
 // {history.map((d) => (
 //   <div>
 //     <div>
@@ -83,4 +70,4 @@ export default observer(LineChart);
 //     </div>
 //     <hr />
 //   </div>
-// ))} 
+// ))}
