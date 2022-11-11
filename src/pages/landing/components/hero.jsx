@@ -1,8 +1,8 @@
 // import Logo from "../../../assets/logo-sintetik.png";
 import Crypto from "../../../assets/uwu.png";
 // import bird from "../../../assets/bird-dance.gif";
-import Desktop from "../../../assets/desktop-charts.png";
-import Laptop from "../../../assets/laptop.png";
+// import Desktop from "../../../assets/desktop-charts.png";
+// import Laptop from "../../../assets/laptop.png";
 
 function Hero() {
   return (
@@ -10,25 +10,37 @@ function Hero() {
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
-      <div className="flex-block">
+      <div className="flex-block hero-page-flex-block">
+        <div className="landing_hero_graphics hide-when-big" data-aos="fade-up">
+          <img src={Crypto} alt="Logo" id="graphic_crypto" />
+        </div>
         <div id="title" data-aos="fade-right">
-          <span style={{ fontSize: "45px", WebkitTextFillColor: "#F5DC0C" }}>
+          <span
+            className="homepage-title"
+            style={{ WebkitTextFillColor: "#F5DC0C" }}
+          >
             SINTETIK
           </span>
           <br />
-          <span style={{ fontSize: "80px", WebkitTextFillColor: "#FFF" }}>
+          <span
+            className="homepage-heading2"
+            style={{ WebkitTextFillColor: "#FFF" }}
+          >
             It Just Gets Better and Better
           </span>
           <br />
-          <span style={{ fontSize: "25px", WebkitTextFillColor: "#2c99ff" }}>
+          <span
+            className="homepage-heading3"
+            style={{ WebkitTextFillColor: "#2c99ff" }}
+          >
             Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
             indices, and commodities.
           </span>
-          <br />
+          <br className="hide-when-small" />
           <br />
           <button
+            className="get-started-button"
             style={{
-              fontSize: "20px",
               backgroundColor: "#F5DC0C",
               WebkitTextFillColor: "#000",
             }}
