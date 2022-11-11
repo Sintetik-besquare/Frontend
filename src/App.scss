@@ -1,6 +1,9 @@
 @import "./styles/base.scss";
 @import "./styles/component.scss";
 @import "./styles/layout.scss";
+@import "./styles/newspage.scss";
+@import "./styles/horizontal-card.scss";
+@import "./styles/astronout.scss";
 
 #home {
   background-color: $black;
@@ -26,14 +29,14 @@
   width: 170%;
 }
 
-.image2{
+.image2 {
   width: 30%;
-#graphic_crypto2 {
-  position: absolute;
-  margin-top: 3rem;
-  // margin-right: 40%;
-  width: 95%;
-}
+  #graphic_crypto2 {
+    position: absolute;
+    margin-top: 3rem;
+    // margin-right: 40%;
+    width: 95%;
+  }
 }
 
 // #graphic_laptop {
