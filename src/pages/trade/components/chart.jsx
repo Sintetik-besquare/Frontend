@@ -25,19 +25,15 @@ const LineChart = () => {
         borderColor: "black",
         data: y_axis,
         pointStyle: "dash",
-        pointBorderWidth:0,
+        pointBorderWidth: 0,
       },
     ],
     options: {
-      animation: false,
-      position: "right",
-      responsive: false,
-      scales: {
-        y: {
-          // beginAtZero: false,
-          // stacked: true
-        },
+      animation: {
+        duration: 0,
       },
+      position: "bottom",
+      responsive: false,
     },
   };
 
