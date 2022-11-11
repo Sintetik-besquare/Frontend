@@ -7,34 +7,39 @@ function Hero() {
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
-      <div className="flex-block">
+      <div className="flex-block hero-page-flex-block">
+        <div className="landing_hero_graphics hide-when-big">
+          <img src={Crypto} alt="Logo" id="graphic_crypto" />
+        </div>
         <div id="title" data-aos="fade-right">
-          <span style={{ fontSize: "45px", WebkitTextFillColor: "#F5DC0C" }}>
+          <span
+            className="homepage-title"
+            style={{ WebkitTextFillColor: "#F5DC0C" }}
+          >
             SINTETIK
           </span>
           <br />
           <br />
-          <span style={{ fontSize: "80px", WebkitTextFillColor: "#FFF" }}>
-            It Just Gets Better and Better.
+          <span
+            className="homepage-heading2"
+            style={{ WebkitTextFillColor: "#FFF" }}
+          >
+            It Just Gets Better and Better
           </span>
           <br />
-          <br />
           <span
-            style={{
-              fontSize: "25px",
-              WebkitTextFillColor: "#2c99ff",
-              lineHeight: "10px",
-            }}
+            className="homepage-heading3"
+            style={{ WebkitTextFillColor: "#2c99ff" }}
           >
             Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
             indices, and commodities.
           </span>
-          <br />
+          <br className="hide-when-small" />
           <br />
           <br />
           <button
+            className="get-started-button"
             style={{
-              fontSize: "20px",
               backgroundColor: "#F5DC0C",
               WebkitTextFillColor: "#000",
             }}
@@ -43,10 +48,8 @@ function Hero() {
             <CgArrowTopRight id="button-icon2" />
           </button>
         </div>
-        <div className="landing_hero_graphics" data-aos="fade-up">
-          {/* <img src={Desktop} alt="Logo" id="graphic_desktop" /> */}
+        <div className="landing_hero_graphics hide-when-small" data-aos="fade-up">
           <img src={Crypto} alt="Logo" id="graphic_crypto" />
-          {/* <img src={Laptop} alt="Logo" id="graphic_laptop" /> */}
         </div>
       </div>
     </div>

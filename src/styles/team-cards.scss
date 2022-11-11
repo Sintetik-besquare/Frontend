@@ -1,0 +1,90 @@
+// .team-card-tags {
+//     padding-left: 0;
+//     float: left;
+//     display: inline;
+
+//     li {
+//         font-size: smaller;
+//         padding: 10px;
+//         color: white;
+//         background-color: rgba(251, 64, 77, 1);
+//         margin: 5px;
+//         text-align: left;
+//         width: 10rem;
+//     }
+// }
+
+// .team-card-details {
+//     padding-left: 1rem;
+// }
+
+// .team-card-name-font {
+//     font-family: "Poppins";
+//     font-size: 20px;
+//     color: $black;
+//     font-weight: bolder;
+//     display: flex;
+//     width: 25rem;
+//     text-align: left;
+// }
+
+// .team-card-role-font {
+//     font-family: "Poppins";
+//     color: $black;
+//     display: flex;
+//     justify-content: flex-start;
+//     padding-right: 1rem;
+//     text-align: left;
+//     width: 25rem;
+// }
+
+.card-horizontal-left {
+    margin-left: 15rem;
+    width: 50rem;
+    margin-bottom: 0;
+}
+
+.card-horizontal-right {
+    width: 50rem;
+    margin-right: 15rem;
+    float: right;
+}
+
+.meet-the-team-page {
+    padding: 5rem;
+}
+
+@media only screen and (max-width: 800px) {
+
+    #team-card-images-small {
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .member-name {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .card-horizontal-left {
+        width: 100%;
+        height: fit-content;
+        justify-content: justify;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .card-horizontal-right {
+        width: 100%;
+        height: fit-content;
+        justify-content: justify;
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .meet-the-team-page {
+        padding: 1rem;
+    }
+
+}
