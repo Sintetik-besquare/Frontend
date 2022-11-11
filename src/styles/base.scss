@@ -90,7 +90,7 @@ $yellow: rgba(245, 220, 12, 1);
 #home {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-  // overflow: hidden;
+  overflow: hidden;
   padding-top: 200px;
   padding-bottom: 350px;
   display: flex;
@@ -110,9 +110,9 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #company {
-  background: opacity($color: #00000000) ;
-  // padding-top: 100px;
-  padding-bottom: 500px;
+  background: #F5DC0C ;
+  padding-top: 100px;
+  padding-bottom: 250px;
   // display: flex;
   // justify-content: center;
   // background-size: cover;
@@ -682,9 +682,10 @@ $yellow: rgba(245, 220, 12, 1);
   font-weight: 900;
   font-size: 40px;
   // letter-spacing: 5px;
-  margin-top: -40px;
+  margin-top: -20px;
   padding-left: 200px;
   width: 160%;
+  line-height: 100%;
 }
 
 //probably useless
@@ -694,6 +695,7 @@ $yellow: rgba(245, 220, 12, 1);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: normal;
+  line-height: 110%;
 }
 
 @keyframes animStar {

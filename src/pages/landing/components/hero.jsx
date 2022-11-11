@@ -1,8 +1,5 @@
-// import Logo from "../../../assets/logo-sintetik.png";
 import Crypto from "../../../assets/uwu.png";
-// import bird from "../../../assets/bird-dance.gif";
-import Desktop from "../../../assets/desktop-charts.png";
-import Laptop from "../../../assets/laptop.png";
+import { CgArrowTopRight } from "react-icons/cg";
 
 function Hero() {
   return (
@@ -16,14 +13,23 @@ function Hero() {
             SINTETIK
           </span>
           <br />
+          <br />
           <span style={{ fontSize: "80px", WebkitTextFillColor: "#FFF" }}>
-            It Just Gets Better and Better
+            It Just Gets Better and Better.
           </span>
           <br />
-          <span style={{ fontSize: "25px", WebkitTextFillColor: "#2c99ff" }}>
+          <br />
+          <span
+            style={{
+              fontSize: "25px",
+              WebkitTextFillColor: "#2c99ff",
+              lineHeight: "10px",
+            }}
+          >
             Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
             indices, and commodities.
           </span>
+          <br />
           <br />
           <br />
           <button
@@ -33,7 +39,8 @@ function Hero() {
               WebkitTextFillColor: "#000",
             }}
           >
-            <b>Get Started</b>
+            <b>Get Started</b> &nbsp;
+            <CgArrowTopRight id="button-icon2" />
           </button>
         </div>
         <div className="landing_hero_graphics" data-aos="fade-up">

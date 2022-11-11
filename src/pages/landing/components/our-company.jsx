@@ -4,7 +4,7 @@ function OurCompany() {
   return (
     <div id="company">
       <h1 className="valign-text-middle poppins-bold-white-40px2 aboutus">
-        About Us
+        ABOUT US
       </h1>
       <div>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -16,7 +16,7 @@ function OurCompany() {
             data-aos="fade-up"
           >
             <span
-              style={{ color: "White", fontSize: "60px" }}
+              style={{ color: "#FFF", fontSize: "60px" }}
               className="poppins-bold-white-40px2"
             >
               SINTETIK
