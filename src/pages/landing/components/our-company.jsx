@@ -3,7 +3,7 @@ import Crypto2 from "../../../assets/spacemen.png";
 function OurCompany() {
   return (
     <div id="company">
-      <h1 className="title valign-text-middle poppins-bold-white-40px2">
+      <h1 className="valign-text-middle poppins-bold-white-40px2 aboutus">
         ABOUT US
       </h1>
       <div>
@@ -15,7 +15,13 @@ function OurCompany() {
             className="sintetik-is-one-of-t poppins-bold-white-40px-22"
             data-aos="fade-up"
           >
-            <span style={{ color: "#FFF", fontSize: "60px" }} className="poppins-bold-white-40px2">SINTETIK</span>&nbsp;
+            <span
+              style={{ color: "#FFF", fontSize: "60px" }}
+              className="poppins-bold-white-40px2"
+            >
+              SINTETIK
+            </span>
+            &nbsp;
             <span className="poppins-normal-pink-swan-20px">
               is one of the world's largest online brokers. We offer CFDs and
               other derivatives on forex, indices, cryptocurrencies,
