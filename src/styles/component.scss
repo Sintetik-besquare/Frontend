@@ -41,7 +41,6 @@ button {
   align-items: center;
   padding: 0.5rem;
 
-  // .li,
   li {
     text-decoration: none;
     list-style: none;
@@ -208,6 +207,7 @@ button {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -229,6 +229,24 @@ button {
   }
   div {
     width: 60%;
+  }
+}
+
+.form_container {
+  display: block;
+  align-items: center;
+
+  .form_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 200px;
+    border: 1px solid black;
   }
 }
 
@@ -321,11 +339,11 @@ h6 {
 
 @media only screen and (max-width: 800px) {
   .navbar {
+    flex-wrap: nowrap;
+
     .li,
     li {
       margin: 0;
-      // margin-left: 0.1rem;
-      // margin-right: 0.1rem;
     }
   }
   .nav_modal {
@@ -346,8 +364,14 @@ h6 {
     width: 95%;
     font-size: smaller;
   }
+
+  #chart_area {
+    height: 50vh;
+    overflow: scroll;
+  }
 }
 
+// Aaron's css for the landing page
 .sintetik-is-one-of-t {
   margin-top: 200px;
   margin-bottom: 100px;

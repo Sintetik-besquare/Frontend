@@ -3,67 +3,140 @@ import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 
 const OrderForm = () => {
-  const { app_store } = useStores();
-  const [stake, setStake] = useState(0);
+  const { app_store, chart_store } = useStores();
+  let error_message = [];
 
   React.useEffect(() => {
+    console.log(chart_store.index);
     //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin]);
+  }, [app_store.is_loggedin, chart_store]);
 
-  function showLoginModal() {
-    alert("please login first");
-  }
+  function validate() {
+    if (app_store.is_loggedin === false) {
+      error_message.push("please login first ");
+    }
+    if (chart_store.ticks <= 0) {
+      error_message.push(" ticks cannot be 0 ");
+    }
+    if (chart_store.stake <= 0) {
+      error_message.push(" stake cannot be 0 ");
+    }
 
-  function setStakeFromInput(event) {
-    setStake(event.target.value);
+    alert(error_message.join("\n"));
+    error_message = [];
   }
 
   return (
-    <div>
+    <div className="form_container">
       <div>
-        <div className="input">
-          <input type="text" placeholder="Volatility10" />
+        <div className="form_row">
+          <span>Left</span>
+          <div> {chart_store.index}</div>
+          <span>Right</span>
         </div>
-        <div className="input">
-          <input type="text" placeholder="Rise/Fall" />
+
+        <div className="form_row">
+          <span>Left</span>
+          <div>Rise / Fall</div>
+          <span>Right</span>
         </div>
-        <b>Ticks</b>
-        <div className="input flex">
+      </div>
+
+      <div>
+        <div className="form_row">
           <button
-            disabled={stake <= 0}
+            disabled={chart_store.ticks <= 0}
             onClick={() => {
-              setStake(stake - 1);
+              chart_store.ticks(chart_store.ticks--);
             }}
           >
             -
           </button>
           <input
-            type="text"
-            placeholder={stake}
-            onChange={setStakeFromInput}
+            type="number"
+            placeholder={chart_store.ticks}
+            style={{ width: "100%" }}
+            onChange={(e) => {
+              chart_store.setTicks(e.target.value);
+            }}
           />
           <button
+            disabled={chart_store.ticks >= 10}
             onClick={() => {
-              setStake(stake + 1);
+              chart_store.ticks(chart_store.ticks++);
             }}
           >
             +
           </button>
         </div>
-        {app_store.is_loggedin === true ? (
-          <span>
-            <button className="button_green_light">BUY</button>
-            <button className="button_red_light">SELL</button>
-          </span>
-        ) : (
-          <span
+
+        <div className="form_row">
+          <button
+            disabled={chart_store.stake <= 0}
             onClick={() => {
-              showLoginModal();
+              chart_store.stake(chart_store.stake--);
             }}
           >
-            <button disabled={true}>BUY</button>
-            <button disabled={true}>SELL</button>
-          </span>
+            -
+          </button>
+          <input
+            type="number"
+            placeholder={chart_store.stake}
+            style={{ width: "100%" }}
+            onChange={(e) => {
+              chart_store.setStake(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              chart_store.stake(chart_store.stake++);
+            }}
+          >
+            +
+          </button>
+        </div>
+      </div>
+      <div>
+        {app_store.is_loggedin === true &&
+        chart_store.stake > 0 &&
+        chart_store.ticks > 0 ? (
+          <>
+            <button
+              className="form_row button_green_light"
+              onClick={(e) => {
+                chart_store.setOptionType("CALL");
+              }}
+            >
+              CALL
+            </button>
+            <button
+              className="form_row button_red_light"
+              onClick={(e) => {
+                chart_store.setOptionType("PUT");
+              }}
+            >
+              PUT
+            </button>
+          </>
+        ) : (
+          <>
+            <button
+              className="form_row "
+              onClick={() => {
+                validate();
+              }}
+            >
+              CALL
+            </button>
+            <button
+              className="form_row "
+              onClick={() => {
+                validate();
+              }}
+            >
+              PUT
+            </button>
+          </>
         )}
       </div>
     </div>
