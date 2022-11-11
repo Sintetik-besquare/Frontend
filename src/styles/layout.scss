@@ -39,6 +39,27 @@
   width: 100%;
 }
 
+.trade_page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1500px) {
+  .trade_page {
+    display: block;
+  }
+  .form_container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    .form_row {
+      width: 200px;
+    }
+  }
+}
+
 @media only screen and (max-width: 1000px) {
   .cards-container {
     flex-wrap: wrap;
