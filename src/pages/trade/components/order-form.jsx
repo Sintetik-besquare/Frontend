@@ -4,25 +4,32 @@ import { observer } from "mobx-react-lite";
 
 const OrderForm = () => {
   const { app_store, chart_store } = useStores();
-  const [stake, setStake] = useState(0);
+  let error_message = [];
 
   React.useEffect(() => {
     console.log(chart_store.index);
     //rerender UI when store.isloggedin change
   }, [app_store.is_loggedin, chart_store]);
 
-  function promptLogin() {
-    alert("please login first");
-  }
+  function validate() {
+    if (app_store.is_loggedin === false) {
+      error_message.push("please login first ");
+    }
+    if (chart_store.ticks <= 0) {
+      error_message.push(" ticks cannot be 0 ");
+    }
+    if (chart_store.stake <= 0) {
+      error_message.push(" stake cannot be 0 ");
+    }
 
-  function setStakeFromInput(event) {
-    setStake(event.target.value);
+    alert(error_message.join('\n'));
+    error_message=[]
   }
 
   return (
     <div className="form_container">
       <h3 style={{ color: "black" }}>
-        stake {chart_store.stake}, {chart_store.ticks} ticks <br/>
+        stake {chart_store.stake}, {chart_store.ticks} ticks <br />
         {chart_store.option_type} {chart_store.index} <br />
         <br />
       </h3>
@@ -116,16 +123,16 @@ const OrderForm = () => {
         <>
           <button
             className="form_row "
-            onClick={(e) => {
-              chart_store.setOptionType("CALL");
+            onClick={() => {
+              validate();
             }}
           >
             CALL
           </button>
           <button
             className="form_row "
-            onClick={(e) => {
-              chart_store.setOptionType("PUT");
+            onClick={() => {
+              validate();
             }}
           >
             PUT
