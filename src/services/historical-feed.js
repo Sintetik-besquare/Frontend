@@ -8,12 +8,12 @@ async function getHistoricalFeed() {
     }),
   })
     .then((response) => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then((json) => {
-      console.log(json);
-      return json;
+      // console.table(json.message);
+      return json.message;
     });
 }
 
