@@ -1,4 +1,5 @@
 @import "./base.scss";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 
 // REUSABLE COMPONENTS (BTN, NAV, LINK, CARD, ETC)
@@ -11,6 +12,7 @@ button {
 .hide-when-big {
   display: none;
 }
+
 .square-button {
   border: $black;
   border-radius: 0%;
@@ -117,16 +119,15 @@ button {
   width: 100%;
 
   input {
-  width: 60%;
+    width: 60%;
     padding: 1rem;
     border: none;
     outline: none;
     background-color: rgba(29, 29, 29, 1);
     color: rgba(187, 187, 187, 0.8);
-  
+  }
 }
-}
-    
+
 .tags {
   // width: 100%;
   display: flex;
@@ -146,7 +147,7 @@ button {
 .container {
   padding-left: 25%;
   padding-right: 25%;
-
+  padding-bottom: 5%;
 }
 
 .card {
@@ -184,8 +185,8 @@ button {
   margin-top: 2rem;
   background-color: rgba(56, 56, 56, 1);
   display: flex;
-    justify-content: center;
-border-top-left-radius: 10px;
+  justify-content: center;
+  border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
 }
 .signin-details-card,
@@ -194,9 +195,9 @@ border-top-left-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 2rem;
   margin-top: 2rem;
-width: 40%;
+  width: 40%;
   background-color: rgba(29, 29, 29, 1);
-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
@@ -217,19 +218,18 @@ border-top-right-radius: 10px;
   justify-content: space-between;
   align-items: center;
   height: 350px;
-  width: 80%;
+  width: 100%;
   margin: auto;
   margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 1rem;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
 
   img {
     height: 100%;
     width: 40%;
     object-fit: cover;
     border-radius: 1rem;
-    
   }
   div {
     width: 60%;
@@ -242,14 +242,31 @@ border-top-right-radius: 10px;
   line-height: normal;
   min-height: 197px;
   text-align: justify;
-  width: 976px;
+  width: 720px;
   color: #bbb;
   font-family: "Poppins";
   font-size: 22px;
   line-height: 180%;
 }
 
-.poppins-bold-white-40px2,
+.poppins-bold-white-40px2 {
+  font-size: 80px;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins";
+  font-weight: 900;
+  margin-top: 0px;
+}
+
+.poppins-bold-white-40px-22 {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  // width: 50%;
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 27px;
+  margin-left: -150px;
+}
+
 h1,
 h2 {
   font-size: 60px;
@@ -277,7 +294,6 @@ h5 {
   font-size: 13px;
   color: $red;
   font-family: "Poppins";
-
 }
 
 h6 {
@@ -285,6 +301,7 @@ h6 {
   color: #fff;
   font-family: "Poppins";
 }
+
 
 .team-card-tags {
   padding-left: 0;
@@ -325,6 +342,7 @@ h6 {
   text-align: left;
   width: 25rem;
 }
+
 .valign-text-middle {
   display: flex;
   flex-direction: column;
@@ -345,6 +363,7 @@ h6 {
 
 .homepage-heading2 {
   font-size: 80px;
+  line-height: 10px;
 }
 
 .homepage-heading3 {
@@ -491,6 +510,7 @@ h6 {
   display: none;
 }
 
+
 .signin-details-card,
 .signup-details-card {
   width: 100%;
@@ -499,7 +519,6 @@ h6 {
   border-radius: 0px;
   justify-content: center;
 }
-
 #password-icon {
   font-size: 12px;
 }
@@ -582,6 +601,48 @@ h6 {
 .get-started-button {
   font-size: 10px;
 }
+}
+
+#graphic_crypto2 {
+  animation: shake 2s;
+  animation-iteration-count: infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+
+
 
 }
 // .aboutus {
@@ -598,19 +659,18 @@ h6 {
 // }
 
 .aboutus {
-  background: radial-gradient(
-    #F5DC0C, 
-    hsl(200 100% 60%) 
-  ) fixed;
-  background: conic-gradient(
-    #77ff33, 
-    hsl(200 100% 60%), 
-    hsl(100 100% 60%) 
-  ) fixed;
-  // -webkit-background-clip: text;
-  // -webkit-text-fill-color: transparent;
-  font-family: Poppins;
-} 
+  // position: p;
+  // top: 50%;
+  // left: 50%;
+  font-family: "Raleway";
+  font-size: 100px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+  text-align: center;
+}
 .landing_hero_graphics {
   animation-name: landing_hero_graphics;
   animation-duration: 2.5s;
@@ -621,15 +681,19 @@ h6 {
 }
 
 @keyframes landing_hero_graphics {
-  from {
+  0% {
     transform: translate(0, 0px);
   }
-
-  55% {
-    transform: translate(0, 15px);
+  25% {
+    transform: translate(0, 25px);
   }
-
-  to {
-    transform: translate(0, -0px);
+  50% {
+    transform: translate(20px, 0px);
+  }
+  75% {
+    transform: translate(15px, 35px);
+  }
+  100% {
+    transform: translate(0, 0px);
   }
 }

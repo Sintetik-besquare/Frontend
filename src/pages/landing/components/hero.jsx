@@ -1,8 +1,5 @@
-// import Logo from "../../../assets/logo-sintetik.png";
 import Crypto from "../../../assets/uwu.png";
-// import bird from "../../../assets/bird-dance.gif";
-// import Desktop from "../../../assets/desktop-charts.png";
-// import Laptop from "../../../assets/laptop.png";
+import { CgArrowTopRight } from "react-icons/cg";
 
 function Hero() {
   return (
@@ -38,6 +35,7 @@ function Hero() {
           </span>
           <br className="hide-when-small" />
           <br />
+          <br />
           <button
             className="get-started-button"
             style={{
@@ -45,7 +43,8 @@ function Hero() {
               WebkitTextFillColor: "#000",
             }}
           >
-            <b>Get Started</b>
+            <b>Get Started</b> &nbsp;
+            <CgArrowTopRight id="button-icon2" />
           </button>
         </div>
         <div className="landing_hero_graphics" data-aos="fade-up">
