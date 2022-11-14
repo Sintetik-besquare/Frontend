@@ -4,43 +4,50 @@ import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 
 const OrderForm = () => {
+  /**
+   * @type {React.MutableRefObject<Socket>}
+   */
   const socket = useRef();
-  const TOKEN = process.env.TOKEN;
+  const { app_store, chart_store } = useStores();
+  const TOKEN = app_store.access_token;
+  let error_message = [];
 
   useEffect(() => {
-    var socket_connection = io.connect("http://localhost:3002", {
+    socket.current = io("http://localhost:3001", {
       query: {
         token: TOKEN,
       },
     });
-    socket_connection.on("buy", (message) => {
+    socket.current.on("getfeed", () => {
+      console.log("connected to server");
+    });
+    socket.current.on("buy", (message) => {
       console.log(message);
     });
 
-    socket_connection.on("iswinning", (message) => {
+    socket.current.on("iswinning", (message) => {
       console.log(message);
     });
-    socket_connection.on("sell", (message) => {
+    socket.current.on("sell", (message) => {
       console.log(message);
     });
-    socket.current = socket_connection;
-    //prevent spam
-    return () => socket_connection.disconnect(true);
+    // socket.current = socket_connection; // assign current socket_connection to useRef socket
+    return () => socket.current.disconnect(true); // prevent spam connection
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  function emitOrder() {
-    socket.current.emit("order", {
+  const emitOrder = () => {
+    let order = {
       index: chart_store.index,
       stake: chart_store.stake,
       ticks: chart_store.ticks,
       option_type: chart_store.option_type,
       entry_time: "",
-    });
-  }
-
-  const { app_store, chart_store } = useStores();
-  let error_message = [];
-
+    };
+    socket.current.emit("order", order);
+    console.log(socket.current); // connected: true
+    console.log(order); // Volatility 10 (1s)
+  };
   function validate() {
     if (app_store.is_loggedin === false) {
       error_message.push("please login first ");
@@ -59,10 +66,9 @@ const OrderForm = () => {
   return (
     <div className="form_container">
       {/* <h3 style={{ color: "black" }}>
-        {chart_store.historical_price}
         {chart_store.index}
-        {chart_store.option_type}
-        {chart_store.ticks}
+        {chart_store.option_type}<br />
+        {chart_store.ticks}<br />
         {chart_store.stake}
       </h3> */}
       <div>
@@ -140,7 +146,7 @@ const OrderForm = () => {
           <>
             <button
               className="form_row button_green_light"
-              onClick={(e) => {
+              onClick={() => {
                 chart_store.setOptionType("call");
                 emitOrder();
               }}
@@ -149,8 +155,9 @@ const OrderForm = () => {
             </button>
             <button
               className="form_row button_red_light"
-              onClick={(e) => {
+              onClick={() => {
                 chart_store.setOptionType("put");
+                emitOrder();
               }}
             >
               put

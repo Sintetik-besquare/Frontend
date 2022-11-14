@@ -5,15 +5,21 @@ import { observer } from "mobx-react-lite";
 import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
+import { performLogin } from "../../services/backend";
 
 const SigninPage = () => {
   const { app_store } = useStores();
   const navigate = useNavigate();
-
-  function login() {
-    navigate("/", { replace: true });
-    app_store.setLogin(true);
-  }
+  const [loginPromise,setLoginPromise]=React.useState(null);
+  React.useEffect(()=>{
+    loginPromise?.then(z=>{
+      app_store.setAccessToken(z);
+      navigate("/trade", { replace: true });
+    },e=>{
+      console.error(e);
+      alert("Login FAILED")
+    })
+  },[app_store,navigate,loginPromise]);
 
   return (
     <div id="signin-background">
@@ -27,7 +33,14 @@ const SigninPage = () => {
               <center>SIGN IN</center>
             </b>
           </h2>
-          <form className="signin-form">
+          <form className="signin-form" onSubmit={function(e){
+            e.preventDefault();
+            /**
+             * @type {HTMLFormElement}
+             */
+            const form=e.nativeEvent.target;
+            setLoginPromise(performLogin(form.elements['username'].value,form.elements['password'].value))
+          }}>
 
             <h4
               style={{
@@ -42,12 +55,12 @@ const SigninPage = () => {
             </h4>{" "}
             &nbsp;
             <div className="signin-input">
-              <input type="text" placeholder="Username" id="uname-input" />
+              <input  type="text" placeholder="Username" name="username" id="uname-input" />
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
             <div className="signin-input">
-              <input type="password" placeholder="Password" id="pw-input" />
+              <input type="password" placeholder="Password" name="password" id="pw-input" />
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
@@ -55,10 +68,8 @@ const SigninPage = () => {
             &nbsp;
             <center>
               <button
+              name="submit"
                 className="button_green_dark"
-                onClick={() => {
-                  login();
-                }}
               >
                 <b>Log In</b>
                 <div>

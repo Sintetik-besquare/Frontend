@@ -16,7 +16,8 @@ const NavModal = () => {
   }
 
   function logout() {
-    app_store.setLogin(false);
+    app_store.setAccessToken("");
+    localStorage.clear();
     app_store.setShowModal(false);
   }
 
@@ -26,9 +27,9 @@ const NavModal = () => {
     app_store.setShowModal(false);
   }
 
-  React.useEffect(() => {
-    //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin, app_store.show_modal]);
+  // React.useEffect(() => {
+  //   //rerender when store.isloggedin change
+  // }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
     <div className="nav_modal">
