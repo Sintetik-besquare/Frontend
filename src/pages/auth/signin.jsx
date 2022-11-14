@@ -32,7 +32,7 @@ const SigninPage = () => {
             <h4
               style={{
                 paddingLeft: "0rem",
-                textAlign: "center",
+                textAlign: "left",
                 marginRight: "3rem",
               }}
             >

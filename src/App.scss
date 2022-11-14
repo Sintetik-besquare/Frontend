@@ -30,13 +30,14 @@
   top: -27rem;
   right: -75%;
   width: 170%;
+  padding-right: 3rem;
 }
 
 .image2{
   width: 40%;
   // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
   background: radial-gradient(circle, white 0%, #F5DC0C 70%);
-  // filter: drop-shadow(0 0 0.75rem lightgreen);
+  // filter: drop-shadow(0 0 0.75rem lightimage2green);
 #graphic_crypto2 {
   position: absolute;
   margin-top: 2rem;
@@ -69,9 +70,15 @@
     right: 40%;
   }
   #graphic_crypto {
-    top: -8rem;
-    right: 10%;
+    top: -15rem;
+    right: -15rem;
+    width: 100%;
   }
+
+  .image2{
+    width:100%;
+  }
+
 }
 
 @media only screen and (max-width: 1000px) {

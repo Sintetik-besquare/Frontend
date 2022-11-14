@@ -21,6 +21,13 @@
     flex: column;
 }
 
+@media only screen and (max-width: 1500px) {
+    #graphic_crypto {
+        // position: static;
+        width: 100%;
+    }
+}
+
 @media only screen and (max-width: 800px) {
 
     #home {
