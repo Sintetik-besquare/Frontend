@@ -105,8 +105,8 @@ button {
     list-style: none;
     font-size: smaller;
     padding: 5px 10px;
-    color: $yellow;
-    border: 1px solid $yellow;
+    color: white;
+    border: 1px solid white;
     border-radius: 1rem;
   }
 }
@@ -152,10 +152,10 @@ button {
   height: 350px;
   width: 100%;
   margin: auto;
-  margin-top: 100px;
+  // margin-top: 100px;
   margin-bottom: 100px;
   border-radius: 1rem;
-  background-color: #f3f3f3;
+  // background-color: black;
 
   img {
     height: 100%;
@@ -187,24 +187,23 @@ button {
 }
 
 .sintetik-is-one-of-t {
-  margin-top: 200px;
+  // margin-top: 200px;
   margin-bottom: 200px;
-  line-height: normal;
-  min-height: 197px;
   text-align: justify;
-  width: 720px;
+  width: 40%;
   color: #bbb;
   font-family: "Poppins";
   font-size: 22px;
-  line-height: 180%;
+  padding-right:3rem;
 }
 
 .poppins-bold-white-40px2 {
-  font-size: 80px;
-  color: rgb(255, 255, 255);
+  top: 2rem;
+  color: black;
   font-family: "Poppins";
-  font-weight: 900;
   margin-top: 0px;
+  margin-bottom: 0;
+  // margin-left: 25rem;
 }
 
 .poppins-bold-white-40px-22 {
@@ -212,9 +211,10 @@ button {
   color: rgb(0, 0, 0);
   // width: 50%;
   font-family: "Poppins";
+  float: right;
+  text-align: end;
   font-weight: 900;
   font-size: 27px;
-  margin-left: -150px;
 }
 
 h1,
@@ -256,6 +256,7 @@ h6 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -266,10 +267,10 @@ h6 {
   width: 100%;
 }
 
-#graphic_crypto2 {
-  animation: shake 2s;
-  animation-iteration-count: infinite;
-}
+// #graphic_crypto2 {
+//   animation: shake 2s;
+//   animation-iteration-count: infinite;
+// }
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
@@ -321,15 +322,14 @@ h6 {
 .aboutus {
   // position: p;
   // top: 50%;
-  // left: 50%;
-  font-family: "Raleway";
-  font-size: 100px;
-  letter-spacing: 0.1em;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
-  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
-  text-align: center;
+  font-family: "Poppins";
+  font-size:3rem;
+  // letter-spacing: 0.1em;
+  // -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke-width: 3px;
+  // -webkit-text-stroke-color: white;
+  // text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+  text-align:right;
 }
 
 .landing_hero_graphics {
@@ -376,25 +376,26 @@ h6 {
   }
 
   // below this line is new
-  .sintetik-is-one-of-t {
-    margin-top: 350px;
-      margin-bottom: 50px;
-      margin-left: 0;
-    line-height: normal;
-    min-height: 197px;
-    // text-align: center;
-    color: rgb(0, 0, 0);
-    font-family: "Poppins";
-    line-height: 180%;
-      width: 90%;
-  }
+  // .sintetik-is-one-of-t {
+  //   margin-top: 350px;
+  //     margin-bottom: 50px;
+  //     margin-left: 0;
+  //   line-height: normal;
+  //   min-height: 197px;
+  //   // text-align: center;
+  //   color: rgb(0, 0, 0);
+  //   font-family: "Poppins";
+  //   line-height: 180%;
+  //     width: 90%;
+  // }
   
   .poppins-bold-white-40px2 {
     font-size: 80px;
-    color: rgb(255, 255, 255);
+    color: black;
     font-family: "Poppins";
     font-weight: 900;
     margin-top: 0px;
+    width: 100%;
   }
   
   .poppins-bold-white-40px-22 {
@@ -456,23 +457,17 @@ h6 {
   }
   
   #title {
-    width: 100%;
-    padding-left: 1rem;
-    padding-top: 4rem;
-    text-align: center;
+    // width: 100%;
+    // padding-left: 1rem;
+    // padding-top: 4rem;
+    // text-align: center;
   }
-  
-  .poppins-bold-white-40px2 {
-    width: 100%;
-  }
+
   
   .aboutus {
     font-size: 50px;
   }
-  
-  .about-us-text {
-    float: right;
-  }
+
   
   .poppins-normal-pink-swan-20px {
     font-size: 20px;
@@ -539,6 +534,7 @@ h6 {
   font-family: "Poppins";
   font-weight: 900;
   margin-top: 0px;
+  width: 100%;
 }
 
 .poppins-bold-white-40px-22 {
@@ -600,22 +596,14 @@ h6 {
 }
 
 #title {
-  width: 100%;
-  padding-left: 1rem;
-  padding-top: 4rem;
-  text-align: center;
-}
-
-.poppins-bold-white-40px2 {
-  width: 100%;
+  // width: 100%;
+  // padding-left: 1rem;
+  // padding-top: 4rem;
+  // text-align: center;
 }
 
 .aboutus {
   font-size: 50px;
-}
-
-.about-us-text {
-  float: right;
 }
 
 .poppins-normal-pink-swan-20px {

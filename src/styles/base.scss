@@ -84,13 +84,14 @@ $yellow: rgba(245, 220, 12, 1);
 
 #home {
   height: 100%;
-  background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
+  // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
   overflow: hidden;
-  padding-top: 200px;
-  padding-bottom: 350px;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
   display: flex;
   // justify-content: center;
   background-size: cover;
+  // background-image: ;
 }
 
 #about {
@@ -105,9 +106,10 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #company {
-  background: #F5DC0C ;
-  padding-top: 100px;
-  padding-bottom: 250px;
+  background: lightgray;
+    padding-top: 7rem;
+    padding-bottom: 30rem;
+    width: 100%;
   // display: flex;
   // justify-content: center;
   // background-size: cover;
@@ -672,14 +674,15 @@ $yellow: rgba(245, 220, 12, 1);
   // margin-left: 55%;
   // right: 50%;
   // color: #000000;
-  text-align: left;
+  text-align: center;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 40px;
   // letter-spacing: 5px;
   margin-top: -20px;
-  padding-left: 200px;
-  width: 160%;
+  // padding-left: 5rem;
+    width: 90%;
+    height: 130%;
   line-height: 100%;
 }
 

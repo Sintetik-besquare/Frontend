@@ -1,68 +1,74 @@
-.homepage-title {
-    font-size: 45px;
+@media only screen and (max-width: 2570px) {
+    .hero-page-flex-block {
+        padding-left: 22rem;
+    }
+        .homepage-title {
+        font-size: 15rem;
+        }
+        }
+        
+        .homepage-title {
+            font-size: 5rem;
+        }
+        
+        .hero-video {
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            left: 0rem;
+            top: 0rem;
+            // height: 100%;
 }
 
 .homepage-heading2 {
-    font-size: 80px;
-    line-height: 10px;
 }
 
 .homepage-heading3 {
-    font-size: 25px;
+
 }
 
 .get-started-button {
-    font-size: 20px;
-}
-
-.hero-page-flex-block {
-    // width: 90%;
-    display: flexbox;
-    flex: column;
+    background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
+        font-size: 1rem;
 }
 
 @media only screen and (max-width: 1500px) {
     #graphic_crypto {
-        // position: static;
-        width: 100%;
+        // test
+        }
+        
+        .hero-page-flex-block {
+            display: flex;
+            place-items: center;
+            padding-left: 4.5rem;
+            margin-left: 30%;
     }
 }
 
 @media only screen and (max-width: 800px) {
 
-    #home {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
+#home {
 
-    .hero-page-flex-block {
-        width: 90%;
-        display: flex;
-    }
+}
+.hero-page-flex-block {
+padding-left: 1rem;
+}
 
 
-    .homepage-title {
-        font-size: 40px;
-    }
+.homepage-title {
+}
+.homepage-heading2 {
+}
 
-    .homepage-heading2 {
-        font-size: 30px;
-    }
+.homepage-heading3 {
+}
 
-    .homepage-heading3 {
-        font-size: 15px;
-    }
+.get-started-button {
+}
 
-    .get-started-button {
-        font-size: 10px;
-    }
+#graphic_crypto {
+}
 
-    #graphic_crypto {
-        position: static;
-        width: 10%;
-    }
-
-    .flex-block {
-        display: inline-block;
-    }
+.flex-block {
+}
 }
