@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
@@ -8,18 +8,14 @@ import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/backend";
 
 const SignUp = () => {
-  // const { app_store } = useStores();
-  // const navigate = useNavigate();
-
-  // function register() {
-  //   navigate("/", { replace: true });
-  //   app_store.setLogin(true);
-  // }
-
   const { app_store } = useStores();
   const navigate = useNavigate();
-  const [signupPromise, setSignupPromise] = React.useState(null);
-  React.useEffect(() => {
+  const [signupPromise, setSignupPromise] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [checkbox, setCheckbox] = useState(false);
+
+  useEffect(() => {
     signupPromise?.then(
       (z) => {
         app_store.setAccessToken(z);
@@ -60,12 +56,12 @@ const SignUp = () => {
             <h4>Let's get started shall we...</h4>
             &nbsp;
             <div className="signin-input">
-              <input type="text" placeholder="Username" name="username" />
+              <input type="text" placeholder="Username" name="username" onChange={(e)=>{setUsername(e.target.value)}}/>
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
             <div className="signin-input">
-              <input type="password" placeholder="Password" name="password" />
+              <input type="password" placeholder="Password" name="password" onChange={(e) => {setPassword(e.target.value)}}/>
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
@@ -74,7 +70,7 @@ const SignUp = () => {
                 display: "flex",
               }}
             >
-              <input type="checkbox" />
+              <input type="checkbox" onClick={() => {setCheckbox(!checkbox)}}/>
               <h6>
                 I agree to the
                 <a
@@ -88,20 +84,36 @@ const SignUp = () => {
             </div>
             &nbsp;
             <center>
-              <button className="button_green_dark" name="submit">
-                <b>Register</b>
-                <div>
-                  <FiUpload id="button-icon" />
-                </div>
-              </button>
+              {username === "" || password === "" || checkbox === false ? (
+                <>
+                  <button
+                    style={{ backgroundColor: "black", color: "gray" }}
+                    disabled
+                  >
+                    <b>Register</b>
+                    <div>
+                      <FiUpload id="button-icon" />
+                    </div>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button className="form_row button_green_dark" name="submit">
+                    <b>Register</b>
+                    <div>
+                      <FiUpload id="button-icon" />
+                    </div>
+                  </button>
+                </>
+              )}
               &nbsp;
             </center>
             <center>
               <h6>
-                Already have an account?{" "}
+                Already have an account?
                 <a href="signin" style={{ color: "red" }}>
                   Sign in
-                </a>{" "}
+                </a>
               </h6>
             </center>
           </form>
