@@ -8,6 +8,10 @@
 @import "./styles/team-cards.scss";
 @import "./styles/home-hero.scss";
 
+#root{
+  overflow-x: hidden;
+}
+
 #home {
   background-color: $black;
   color: white;

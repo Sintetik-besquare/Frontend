@@ -13,21 +13,15 @@ const NavBar = () => {
 
   function signin() {
     navigate("/signin", { replace: true });
-    // app_store.setLogin(true);
   }
 
   function signup() {
     navigate("/signup", { replace: true });
-    // app_store.setLogin(true);
   }
-
-  React.useEffect(() => {
-    //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin, app_store.show_modal]);
 
   return (
     <div id="header">
-      <div className="flex-block" style={{ background:  "#000000" }}>
+      <div className="flex-block" style={{ background: "#000000" }}>
         <div style={{ display: "flex" }}>
           <img src={Logo} alt="Logo" style={{ width: "10%", height: "10%" }} />
           <h3 style={{ float: "left" }}>SINTETIK</h3>
