@@ -32,9 +32,6 @@
             // height: 100%;
 }
 
-.homepage-heading2 {
-}
-
 .homepage-heading3 {
 
 }
@@ -91,4 +88,47 @@ padding-left: 0;
     .homepage-title {
         font-size: 3rem;
     }
+}
+
+@media only screen and (max-width: 500px) {
+    #home {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+    }
+    .hero-page-flex-block {
+    padding-right: 10rem;
+    padding-left: 0;
+    margin-left: 35%;
+    }
+    
+    .homepage-title {
+        font-size: 2rem;
+    }
+
+    .homepage-heading2 {
+        font-size: 1.5rem;
+    }
+
+    #title {
+        font-size: 1rem;
+        width:100%;
+    }
+
+    .get-started-button {
+        font-size: 0.5rem;
+    }
+
+    video {
+        position: absolute;
+        transform: rotate(90deg);
+      
+        transform-origin: bottom left;
+        width: 100vh;
+        height: 100vw;
+        margin-top: -100vw;
+        object-fit: cover;
+      
+        z-index: 4;
+        visibility: visible;
+      }
 }

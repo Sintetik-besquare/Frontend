@@ -1,6 +1,6 @@
 function CoreValues() {
   return (
-    <div style={{ display: "flex", padding: "0 5rem 5rem 5rem" }}>
+    <div className="core-value-div">
       <div className="core-value-title">
         <h1 className="poppins-bold-white-40px2" data-aos="fade-right">Our Core Values</h1>
       </div>

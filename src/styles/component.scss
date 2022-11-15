@@ -526,15 +526,17 @@ h6 {
   font-family: "Poppins";
   line-height: 180%;
     width: 90%;
+    padding: 0 1rem;
 }
 
 .poppins-bold-white-40px2 {
-  font-size: 80px;
+  font-size: 50px;
   color: black;
   font-family: "Poppins";
   font-weight: 900;
   margin-top: 0px;
   width: 100%;
+  text-align: center;
 }
 
 .poppins-bold-white-40px-22 {
@@ -544,7 +546,7 @@ h6 {
   font-family: "Poppins";
   font-weight: 900;
   font-size: 27px;
-  margin-left: 10px;
+  text-align: justify;
 }
 
 .card-horizontal {
@@ -605,6 +607,8 @@ h6 {
 
 .aboutus {
   font-size: 50px;
+  text-align: center;
+  padding-left: 2rem;
 }
 
 .poppins-normal-pink-swan-20px {
