@@ -2,7 +2,7 @@ import people from "../../../data/team.json";
 
 function MeetOurTeam() {
   return (
-    <div style={{position:"relative"}}>
+    <div style={{ position: "relative" }}>
       {/* <div className="fog">
         <div id="foglayer_01" class="fog">
           <div class="image01"></div>
@@ -18,6 +18,9 @@ function MeetOurTeam() {
         </div>
       </div> */}
       <div id="about" style={{ backgroundColor: "black" }}>
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
         <h1
           className="valign-text-middle poppins-bold-white-40px2"
           data-aos="fade-left"

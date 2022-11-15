@@ -9,6 +9,8 @@
 @import "./styles/home-hero.scss";
 @import "./styles/fog.scss";
 @import "./styles/home_hero_vertical_roll.scss";
+@import "./styles/glassmorphism.scss";
+
 
 
 
@@ -42,7 +44,7 @@
 }
 
 .image2{
-  width: 40%;
+  width: 90%;
   // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
   background: radial-gradient(circle, white 0%, #F5DC0C 70%);
   // filter: drop-shadow(0 0 0.75rem lightimage2green);
@@ -52,7 +54,7 @@
     // width: 50%;
     bottom: 0;
     // top: 45rem;
-    background-image: linear-gradient(transparent, transparent, white, white);
+    background-image: linear-gradient(transparent, white, white);
 }
 }
 

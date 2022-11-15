@@ -16,7 +16,7 @@ function Hero() {
           >
             SINTETIK
           </span>
-          <br />
+          <br className="hide-when-small"/>
           <br />
           <span
             className="homepage-heading2"
