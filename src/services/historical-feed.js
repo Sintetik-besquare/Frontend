@@ -1,4 +1,3 @@
-//connect to resource
 async function getHistoricalFeed() {
   return await fetch("http://localhost:3002/feed/historical", {
     method: "GET",
