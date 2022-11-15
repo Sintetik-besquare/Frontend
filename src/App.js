@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useStores } from "./store";
+import React from "react";
 import { observer } from "mobx-react-lite";
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -13,20 +12,6 @@ import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
 
 const App = () => {
-  const { app_store } = useStores();
-
-  useEffect(() => {
-    if (
-      localStorage.getItem(
-        "ACCESS_TOKEN" !== null && "ACCESS_TOKEN" !== undefined
-      )
-    ) {
-      app_store.setLogin(true);
-    } else {
-      app_store.setLogin(false);
-    }
-  }, [app_store]);
-
   return (
     <div>
       <BrowserRouter>

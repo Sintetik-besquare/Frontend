@@ -15,16 +15,14 @@ const SigninPage = () => {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    loginPromise?.then(
-      (z) => {
+    loginPromise?.then((z) => {
+      if (typeof z === "string") {
         app_store.setAccessToken(z);
         navigate("/trade", { replace: true });
-      },
-      (e) => {
-        console.error(e);
-        alert("Signin FAILED");
+      } else {
+        z.forEach((e) => console.log(e.msg));
       }
-    );
+    });
   }, [app_store, navigate, loginPromise]);
 
   return (

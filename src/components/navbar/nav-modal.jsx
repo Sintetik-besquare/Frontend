@@ -19,6 +19,7 @@ const NavModal = () => {
     app_store.setAccessToken("");
     localStorage.clear();
     app_store.setShowModal(false);
+    app_store.setLogin(false);
   }
 
   function resetWallet() {

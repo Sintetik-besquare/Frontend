@@ -21,8 +21,9 @@ export async function performSignup(email, password) {
   }
   let jsonRes = await res.json();
   if (!("token" in jsonRes)) {
-    console.log("token not in response :(");
-    jsonRes.errors.forEach(e => console.log(e.msg));
+    // console.log("token not in response :(");
+    // jsonRes.errors.forEach(e => console.log(e.msg));
+    return jsonRes.errors;
   } else {
     console.log(jsonRes);
     return jsonRes.token;
@@ -40,8 +41,9 @@ export async function performSignin(email, password) {
   }
   let jsonRes = await res.json();
   if (!("token" in jsonRes)) {
-    console.log("token not in response :<");
-    jsonRes.errors.forEach(e => console.log(e.msg));
+    // console.log("token not in response :<");
+    // jsonRes.errors.forEach(e => console.log(e.msg));
+    return jsonRes.errors;
   } else {
     console.log(jsonRes);
     return jsonRes.token;

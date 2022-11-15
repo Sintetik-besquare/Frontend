@@ -16,16 +16,14 @@ const SignUp = () => {
   const [checkbox, setCheckbox] = useState(false);
 
   useEffect(() => {
-    signupPromise?.then(
-      (z) => {
+    signupPromise?.then((z) => {
+      if (typeof z === "string") {
         app_store.setAccessToken(z);
         navigate("/trade", { replace: true });
-      },
-      (e) => {
-        console.error(e);
-        alert("Signup FAILED");
+      } else {
+        z.forEach((e) => console.log(e.msg));
       }
-    );
+    });
   }, [app_store, navigate, signupPromise]);
   return (
     <div id="signup-background">
