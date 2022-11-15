@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
-import { performSignup } from "../../services/backend";
+import { performSignup } from "../../services/auth";
 
 const SignUp = () => {
   const { app_store } = useStores();
@@ -23,11 +23,10 @@ const SignUp = () => {
       },
       (e) => {
         console.error(e);
-        alert("Login FAILED");
+        alert("Signup FAILED");
       }
     );
   }, [app_store, navigate, signupPromise]);
-
   return (
     <div id="signup-background">
       <div id="signup">
@@ -56,12 +55,26 @@ const SignUp = () => {
             <h4>Let's get started shall we...</h4>
             &nbsp;
             <div className="signin-input">
-              <input type="text" placeholder="Username" name="username" onChange={(e)=>{setUsername(e.target.value)}}/>
+              <input
+                type="text"
+                placeholder="Username"
+                name="username"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
             <div className="signin-input">
-              <input type="password" placeholder="Password" name="password" onChange={(e) => {setPassword(e.target.value)}}/>
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
@@ -70,7 +83,12 @@ const SignUp = () => {
                 display: "flex",
               }}
             >
-              <input type="checkbox" onClick={() => {setCheckbox(!checkbox)}}/>
+              <input
+                type="checkbox"
+                onClick={() => {
+                  setCheckbox(!checkbox);
+                }}
+              />
               <h6>
                 I agree to the
                 <a

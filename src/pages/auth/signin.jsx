@@ -5,12 +5,12 @@ import { observer } from "mobx-react-lite";
 import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
-import { performLogin } from "../../services/backend";
+import { performSignin } from "../../services/auth";
 
 const SigninPage = () => {
   const navigate = useNavigate();
   const { app_store } = useStores();
-  const [loginPromise, setLoginPromise] = React.useState(null);
+  const [loginPromise, setLoginPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,7 +22,7 @@ const SigninPage = () => {
       },
       (e) => {
         console.error(e);
-        alert("Login FAILED");
+        alert("Signin FAILED");
       }
     );
   }, [app_store, navigate, loginPromise]);
@@ -48,7 +48,7 @@ const SigninPage = () => {
                */
               const form = e.nativeEvent.target;
               setLoginPromise(
-                performLogin(
+                performSignin(
                   form.elements["username"].value,
                   form.elements["password"].value
                 )

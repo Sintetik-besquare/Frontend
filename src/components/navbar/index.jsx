@@ -19,10 +19,6 @@ const NavBar = () => {
     navigate("/signup", { replace: true });
   }
 
-  React.useEffect(() => {
-    //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin, app_store.show_modal]);
-
   return (
     <div id="header">
       <div className="flex-block" style={{ background: "#000000" }}>
