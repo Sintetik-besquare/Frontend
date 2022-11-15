@@ -11,7 +11,7 @@ const NavModal = () => {
   const navigate = useNavigate();
 
   function viewProfile() {
-    navigate("/trade", { replace: true });
+    navigate("/profile", { replace: true });
     app_store.setShowModal(false);
   }
 
