@@ -13,16 +13,21 @@ const SigninPage = () => {
   const [loginPromise, setLoginPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  let error_message = [];
+  
   useEffect(() => {
     loginPromise?.then((z) => {
       if (typeof z === "string") {
         app_store.setAccessToken(z);
         navigate("/trade", { replace: true });
       } else {
-        z.forEach((e) => console.log(e.msg));
+        z.forEach((e) => {
+          error_message.push(e.msg);
+        });
+        alert(error_message.join("\n \n"));
       }
     });
+    error_message = [];
   }, [app_store, navigate, loginPromise]);
 
   return (

@@ -24,7 +24,6 @@ export async function performSignup(email, password) {
   if (!("token" in jsonRes)) {
     return jsonRes.errors;
   } else {
-    console.log(jsonRes);
     return jsonRes.token;
   }
 }
@@ -42,7 +41,6 @@ export async function performSignin(email, password) {
   if (!("token" in jsonRes)) {
     return jsonRes.errors;
   } else {
-    console.log(jsonRes);
     return jsonRes.token;
   }
 }

@@ -14,16 +14,21 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
+  let error_message = [];
 
   useEffect(() => {
     signupPromise?.then((z) => {
-      if (typeof z === "string") { // token is string
+      if (typeof z === "string") {
         app_store.setAccessToken(z);
         navigate("/trade", { replace: true });
-      } else { // error list is array
-        z.forEach((e) => console.log(e.msg));
+      } else {
+        z.forEach((e) => {
+          error_message.push(e.msg);
+        });
+        alert(error_message.join("\n \n"));
       }
     });
+    error_message = [];
   }, [app_store, navigate, signupPromise]);
   return (
     <div id="signup-background">
