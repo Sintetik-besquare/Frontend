@@ -28,8 +28,10 @@ function Hero() {
           </span>
           <br />
           <span
-            className="homepage-heading3"
-            style={{ WebkitTextFillColor: "#2c99ff" }}
+            style={{
+              fontSize: "25px",
+              lineHeight: "10px",
+            }}
           >
             Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
             indices, and commodities.

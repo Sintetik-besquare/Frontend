@@ -9,6 +9,14 @@ import {
 import io from "socket.io-client";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
+import { FiMinus } from "react-icons/fi";
+import { FiBox } from "react-icons/fi";
+import { FiPlus } from "react-icons/fi";
+import { FiTrendingDown } from "react-icons/fi";
+import { FiTrendingUp } from "react-icons/fi";
+import { MdAutoGraph } from "react-icons/md";
+import { MdOutlineModeEditOutline } from "react-icons/md";
+import { BiCaretLeft } from "react-icons/bi";
 import { getHistoricalFeed } from "../../../services/historical-feed";
 import { CategoryScale } from "chart.js";
 
@@ -79,8 +87,63 @@ const LineChart = () => {
   }, []);
 
   return (
-    <div id="">
-      <Line data={data} style={{ width: "100%" }} />
+    <div id="chart-container">
+      <div id="chart-header">
+        <div id="balance-container">
+          <div id="balance-amount">
+            <span style={{ fontSize: "50px", fontWeight: "400px" }}>
+              $32,000.00
+            </span>
+            <font style={{ fontSize: "16px", fontWeight: "300px" }}>USD</font>
+          </div>
+
+          <div id="trend-percentage" style={{ fontSize: "18px" }}>
+            <FiTrendingUp id="button-icon10" />
+            <font> $1,234,23</font>
+            <font> (2.4%)</font>
+          </div>
+        </div>
+        <div class="wrapper">
+          <ul>
+            <li class="past-trades">
+              <i aria-hidden="true">
+                <BiCaretLeft id="button-icon10" />
+              </i>
+              <div class="slider">
+                <p>Past Trades</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* <div id="graph-tools" style={{ fontSize: "23px" }}>
+        <div id="minus">
+          <FiMinus id="button-icon3" />
+        </div>
+        <div id="cube">
+          <FiBox id="button-icon4" />
+        </div>
+        <div id="plus">
+          <FiPlus id="button-icon5" />
+        </div>
+        |
+        <div id="down">
+          <FiTrendingDown id="button-icon6" />
+        </div>
+        <div id="up">
+          <FiTrendingUp id="button-icon7" />
+        </div>
+        <div id="graph">
+          <MdAutoGraph id="button-icon8" />
+        </div>
+        <div id="edit">
+          <MdOutlineModeEditOutline id="button-icon9" />
+        </div>
+      </div> */}
+
+      <div id="chart-graph">
+        <Line data={data} style={{ width: "100%" }} />
+      </div>
     </div>
   );
 };
