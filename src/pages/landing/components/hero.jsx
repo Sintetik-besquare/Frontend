@@ -22,7 +22,6 @@ function Hero() {
           <span
             style={{
               fontSize: "25px",
-              WebkitTextFillColor: "#2c99ff",
               lineHeight: "10px",
             }}
           >

@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./components/hero";
 import HorizontalCard from "./components/horizontal-card";
 import NewsList from "./components/news-vertical";
+import Footer from "../../components/footer";
 
 export const Index = () => {
   return (
@@ -13,6 +14,7 @@ export const Index = () => {
           <NewsList />
         </div>
       </div>
+        <Footer />
     </>
   );
 };
