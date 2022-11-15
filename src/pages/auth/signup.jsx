@@ -17,10 +17,10 @@ const SignUp = () => {
 
   useEffect(() => {
     signupPromise?.then((z) => {
-      if (typeof z === "string") {
+      if (typeof z === "string") { // token is string
         app_store.setAccessToken(z);
         navigate("/trade", { replace: true });
-      } else {
+      } else { // error list is array
         z.forEach((e) => console.log(e.msg));
       }
     });

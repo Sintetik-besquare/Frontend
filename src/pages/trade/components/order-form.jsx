@@ -31,8 +31,7 @@ const OrderForm = () => {
     socket.current.on("sell", (message) => {
       console.log(message);
     });
-    // socket.current = socket_connection; // assign current socket_connection to useRef socket
-    return () => socket.current.disconnect(true); // prevent spam connection
+    return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -45,8 +44,6 @@ const OrderForm = () => {
       entry_time: "",
     };
     socket.current.emit("order", order);
-    console.log(socket.current); // connected: true
-    console.log(order); // Volatility 10 (1s)
   };
   function validate() {
     if (app_store.is_loggedin === false) {
@@ -65,12 +62,6 @@ const OrderForm = () => {
 
   return (
     <div className="form_container">
-      {/* <h3 style={{ color: "black" }}>
-        {chart_store.index}
-        {chart_store.option_type}<br />
-        {chart_store.ticks}<br />
-        {chart_store.stake}
-      </h3> */}
       <div>
         <div className="form_row">
           <span>Left</span>

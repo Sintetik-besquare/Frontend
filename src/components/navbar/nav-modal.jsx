@@ -28,10 +28,6 @@ const NavModal = () => {
     app_store.setShowModal(false);
   }
 
-  // React.useEffect(() => {
-  //   //rerender when store.isloggedin change
-  // }, [app_store.is_loggedin, app_store.show_modal]);
-
   return (
     <div className="nav_modal">
       <MdOutlineClose

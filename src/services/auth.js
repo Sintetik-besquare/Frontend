@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 const ENDPOINT_BASE = "http://localhost:3001";
+
 export function useLoader(provider, initial = null, deps = []) {
   const [value, setValue] = React.useState(initial);
-  React.useEffect(
+  useEffect(
     () => provider.then(setValue).catch(setValue),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [setValue, ...deps]
@@ -21,8 +22,6 @@ export async function performSignup(email, password) {
   }
   let jsonRes = await res.json();
   if (!("token" in jsonRes)) {
-    // console.log("token not in response :(");
-    // jsonRes.errors.forEach(e => console.log(e.msg));
     return jsonRes.errors;
   } else {
     console.log(jsonRes);
@@ -41,8 +40,6 @@ export async function performSignin(email, password) {
   }
   let jsonRes = await res.json();
   if (!("token" in jsonRes)) {
-    // console.log("token not in response :<");
-    // jsonRes.errors.forEach(e => console.log(e.msg));
     return jsonRes.errors;
   } else {
     console.log(jsonRes);
