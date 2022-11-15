@@ -1,0 +1,61 @@
+.homepage-title {
+    font-size: 45px;
+}
+
+.homepage-heading2 {
+    font-size: 80px;
+    line-height: 10px;
+}
+
+.homepage-heading3 {
+    font-size: 25px;
+}
+
+.get-started-button {
+    font-size: 20px;
+}
+
+.hero-page-flex-block {
+    // width: 90%;
+    display: flexbox;
+    flex: column;
+}
+
+@media only screen and (max-width: 800px) {
+
+    #home {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .hero-page-flex-block {
+        width: 90%;
+        display: flex;
+    }
+
+
+    .homepage-title {
+        font-size: 40px;
+    }
+
+    .homepage-heading2 {
+        font-size: 30px;
+    }
+
+    .homepage-heading3 {
+        font-size: 15px;
+    }
+
+    .get-started-button {
+        font-size: 10px;
+    }
+
+    #graphic_crypto {
+        position: static;
+        width: 10%;
+    }
+
+    .flex-block {
+        display: inline-block;
+    }
+}

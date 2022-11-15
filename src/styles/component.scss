@@ -9,6 +9,10 @@ button {
   border-radius: 0rem;
 }
 
+.hide-when-big {
+  display: none;
+}
+
 .square-button {
   border: $black;
   border-radius: 0%;
@@ -19,21 +23,6 @@ button {
   justify-content: space-evenly;
   align-items: center;
 }
-
-#password-icon,
-#username-icon {
-  color: rgba(187, 187, 187, 0.8);
-  background-color: rgba(29, 29, 29, 1);
-  font-size: 20px;
-}
-
-#button-icon {
-  font-size: 20px;
-}
-
-// a {
-//   color: $red;
-// }
 
 .navbar {
   display: flex;
@@ -60,7 +49,7 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30vw;
+  width: 30vw !important;
   background-color: white;
   border-radius: 10px;
   z-index: 1000;
@@ -101,25 +90,6 @@ button {
 
   b {
     padding: 1rem;
-  }
-}
-
-.signin-input {
-  @include drop-shadow;
-  border: 1px solid rgba(187, 187, 187, 0.8);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 5px;
-  width: 100%;
-
-  input {
-    width: 60%;
-    padding: 1rem;
-    border: none;
-    outline: none;
-    background-color: rgba(29, 29, 29, 1);
-    color: rgba(187, 187, 187, 0.8);
   }
 }
 
@@ -313,6 +283,13 @@ h6 {
   width: 100%;
 }
 
+// .paralax {
+//   background-image: url("../assets/office.png");
+//   background-attachment: fixed;
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// }
 @media only screen and (max-width: 1500px) {
   .card {
     width: 35vw;
@@ -419,6 +396,7 @@ p {
   justify-content: center;
   margin-top: 0px;
   align-items: center;
+}
 
   h4 {
     font-size: 10px;
@@ -477,7 +455,7 @@ p {
   .signin-form {
     padding-left: 5px;
   }
-}
+
 
 .aboutus {
   // position: p;
@@ -541,22 +519,4 @@ p {
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
-}
-
-@keyframes landing_hero_graphics {
-  0% {
-    transform: translate(0, 0px);
-  }
-  25% {
-    transform: translate(0, 25px);
-  }
-  50% {
-    transform: translate(20px, 0px);
-  }
-  75% {
-    transform: translate(15px, 35px);
-  }
-  100% {
-    transform: translate(0, 0px);
-  }
 }

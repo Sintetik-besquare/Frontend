@@ -10,6 +10,8 @@ import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
+import UserProfile from "./pages/user profile/index";
+import Error from "./pages/error/index";
 
 const App = () => {
   return (
@@ -19,10 +21,12 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/app" element={<Landing />} />
+          <Route path="/error" element={<Error />} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>

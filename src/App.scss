@@ -4,6 +4,14 @@
 @import "./styles/newspage.scss";
 @import "./styles/horizontal-card.scss";
 @import "./styles/astronout.scss";
+@import "./styles/signin-signup.scss";
+@import "./styles/team-cards.scss";
+@import "./styles/home-hero.scss";
+@import "./styles/user-profile.scss";
+
+#root{
+  overflow-x: hidden;
+}
 
 #home {
   background-color: $black;
@@ -29,28 +37,15 @@
   width: 170%;
 }
 
-.image2{
+.image2 {
   width: 40%;
-#graphic_crypto2 {
-  position: absolute;
-  margin-top: 2rem;
-  right: 25%;
-  width: 80%;
+  #graphic_crypto2 {
+    position: absolute;
+    margin-top: 2rem;
+    right: 25%;
+    width: 80%;
+  }
 }
-}
-
-// #graphic_laptop {
-//   position: absolute;
-//   top: -16rem;
-//   right: -110%;
-//   width: 70%;
-// }
-// #graphic_desktop {
-//   position: absolute;
-//   bottom: -23rem;
-//   right: -79%;
-//   width: 90%;
-// }
 
 @media only screen and (max-width: 1500px) {
   .landing_hero_graphics {
@@ -83,5 +78,9 @@
 @media only screen and (max-width: 900px) {
   .landing_hero_graphics {
     display: none;
+  }
+  .image2{
+    width:100%;
+    position: absolute;
   }
 }
