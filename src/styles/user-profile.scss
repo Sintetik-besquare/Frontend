@@ -41,14 +41,6 @@
     position: absolute;
     right: 10%;
   }
-
-  @media (max-width: 786px) {
-    button {
-      background-color: red;
-      bottom: 5px;
-      left: 30%;
-    }
-  }
 }
 
 input:disabled {
@@ -262,10 +254,9 @@ select {
 @media only screen and (max-width: 768px) {
   /* For desktop: */
 
-  * {
-    overflow-x: hidden;
+  .user-profile-paper {
+    height: 76%;
   }
-
   .user-profile-primary-card {
     display: block;
     margin-left: 0;
@@ -287,5 +278,43 @@ select {
     .span-details-container {
       gap: 0;
     }
+  }
+
+  .user-profile-details-card {
+    display: block;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .user-profile-details-column {
+    padding-top: 7px;
+  }
+
+  .button-5 {
+    bottom: 5px;
+    left: 30%;
+  }
+
+  .user-update-button {
+    display: block;
+    padding-top: 20px;
+  }
+
+  .user-update-button button {
+    position: relative;
+    left: 23%;
+  }
+
+  .bloc-tabs {
+    overflow: scroll;
+  }
+
+  button {
+    bottom: 5px;
+    left: 0;
+  }
+
+  .user-trx-tabs-container {
+    height: 110vh;
   }
 }
