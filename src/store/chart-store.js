@@ -5,7 +5,7 @@ export default class ChartStore {
   index = "Volatility 10 (1s)";
   option_type = " "; // CALL or PUT
   ticks = 0;
-  stake = 0;
+  stake = 0.00;
   entry_time = Math.floor(Date.now() / 1000);
   payout = this.ticks + this.stake;
   wallet = 10000;
