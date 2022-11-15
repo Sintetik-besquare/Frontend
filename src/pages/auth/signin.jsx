@@ -1,19 +1,34 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
+import { performSignin } from "../../services/auth";
 
 const SigninPage = () => {
-  const { app_store } = useStores();
   const navigate = useNavigate();
-
-  function login() {
-    navigate("/", { replace: true });
-    app_store.setLogin(true);
-  }
+  const { app_store } = useStores();
+  const [loginPromise, setLoginPromise] = useState(null);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  let error_message = [];
+  
+  useEffect(() => {
+    loginPromise?.then((z) => {
+      if (typeof z === "string") {
+        app_store.setAccessToken(z);
+        navigate("/trade", { replace: true });
+      } else {
+        z.forEach((e) => {
+          error_message.push(e.msg);
+        });
+        alert(error_message.join("\n \n"));
+      }
+    });
+    error_message = [];
+  }, [app_store, navigate, loginPromise]);
 
   return (
     <div id="signin-background">
@@ -27,8 +42,22 @@ const SigninPage = () => {
               <center>SIGN IN</center>
             </b>
           </h2>
-          <form className="signin-form">
-
+          <form
+            className="signin-form"
+            onSubmit={function (e) {
+              e.preventDefault();
+              /**
+               * @type {HTMLFormElement}
+               */
+              const form = e.nativeEvent.target;
+              setLoginPromise(
+                performSignin(
+                  form.elements["username"].value,
+                  form.elements["password"].value
+                )
+              );
+            }}
+          >
             <h4
               style={{
                 paddingLeft: "0rem",
@@ -39,32 +68,59 @@ const SigninPage = () => {
               Welcome back!
               <br />
               Good to see you again.
-            </h4>{" "}
+            </h4>
             &nbsp;
             <div className="signin-input">
-              <input type="text" placeholder="Username" id="uname-input" />
+              <input
+                type="text"
+                placeholder="Username"
+                name="username"
+                id="uname-input"
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+              />
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
             <div className="signin-input">
-              <input type="password" placeholder="Password" id="pw-input" />
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                id="pw-input"
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                }}
+              />
               <FaEyeSlash id="password-icon" />
             </div>
             &nbsp;
             <h5>Forgot password?</h5>
             &nbsp;
             <center>
-              <button
-                className="button_green_dark"
-                onClick={() => {
-                  login();
-                }}
-              >
-                <b>Log In</b>
-                <div>
-                  <BiExit id="button-icon" />
-                </div>
-              </button>
+              {username === "" || password === "" ? (
+                <>
+                  <button
+                    style={{ backgroundColor: "black", color: "gray" }}
+                    disabled
+                  >
+                    <b>Log In</b>
+                    <div>
+                      <BiExit id="button-icon" />
+                    </div>
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button className="form_row button_green_dark" name="submit">
+                    <b>Log In</b>
+                    <div>
+                      <BiExit id="button-icon" />
+                    </div>
+                  </button>
+                </>
+              )}
               &nbsp;
             </center>
             <center>
