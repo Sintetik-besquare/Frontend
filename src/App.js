@@ -10,15 +10,37 @@ import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
 import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
+import UserProfile from "./pages/user profile/index";
+import Error from "./pages/error/index";
+
+import { getHistoricalFeed } from "./services/historical-feed";
 
 const App = () => {
+  const socket = io.connect("http://localhost:3002");
+  const { chart_store } = useStores();
+  const [history, setHistory] = React.useState([]);
+  
+  // wrap fetch in useEffect watch empty array (triggers on Mount)
+  useEffect(() => {
+    getHistoricalFeed().then(setHistory);
+    console.log(history)
+  }, []);
+
+  // To get price feed
+  socket.on("getfeed", (price) => {
+    // chart_store.price_array.push(price)
+    // console.log(price);
+  });
+
   return (
     <div>
       <BrowserRouter>
         <Nav />
         <Routes>
+          <Route path="/" element={<UserProfile />} />
           <Route path="/" element={<Landing />} />
           <Route path="/app" element={<Landing />} />
+          <Route path="/error" element={<Error />} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
