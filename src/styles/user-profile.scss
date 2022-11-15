@@ -1,0 +1,291 @@
+.user-profile-hero {
+  color: black;
+}
+
+.user-trx-tabs-container {
+  width: 80vw;
+  margin: auto;
+  justify-content: center;
+}
+
+.user-profile-container {
+  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+.user-profile-card {
+  margin-bottom: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  input {
+    font-size: 1em;
+    width: 250px;
+    min-height: 4vh;
+    line-height: 2.4rem;
+    vertical-align: middle;
+  }
+}
+
+.user-update-button {
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  button {
+    position: absolute;
+    right: 10%;
+  }
+
+  @media (max-width: 786px) {
+    button {
+      background-color: red;
+      bottom: 5px;
+      left: 30%;
+    }
+  }
+}
+
+input:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.user-profile-primary-card {
+  width: 100%;
+  margin-left: 2em;
+  display: flex;
+  justify-content: flex-start;
+
+  img {
+    border-radius: 50%;
+    margin: 40px;
+    width: 10%;
+  }
+
+  .span-main-details {
+    margin-right: 10px;
+    font-size: 0.5em;
+    color: grey;
+  }
+}
+
+.span-details-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: center;
+}
+
+.user-profile-paper {
+  height: 80%;
+  background-color: rgba(29, 29, 29, 1);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.user-profile-details-card {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 90%;
+
+  .span-profile-details {
+    margin-left: 10px;
+    font-size: 1em;
+    color: grey;
+  }
+}
+
+.user-profile-details-column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 50%;
+
+  hr {
+    margin: 10px 0 10px 0;
+    border: 1px solid white;
+  }
+
+  .css-13y7p8r-control {
+    background: white;
+    min-width: 10vw;
+  }
+}
+
+.dropdown {
+  p {
+    display: none;
+  }
+
+  select {
+    min-width: 250px;
+  }
+}
+
+/* CSS */
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+////
+///
+///
+.bloc-tabs {
+  display: flex;
+}
+.tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+.tabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.active-tabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+button {
+  border: none;
+}
+.content-tabs {
+  flex-grow: 1;
+}
+.content {
+  background-color: rgba(56, 56, 56, 1);
+  width: 100%;
+  height: 100vh;
+  display: none;
+}
+.content h2 {
+  padding: 0px 0 5px 0px;
+}
+.content hr {
+  width: 100px;
+  height: 2px;
+  background: #222;
+  margin-bottom: 5px;
+}
+.content p {
+  width: 100%;
+  height: 100%;
+}
+.active-content {
+  display: block;
+}
+
+.werk {
+  color: #222;
+}
+
+//Gender input CSS
+select {
+  width: 250px;
+  height: 5vh;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+}
+
+@media only screen and (max-width: 768px) {
+  /* For desktop: */
+
+  * {
+    overflow-x: hidden;
+  }
+
+  .user-profile-primary-card {
+    display: block;
+    margin-left: 0;
+    overflow-y: hidden;
+
+    img {
+      margin: auto;
+      width: 60%;
+      margin-top: 20px;
+      display: block;
+    }
+
+    h1 {
+      width: 90%;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    .span-details-container {
+      gap: 0;
+    }
+  }
+}
