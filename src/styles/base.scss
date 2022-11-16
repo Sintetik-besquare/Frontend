@@ -85,9 +85,10 @@ $yellow: rgba(245, 220, 12, 1);
 #home {
   height: 100%;
   // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-  padding-top: 10rem;
+  padding-top: 2rem;
   padding-bottom: 10rem;
-  display: flex;
+  display: grid;
+  place-items: center;
   text-align: center;
   // justify-content: center;
   // background-size: cover;
@@ -683,9 +684,10 @@ $yellow: rgba(245, 220, 12, 1);
   // letter-spacing: 5px;
   margin-top: -20px;
   // padding-left: 5rem;
-    width: 90%;
+    width: 100%;
     height: 130%;
   line-height: 100%;
+  margin-right: 0;
 }
 
 //probably useless
@@ -707,3 +709,9 @@ $yellow: rgba(245, 220, 12, 1);
   }
 }
 // RESETS
+
+@media only screen and (max-width: 900px) {
+  #title span {
+    line-height: 200%;
+  }
+}

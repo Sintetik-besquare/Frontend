@@ -13,7 +13,7 @@ export const Index = () => {
         <div className="homepage-top-half">
           <Hero />
           <div className="image2 hide-when-small">
-            <img src={Graph} altpo="Logo" id="graphic_crypto2" />
+            <img src={Graph} altpo="Logo" id="graphic_crypto2"/>
           </div>
           <OurCompany />
         </div>
