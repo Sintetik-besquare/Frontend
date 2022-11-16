@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 const ENDPOINT_BASE = "http://localhost:3001";
 
-export function useLoader(provider, initial = null, deps = []) {
+function useLoader(provider, initial = null, deps = []) {
   const [value, setValue] = React.useState(initial);
   useEffect(
     () => provider.then(setValue).catch(setValue),
@@ -11,7 +11,7 @@ export function useLoader(provider, initial = null, deps = []) {
   return value;
 }
 
-export async function performSignup(email, password) {
+async function performSignup(email, password) {
   let res = await fetch(`${ENDPOINT_BASE}/user/signup`, {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -28,7 +28,7 @@ export async function performSignup(email, password) {
   }
 }
 
-export async function performSignin(email, password) {
+async function performSignin(email, password) {
   let res = await fetch(`${ENDPOINT_BASE}/user/login`, {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
@@ -44,3 +44,5 @@ export async function performSignin(email, password) {
     return jsonRes.token;
   }
 }
+
+export { useLoader, performSignup, performSignin };
