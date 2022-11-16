@@ -9,7 +9,7 @@ function Hero() {
         <video autoPlay loop muted className="hero-video">
           <source src={Sand} type="video/mp4" />
         </video>
-        <div id="title" data-aos="fade-right">
+        <div className="hero-title" data-aos="fade-right">
           <span
             className="homepage-title"
             // style={{ WebkitTextFillColor: "#F5DC0C" }}

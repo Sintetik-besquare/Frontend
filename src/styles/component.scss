@@ -206,7 +206,39 @@ button {
   // margin-left: 25rem;
 }
 
+.homepage-headline {
+  top: 2rem;
+  color: black;
+  font-family: "Poppins";
+  margin-top: 0px;
+  margin-bottom: 0;
+
+}
+
+.homepage-headline-bottom-half {
+  top: 2rem;
+  color: black;
+  font-family: "Poppins";
+  margin-top: 0px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .poppins-bold-white-40px-22 {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  // width: 50%;
+  font-family: "Poppins";
+  float: right;
+  text-align: end;
+  font-weight: 900;
+  font-size: 27px;
+}
+
+.aboutus-text {
   font-size: 27px;
   color: rgb(0, 0, 0);
   // width: 50%;
@@ -397,6 +429,29 @@ h6 {
     margin-top: 0px;
     width: 100%;
   }
+
+  .homepage-headline {
+    font-size: 80px;
+    color: black;
+    font-family: "Poppins";
+    font-weight: 900;
+    margin-top: 0px;
+    width: 100%;
+  }
+
+  .homepage-headline-bottom-half {
+    font-size: 80px;
+    color: black;
+    font-family: "Poppins";
+    font-weight: 900;
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    align-items: center;
+  }
   
   .poppins-bold-white-40px-22 {
     font-size: 27px;
@@ -408,6 +463,16 @@ h6 {
     margin-left: 10px;
   }
   
+  .aboutus-text {
+    font-size: 27px;
+    color: rgb(0, 0, 0);
+    // width: 50%;
+    font-family: "Poppins";
+    font-weight: 900;
+    font-size: 27px;
+    margin-left: 10px;
+  }
+
   .card-horizontal {
     // height: 25vh;
     width: 95%;
@@ -455,6 +520,10 @@ h6 {
   #about {
     padding-top: 0;
   }
+
+  #about-the-team {
+    padding-top: 0;
+  }
   
   #title {
     // width: 100%;
@@ -472,6 +541,11 @@ h6 {
   .poppins-normal-pink-swan-20px {
     font-size: 20px;
   }
+
+  .aboutus-text2 {
+    font-size: 20px;
+  }
+
 
 }
 
@@ -539,7 +613,42 @@ h6 {
   text-align: center;
 }
 
+.homepage-headline {
+  font-size: 50px;
+  color: black;
+  font-family: "Poppins";
+  font-weight: 900;
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.homepage-headline-bottom-half {
+  font-size: 50px;
+  color: black;
+  font-family: "Poppins";
+  font-weight: 900;
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0px;
+  align-items: center;
+}
+
 .poppins-bold-white-40px-22 {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  // width: 50%;
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 27px;
+  text-align: justify;
+}
+
+.aboutus-text {
   font-size: 27px;
   color: rgb(0, 0, 0);
   // width: 50%;
@@ -597,6 +706,10 @@ h6 {
   padding-top: 0;
 }
 
+#about-the-team {
+  padding-top: 0;
+}
+
 #title {
   // width: 100%;
   // padding-left: 1rem;
@@ -612,6 +725,10 @@ h6 {
 }
 
 .poppins-normal-pink-swan-20px {
+  font-size: 20px;
+}
+
+.aboutus-text2 {
   font-size: 20px;
 }
 

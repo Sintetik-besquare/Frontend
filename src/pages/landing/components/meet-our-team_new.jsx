@@ -17,12 +17,12 @@ function MeetOurTeam() {
           <div class="image02"></div>
         </div>
       </div> */}
-      <div id="about" style={{ backgroundColor: "black" }}>
+      <div id="about-the-team" style={{ backgroundColor: "black" }}>
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
         <h1
-          className="valign-text-middle poppins-bold-white-40px2"
+          className="homepage-headline-bottom-half"
           data-aos="fade-left"
           style={{ color: "white" }}
         >
@@ -34,7 +34,7 @@ function MeetOurTeam() {
               <span key={p.i}>
                 {p.id % 2 === 0 ? (
                   <div
-                    className="card-horizontal card-horizontal-right"
+                    className="card-horizontal-right"
                     data-aos="fade-left"
                   >
                     <img src={p.photo} alt="N/A" id="team-card-images-small" />
@@ -74,7 +74,7 @@ function MeetOurTeam() {
                   </div>
                 ) : (
                   <div
-                    className="card-horizontal card-horizontal-left"
+                    className="card-horizontal-left"
                     data-aos="fade-right"
                   >
                     <img
