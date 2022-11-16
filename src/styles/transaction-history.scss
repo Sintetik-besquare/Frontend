@@ -1,0 +1,84 @@
+.transaction-history-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 1em;
+  padding-top: 0.3em;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.box {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 30px 30px -35px hsl(229, 6%, 66%);
+  max-height: 200px;
+  min-width: 60%;
+  margin: 20px;
+  padding: 30px;
+  padding-top: 5px;
+  transition: all 0.2s;
+
+  p {
+    color: hsl(229, 6%, 66%);
+  }
+
+  img {
+    position: relative;
+    float: right;
+    bottom: 5em;
+    left: 1em;
+  }
+
+  h3 {
+    color: hsl(234, 12%, 34%);
+  }
+
+  span {
+    float: right;
+    margin-right: 30px;
+
+    &.green {
+      color: rgb(76, 184, 76);
+    }
+
+    &.red {
+      color: rgb(182, 39, 39);
+    }
+  }
+}
+.orange {
+  border-top: 3px solid hsl(34, 97%, 64%);
+}
+
+h2.transaction-history-volatility {
+  color: hsl(234, 12%, 34%);
+  font-weight: 600;
+  padding-bottom: 0;
+}
+
+.box:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.4);
+  transform: scale(1.01);
+}
+
+.transaction-history-details {
+  position: relative;
+  top: 0;
+  line-height: 0.5em;
+}
+
+@media (max-width: 450px) {
+  .box {
+    height: 200px;
+  }
+}
+
+@media (max-width: 950px) and (min-width: 450px) {
+  .box {
+    text-align: center;
+    height: 180px;
+  }
+}

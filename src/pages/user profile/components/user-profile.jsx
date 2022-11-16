@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../../store";
 import { useState } from "react";
-import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
+import TransactionHistory from "./transaction-history";
 
 const UserProfile = () => {
   const { app_store } = useStores();
@@ -51,29 +51,7 @@ const UserProfile = () => {
               toggleState === 2 ? "content  active-content" : "content"
             }
           >
-            <h2 className="werk">Content 2</h2>
-            <hr />
-            <p className="werk">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              voluptatum qui adipisci.
-            </p>
-          </div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          >
-            <h2>Content 3</h2>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-              nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-              Accusamus in quia odit aspernatur provident et ad vel distinctio
-              recusandae totam quidem repudiandae omnis veritatis nostrum
-              laboriosam architecto optio rem, dignissimos voluptatum beatae
-              aperiam voluptatem atque. Beatae rerum dolores sunt.
-            </p>
+            <TransactionHistory />
           </div>
         </div>
       </div>

@@ -8,8 +8,9 @@
 @import "./styles/team-cards.scss";
 @import "./styles/home-hero.scss";
 @import "./styles/user-profile.scss";
+@import "./styles/transaction-history.scss";
 
-#root{
+#root {
   overflow-x: hidden;
 }
 
@@ -79,8 +80,8 @@
   .landing_hero_graphics {
     display: none;
   }
-  .image2{
-    width:100%;
+  .image2 {
+    width: 100%;
     position: absolute;
   }
 }
