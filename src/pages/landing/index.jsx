@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "./components/hero";
 import MeetOurTeam from "./components/meet-our-team";
 import OurCompany from "./components/our-company";
+import Footer from "../../components/footer";
 
 export const Index = () => {
   return (
@@ -15,6 +16,7 @@ export const Index = () => {
         <Hero />
         <OurCompany />
         <MeetOurTeam />
+        <Footer />
       </div>
     </div>
   );

@@ -9,6 +9,10 @@ button {
   border-radius: 0rem;
 }
 
+.hide-when-big {
+  display: none;
+}
+
 .square-button {
   border: $black;
   border-radius: 0%;
@@ -20,28 +24,12 @@ button {
   align-items: center;
 }
 
-#password-icon,
-#username-icon {
-  color: rgba(187, 187, 187, 0.8);
-  background-color: rgba(29, 29, 29, 1);
-  font-size: 20px;
-}
-
-#button-icon {
-  font-size: 20px;
-}
-
-// a {
-//   color: $red;
-// }
-
 .navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   padding: 0.5rem;
 
-  // .li,
   li {
     text-decoration: none;
     list-style: none;
@@ -61,7 +49,7 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30vw;
+  width: 30vw !important;
   background-color: white;
   border-radius: 10px;
   z-index: 1000;
@@ -102,25 +90,6 @@ button {
 
   b {
     padding: 1rem;
-  }
-}
-
-.signin-input {
-  @include drop-shadow;
-  border: 1px solid rgba(187, 187, 187, 0.8);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 5px;
-  width: 100%;
-
-  input {
-    width: 60%;
-    padding: 1rem;
-    border: none;
-    outline: none;
-    background-color: rgba(29, 29, 29, 1);
-    color: rgba(187, 187, 187, 0.8);
   }
 }
 
@@ -208,6 +177,7 @@ button {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -229,6 +199,24 @@ button {
   }
   div {
     width: 60%;
+  }
+}
+
+.form_container {
+  display: block;
+  align-items: center;
+
+  .form_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    width: 245px;
+    border: 1px solid black;
   }
 }
 
@@ -321,11 +309,11 @@ h6 {
 
 @media only screen and (max-width: 800px) {
   .navbar {
+    flex-wrap: nowrap;
+
     .li,
     li {
       margin: 0;
-      // margin-left: 0.1rem;
-      // margin-right: 0.1rem;
     }
   }
   .nav_modal {
@@ -346,8 +334,14 @@ h6 {
     width: 95%;
     font-size: smaller;
   }
+
+  #chart_area {
+    height: 50vh;
+    overflow: scroll;
+  }
 }
 
+// Aaron's css for the landing page
 .sintetik-is-one-of-t {
   margin-top: 200px;
   margin-bottom: 100px;
@@ -402,6 +396,7 @@ p {
   justify-content: center;
   margin-top: 0px;
   align-items: center;
+}
 
   h4 {
     font-size: 10px;
@@ -460,8 +455,6 @@ p {
   .signin-form {
     padding-left: 5px;
   }
-}
-
 
 
 .aboutus {
@@ -526,22 +519,4 @@ p {
   animation-timing-function: ease-in-out;
   margin-left: 30px;
   margin-top: 5px;
-}
-
-@keyframes landing_hero_graphics {
-  0% {
-    transform: translate(0, 0px);
-  }
-  25% {
-    transform: translate(0, 25px);
-  }
-  50% {
-    transform: translate(20px, 0px);
-  }
-  75% {
-    transform: translate(15px, 35px);
-  }
-  100% {
-    transform: translate(0, 0px);
-  }
 }
