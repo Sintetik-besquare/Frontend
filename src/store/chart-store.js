@@ -9,6 +9,7 @@ export default class ChartStore {
   entry_time = Math.floor(Date.now() / 1000);
   payout = this.ticks + this.stake;
   wallet = 10000;
+  status = ''
 
   setIndex(index) {
     this.index = index;
@@ -30,6 +31,10 @@ export default class ChartStore {
     this.wallet += 10000; //todo: get user wallet balance
   }
 
+  setStatus(status){
+    this.status = status;
+  }
+
   resetWallet() {
     this.wallet += 500;
   }
@@ -47,11 +52,13 @@ decorate(ChartStore, {
   entry_time: observable,
   payout: observable,
   wallet: observable,
+  status: observable,
   setIndex: action,
   setOptionType: action,
   setTicks: action,
   setState: action,
   setWallet: action,
+  setStatus: action,
   resetWallet: action,
   updateHistory: action,
 });
