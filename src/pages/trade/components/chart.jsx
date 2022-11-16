@@ -103,18 +103,9 @@ const LineChart = () => {
             <font> (2.4%)</font> {/* are you sure you wanna hardcode this?*/}
           </div>
         </div>
-        {/* <div class="wrapper">
-          <ul>
-            <li class="past-trades">
-              <i aria-hidden="true">
-                <BiCaretLeft id="button-icon10" />
-              </i>
-              <div class="slider">
-                <p>Past Trades</p>
-              </div>
-            </li>
-          </ul>
-        </div> */}
+        <div>
+          <button id="btn_orderform" onClick={()=>{chart_store.toggleOrderForm(!chart_store.showOrderForm)}}>order</button> {/* are you sure you wanna hardcode this?*/}
+        </div>
       </div>
 
       <div id="chart-graph">

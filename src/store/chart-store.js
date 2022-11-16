@@ -10,6 +10,7 @@ export default class ChartStore {
   payout = this.ticks + this.stake;
   wallet = 10000;
   status = ''
+  showOrderForm=false;
 
   setIndex(index) {
     this.index = index;
@@ -35,6 +36,10 @@ export default class ChartStore {
     this.status = status;
   }
 
+  toggleOrderForm(visibility){
+    this.showOrderForm=visibility;
+  }
+
   resetWallet() {
     this.wallet += 500;
   }
@@ -53,12 +58,14 @@ decorate(ChartStore, {
   payout: observable,
   wallet: observable,
   status: observable,
+  showOrderForm: observable,
   setIndex: action,
   setOptionType: action,
   setTicks: action,
   setState: action,
   setWallet: action,
   setStatus: action,
+  toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
 });
