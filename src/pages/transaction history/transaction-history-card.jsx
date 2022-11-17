@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import StockMarket from "../../../assets/stock-market.png";
+import StockMarket from "../../assets/stock-market.png";
 
 const TransactionHistoryCard = () => {
   const [volatility, setVolatility] = useState();

@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useStores } from "../../../store";
 import PrimaryCard from "./user-profile-primary";
 import GenderInputSelect from "./genderinput";
 import EducationLevelSelect from "./educationlevel";
@@ -7,6 +8,9 @@ import JobDropDown from "./joblist";
 import { CountryDropdown } from "react-country-region-selector";
 
 function InputFieldText() {
+  //UsesStore from users.js
+  const { use_store } = useStores();
+
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../../store";
 import { useState } from "react";
 import InputFieldText from "./input-field";
-import TransactionHistory from "./transaction-history";
+import TransactionHistory from "../../transaction history/transaction-history";
 
 const UserProfile = () => {
   const { app_store } = useStores();

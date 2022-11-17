@@ -1,0 +1,33 @@
+async function getUser() {
+  return await fetch("http://localhost:3001/account/getUserDetails", {
+    method: "GET",
+    headers: new Headers({
+      Authorization: "Basic " + btoa("username:password"),
+      "Content-Type": "application/x-www-form-urlencoded",
+    }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      return json.message;
+    });
+}
+
+async function updateUser() {
+  return await fetch("http://localhost:3001/account/editUserDetails", {
+    method: "POST",
+    headers: new Headers({
+      Authorization: "Basic " + btoa("username:password"),
+      "Content-Type": "application/x-www-form-urlencoded",
+    }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      return json.message;
+    });
+}
+
+export { getUser, updateUser };
