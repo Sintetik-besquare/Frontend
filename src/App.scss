@@ -4,6 +4,8 @@
 @import "./styles/newspage.scss";
 @import "./styles/horizontal-card.scss";
 @import "./styles/astronout.scss";
+@import "./styles/trade.scss";
+@import "./styles/stars.scss";
 
 #home {
   background-color: $black;
@@ -38,19 +40,6 @@
   width: 80%;
 }
 }
-
-// #graphic_laptop {
-//   position: absolute;
-//   top: -16rem;
-//   right: -110%;
-//   width: 70%;
-// }
-// #graphic_desktop {
-//   position: absolute;
-//   bottom: -23rem;
-//   right: -79%;
-//   width: 90%;
-// }
 
 @media only screen and (max-width: 1500px) {
   .landing_hero_graphics {
