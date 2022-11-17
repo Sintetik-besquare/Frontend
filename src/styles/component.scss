@@ -176,12 +176,12 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    text-align: left;
-    padding-top: 0.5rem;
-    padding-bottom: 0.7rem;
-    margin-top: 1rem;
-    margin-bottom: 0rem;
-    width: 245px;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 200px;
     border: 1px solid black;
     transition: 0.7s;
   &:hover {
