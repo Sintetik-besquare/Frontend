@@ -4,7 +4,6 @@ import OrderForm from "./components/order-form";
 
 
 export const Index = () => {
-  
   return (
     <div className="trade_page">
       <Chart />

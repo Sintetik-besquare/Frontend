@@ -3,6 +3,7 @@ import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 import { BiCaretLeft } from "react-icons/bi";
+import { TbMinusVertical } from "react-icons/tb";
 import { FiMinus } from "react-icons/fi";
 import { FiBox } from "react-icons/fi";
 import { FiPlus } from "react-icons/fi";
@@ -10,6 +11,8 @@ import { FiTrendingDown } from "react-icons/fi";
 import { FiTrendingUp } from "react-icons/fi";
 import { MdAutoGraph } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";
+import { HiOutlineChevronDoubleDown } from "react-icons/hi";
+import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
 const OrderForm = () => {
   /**
@@ -82,7 +85,11 @@ const OrderForm = () => {
   };
 
   return (
-    <div className="form_container">
+    <div
+      className="form_container"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+    >
       <div id="form_container_header">
         <div id="trade-away">Trade Away</div>
       </div>
@@ -196,8 +203,8 @@ const OrderForm = () => {
             <div id="call-40">
               <div id="call-right">
                 <span>
-                  call
-                  <FiTrendingUp id="button-icon14" />
+                  CALL
+                  <HiOutlineChevronDoubleUp id="button-icon14" />
                 </span>
               </div>
             </div>
@@ -217,8 +224,8 @@ const OrderForm = () => {
             <div id="put-40">
               <div id="put-right">
                 <span>
-                  put
-                  <FiTrendingDown id="button-icon15" />
+                  PUT
+                  <HiOutlineChevronDoubleDown id="button-icon15" />
                 </span>
               </div>
             </div>
@@ -242,7 +249,7 @@ const OrderForm = () => {
             <div id="plus">
               <FiPlus id="button-icon5" />
             </div>
-            |
+            <TbMinusVertical id="button-icon6" />
             <div id="down">
               <FiTrendingDown id="button-icon6" />
             </div>
@@ -258,31 +265,79 @@ const OrderForm = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div id="call_put_reset2">
           <button
-            className=" button_green_disabled"
+            className="button_green_disabled"
             onClick={() => {
               validate();
             }}
           >
-            call
+            <div id="call-60">
+              <div id="call-left">
+                <span>$123.45</span>
+              </div>
+            </div>
+            <div id="call-40">
+              <div id="call-right">
+                <span>
+                  CALL
+                  <HiOutlineChevronDoubleUp id="button-icon14" />
+                </span>
+              </div>
+            </div>
           </button>
           <button
-            className=" button_red_disabled"
+            className="button_red_disabled"
             onClick={() => {
               validate();
             }}
           >
-            put
+            <div id="put-60">
+              <div id="put-left">
+                <span>$123.45</span>
+              </div>
+            </div>
+            <div id="put-40">
+              <div id="put-right">
+                <span>
+                  PUT
+                  <HiOutlineChevronDoubleDown id="button-icon15" />
+                </span>
+              </div>
+            </div>
           </button>
           <button
-            className=" reset_disabled "
+            className="reset_disabled "
             onClick={() => {
               validate();
             }}
           >
             Reset balance
           </button>
+          <div id="graph-tools" style={{ fontSize: "23px" }}>
+            <div id="minus">
+              <FiMinus id="button-icon3" />
+            </div>
+            <div id="cube">
+              <FiBox id="button-icon4" />
+            </div>
+            <div id="plus">
+              <FiPlus id="button-icon5" />
+            </div>
+            <TbMinusVertical id="button-icon6" />
+            <div id="down">
+              <FiTrendingDown id="button-icon6" />
+            </div>
+            <div id="up">
+              <FiTrendingUp id="button-icon7" />
+            </div>
+            <div id="graph">
+              <MdAutoGraph id="button-icon8" />
+            </div>
+            <div id="edit">
+              <MdOutlineModeEditOutline id="button-icon9" />
+            </div>
+          </div>
         </div>
       )}
     </div>
