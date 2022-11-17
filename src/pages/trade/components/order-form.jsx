@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useRef, useEffect } from "react";
+import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 import { BiCaretLeft } from "react-icons/bi";
@@ -14,14 +15,47 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 
 const OrderForm = () => {
+  /**
+   * @type {React.MutableRefObject<Socket>}
+   */
+  const socket = useRef();
   const { app_store, chart_store } = useStores();
+  const TOKEN = app_store.access_token;
   let error_message = [];
 
-  React.useEffect(() => {
-    console.log(chart_store.index);
-    //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin, chart_store]);
+  useEffect(() => {
+    socket.current = io("http://localhost:3001", {
+      query: {
+        token: TOKEN,
+      },
+    });
+    socket.current.on("getfeed", () => {
+      console.log("connected to server");
+    });
+    socket.current.on("buy", (message) => {
+      console.log(message);
+    });
 
+    socket.current.on("iswinning", (message) => {
+      console.log(message);
+    });
+    socket.current.on("sell", (message) => {
+      console.log(message);
+    });
+    return () => socket.current.disconnect(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const emitOrder = () => {
+    let order = {
+      index: chart_store.index,
+      stake: chart_store.stake,
+      ticks: chart_store.ticks,
+      option_type: chart_store.option_type,
+      entry_time: "",
+    };
+    socket.current.emit("order", order);
+  };
   function validate() {
     if (app_store.is_loggedin === false) {
       error_message.push("please login first ");
@@ -80,7 +114,7 @@ const OrderForm = () => {
               <button
                 disabled={chart_store.ticks <= 0}
                 onClick={() => {
-                  chart_store.ticks(chart_store.ticks--);
+                  chart_store.setTicks((chart_store.ticks -= 1));
                 }}
               >
                 -
@@ -96,7 +130,7 @@ const OrderForm = () => {
               <button
                 disabled={chart_store.ticks >= 10}
                 onClick={() => {
-                  chart_store.ticks(chart_store.ticks++);
+                  chart_store.setTicks((chart_store.ticks += 1));
                 }}
               >
                 +
@@ -112,7 +146,7 @@ const OrderForm = () => {
               <button
                 disabled={chart_store.stake <= 0}
                 onClick={() => {
-                  chart_store.stake(chart_store.stake--);
+                  chart_store.setStake((chart_store.stake -= 1));
                 }}
               >
                 -
@@ -127,7 +161,7 @@ const OrderForm = () => {
               />
               <button
                 onClick={() => {
-                  chart_store.stake(chart_store.stake++);
+                  chart_store.setStake((chart_store.stake += 1));
                 }}
               >
                 +
@@ -143,8 +177,9 @@ const OrderForm = () => {
         <div id="call-put-reset">
           <button
             className="button_green_light"
-            onClick={(e) => {
-              chart_store.setOptionType("CALL");
+            onClick={() => {
+              chart_store.setOptionType("call");
+                emitOrder();
             }}
           >
             <div id="call-60">
@@ -155,16 +190,17 @@ const OrderForm = () => {
             <div id="call-40">
               <div id="call-right">
                 <span>
-                  CALL
-                  <HiOutlineChevronDoubleUp id="button-icon14" />
+                  call
+                  <FiTrendingUp id="button-icon14" />
                 </span>
               </div>
             </div>
           </button>
           <button
             className="button_red_light"
-            onClick={(e) => {
-              chart_store.setOptionType("PUT");
+            onClick={() => {
+              chart_store.setOptionType("put");
+                emitOrder();
             }}
           >
             <div id="put-60">
@@ -175,8 +211,8 @@ const OrderForm = () => {
             <div id="put-40">
               <div id="put-right">
                 <span>
-                  PUT
-                  <HiOutlineChevronDoubleDown id="button-icon15" />
+                  put
+                  <FiTrendingDown id="button-icon15" />
                 </span>
               </div>
             </div>

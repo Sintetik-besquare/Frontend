@@ -1,6 +1,11 @@
 import React, { useEffect } from "react";
 import { Line } from "react-chartjs-2";
-import Chart from "chart.js/auto";
+import {
+  Chart as ChartJS,
+  LinearScale,
+  LineElement,
+  PointElement,
+} from "chart.js";
 import io from "socket.io-client";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
@@ -13,12 +18,14 @@ import { MdAutoGraph } from "react-icons/md";
 import { MdOutlineModeEditOutline } from "react-icons/md";
 import { BiCaretLeft } from "react-icons/bi";
 import { getHistoricalFeed } from "../../../services/historical-feed";
+import { CategoryScale } from "chart.js";
 
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 const LineChart = () => {
   const { chart_store } = useStores();
   const [history, setHistory] = React.useState(chart_store.historical_price);
 
-  const chart_name = "Volatility 10";
+  const chart_name = "Volatility 10 (1s)";
   chart_store.index = chart_name;
 
   const [x_axis, setX_axis] = React.useState([]);
@@ -36,31 +43,31 @@ const LineChart = () => {
       },
     ],
     options: {
-      animation: false,
-      position: "right",
-      responsive: false,
+      interaction: {
+        intersect: false,
+      },
+      plugins: {
+        legend: false,
+      },
       scales: {
-        y: {
-          // beginAtZero: false,
-          // stacked: true
+        x: {
+          type: "linear",
         },
       },
     },
   };
 
-  // fetch historical feed ONCE
   useEffect(() => {
     getHistoricalFeed().then(setHistory);
     history.map((d) => {
       y_axis.push(d[1][1]);
       x_axis.push(d[1][3]);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // fetch subsequent feed from socket emits
   useEffect(() => {
     const socket = io.connect("http://localhost:3002");
-    // JJ's code (z limit)
     /**
      *
      * @param {any[]} z
@@ -76,7 +83,7 @@ const LineChart = () => {
       setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
       setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
     });
-    return () => socket.disconnect(true);
+    return () => socket.disconnect(true); //prevent spam
   }, []);
 
   return (
@@ -142,19 +149,3 @@ const LineChart = () => {
 };
 
 export default observer(LineChart);
-
-// destructure the array
-// {history.map((d) => (
-//   <div>
-//     <div>
-//       {d[1][0]}: {d[1][1]} (y_axis.push(d[1][1]))
-//     </div>
-//     <div>
-//       {d[1][2]}: {d[1][3]} (x_axis.push(d[1][3]))
-//     </div>
-//     <div>
-//       {d[1][4]}: {d[1][5]} (chart_name = d[1][5])
-//     </div>
-//     <hr />
-//   </div>
-// ))}
