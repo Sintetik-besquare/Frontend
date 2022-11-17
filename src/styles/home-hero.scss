@@ -1,7 +1,7 @@
 @media only screen and (max-width: 2570px) {
-    .hero-page-flex-block {
+    // .hero-page-flex-block {
         // padding-left: 69rem;
-    }
+    // }
         }
 
         .hero-video {
@@ -14,9 +14,9 @@
 }
 
 @media only screen and (max-width: 2000px) {
-    .hero-page-flex-block {
+    // .hero-page-flex-block {
         // padding-left: 45rem;
-    }
+    // }
         }
         
 .homepage-title {
@@ -27,8 +27,8 @@
 .hero-home {
     height: 100%;
     // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-    padding-top: 2rem;
-    padding-bottom: 10rem;
+    padding-top: 11rem;
+    padding-bottom: 11rem;
     display: grid;
     place-items: center;
     text-align: center;
@@ -75,15 +75,31 @@
 }
 
 @media only screen and (max-width: 1500px) {
-    #graphic_crypto {
+    // #graphic_crypto {
         // test
-        }
+        // }
         
         .hero-page-flex-block {
             display: flex;
             place-items: center;
             padding-left: 4.5rem;
             // margin-left: 30%;
+    }
+    .hero-home{
+        padding-top: 5rem;
+        padding-bottom: 11rem;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    .hero-home{
+        padding-top: 1rem;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .hero-home{
+        padding-bottom: 7rem;
     }
 }
 
@@ -110,8 +126,8 @@ padding-left: 0;
 
 @media only screen and (max-width: 900px) {
     .hero-home {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
+        padding-top: 8%;
+        padding-bottom: 6%;
     }
     .hero-page-flex-block {
     // padding-right: 10rem;
@@ -127,7 +143,7 @@ padding-left: 0;
       }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
     .hero-home {
         padding-top: 5rem;
         padding-bottom: 2rem;
