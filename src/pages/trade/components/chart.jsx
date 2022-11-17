@@ -35,8 +35,8 @@ const LineChart = () => {
     datasets: [
       {
         label: chart_name,
-        borderColor: "black",
-        // backgroundColor: "white",
+        borderColor: "white",
+        backgroundColor: "white",
         data: y_axis,
         pointStyle: "dash",
         pointBorderWidth: 0,

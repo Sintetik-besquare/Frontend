@@ -22,6 +22,10 @@
   }
 }
 
+.block-flex{
+  display:block
+}
+
 .flex-end {
   display: flex;
   justify-content: flex-end;
@@ -40,6 +44,11 @@
 
 
 @media only screen and (max-width: 1000px) {
+  .block-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
   .cards-container {
     flex-wrap: wrap;
   }

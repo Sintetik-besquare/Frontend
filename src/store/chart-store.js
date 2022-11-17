@@ -9,8 +9,9 @@ export default class ChartStore {
   entry_time = Math.floor(Date.now() / 1000);
   payout = this.ticks + this.stake;
   wallet = 10000;
-  status = ''
-  showOrderForm=false;
+  iswinning = "";
+  message = "";
+  showOrderForm = false;
 
   setIndex(index) {
     this.index = index;
@@ -32,12 +33,16 @@ export default class ChartStore {
     this.wallet += 10000; //todo: get user wallet balance
   }
 
-  setStatus(status){
-    this.status = status;
+  setIswinning(iswinning) {
+    this.iswinning = iswinning;
   }
 
-  toggleOrderForm(visibility){
-    this.showOrderForm=visibility;
+  setMessage(message) {
+    this.message = message;
+  }
+
+  toggleOrderForm(visibility) {
+    this.showOrderForm = visibility;
   }
 
   resetWallet() {
@@ -57,14 +62,14 @@ decorate(ChartStore, {
   entry_time: observable,
   payout: observable,
   wallet: observable,
-  status: observable,
+  iswinning: observable,
   showOrderForm: observable,
   setIndex: action,
   setOptionType: action,
   setTicks: action,
   setState: action,
   setWallet: action,
-  setStatus: action,
+  setIswinning: action,
   toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
