@@ -5,10 +5,12 @@ export default class ChartStore {
   index = "Volatility 10 (1s)";
   option_type = " "; // CALL or PUT
   ticks = 0;
-  stake = 0;
+  stake = 0.0;
   entry_time = Math.floor(Date.now() / 1000);
   payout = this.ticks + this.stake;
   wallet = 10000;
+  status = ''
+  showOrderForm=false;
 
   setIndex(index) {
     this.index = index;
@@ -30,6 +32,14 @@ export default class ChartStore {
     this.wallet += 10000; //todo: get user wallet balance
   }
 
+  setStatus(status){
+    this.status = status;
+  }
+
+  toggleOrderForm(visibility){
+    this.showOrderForm=visibility;
+  }
+
   resetWallet() {
     this.wallet += 500;
   }
@@ -47,13 +57,15 @@ decorate(ChartStore, {
   entry_time: observable,
   payout: observable,
   wallet: observable,
+  status: observable,
+  showOrderForm: observable,
   setIndex: action,
   setOptionType: action,
   setTicks: action,
   setState: action,
   setWallet: action,
+  setStatus: action,
+  toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
 });
-
-// ! stake  must be 2dp

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
@@ -23,6 +23,9 @@ const OrderForm = () => {
   const TOKEN = app_store.access_token;
   let error_message = [];
 
+  const [callPayout, setCallPayout] = useState(123.45);
+  const [putPayout, setPutPayout] = useState(123.45);
+
   useEffect(() => {
     socket.current = io("http://localhost:3001", {
       query: {
@@ -37,7 +40,8 @@ const OrderForm = () => {
     });
 
     socket.current.on("iswinning", (message) => {
-      console.log(message);
+      chart_store.setStatus(message.status);
+      console.log(message.status);
     });
     socket.current.on("sell", (message) => {
       console.log(message);
@@ -46,30 +50,39 @@ const OrderForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function validate() {
+    error_message = [];
+    if (app_store.is_loggedin === false) {
+      error_message.push("please login first ");
+    }
+    if (chart_store.ticks <= 0 || chart_store.ticks > 10) {
+      error_message.push(" ticks must be a value between 1 to 10 ");
+    }
+    if (chart_store.stake <= 0) {
+      error_message.push(" stake cannot be 0 ");
+    }
+    if (error_message.length === 0) {
+      emitOrder();
+    } else {
+      showError();
+    }
+  }
+
+  function showError() {
+    alert(error_message.join("\n"));
+  }
+
   const emitOrder = () => {
     let order = {
       index: chart_store.index,
       stake: chart_store.stake,
       ticks: chart_store.ticks,
       option_type: chart_store.option_type,
-      entry_time: "",
+      entry_time: Math.floor(Date.now() / 1000),
     };
+    console.log(order);
     socket.current.emit("order", order);
   };
-  function validate() {
-    if (app_store.is_loggedin === false) {
-      error_message.push("please login first ");
-    }
-    if (chart_store.ticks <= 0) {
-      error_message.push(" ticks cannot be 0 ");
-    }
-    if (chart_store.stake <= 0) {
-      error_message.push(" stake cannot be 0 ");
-    }
-
-    alert(error_message.join("\n"));
-    error_message = [];
-  }
 
   return (
     <div
@@ -156,7 +169,7 @@ const OrderForm = () => {
                 placeholder={chart_store.stake}
                 style={{ width: "100%" }}
                 onChange={(e) => {
-                  chart_store.setStake(e.target.value);
+                  chart_store.setStake(e.target.value.toFixed(2));
                 }}
               />
               <button
@@ -179,12 +192,12 @@ const OrderForm = () => {
             className="button_green_light"
             onClick={() => {
               chart_store.setOptionType("call");
-                emitOrder();
+              validate();
             }}
           >
             <div id="call-60">
               <div id="call-left">
-                <span>$123.45</span>
+                <span>${callPayout}</span>
               </div>
             </div>
             <div id="call-40">
@@ -200,12 +213,12 @@ const OrderForm = () => {
             className="button_red_light"
             onClick={() => {
               chart_store.setOptionType("put");
-                emitOrder();
+              validate();
             }}
           >
             <div id="put-60">
               <div id="put-left">
-                <span>$123.45</span>
+                <span>${putPayout}</span>
               </div>
             </div>
             <div id="put-40">
@@ -221,6 +234,7 @@ const OrderForm = () => {
             className="reset"
             onClick={(e) => {
               chart_store.setOptionType("PUT");
+              validate();
             }}
           >
             Reset Balance
@@ -324,6 +338,7 @@ const OrderForm = () => {
               <MdOutlineModeEditOutline id="button-icon9" />
             </div>
           </div>
+
         </div>
       )}
     </div>

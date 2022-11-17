@@ -35,8 +35,8 @@ const LineChart = () => {
     datasets: [
       {
         label: chart_name,
-        backgroundColor: "black",
         borderColor: "black",
+        // backgroundColor: "white",
         data: y_axis,
         pointStyle: "dash",
         pointBorderWidth: 0,
@@ -92,54 +92,21 @@ const LineChart = () => {
         <div id="balance-container">
           <div id="balance-amount">
             <span style={{ fontSize: "50px", fontWeight: "400px" }}>
-              $32,000.00
+              ${chart_store.wallet} {/* I assume this is the wallet balance? */}
             </span>
             <font style={{ fontSize: "16px", fontWeight: "300px" }}>USD</font>
           </div>
 
           <div id="trend-percentage" style={{ fontSize: "18px" }}>
             <FiTrendingUp id="button-icon10" />
-            <font> $1,234,23</font>
-            <font> (2.4%)</font>
+            <font> $1,234,23</font> {/* are you sure you wanna hardcode this?*/}
+            <font> (2.4%)</font> {/* are you sure you wanna hardcode this?*/}
           </div>
         </div>
-        <div class="wrapper">
-          <ul>
-            <li class="past-trades">
-              <i aria-hidden="true">
-                <BiCaretLeft id="button-icon10" />
-              </i>
-              <div class="slider">
-                <p>Past Trades</p>
-              </div>
-            </li>
-          </ul>
+        <div>
+          <button id="btn_orderform" onClick={()=>{chart_store.toggleOrderForm(!chart_store.showOrderForm)}}>order</button> {/* are you sure you wanna hardcode this?*/}
         </div>
       </div>
-      {/* <div id="graph-tools" style={{ fontSize: "23px" }}>
-        <div id="minus">
-          <FiMinus id="button-icon3" />
-        </div>
-        <div id="cube">
-          <FiBox id="button-icon4" />
-        </div>
-        <div id="plus">
-          <FiPlus id="button-icon5" />
-        </div>
-        |
-        <div id="down">
-          <FiTrendingDown id="button-icon6" />
-        </div>
-        <div id="up">
-          <FiTrendingUp id="button-icon7" />
-        </div>
-        <div id="graph">
-          <MdAutoGraph id="button-icon8" />
-        </div>
-        <div id="edit">
-          <MdOutlineModeEditOutline id="button-icon9" />
-        </div>
-      </div> */}
 
       <div id="chart-graph">
         <Line data={data} style={{ width: "100%" }} />

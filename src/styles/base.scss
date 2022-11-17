@@ -60,24 +60,18 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #signin {
-  background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
+  background-image: linear-gradient(
+    rgba(34, 33, 40, 1),
+    rgba(200, 200, 200, 1)
+  );
   padding-top: 15px;
   padding-bottom: 15px;
-// #home {
-//   padding-top: 200px;
-//   padding-bottom: 400px;
-//   display: flex;
-//   justify-content: center;
-//   // background: url("../assets/stars.jpeg") no-repeat center center fixed;
-//   background-size: cover;
-// }
-
 }
 #signin-background,
 #signup-background {
   // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-    background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-    // background-color: $yellow;
+  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
+  // background-color: $yellow;
   padding-top: 5rem;
   padding-bottom: 15rem;
   display: flex;
@@ -87,7 +81,7 @@ $yellow: rgba(245, 220, 12, 1);
 #signin,
 #signup {
   float: center;
-    width: 50%;
+  width: 50%;
   display: flex;
 }
 
@@ -107,7 +101,7 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #company {
-  background: #F5DC0C ;
+  background: #f5dc0c;
   padding-top: 100px;
   padding-bottom: 250px;
 }
