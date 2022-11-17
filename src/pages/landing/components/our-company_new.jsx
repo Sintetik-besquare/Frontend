@@ -10,7 +10,7 @@ function OurCompany() {
       </h1>
       </div>
           <h2
-            className="sintetik-is-one-of-t aboutus-text"
+            className="aboutus-text"
             data-aos="fade-up"
           >
             <span className="aboutus-text2">

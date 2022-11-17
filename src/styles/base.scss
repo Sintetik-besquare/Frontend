@@ -64,61 +64,20 @@ $yellow: rgba(245, 220, 12, 1);
   cursor: pointer;
 }
 
-#signin-background,
-#signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-    background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-    // background-color: $yellow;
-  padding-top: 5rem;
-  padding-bottom: 15rem;
-  display: flex;
-  justify-content: center;
-}
-
-#signin,
-#signup {
-  float: center;
-    width: 50%;
-  display: flex;
-}
-
 #home {
   height: 100%;
-  // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-  padding-top: 2rem;
-  padding-bottom: 10rem;
-  display: grid;
-  place-items: center;
-  text-align: center;
+  background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
+  overflow: hidden;
+  padding-top: 200px;
+  padding-bottom: 350px;
+  display: flex;
   // justify-content: center;
-  // background-size: cover;
-  // background-image: ;
+  background-size: cover;
 }
 
 #about {
-  background: opacity($color: #ffffff80) ;
-  background-size: cover;
-  overflow: hidden;
-  // height: 100%;
-  // background: linear-gradient( to bottom right, #2c99ff , rgb(0, 0, 0));
-  // overflow: hidden;
+  background: opacity($color: #ffffff80);
   padding-top: 100px;
-  // display: flex;
-  // justify-content: center;
-  // background-size: cover;
-}
-
-#about-the-team {
-  background: opacity($color: #ffffff80) ;
-  background-size: cover;
-  overflow: hidden;
-  // height: 100%;
-  // background: linear-gradient( to bottom right, #2c99ff , rgb(0, 0, 0));
-  // overflow: hidden;
-  padding-top: 100px;
-  // display: flex;
-  // justify-content: center;
-  // background-size: cover;
 }
 
 #company {
@@ -690,17 +649,15 @@ $yellow: rgba(245, 220, 12, 1);
   // margin-left: 55%;
   // right: 50%;
   // color: #000000;
-  text-align: center;
+  text-align: left;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 40px;
   // letter-spacing: 5px;
   margin-top: -20px;
-  // padding-left: 5rem;
-    width: 100%;
-    height: 130%;
+  padding-left: 200px;
+  width: 160%;
   line-height: 100%;
-  margin-right: 0;
 }
 
 //probably useless
@@ -722,9 +679,3 @@ $yellow: rgba(245, 220, 12, 1);
   }
 }
 // RESETS
-
-@media only screen and (max-width: 900px) {
-  #title span {
-    line-height: 200%;
-  }
-}

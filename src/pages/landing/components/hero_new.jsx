@@ -4,7 +4,7 @@ import Sand from "../../../assets/cyberspace_gray.mp4";
 
 function Hero() {
   return (
-      <div id="home">
+      <div className="hero-home">
       <div className="hero-page-flex-block">
         <video autoPlay loop muted className="hero-video">
           <source src={Sand} type="video/mp4" />
