@@ -1,18 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 import { BiCaretLeft } from "react-icons/bi";
-import { TbMinusVertical } from "react-icons/tb";
-import { FiMinus } from "react-icons/fi";
-import { FiBox } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
-import { FiTrendingDown } from "react-icons/fi";
 import { FiTrendingUp } from "react-icons/fi";
 import { MdAutoGraph } from "react-icons/md";
-import { MdOutlineModeEditOutline } from "react-icons/md";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import chart from "./chart";
 
 const OrderForm = () => {
   /**
@@ -22,9 +17,6 @@ const OrderForm = () => {
   const { app_store, chart_store } = useStores();
   const TOKEN = app_store.access_token;
   let error_message = [];
-
-  const [callPayout, setCallPayout] = useState(123.45);
-  const [putPayout, setPutPayout] = useState(123.45);
 
   useEffect(() => {
     socket.current = io("http://localhost:3001", {
@@ -127,6 +119,7 @@ const OrderForm = () => {
             <div id="ticks-pad">Ticks</div>
             <div id="ticks2">
               <button
+                className="button_red_small"
                 disabled={chart_store.ticks <= 0}
                 onClick={() => {
                   chart_store.setTicks((chart_store.ticks -= 1));
@@ -140,9 +133,11 @@ const OrderForm = () => {
                 style={{ width: "100%" }}
                 onChange={(e) => {
                   chart_store.setTicks(e.target.value);
+                  // calculate_payout();
                 }}
               />
               <button
+                className="button_green_small"
                 disabled={chart_store.ticks >= 10}
                 onClick={() => {
                   chart_store.setTicks((chart_store.ticks += 1));
@@ -159,6 +154,7 @@ const OrderForm = () => {
             <div id="ticks-pad">Stake</div>
             <div id="ticks2">
               <button
+                className="button_red_small"
                 disabled={chart_store.stake <= 0}
                 onClick={() => {
                   chart_store.setStake((chart_store.stake -= 1));
@@ -172,9 +168,11 @@ const OrderForm = () => {
                 style={{ width: "100%" }}
                 onChange={(e) => {
                   chart_store.setStake(e.target.value.toFixed(2));
+                  // calculate_payout();
                 }}
               />
               <button
+                className="button_green_small"
                 onClick={() => {
                   chart_store.setStake((chart_store.stake += 1));
                 }}
@@ -199,7 +197,7 @@ const OrderForm = () => {
           >
             <div id="call-60">
               <div id="call-left">
-                <span>${callPayout}</span>
+                <span>${chart_store.call_payout}</span>
               </div>
             </div>
             <div id="call-40">
@@ -220,7 +218,7 @@ const OrderForm = () => {
           >
             <div id="put-60">
               <div id="put-left">
-                <span>${putPayout}</span>
+                <span>${chart_store.put_payout}</span>
               </div>
             </div>
             <div id="put-40">
@@ -243,7 +241,7 @@ const OrderForm = () => {
           >
             <div id="call-60">
               <div id="call-left">
-                <span>$123.45</span>
+                <span>${chart_store.call_payout}</span>
               </div>
             </div>
             <div id="call-40">
@@ -263,7 +261,7 @@ const OrderForm = () => {
           >
             <div id="put-60">
               <div id="put-left">
-                <span>$123.45</span>
+                <span>${chart_store.put_payout}</span>
               </div>
             </div>
             <div id="put-40">

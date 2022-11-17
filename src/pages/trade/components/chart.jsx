@@ -1,4 +1,7 @@
 import React, { useEffect } from "react";
+import io from "socket.io-client";
+import { observer } from "mobx-react-lite";
+import { CategoryScale } from "chart.js";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -6,19 +9,9 @@ import {
   LineElement,
   PointElement,
 } from "chart.js";
-import io from "socket.io-client";
-import { observer } from "mobx-react-lite";
-import { useStores } from "../../../store";
-import { FiMinus } from "react-icons/fi";
-import { FiBox } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
-import { FiTrendingDown } from "react-icons/fi";
 import { FiTrendingUp } from "react-icons/fi";
-import { MdAutoGraph } from "react-icons/md";
-import { MdOutlineModeEditOutline } from "react-icons/md";
-import { BiCaretLeft } from "react-icons/bi";
+import { useStores } from "../../../store";
 import { getHistoricalFeed } from "../../../services/historical-feed";
-import { CategoryScale } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 const LineChart = () => {

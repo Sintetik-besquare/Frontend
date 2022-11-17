@@ -24,7 +24,7 @@ $yellow: rgba(245, 220, 12, 1);
     -webkit-box-shadow: 0 0 6px $button-color;
     box-shadow: 0px 0px 6px $button-color;
     // background-color: rgba(255, 255, 255, 0.7);
-    // background-color: $button-color;
+    background-color: $button-color;
     // opacity:30%;
     color: white;
   }
@@ -75,7 +75,8 @@ $yellow: rgba(245, 220, 12, 1);
   width: 100%;
 }
 
-.button_orange {
+
+.button_orange_light {
   @include button-shared($yellow);
   font-family: "Poppins";
   background-color: #0f0f0f;
@@ -92,6 +93,20 @@ $yellow: rgba(245, 220, 12, 1);
     border: 1px solid $yellow;
   }
   width: 100%;
+}
+
+.button_green_small {
+  @include button-shared($green);
+  background: rgb(47, 122, 31);
+  color: white;
+  align-items: center;
+}
+
+.button_red_small {
+  @include button-shared($red);
+  background: rgb(158, 34, 34);
+  color: white;
+  align-items: center;
 }
 
 .button_green_disabled{
