@@ -18,7 +18,7 @@ const LineChart = () => {
   const { chart_store } = useStores();
   const [history, setHistory] = React.useState(chart_store.historical_price);
 
-  const chart_name = "Volatility 10 (1s)";
+  const chart_name = "VOL100";
   chart_store.index = chart_name;
 
   const [x_axis, setX_axis] = React.useState([]);

@@ -4,14 +4,15 @@ import bs_binary_option from "../services/payout";
 export default class ChartStore {
   //obervables
   historical_price = [];
-  index = "VOL100"; //update: VOL100
-  option_type = " "; // CALL or PUT
+  index = "VOL100";
+  option_type = " "; 
   ticks = 0;
   stake = 0.0;
   entry_time = Math.floor(Date.now() / 1000);
   wallet = 10000;
-  iswinning = "";
-  message = "";
+  iswinning = [];
+  summary = [];
+  showSummary = false
   showOrderForm = false;
   
   //computed
@@ -53,11 +54,18 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
   }
 
   setIswinning(iswinning) {
-    this.iswinning = iswinning;
+    this.iswinning.push(iswinning);
+    setTimeout(() => {
+      this.iswinning.shift()
+    }, 2500);
   }
 
-  setMessage(message) {
-    this.message = message;
+  setSummary(summary) {
+    this.summary = summary;
+  }
+
+  setShowSummary(visibility) {
+    this.showSummary = visibility;
   }
 
   toggleOrderForm(visibility) {
@@ -82,6 +90,8 @@ decorate(ChartStore, {
   call_payout: computed,
   put_payout: computed,
   wallet: observable,
+  summary: observable,
+  showSummary: observable,
   iswinning: observable,
   showOrderForm: observable,
   setIndex: action,
@@ -90,6 +100,8 @@ decorate(ChartStore, {
   setState: action,
   setWallet: action,
   setIswinning: action,
+  setSummary: action,
+  setShowSummary: action,
   toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
