@@ -31,7 +31,7 @@ const NavModal = () => {
   return (
     <div className="nav_modal">
       <MdOutlineClose
-        className="button_red_light"
+        className="btn_close_nav"
         onClick={() => {
           app_store.setShowModal(false);
         }}
