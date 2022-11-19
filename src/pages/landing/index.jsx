@@ -4,6 +4,7 @@ import CoreValues from "./components/core-values";
 import MeetOurTeam from "./components/meet-our-team_new";
 import OurCompany from "./components/our-company_new";
 import Graph from "../../assets/graph_grey.png";
+import Footer from "../../components/footer";
 
 export const Index = () => {
   return (
@@ -19,6 +20,7 @@ export const Index = () => {
         </div>
         <CoreValues />
         <MeetOurTeam />
+        <Footer />
       </div>
     </div>
   );

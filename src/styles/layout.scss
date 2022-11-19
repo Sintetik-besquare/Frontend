@@ -1,9 +1,9 @@
 // MEDIA QUERY, GRID, FLEXBOX, ETC
+
 .flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 
 .block {
@@ -15,7 +15,6 @@
   justify-content: space-around;
   align-items: center;
   background-color: transparent;
-  
 
   div {
     width: 100%;
@@ -26,7 +25,6 @@
 .flex-end {
   display: flex;
   justify-content: flex-end;
-  
 }
 
 .cards-container {
@@ -39,26 +37,7 @@
   width: 100%;
 }
 
-.trade_page {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-@media only screen and (max-width: 1500px) {
-  .trade_page {
-    display: block;
-  }
-  .form_container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: center;
-    .form_row {
-      width: 200px;
-    }
-  }
-}
 
 @media only screen and (max-width: 1000px) {
   .cards-container {

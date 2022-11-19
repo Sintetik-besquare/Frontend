@@ -144,6 +144,7 @@ button {
   }
 }
 
+
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -567,8 +568,23 @@ h6 {
   padding-top: 0;
 }
 
+  .signin-form {
+    padding-left: 5px;
+  }
+
+
 .aboutus {
-  font-size: 50px;
+  // position: p;
+  // top: 50%;
+  // left: 50%;
+  font-family: "Raleway";
+  font-size: 100px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+  text-align: center;
   text-align: center;
   padding-left: 2rem;
 }

@@ -4,19 +4,26 @@
 @import "./styles/newspage.scss";
 @import "./styles/horizontal-card.scss";
 @import "./styles/astronout.scss";
+@import "./styles/trade.scss";
+@import "./styles/stars.scss";
 @import "./styles/signin-signup.scss";
 @import "./styles/team-cards.scss";
 @import "./styles/home-hero.scss";
+@import "./styles/user-profile.scss";
 @import "./styles/home_hero_vertical_roll.scss";
 @import "./styles/glassmorphism.scss";
 
+#root{
+  overflow-x: hidden;
+}
 
 
 
-// #home {
-  // background-color: $black;
-    // color: white;
-// }
+
+#home {
+  background-color: $black;
+    color: white;
+}
 
 .landing_hero_logo {
   text-align: center;
@@ -69,19 +76,6 @@
     background-image: linear-gradient(transparent, white, white);
 }
 }
-
-// #graphic_laptop {
-//   position: absolute;
-//   top: -16rem;
-//   right: -110%;
-//   width: 70%;
-// }
-// #graphic_desktop {
-//   position: absolute;
-//   bottom: -23rem;
-//   right: -79%;
-//   width: 90%;
-// }
 
 @media only screen and (max-width: 1500px) {
   .landing_hero_graphics {
