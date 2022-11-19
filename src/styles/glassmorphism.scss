@@ -1,0 +1,353 @@
+.core-value-div {
+    display: flex; 
+    padding: 0 5rem 5rem 5rem;
+}
+
+.core-value-title {
+    display: grid;
+    place-items: center;
+}
+
+.glassify__Wrapper {
+    position: relative;
+    display: grid;
+    place-items: center;
+    padding: 10rem 15rem;
+    align-items: flex-start;
+}
+
+.glassify__ContentWrapper {
+    position: relative;
+    max-width: 1234px;
+    display: grid;
+    grid-template-columns: 640px auto;
+    margin: 300px auto;
+    padding: 0px 30px;
+    box-sizing: border-box;
+}
+
+.glassify__CertificateWrapper {
+    position: relative;
+    max-width: 335px;
+    transform-origin: left top;
+}
+
+.glassify__CertificateWrapper .card4 {
+    top: 60px;
+    left: 310px;
+    background: linear-gradient(rgb(117, 224, 230) 0%, rgb(57, 19, 184) 100%);
+    box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
+}
+
+.gl__card__Wrapper {
+    width: 335px;
+    height: 220px;
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, red 100%);
+    box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(255 255 255 / 30%) 0px 0px 0px 0.5px inset;
+    cursor: pointer;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.glassify__CertificateWrapper>* {
+    position: absolute;
+    transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
+    cursor: auto;
+}
+
+.glassify__CertificateWrapper .card1 {
+    top: -200px;
+    left: 0px;
+}
+
+.glassify__CertificateWrapper:hover .card1 {
+    transform: translate(-10rem, 0) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+}
+
+.gl__card__TextWrapper {
+    width: 230px;
+}
+
+.gl__card__TitleWrapper {
+    display: grid;
+    place-items: center;
+}
+
+.gl__card__Title {
+    font-weight: 600;
+    padding: 5rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    text-transform: uppercase;
+    margin: 0px;
+    color: white;
+}
+
+.gl__card__Description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 130%;
+    margin: 0px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.gl__card__Image {
+    width: 44px;
+    height: 44px;
+    animation: 1s ease 0s 1 normal forwards running jBcSpD;
+}
+
+.glassify__CertificateWrapper:hover .card2 {
+    transform: translate(-120px, -10px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+}
+
+.glassify__CertificateWrapper .card2 {
+    top: -50px;
+    left: 200px;
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, blue 100%);
+    box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
+}
+
+.glassify__CertificateWrapper:hover .card3 {
+    transform: translate(-90px, -20px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+}
+
+.glassify__CertificateWrapper .card3 {
+    top: 100px;
+    left: 400px;
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 0, 1) 100%);
+    box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
+}
+
+.glassify__CertificateWrapper:hover .card4 {
+    transform: translate(-30px, -30px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+}
+
+.glassify__CertificateWrapper .card4 {
+    top: 250px;
+    left: 600px;
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, green 100%);
+    box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
+}
+
+.glassify__CertificateWrapper:hover .card1:hover {
+    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card2:hover {
+    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card3:hover {
+    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card4:hover {
+    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+
+}
+
+@media only screen and (max-width: 1500px) {
+    .glassify__CertificateWrapper .card1 {
+        top: -400px;
+        left: 0px;
+    }
+
+    .glassify__CertificateWrapper .card2 {
+        top: -200px;
+        left: 100px;
+    }
+
+    .glassify__CertificateWrapper .card3 {
+        top: 0px;
+        left: 200px;
+    }
+
+    .glassify__CertificateWrapper .card4 {
+        top: 200px;
+        left: 300px;
+    }
+    .glassify__CertificateWrapper:hover .card1:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card2:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card3:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card4:hover {
+        transform: translate(-10rem, 0rem);
+    
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .glassify__CertificateWrapper .card1 {
+        top: -400px;
+        left: 0px;
+    }
+
+    .glassify__CertificateWrapper .card2 {
+        top: -200px;
+        left: 0px;
+    }
+
+    .glassify__CertificateWrapper .card3 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .glassify__CertificateWrapper .card4 {
+        top: 200px;
+        left: 0px;
+    }
+    .glassify__CertificateWrapper:hover .card1:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card2:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card3:hover {
+        transform: translate(-10rem, 0rem);
+    }
+    
+    .glassify__CertificateWrapper:hover .card4:hover {
+        transform: translate(-10rem, 0rem);
+    
+    }
+}
+
+@media only screen and (max-width: 800px) {
+
+.gl__card__Title {
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 3rem;
+    text-align: center;
+}
+
+.glassify__Wrapper {
+    padding: 10rem 3rem;
+}
+
+.gl__card__Wrapper {
+    width: 15rem;
+    height: 10rem;
+}
+
+.core-value-div {
+    display: block; 
+    padding: 0 5rem 5rem 5rem;
+}
+
+.glassify__CertificateWrapper .card1 {
+    top: -400px;
+    left: 90px;
+}
+
+.glassify__CertificateWrapper .card2 {
+    top: -200px;
+    left: 90px;
+}
+
+.glassify__CertificateWrapper .card3 {
+    top: 0px;
+    left: 90px;
+}
+
+.glassify__CertificateWrapper .card4 {
+    top: 200px;
+    left: 90px;
+}
+
+.glassify__CertificateWrapper:hover .card1:hover {
+    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card2:hover {
+    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card3:hover {
+    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+}
+
+.glassify__CertificateWrapper:hover .card4:hover {
+    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+
+}
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    .gl__card__Title {
+        font-size: 2rem;
+        line-height: 2rem;
+        padding: 3rem;
+        text-align: center;
+    }
+    
+    .glassify__Wrapper {
+        padding: 10rem 3rem;
+    }
+    
+    .gl__card__Wrapper {
+        width: 15rem;
+        height: 10rem;
+    }
+    
+    .core-value-div {
+        display: block; 
+        padding: 0 5rem 5rem 5rem;
+    }
+    
+    .glassify__CertificateWrapper .card1 {
+        top: -400px;
+        left: -90px;
+    }
+    
+    .glassify__CertificateWrapper .card2 {
+        top: -200px;
+        left: -90px;
+    }
+    
+    .glassify__CertificateWrapper .card3 {
+        top: 0px;
+        left: -90px;
+    }
+    
+    .glassify__CertificateWrapper .card4 {
+        top: 200px;
+        left: -90px;
+    }
+    
+    .glassify__CertificateWrapper:hover .card1:hover {
+        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    }
+    
+    .glassify__CertificateWrapper:hover .card2:hover {
+        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    }
+    
+    .glassify__CertificateWrapper:hover .card3:hover {
+        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    }
+    
+    .glassify__CertificateWrapper:hover .card4:hover {
+        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    
+    }
+    
+    }

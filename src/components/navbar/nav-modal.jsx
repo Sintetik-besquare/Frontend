@@ -11,13 +11,15 @@ const NavModal = () => {
   const navigate = useNavigate();
 
   function viewProfile() {
-    navigate("/trade", { replace: true });
+    navigate("/profile", { replace: true });
     app_store.setShowModal(false);
   }
 
   function logout() {
-    app_store.setLogin(false);
+    app_store.setAccessToken("");
+    localStorage.clear();
     app_store.setShowModal(false);
+    app_store.setLogin(false);
   }
 
   function resetWallet() {
@@ -26,14 +28,10 @@ const NavModal = () => {
     app_store.setShowModal(false);
   }
 
-  React.useEffect(() => {
-    //rerender UI when store.isloggedin change
-  }, [app_store.is_loggedin, app_store.show_modal]);
-
   return (
     <div className="nav_modal">
       <MdOutlineClose
-        className="button_red_light"
+        className="btn_close_nav"
         onClick={() => {
           app_store.setShowModal(false);
         }}
