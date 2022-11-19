@@ -29,9 +29,9 @@ function MeetOurTeam() {
           Meet The Team
         </h1>
         <div className="container meet-the-team-page">
-          {people.map((p) => {
+          {people.map((p,i) => {
             return (
-              <span key={p.i}>
+              <span key={i}>
                 {p.id % 2 === 0 ? (
                   <div
                     className="card-horizontal-right"
