@@ -10,5 +10,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
 AOS.init({
-  duration: 2500,
+  duration: 3000,
 });
