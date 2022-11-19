@@ -10,14 +10,19 @@
 @import "./styles/team-cards.scss";
 @import "./styles/home-hero.scss";
 @import "./styles/user-profile.scss";
+@import "./styles/home_hero_vertical_roll.scss";
+@import "./styles/glassmorphism.scss";
 
 #root{
   overflow-x: hidden;
 }
 
+
+
+
 #home {
   background-color: $black;
-  color: white;
+    color: white;
 }
 
 .landing_hero_logo {
@@ -37,16 +42,39 @@
   top: -27rem;
   right: -75%;
   width: 170%;
+  padding-right: 3rem;
 }
 
-.image2 {
-  width: 40%;
-  #graphic_crypto2 {
-    position: absolute;
-    margin-top: 2rem;
-    right: 25%;
-    width: 80%;
-  }
+.homepage-top-half{
+  position: relative;
+}
+
+// .image2{
+//   width: 90%;
+//   // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
+//   // filter: drop-shadow(0 0 0.75rem lightimage2green);
+// #graphic_crypto2 {
+//   position: absolute;
+//   margin-top: 0;
+//     // width: 50%;
+//     bottom: 0;
+//     // top: 45rem;
+//     background-image: linear-gradient(transparent, white, white);
+// }
+// }
+
+.homepage-image{
+  width: 90%;
+  // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
+  // filter: drop-shadow(0 0 0.75rem lightimage2green);
+#graphic_crypto2 {
+  position: absolute;
+  margin-top: 0;
+    // width: 50%;
+    bottom: 0;
+    // top: 45rem;
+    background-image: linear-gradient(transparent, white, white);
+}
 }
 
 @media only screen and (max-width: 1500px) {
@@ -60,9 +88,15 @@
     right: 40%;
   }
   #graphic_crypto {
-    top: -8rem;
-    right: 10%;
+    top: -15rem;
+    right: -15rem;
+    width: 100%;
   }
+
+  .image2{
+    width:100%;
+  }
+
 }
 
 @media only screen and (max-width: 1000px) {

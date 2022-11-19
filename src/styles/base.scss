@@ -38,51 +38,30 @@ $yellow: rgba(245, 220, 12, 1);
 .button_green_dark {
   @include button-shared($green);
   background-color: $black;
+  cursor: pointer;
 }
 
 .button_red_dark {
   @include button-shared($red);
   background-color: $black;
+  cursor: pointer;
 }
 
 .button_green_light {
   @include button-shared($green);
   background-color: white;
+  cursor: pointer;
 }
 
 .button_red_light {
   @include button-shared($red);
   background-color: white;
+  cursor: pointer;
 }
 
 .button-orange {
   @include button-shared($yellow);
-}
-
-#signin {
-  background-image: linear-gradient(
-    rgba(34, 33, 40, 1),
-    rgba(200, 200, 200, 1)
-  );
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-#signin-background,
-#signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-  // background-color: $yellow;
-  padding-top: 5rem;
-  padding-bottom: 15rem;
-  display: flex;
-  justify-content: center;
-}
-
-#signin,
-#signup {
-  float: center;
-  width: 50%;
-  display: flex;
+  cursor: pointer;
 }
 
 #home {
@@ -96,14 +75,20 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 #about {
-  background: opacity($color: #ffffff80) ;
+  background: opacity($color: #ffffff80);
   padding-top: 100px;
 }
 
 #company {
-  background: #f5dc0c;
-  padding-top: 100px;
-  padding-bottom: 250px;
+  background: lightgray;
+    padding-top: 7rem;
+    padding-bottom: 30rem;
+    width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // background-size: cover;
+  // overflow: hidden;
+  // height: 100%;
 }
 
 #title {
