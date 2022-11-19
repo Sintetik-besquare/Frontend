@@ -28,17 +28,21 @@ const OrderForm = () => {
       console.log("connected to server");
     });
     socket.current.on("buy", (message) => {
-      chart_store.setMessage(message);
-      console.log(chart_store.message);
+      chart_store.setSummary(message);
     });
 
     socket.current.on("iswinning", (message) => {
       chart_store.setIswinning(message.status);
-      console.log(chart_store.iswinning);
+      // console.log(chart_store.iswinning);
     });
     socket.current.on("sell", (message) => {
-      chart_store.setMessage(message);
-      console.log(chart_store.message);
+      chart_store.setSummary(message);
+      chart_store.setShowSummary(true);
+
+      setTimeout(() => {
+        chart_store.setShowSummary(false);
+      }, 5000);
+      // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,8 +73,8 @@ const OrderForm = () => {
   const emitOrder = () => {
     let order = {
       index: chart_store.index,
-      stake: chart_store.stake,
-      ticks: chart_store.ticks,
+      stake: parseFloat(chart_store.stake),
+      ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
       entry_time: Math.floor(Date.now() / 1000),
     };
@@ -122,25 +126,24 @@ const OrderForm = () => {
                 className="button_red_small"
                 disabled={chart_store.ticks <= 0}
                 onClick={() => {
-                  chart_store.setTicks((chart_store.ticks -= 1));
+                  chart_store.setTicks(parseInt(chart_store.ticks) - 1);
                 }}
               >
                 -
               </button>
               <input
                 type="number"
-                placeholder={chart_store.ticks}
+                value={parseInt(chart_store.ticks)}
                 style={{ width: "100%" }}
                 onChange={(e) => {
-                  chart_store.setTicks(e.target.value);
-                  // calculate_payout();
+                  chart_store.setTicks(parseInt(e.target.value));
                 }}
               />
               <button
                 className="button_green_small"
                 disabled={chart_store.ticks >= 10}
                 onClick={() => {
-                  chart_store.setTicks((chart_store.ticks += 1));
+                  chart_store.setTicks(parseInt(chart_store.ticks) + 1);
                 }}
               >
                 +
@@ -157,24 +160,23 @@ const OrderForm = () => {
                 className="button_red_small"
                 disabled={chart_store.stake <= 0}
                 onClick={() => {
-                  chart_store.setStake((chart_store.stake -= 1));
+                  chart_store.setStake(parseFloat(chart_store.stake) - 1);
                 }}
               >
                 -
               </button>
               <input
                 type="number"
-                placeholder={chart_store.stake}
+                value={parseFloat(chart_store.stake)}
                 style={{ width: "100%" }}
                 onChange={(e) => {
-                  chart_store.setStake(e.target.value.toFixed(2));
-                  // calculate_payout();
+                  chart_store.setStake(parseFloat(e.target.value));
                 }}
               />
               <button
                 className="button_green_small"
                 onClick={() => {
-                  chart_store.setStake((chart_store.stake += 1));
+                  chart_store.setStake(parseFloat(chart_store.stake) + 1);
                 }}
               >
                 +
