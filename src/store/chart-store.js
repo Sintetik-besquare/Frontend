@@ -2,7 +2,7 @@ import { observable, action, decorate } from "mobx";
 
 export default class ChartStore {
   historical_price = [];
-  index = "Volatility 10 (1s)";
+  index = "VOL100";
   option_type = " "; // CALL or PUT
   ticks = 0;
   stake = 0.0;

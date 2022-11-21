@@ -1,7 +1,46 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../../../store";
+import { getUser, updateUser } from "../../../services/users";
 import MobileLogin from "../../../assets/astronout.png";
 
 function PrimaryCard() {
+  //useStore from users.js
+  const { user_store } = useStores();
+
+  function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    var year = a.getFullYear();
+    var month = months[a.getMonth()];
+    var date = a.getDate();
+
+    var time = date + " " + month + " " + year + " ";
+    return time;
+  }
+
+  useEffect(() => {
+    getUser().then((z) => user_store.updateUserDetail(z));
+  }, []);
+
+  useEffect(() => {
+    console.log(user_store.user_detail);
+  }, [user_store.user_detail]);
+
   return (
     <>
       <div className="user-profile-primary-card">
@@ -11,15 +50,15 @@ function PrimaryCard() {
         <div className="span-details-container">
           <h1>
             <span className="span-main-details">email</span>
-            aaron@gmail.com
+            {user_store.user_detail.email}
           </h1>
           <h1>
             <span className="span-main-details">client id</span>
-            #Sintetik12345
+            {user_store.user_detail.client_id}
           </h1>
           <h1>
             <span className="span-main-details">joined since</span>
-            12 June 2020
+            {timeConverter(user_store.user_detail.date_join)}
           </h1>
         </div>
       </div>
@@ -28,4 +67,4 @@ function PrimaryCard() {
   );
 }
 
-export default PrimaryCard;
+export default observer(PrimaryCard);

@@ -1,13 +1,14 @@
 import { observable, action, decorate } from "mobx";
 
 export default class UserStore {
+  user_detail = [];
   first_name = " ";
   last_name = " ";
   age = " ";
-  gender = [];
-  country = [];
-  education = [];
-  occupation = [];
+  gender = " ";
+  country = " ";
+  education = " ";
+  occupation = " ";
 
   setFirstName(first_name) {
     this.first_name = first_name;
@@ -36,8 +37,14 @@ export default class UserStore {
   setOccupation(occupation) {
     this.occupation = occupation;
   }
+
+  updateUserDetail(stream) {
+    // console.log(stream);
+    this.user_detail = { ...stream };
+  }
 }
 decorate(UserStore, {
+  user_detail: observable,
   first_name: observable,
   last_name: observable,
   age: observable,
@@ -45,4 +52,12 @@ decorate(UserStore, {
   country: observable,
   education: observable,
   occupation: observable,
+  setFirstName: action,
+  setLastName: action,
+  setAge: action,
+  setGender: action,
+  setCountry: action,
+  setEducation: action,
+  setOccupation: action,
+  updateUserDetail: action,
 });

@@ -1,16 +1,21 @@
+const token = localStorage.getItem("ACCESS_TOKEN");
+
 async function getUser() {
   return await fetch("http://localhost:3001/account/getUserDetails", {
     method: "GET",
     headers: new Headers({
-      Authorization: "Basic " + btoa("username:password"),
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/x-www-form-urlencoded",
     }),
+    credentials: "same-origin",
   })
     .then((response) => {
+      // console.log(response);
       return response.json();
     })
     .then((json) => {
-      return json.message;
+      console.log(json.user_details[0]);
+      return json.user_details[0];
     });
 }
 

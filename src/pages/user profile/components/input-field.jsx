@@ -1,19 +1,35 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
 import PrimaryCard from "./user-profile-primary";
 import GenderInputSelect from "./genderinput";
 import EducationLevelSelect from "./educationlevel";
 import JobDropDown from "./joblist";
+import { getUser, updateUser } from "../../../services/users";
 import { CountryDropdown } from "react-country-region-selector";
 
 function InputFieldText() {
-  //UsesStore from users.js
-  const { use_store } = useStores();
+  //useStore from users.js
+  const { user_store } = useStores();
 
-  //Edit profile button function
+  // //Variables in input field page
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");
+
+  useEffect(() => {
+    // console.log("asdsad");
+    getUser().then((z) => user_store.updateUserDetail(z));
+    // .then(user_store.updateUserDetail.bind(user_store))
+    // .then(() => {
+    //   console.log("user");
+    //   console.log(user_store.user_detail.first_name);
+    //   console.log(user_store.user_detail.last_name);
+    //   console.log(user_store.user_detail.date_join);
+    // });
+  }, []);
+
+  useEffect(() => {}, [user_store.user_detail]);
 
   const handleEditProfile = () => {
     setDisabled(!disabled);
@@ -32,7 +48,10 @@ function InputFieldText() {
               <hr></hr>
               <div>
                 {disabled ? (
-                  <input disabled={disabled} value="Aaron" />
+                  <input
+                    disabled={disabled}
+                    value={user_store.user_detail.first_name}
+                  />
                 ) : (
                   <input placeholder="Your First Name" />
                 )}
@@ -42,7 +61,10 @@ function InputFieldText() {
               <span className="span-profile-details">Last Name</span>
               <hr></hr>
               {disabled ? (
-                <input disabled={disabled} value="Brandonic" />
+                <input
+                  disabled={disabled}
+                  value={user_store.user_detail.last_name}
+                />
               ) : (
                 <input placeholder="Your Last Name" />
               )}
@@ -54,7 +76,7 @@ function InputFieldText() {
               <span className="span-profile-details">Age</span>
               <hr></hr>
               {disabled ? (
-                <input disabled={disabled} value="23" />
+                <input disabled={disabled} value={user_store.user_detail.age} />
               ) : (
                 <input placeholder="Your Age" />
               )}
@@ -106,4 +128,4 @@ function InputFieldText() {
   );
 }
 
-export default InputFieldText;
+export default observer(InputFieldText);
