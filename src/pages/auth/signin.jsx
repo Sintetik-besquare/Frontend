@@ -31,13 +31,20 @@ const SigninPage = () => {
       })
       .then(getBalance)
       .then((e) => {
-        // localStorage.setItem("WALLET", e);
         chart_store.setWallet(e);
       });
     // .then(getBalance).then(chart_store.setWallet.bind(chart_store)); //alternative method
     error_message = [];
   }, [app_store, navigate, loginPromise]);
 
+  // useEffect(() => {
+  //   getBalance()
+  //     .then((e) => {
+  //       chart_store.setWallet(e);
+  //     });
+  // }, [])
+  
+  
   return (
     <div id="signin-background">
       <div id="signin">

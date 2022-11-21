@@ -47,9 +47,7 @@ const OrderForm = () => {
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
       chart_store.setShowSummary(true);
-      getBalance.then((e) => {
-        chart_store.setWallet(e);
-      });
+      getBalance().then((e)=>{chart_store.setWallet(e)})
 
       setTimeout(() => {
         chart_store.setShowSummary(false);
@@ -59,6 +57,11 @@ const OrderForm = () => {
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+  useEffect(() => {
+    getBalance()
+  }, [chart_store])
 
   function validate() {
     error_message = [];
