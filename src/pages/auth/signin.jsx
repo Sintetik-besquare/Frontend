@@ -14,7 +14,7 @@ const SigninPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let error_message = [];
-  
+
   useEffect(() => {
     loginPromise?.then((z) => {
       if (typeof z === "string") {
@@ -33,10 +33,10 @@ const SigninPage = () => {
   return (
     <div id="signin-background">
       <div id="signin">
-        <div class="signin-image-card">
+        <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
-        <div class="signin-details-card">
+        <div className="signin-details-card">
           <h2>
             <b>
               <center>SIGN IN</center>

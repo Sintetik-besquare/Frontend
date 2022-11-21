@@ -40,8 +40,11 @@ const OrderForm = () => {
       chart_store.setShowSummary(true);
 
       setTimeout(() => {
-        chart_store.setShowSummary(false);
-      }, 5000);
+        setTimeout(() => {
+          chart_store.setShowSummary(false);
+        }, 2000);
+        chart_store.iswinning = [];
+      }, 2000);
       // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
@@ -76,6 +79,7 @@ const OrderForm = () => {
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
+      //TODO: entry_time = current time - 1s 
       entry_time: Math.floor(Date.now() / 1000),
     };
     console.log(order);

@@ -8,7 +8,7 @@ export default class ChartStore {
   option_type = " "; 
   ticks = 0;
   stake = 0.0;
-  entry_time = Math.floor(Date.now() / 1000);
+  entry_time = Math.floor(Date.now() / 1000); //TODO: entry_time = current_time -1s
   wallet = 10000;
   iswinning = [];
   summary = [];
@@ -55,9 +55,9 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
-    setTimeout(() => {
-      this.iswinning.shift()
-    }, 2500);
+    // setTimeout(() => {
+    //   this.iswinning.shift()
+    // }, 2500);
   }
 
   setSummary(summary) {
