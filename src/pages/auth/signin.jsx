@@ -14,6 +14,7 @@ const SigninPage = () => {
   const [loginPromise, setLoginPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordShown, setPasswordShown] = useState(false);
   let error_message = [];
 
   useEffect(() => {
@@ -29,21 +30,12 @@ const SigninPage = () => {
           alert(error_message.join("\n \n"));
         }
       })
-      .then(getBalance)
-      .then((e) => {
+      getBalance().then((e) => {
         chart_store.setWallet(e);
       });
-    // .then(getBalance).then(chart_store.setWallet.bind(chart_store)); //alternative method
     error_message = [];
-  }, [app_store, navigate, loginPromise]);
+  }, [app_store, loginPromise]);
 
-  // useEffect(() => {
-  //   getBalance()
-  //     .then((e) => {
-  //       chart_store.setWallet(e);
-  //     });
-  // }, [])
-  
   
   return (
     <div id="signin-background">
@@ -100,7 +92,7 @@ const SigninPage = () => {
             &nbsp;
             <div className="signin-input">
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 id="pw-input"
@@ -108,7 +100,7 @@ const SigninPage = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" />
+              <FaEyeSlash id="password-icon" onClick={()=>setPasswordShown(!passwordShown)}/>
             </div>
             &nbsp;
             <h5>Forgot password?</h5>

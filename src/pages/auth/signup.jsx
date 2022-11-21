@@ -14,6 +14,7 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   let error_message = [];
 
   useEffect(() => {
@@ -29,7 +30,8 @@ const SignUp = () => {
       }
     });
     error_message = [];
-  }, [app_store, navigate, signupPromise]);
+  }, [app_store, signupPromise]);
+  
   return (
     <div id="signup-background">
       <div id="signup">
@@ -71,14 +73,14 @@ const SignUp = () => {
             &nbsp;
             <div className="signin-input">
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" />
+              <FaEyeSlash id="password-icon" onClick={()=>setPasswordShown(!passwordShown)}/>
             </div>
             &nbsp;
             <div
