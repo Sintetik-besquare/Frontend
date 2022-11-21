@@ -22,6 +22,7 @@ button {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  cursor: pointer;
 }
 
 .navbar {
@@ -30,7 +31,6 @@ button {
   align-items: center;
   padding: 0.5rem;
 
-  // .li,
   li {
     text-decoration: none;
     list-style: none;
@@ -50,7 +50,7 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30vw;
+  width: 30vw !important;
   background-color: white;
   border-radius: 10px;
   z-index: 1000;
@@ -105,8 +105,8 @@ button {
     list-style: none;
     font-size: smaller;
     padding: 5px 10px;
-    color: $yellow;
-    border: 1px solid $yellow;
+    color: white;
+    border: 1px solid white;
     border-radius: 1rem;
   }
 }
@@ -144,6 +144,7 @@ button {
   }
 }
 
+
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -168,37 +169,77 @@ button {
   }
 }
 
+.form_container {
+  display: block;
+  align-items: center;
+
+  .form_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    width: 245px;
+    border: 1px solid black;
+    transition: 0.7s;
+  &:hover {
+    background-color: #000000;
+    border: 1px solid rgb(255, 255, 255);
+  }
+  }
+}
+
 .sintetik-is-one-of-t {
   margin-top: 200px;
   margin-bottom: 200px;
   line-height: normal;
   min-height: 197px;
   text-align: justify;
-  width: 720px;
+  width: 976px;
   color: #bbb;
   font-family: "Poppins";
   font-size: 22px;
   line-height: 180%;
 }
 
-.poppins-bold-white-40px2 {
-  font-size: 80px;
-  color: rgb(255, 255, 255);
+.homepage-headline {
+  top: 2rem;
+  color: black;
   font-family: "Poppins";
-  font-weight: 900;
   margin-top: 0px;
+  margin-bottom: 0;
+
 }
 
-.poppins-bold-white-40px-22 {
+.homepage-headline-bottom-half {
+  top: 2rem;
+  color: black;
+  font-family: "Poppins";
+  margin-top: 0px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutus-text {
   font-size: 27px;
   color: rgb(0, 0, 0);
   // width: 50%;
   font-family: "Poppins";
+  float: right;
+  text-align: end;
   font-weight: 900;
   font-size: 27px;
-  margin-left: -150px;
+  padding-right: 3rem;
+  width: 40%;
 }
 
+.poppins-bold-white-40px2,
 h1,
 h2 {
   font-size: 60px;
@@ -248,10 +289,6 @@ h6 {
   width: 100%;
 }
 
-#graphic_crypto2 {
-  animation: shake 2s;
-  animation-iteration-count: infinite;
-}
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
@@ -303,15 +340,14 @@ h6 {
 .aboutus {
   // position: p;
   // top: 50%;
-  // left: 50%;
-  font-family: "Raleway";
-  font-size: 100px;
-  letter-spacing: 0.1em;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
-  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
-  text-align: center;
+  font-family: "Poppins";
+  font-size:3rem;
+  // letter-spacing: 0.1em;
+  // -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke-width: 3px;
+  // -webkit-text-stroke-color: white;
+  // text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+  text-align:right;
 }
 
 .landing_hero_graphics {
@@ -341,6 +377,19 @@ h6 {
   }
 }
 
+#about-the-team {
+  background: opacity($color: #ffffff80) ;
+  background-size: cover;
+  overflow: hidden;
+  // height: 100%;
+  // background: linear-gradient( to bottom right, #2c99ff , rgb(0, 0, 0));
+  // overflow: hidden;
+  padding-top: 100px;
+  // display: flex;
+  // justify-content: center;
+  // background-size: cover;
+}
+
 @media only screen and (max-width: 1500px) {
   .card {
     width: 35vw;
@@ -356,15 +405,95 @@ h6 {
   .card-horizontal {
     width: 70%;
   }
+
+  .homepage-headline {
+    font-size: 80px;
+    color: black;
+    font-family: "Poppins";
+    font-weight: 900;
+    margin-top: 0px;
+    width: 100%;
+  }
+
+  .homepage-headline-bottom-half {
+    font-size: 80px;
+    color: black;
+    font-family: "Poppins";
+    font-weight: 900;
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    align-items: center;
+  }
+  
+  .aboutus-text {
+    font-size: 27px;
+    color: rgb(0, 0, 0);
+    // width: 50%;
+    font-family: "Poppins";
+    font-weight: 900;
+    font-size: 27px;
+    margin-left: 10px;
+  }
+
+  h1,
+  h2 {
+    font-size: 25px;
+  }
+  
+  h3,
+  b,
+  p {
+    size: 7px;
+  }
+  
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    align-items: center;
+  }
+  
+    h4 {
+      font-size: 10px;
+    }
+    h5 {
+      font-size: 8px;
+    }
+  
+  h6 {
+    font-size: 9px;
+  }
+  
+  #about {
+    padding-top: 0;
+  }
+
+  #about-the-team {
+    padding-top: 0;
+  }
+
+  
+  .aboutus {
+    font-size: 50px;
+  }
+
+  .aboutus-text2 {
+    font-size: 20px;
+  }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 900px) {
   .navbar {
+    flex-wrap: nowrap;
+
     .li,
     li {
       margin: 0;
-      // margin-left: 0.1rem;
-      // margin-right: 0.1rem;
     }
   }
   .nav_modal {
@@ -380,65 +509,35 @@ h6 {
       height: 60%;
     }
   }
-.card-horizontal {
-  // height: 25vh;
-  width: 95%;
-  font-size: smaller;
-  margin-left: 1rem;
-    margin-right: 1rem;
-    flex-direction: column;
-}
+  .card-horizontal {
+    // height: 25vh;
+    width: 95%;
+    font-size: smaller;
+  }
 
+  #chart_area {
+    height: 50vh;
+    overflow: scroll;
+  }
 
-.sintetik-is-one-of-t {
-  margin-top: 350px;
-    margin-bottom: 50px;
-    margin-left: 0;
-  line-height: normal;
-  min-height: 197px;
-  // text-align: center;
-  color: rgb(0, 0, 0);
-  font-family: "Poppins";
-  line-height: 180%;
-    width: 90%;
-}
-
-.poppins-bold-white-40px2 {
-  font-size: 80px;
-  color: rgb(255, 255, 255);
+.homepage-headline {
+  font-size: 50px;
+  color: black;
   font-family: "Poppins";
   font-weight: 900;
   margin-top: 0px;
+  width: 100%;
+  text-align: center;
 }
 
-.poppins-bold-white-40px-22 {
-  font-size: 27px;
-  color: rgb(0, 0, 0);
-  // width: 50%;
+.homepage-headline-bottom-half {
+  font-size: 50px;
+  color: black;
   font-family: "Poppins";
   font-weight: 900;
-  font-size: 27px;
-  margin-left: 10px;
-}
-
-.card-horizontal {
-  // height: 25vh;
-  width: 95%;
-  font-size: smaller;
-}
-
-h1,
-h2 {
-  font-size: 25px;
-}
-
-h3,
-b,
-p {
-  size: 7px;
-}
-
-.valign-text-middle {
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -446,15 +545,15 @@ p {
   align-items: center;
 }
 
-  h4 {
-    font-size: 10px;
-  }
-  h5 {
-    font-size: 8px;
-  }
-
-h6 {
-  font-size: 9px;
+.aboutus-text {
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  // width: 50%;
+  font-family: "Poppins";
+  font-weight: 900;
+  font-size: 27px;
+  text-align: justify;
+  width: 80%;
 }
 
 .hide-when-small {
@@ -465,31 +564,33 @@ h6 {
   display: block;
 }
 
-#about {
+#about-the-team {
   padding-top: 0;
 }
 
-#title {
-  width: 100%;
-  padding-left: 1rem;
-  padding-top: 4rem;
-  text-align: center;
-}
+  .signin-form {
+    padding-left: 5px;
+  }
 
-.poppins-bold-white-40px2 {
-  width: 100%;
-}
 
 .aboutus {
-  font-size: 50px;
+  // position: p;
+  // top: 50%;
+  // left: 50%;
+  font-family: "Raleway";
+  font-size: 100px;
+  letter-spacing: 0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
+  text-align: center;
+  text-align: center;
+  padding-left: 2rem;
 }
 
-.about-us-text {
-  float: right;
-}
-
-.poppins-normal-pink-swan-20px {
+.aboutus-text2 {
   font-size: 20px;
 }
-
 }
+
