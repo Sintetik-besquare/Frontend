@@ -7,6 +7,7 @@ import { FiTrendingUp } from "react-icons/fi";
 import { MdAutoGraph } from "react-icons/md";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { getBalance } from "../../../services/wallet";
 import chart from "./chart";
 
 const OrderForm = () => {
@@ -24,10 +25,17 @@ const OrderForm = () => {
         token: TOKEN,
       },
     });
+
+    socket.current.on("connect_error", (e) => {
+      console.log(e);
+    });
+
     socket.current.on("getfeed", () => {
       console.log("connected to server");
     });
+    
     socket.current.on("buy", (message) => {
+      console.log(message);
       chart_store.setSummary(message);
     });
 
@@ -35,9 +43,11 @@ const OrderForm = () => {
       chart_store.setIswinning(message.status);
       // console.log(chart_store.iswinning);
     });
+
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
       chart_store.setShowSummary(true);
+      getBalance().then((e)=>{chart_store.setWallet(e)})
 
       setTimeout(() => {
         setTimeout(() => {
@@ -50,6 +60,11 @@ const OrderForm = () => {
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+  useEffect(() => {
+    getBalance()
+  }, [chart_store])
 
   function validate() {
     error_message = [];
@@ -80,7 +95,7 @@ const OrderForm = () => {
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
       //TODO: entry_time = current time - 1s 
-      entry_time: Math.floor(Date.now() / 1000),
+      entry_time: (Math.floor(Date.now() / 1000) -1),
     };
     console.log(order);
     socket.current.emit("order", order);

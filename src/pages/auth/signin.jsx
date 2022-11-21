@@ -6,30 +6,45 @@ import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
 import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { performSignin } from "../../services/auth";
+import { getBalance } from "../../services/wallet";
 
 const SigninPage = () => {
   const navigate = useNavigate();
-  const { app_store } = useStores();
+  const { app_store, chart_store } = useStores();
   const [loginPromise, setLoginPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   let error_message = [];
 
   useEffect(() => {
-    loginPromise?.then((z) => {
-      if (typeof z === "string") {
-        app_store.setAccessToken(z);
-        navigate("/trade", { replace: true });
-      } else {
-        z.forEach((e) => {
-          error_message.push(e.msg);
-        });
-        alert(error_message.join("\n \n"));
-      }
-    });
+    loginPromise
+      ?.then((z) => {
+        if (typeof z === "string") {
+          app_store.setAccessToken(z);
+          navigate("/trade", { replace: true });
+        } else {
+          z.forEach((e) => {
+            error_message.push(e.msg);
+          });
+          alert(error_message.join("\n \n"));
+        }
+      })
+      .then(getBalance)
+      .then((e) => {
+        chart_store.setWallet(e);
+      });
+    // .then(getBalance).then(chart_store.setWallet.bind(chart_store)); //alternative method
     error_message = [];
   }, [app_store, navigate, loginPromise]);
 
+  // useEffect(() => {
+  //   getBalance()
+  //     .then((e) => {
+  //       chart_store.setWallet(e);
+  //     });
+  // }, [])
+  
+  
   return (
     <div id="signin-background">
       <div id="signin">
