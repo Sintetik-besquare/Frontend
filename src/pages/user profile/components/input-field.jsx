@@ -1,5 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../../../store";
 import PrimaryCard from "./user-profile-primary";
 import GenderInputSelect from "./genderinput";
 import EducationLevelSelect from "./educationlevel";
@@ -7,6 +9,7 @@ import JobDropDown from "./joblist";
 import { CountryDropdown } from "react-country-region-selector";
 
 function InputFieldText() {
+  const { user_store } = useStores();
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");
@@ -28,7 +31,7 @@ function InputFieldText() {
               <hr></hr>
               <div>
                 {disabled ? (
-                  <input disabled={disabled} value="Aaron" />
+                  <input disabled={disabled} value={user_store.first_name} />
                 ) : (
                   <input placeholder="Your First Name" />
                 )}
@@ -38,7 +41,7 @@ function InputFieldText() {
               <span className="span-profile-details">Last Name</span>
               <hr></hr>
               {disabled ? (
-                <input disabled={disabled} value="Brandonic" />
+                <input disabled={disabled} value={user_store.last_name} />
               ) : (
                 <input placeholder="Your Last Name" />
               )}
@@ -50,7 +53,7 @@ function InputFieldText() {
               <span className="span-profile-details">Age</span>
               <hr></hr>
               {disabled ? (
-                <input disabled={disabled} value="23" />
+                <input disabled={disabled} value={user_store.age} />
               ) : (
                 <input placeholder="Your Age" />
               )}
@@ -102,4 +105,4 @@ function InputFieldText() {
   );
 }
 
-export default InputFieldText;
+export default observer(InputFieldText);
