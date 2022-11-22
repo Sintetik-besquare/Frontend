@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
-import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
 
@@ -15,6 +15,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
+
   let error_message = [];
 
   useEffect(() => {
@@ -80,7 +81,22 @@ const SignUp = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" onClick={()=>setPasswordShown(!passwordShown)}/>
+              {!passwordShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(false);
+                  }}
+                />
+              )}
+
             </div>
             &nbsp;
             <div

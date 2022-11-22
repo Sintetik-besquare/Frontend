@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
-import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { performSignin } from "../../services/auth";
 import { getBalance } from "../../services/wallet";
@@ -15,6 +15,7 @@ const SigninPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
+
   let error_message = [];
 
   useEffect(() => {
@@ -36,7 +37,6 @@ const SigninPage = () => {
     error_message = [];
   }, [app_store, loginPromise]);
 
-  
   return (
     <div id="signin-background">
       <div id="signin">
@@ -100,7 +100,22 @@ const SigninPage = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" onClick={()=>setPasswordShown(!passwordShown)}/>
+              {!passwordShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(false);
+                  }}
+                />
+              )}
+
             </div>
             &nbsp;
             <h5>Forgot password?</h5>
