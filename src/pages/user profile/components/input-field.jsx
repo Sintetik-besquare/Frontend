@@ -22,7 +22,7 @@ function InputFieldText() {
       <div className="user-profile-card">
         <PrimaryCard />
         <div className="user-profile-paper">
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">First Name</span>
               <hr></hr>
@@ -45,7 +45,7 @@ function InputFieldText() {
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Age</span>
               <hr></hr>
@@ -62,7 +62,7 @@ function InputFieldText() {
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Country</span>
               <hr></hr>
@@ -81,7 +81,7 @@ function InputFieldText() {
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Occupation</span>
               <hr></hr>

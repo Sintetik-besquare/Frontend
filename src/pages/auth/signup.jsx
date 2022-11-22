@@ -31,11 +31,12 @@ const SignUp = () => {
       }
     });
     error_message = [];
-  }, [app_store, navigate, signupPromise]);
+  }, [app_store, signupPromise]);
+  
   return (
     <div id="signup-background">
       <div id="signup">
-        <div class="signup-details-card">
+        <div className="signup-details-card">
           <h2>
             <b>
               <center>SIGN UP</center>
@@ -95,6 +96,7 @@ const SignUp = () => {
                   }}
                 />
               )}
+
             </div>
             &nbsp;
             <div
@@ -155,7 +157,7 @@ const SignUp = () => {
             </center>
           </form>
         </div>
-        <div class="signup-image-card">
+        <div className="signup-image-card">
           <img src={SignupImage} alt="N/A" style={{ width: "90%" }} />
         </div>
       </div>

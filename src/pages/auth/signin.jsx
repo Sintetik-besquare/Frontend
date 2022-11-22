@@ -31,28 +31,19 @@ const SigninPage = () => {
           alert(error_message.join("\n \n"));
         }
       })
-      .then(getBalance)
-      .then((e) => {
+      getBalance().then((e) => {
         chart_store.setWallet(e);
       });
-    // .then(getBalance).then(chart_store.setWallet.bind(chart_store)); //alternative method
     error_message = [];
-  }, [app_store, navigate, loginPromise]);
-
-  // useEffect(() => {
-  //   getBalance()
-  //     .then((e) => {
-  //       chart_store.setWallet(e);
-  //     });
-  // }, [])
+  }, [app_store, loginPromise]);
 
   return (
     <div id="signin-background">
       <div id="signin">
-        <div class="signin-image-card">
+        <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
-        <div class="signin-details-card">
+        <div className="signin-details-card">
           <h2>
             <b>
               <center>SIGN IN</center>
@@ -124,6 +115,7 @@ const SigninPage = () => {
                   }}
                 />
               )}
+
             </div>
             &nbsp;
             <h5>Forgot password?</h5>
