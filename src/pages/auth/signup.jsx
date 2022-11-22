@@ -32,8 +32,8 @@ const SignUp = () => {
   }, [app_store, navigate, signupPromise]);
   return (
     <div id="signup-background">
-      <div id="signup">
-        <div class="signup-details-card">
+      <div id="signup" data-aos="flip-right" data-aos-duration="1000">
+        <div className="signup-details-card">
           <h2>
             <b>
               <center>SIGN UP</center>
@@ -139,7 +139,7 @@ const SignUp = () => {
             </center>
           </form>
         </div>
-        <div class="signup-image-card">
+        <div className="signup-image-card">
           <img src={SignupImage} alt="N/A" style={{ width: "90%" }} />
         </div>
       </div>

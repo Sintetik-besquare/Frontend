@@ -16,7 +16,7 @@ function Hero() {
           >
             SINTETIK
           </span>
-          <br className="hide-when-small"/>
+          <br />
           <br />
           <span
             className="homepage-heading2"
@@ -25,10 +25,10 @@ function Hero() {
             It Just Gets Better and Better
           </span>
           <br />
-          <div class="Tradewith">
+          <div className="Tradewith">
             <p>Trade Synthetics with</p>
             <b>
-              <div class="innerTradewith">
+              <div className="innerTradewith">
                 Vol 20
                 <br />
                 Vol 40
