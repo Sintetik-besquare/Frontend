@@ -30,6 +30,16 @@ $yellow: rgba(245, 220, 12, 1);
   }
 }
 
+@mixin glow {
+  color: white;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
+
+  &:hover {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 92px #f00,
+      0 0 102px #f00, 0 0 151px #f00;
+  }
+}
+
 .button-black {
   @include button-shared($black);
   background-color: $black;
@@ -81,7 +91,6 @@ $yellow: rgba(245, 220, 12, 1);
   width: 100%;
 }
 
-
 .button_orange_light {
   @include button-shared($yellow);
   cursor: pointer;
@@ -116,7 +125,7 @@ $yellow: rgba(245, 220, 12, 1);
   align-items: center;
 }
 
-.button_green_disabled{
+.button_green_disabled {
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -129,7 +138,7 @@ $yellow: rgba(245, 220, 12, 1);
   color: #fff;
 }
 
-.button_red_disabled{
+.button_red_disabled {
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -142,7 +151,7 @@ $yellow: rgba(245, 220, 12, 1);
   align-items: center;
 }
 
-.button_orange_disabled{
+.button_orange_disabled {
   font-family: "Poppins";
   background-color: #0f0f0f;
   color: #fff;
@@ -197,9 +206,9 @@ $yellow: rgba(245, 220, 12, 1);
 
 #company {
   background: lightgray;
-    padding-top: 7rem;
-    padding-bottom: 30rem;
-    width: 100%;
+  padding-top: 7rem;
+  padding-bottom: 30rem;
+  width: 100%;
   // display: flex;
   // justify-content: center;
   // background-size: cover;

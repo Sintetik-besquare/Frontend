@@ -12,8 +12,8 @@ async function getTransaction() {
       return response.json();
     })
     .then((json) => {
-      console.log(json);
-      return json;
+      console.log(json.transaction);
+      return json.transaction;
     });
 }
 
