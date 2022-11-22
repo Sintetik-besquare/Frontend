@@ -32,7 +32,7 @@ const SignUp = () => {
   }, [app_store, navigate, signupPromise]);
   return (
     <div id="signup-background">
-      <div id="signup">
+      <div id="signup" data-aos="flip-right" data-aos-duration="1000">
         <div className="signup-details-card">
           <h2>
             <b>
