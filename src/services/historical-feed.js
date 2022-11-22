@@ -1,16 +1,16 @@
+const ENDPOINT_BASE = "http://localhost:3002";
+
 async function getHistoricalFeed() {
-  return await fetch("http://localhost:3002/feed/historical", {
+  return await fetch(`${ENDPOINT_BASE}/feed/historical/vol100`, {
     method: "GET",
-    headers: new Headers({
-      Authorization: "Basic " + btoa("username:password"),
-      "Content-Type": "application/x-www-form-urlencoded",
-    }),
   })
     .then((response) => {
+      console.log(response);
       return response.json();
     })
     .then((json) => {
-      return json.message;
+      console.log(json);
+      return json;
     });
 }
 

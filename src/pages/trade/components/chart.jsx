@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import io from "socket.io-client";
 import { observer } from "mobx-react-lite";
+import { useStores } from "../../../store";
 import { CategoryScale } from "chart.js";
 import { Line } from "react-chartjs-2";
 import {
@@ -10,12 +11,12 @@ import {
   PointElement,
 } from "chart.js";
 import { FiTrendingUp } from "react-icons/fi";
-import { useStores } from "../../../store";
 import { getHistoricalFeed } from "../../../services/historical-feed";
+import { getBalance } from "../../../services/wallet";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 const LineChart = () => {
-  const { chart_store } = useStores();
+  const { app_store, chart_store } = useStores();
   const [history, setHistory] = React.useState(chart_store.historical_price);
 
   const chart_name = "VOL100";
@@ -60,6 +61,13 @@ const LineChart = () => {
   }, []);
 
   useEffect(() => {
+    getBalance()
+      .then((e) => {
+        chart_store.setWallet(e);
+      });
+  }, [])
+
+  useEffect(() => {
     const socket = io.connect("http://localhost:3002");
     /**
      *
@@ -72,6 +80,10 @@ const LineChart = () => {
       }
       return z;
     };
+    socket.on("connect_error", (e) => {
+      console.log(e);
+    });
+
     socket.on("getfeed", (price) => {
       setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
       setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
@@ -83,12 +95,16 @@ const LineChart = () => {
     <div id="chart-container" data-aos="fade-right" data-aos-duration="1000">
       <div id="chart-header">
         <div id="balance-container">
-          <div id="balance-amount">
-            <span style={{ fontSize: "50px", fontWeight: "400px" }}>
-              ${chart_store.wallet} {/* I assume this is the wallet balance? */}
-            </span>
-            <font style={{ fontSize: "16px", fontWeight: "300px" }}>USD</font>
-          </div>
+          {app_store.is_loggedin ? (
+            <div id="balance-amount">
+              <span style={{ fontSize: "50px", fontWeight: "400px" }}>
+                {chart_store.wallet}
+              </span>
+              <font style={{ fontSize: "16px", fontWeight: "300px" }}>USD</font>
+            </div>
+          ) : (
+            <></>
+          )}
 
           <div id="trend-percentage" style={{ fontSize: "18px" }}>
             <FiTrendingUp id="button-icon10" />

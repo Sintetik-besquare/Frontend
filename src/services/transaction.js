@@ -1,20 +1,37 @@
-async function getTransactionHistory() {
-    return await fetch("http://localhost:3001/account/getTransaction", {
+const ENDPOINT_BASE = "http://localhost:3001";
+
+async function getTransaction() {
+  return await fetch(`${ENDPOINT_BASE}/account/getTransaction`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      return response.json();
+    })
+    .then((json) => {
+      console.log(json.transaction);
+      return json.transaction;
+    });
+}
+
+async function getContractSummary() {
+    return await fetch(`${ENDPOINT_BASE}/account/getContractSummary`, {
       method: "GET",
-      headers: new Headers({
-        Authorization: "Basic " + btoa("username:password"),
-        "Content-Type": "application/x-www-form-urlencoded",
-      }),
+      headers: {
+        Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+      },
     })
       .then((response) => {
-        console.log(response)
+        console.log(response);
         return response.json();
       })
       .then((json) => {
-        console.log(json)
+        console.log(json);
         return json;
       });
   }
   
-  export { getTransactionHistory };
-  
+export { getTransaction, getContractSummary };

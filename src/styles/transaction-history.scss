@@ -1,0 +1,21 @@
+@import "./base.scss";
+
+.transaction-container {
+  width: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h2 {
+    @include drop-shadow;
+    // @include glow;
+  }
+  .transaction-card {
+    color:white;
+    margin: 2%;
+    padding: 2%;
+    border: 1px solid orangered;
+    flex-wrap: wrap;
+  }
+}

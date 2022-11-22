@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../../store";
-import { useState } from "react";
 import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
+import { getTransaction } from "../../../services/transaction";
 
 const UserProfile = () => {
   const { app_store } = useStores();
   const navigate = useNavigate();
   const [toggleState, setToggleState] = useState(1);
+  const [transaction, setTransaction] = useState([]);
+  const [filter, setFilter] = useState('Buy')
 
   function login() {
     navigate("/", { replace: true });
@@ -18,6 +20,10 @@ const UserProfile = () => {
   const toggleTab = (index) => {
     setToggleState(index);
   };
+
+  useEffect(() => {
+    getTransaction().then(setTransaction);
+  }, []);
 
   return (
     <>
@@ -51,12 +57,28 @@ const UserProfile = () => {
               toggleState === 2 ? "content  active-content" : "content"
             }
           >
-            <h2 className="werk">Content 2</h2>
-            <hr />
-            <p className="werk">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              voluptatum qui adipisci.
-            </p>
+            <div className="transaction-container">
+              <h2>Transaction History ({filter})</h2>
+              <div style={{display:"flex", justifyContent:"center", gap:"10px"}}>
+                <button onClick={()=>{setFilter('All')}}>All</button>
+                <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
+                <button onClick={()=>{setFilter('Buy')}}>Buy</button>
+                <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+              </div>
+              <hr />
+              {transaction.map((t, i) => {
+                if(t.transaction_type===filter || filter === 'All')
+                return (
+                  <div key={i} className="transaction-card">
+                    {Date(t.transaction_time).toString()}
+                    <br />
+                    {t.transaction_type}: {t.transaction_amount}
+                    <br />
+                    balance: {t.balance}
+                  </div>
+                )
+              })}
+            </div>
           </div>
 
           <div

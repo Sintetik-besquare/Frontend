@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
-import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
 
@@ -14,6 +14,8 @@ const SignUp = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [checkbox, setCheckbox] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+
   let error_message = [];
 
   useEffect(() => {
@@ -29,7 +31,8 @@ const SignUp = () => {
       }
     });
     error_message = [];
-  }, [app_store, navigate, signupPromise]);
+  }, [app_store, signupPromise]);
+  
   return (
     <div id="signup-background">
       <div id="signup" data-aos="flip-right" data-aos-duration="1000">
@@ -71,14 +74,29 @@ const SignUp = () => {
             &nbsp;
             <div className="signin-input">
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" />
+              {!passwordShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(false);
+                  }}
+                />
+              )}
+
             </div>
             &nbsp;
             <div
