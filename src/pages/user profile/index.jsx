@@ -27,14 +27,14 @@ export const Index = () => {
   }, []);
 
   return (
-    <>
+    <div className="user-profile-page">
       <div className="user-profile-container">
         <Hero />
       </div>
       <div>
         <UserProfile />
       </div>
-    </>
+    </div>
   );
 };
 

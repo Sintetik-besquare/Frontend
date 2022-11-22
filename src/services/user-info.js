@@ -17,12 +17,13 @@ async function getUserDetails() {
     });
 }
 
-async function editUserDetails() {
+async function editUserDetails(body) {
     return await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
       },
+      body:body,
     })
       .then((response) => {
         console.log(response);
