@@ -10,10 +10,10 @@ function useLoader(provider, initial = null, deps = []) {
   return value;
 }
 
-async function performSignup(email, password) {
+async function performSignup(email, password, confirm_password) {
   let res = await fetch(`${ENDPOINT_BASE}/user/signup`, {
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password, confirm_password }),
     method: "POST",
   });
   if (!res.ok) {
