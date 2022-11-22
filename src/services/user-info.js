@@ -8,7 +8,7 @@ async function getUserDetails() {
     },
   })
     .then((response) => {
-    //   console.log(response);
+      //   console.log(response);
       return response.json();
     })
     .then((json) => {
@@ -18,39 +18,30 @@ async function getUserDetails() {
 }
 
 async function editUserDetails(body) {
-    return await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
-      },
-      body:body,
-    })
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-        return json;
-      });
-  }
+  return await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+    },
+    body: body,
+  }).then(console.log(body));
+}
 
-
-  async function passwordReset() {
-    return await fetch(`${ENDPOINT_BASE}/user/password-reset`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
-      },
+async function passwordReset() {
+  return await fetch(`${ENDPOINT_BASE}/user/password-reset`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+    },
+  })
+    .then((response) => {
+      console.log(response);
+      return response.json();
     })
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
-      .then((json) => {
-        console.log(json);
-        return json;
-      });
-  }
+    .then((json) => {
+      console.log(json);
+      return json;
+    });
+}
 
 export { getUserDetails, editUserDetails, passwordReset };

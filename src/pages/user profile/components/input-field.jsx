@@ -7,7 +7,7 @@ import GenderInputSelect from "./genderinput";
 import EducationLevelSelect from "./educationlevel";
 import JobDropDown from "./joblist";
 import { CountryDropdown } from "react-country-region-selector";
-import {editUserDetails} from "../../../services/user-info.js"
+import { editUserDetails } from "../../../services/user-info.js";
 
 function InputFieldText() {
   const { user_store } = useStores();
@@ -16,17 +16,16 @@ function InputFieldText() {
   const [country, setCountry] = useState("");
 
   const saveUserProfile = () => {
-    let user = {
-      first_name: user_store.first_name,
-      last_name: user_store.last_name,
+    let user_details = {
+      firstname: user_store.first_name,
+      lastname: user_store.last_name,
       age: user_store.age,
       gender: user_store.gender,
       residence: user_store.residence,
       occupation: user_store.occupation,
       education: user_store.education,
-    }
-    console.log(user)
-    editUserDetails(user)
+    };
+    editUserDetails(user_details);
   };
 
   return (
@@ -48,6 +47,7 @@ function InputFieldText() {
                     placeholder="Your First Name"
                     onChange={(e) => {
                       user_store.setFirstName(e.target.value);
+                      e.preventDefault();
                     }}
                   />
                 )}
@@ -63,6 +63,7 @@ function InputFieldText() {
                   placeholder="Your Last Name"
                   onChange={(e) => {
                     user_store.setLastName(e.target.value);
+                    e.preventDefault();
                   }}
                 />
               )}
@@ -81,6 +82,7 @@ function InputFieldText() {
                   placeholder="Your Age"
                   onChange={(e) => {
                     user_store.setAge(parseInt(e.target.value));
+                    e.preventDefault();
                   }}
                 />
               )}
