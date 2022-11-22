@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
+import { useStores } from "./store";
+
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -13,7 +15,35 @@ import Signin from "./pages/auth/signin";
 import UserProfile from "./pages/user profile/index";
 import Error from "./pages/error/index";
 
+import { getUserDetails } from "./services/user-info";
+import { getBalance } from "./services/wallet";
+
 const App = () => {
+  const { app_store, user_store, chart_store } = useStores();
+
+  useEffect(() => {
+    if (app_store.is_loggedin) { 
+      getBalance().then((e) => {
+        chart_store.setWallet(e);
+      })
+
+      getUserDetails().then((e) => {
+        console.log("e");
+        console.log(e);
+        user_store.setAge(e.age);
+        user_store.setId(e.client_id);
+        user_store.setDateJoin(e.date_join);
+        user_store.setEducation(e.education);
+        user_store.setEmail(e.email);
+        user_store.setFirstName(e.first_name);
+        user_store.setGender(e.gender);
+        user_store.setLastName(e.last_name);
+        user_store.setOccupation(e.occupation);
+        user_store.setResidence(e.residence);
+      });
+    }
+  }, []);
+
   return (
     <div>
       <BrowserRouter>
