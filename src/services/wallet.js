@@ -25,7 +25,7 @@ async function resetBalance(reset_balance) {
       Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
     },
     body: JSON.stringify({ reset_balance }),
-    method: "POST",
+    method: "PATCH",
   })
     .then((response) => {
       console.log(response);
