@@ -1,66 +1,20 @@
 import React from "react";
-<<<<<<< HEAD
-import { useState, useEffect } from "react";
-=======
 import { useState } from "react";
-<<<<<<< HEAD
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
 import PrimaryCard from "./user-profile-primary";
 import GenderInputSelect from "./genderinput";
 import EducationLevelSelect from "./educationlevel";
 import JobDropDown from "./joblist";
-import { getUser, updateUser } from "../../../services/users";
 import { CountryDropdown } from "react-country-region-selector";
 import { editUserDetails } from "../../../services/user-info.js";
 
 function InputFieldText() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-  //useStore from users.js
-  const { user_store } = useStores();
-
-  // //Variables in input field page
-  const [disabled, setDisabled] = useState(true);
-  const [country, setCountry] = useState("");
-
-  useEffect(() => {
-    // console.log("asdsad");
-    getUser().then((z) => user_store.updateUserDetail(z));
-    // .then(user_store.updateUserDetail.bind(user_store))
-    // .then(() => {
-    //   console.log("user");
-    //   console.log(user_store.user_detail.first_name);
-    //   console.log(user_store.user_detail.last_name);
-    //   console.log(user_store.user_detail.date_join);
-    // });
-  }, []);
-
-  useEffect(() => {
-    updateUser().then((z) => user_store.updateUserDetail(z));
-    console.log(user_store.user_detail);
-  }, []);
-
-  useEffect(() => {}, [user_store.user_detail]);
-
-  const handleEditProfile = () => {
-    setDisabled(!disabled);
-=======
   const { user_store } = useStores();
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");
 
-=======
-  const { user_store } = useStores();
-  //Edit profile button function
-  const [disabled, setDisabled] = useState(true);
-  const [country, setCountry] = useState("");
-
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   const saveUserProfile = () => {
     let user_details = {
       firstname: user_store.first_name,
@@ -72,10 +26,6 @@ function InputFieldText() {
       education: user_store.education,
     };
     editUserDetails(user_details);
-<<<<<<< HEAD
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   };
 
   return (
@@ -91,18 +41,7 @@ function InputFieldText() {
               <hr></hr>
               <div>
                 {disabled ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  <input
-                    disabled={disabled}
-                    value={user_store.user_detail.first_name}
-                  />
-=======
                   <input disabled={disabled} value={user_store.first_name} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
-                  <input disabled={disabled} value={user_store.first_name} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
                 ) : (
                   <input
                     placeholder="Your First Name"
@@ -118,18 +57,7 @@ function InputFieldText() {
               <span className="span-profile-details">Last Name</span>
               <hr></hr>
               {disabled ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <input
-                  disabled={disabled}
-                  value={user_store.user_detail.last_name}
-                />
-=======
                 <input disabled={disabled} value={user_store.last_name} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
-                <input disabled={disabled} value={user_store.last_name} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               ) : (
                 <input
                   placeholder="Your Last Name"
@@ -147,15 +75,7 @@ function InputFieldText() {
               <span className="span-profile-details">Age</span>
               <hr></hr>
               {disabled ? (
-<<<<<<< HEAD
-<<<<<<< HEAD
-                <input disabled={disabled} value={user_store.user_detail.age} />
-=======
                 <input disabled={disabled} value={user_store.age} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
-                <input disabled={disabled} value={user_store.age} />
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               ) : (
                 <input
                   type="number"
@@ -209,14 +129,6 @@ function InputFieldText() {
 
           <div>
             <div className="user-update-button">
-<<<<<<< HEAD
-<<<<<<< HEAD
-              <button onClick={handleEditProfile} className="button-5">
-                {disabled ? "Edit User Profile" : "Save User Profile"}
-              </button>
-=======
-=======
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               {disabled ? (
                 <button
                   onClick={() => setDisabled(!disabled)}
@@ -235,10 +147,6 @@ function InputFieldText() {
                   Save User Profile
                 </button>
               )}
-<<<<<<< HEAD
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
-=======
->>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
             </div>
           </div>
         </div>
