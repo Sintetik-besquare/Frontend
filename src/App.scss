@@ -11,16 +11,25 @@
 @import "./styles/home-hero.scss";
 @import "./styles/user-profile.scss";
 @import "./styles/transaction-history.scss";
+<<<<<<< HEAD
 
 #root {
   overflow-x: hidden;
 }
 @import "./styles/home_hero_vertical_roll.scss";
 @import "./styles/glassmorphism.scss";
+=======
+@import "./styles/home_hero_vertical_roll.scss";
+@import "./styles/glassmorphism.scss";
+
+
+
+
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 
 #home {
   background-color: $black;
-  color: white;
+    color: white;
 }
 
 .landing_hero_logo {
@@ -43,7 +52,11 @@
   padding-right: 3rem;
 }
 
+<<<<<<< HEAD
 .homepage-top-half {
+=======
+.homepage-top-half{
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   position: relative;
 }
 
@@ -61,6 +74,7 @@
 // }
 // }
 
+<<<<<<< HEAD
 .homepage-image {
   width: 90%;
   // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
@@ -68,11 +82,24 @@
   #graphic_crypto2 {
     position: absolute;
     margin-top: 0;
+=======
+.homepage-image{
+  width: 90%;
+  // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
+  // filter: drop-shadow(0 0 0.75rem lightimage2green);
+#graphic_crypto2 {
+  position: absolute;
+  margin-top: 0;
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
     // width: 50%;
     bottom: 0;
     // top: 45rem;
     background-image: linear-gradient(transparent, white, white);
+<<<<<<< HEAD
   }
+=======
+}
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 }
 
 @media only screen and (max-width: 1500px) {
@@ -91,9 +118,15 @@
     width: 100%;
   }
 
+<<<<<<< HEAD
   .image2 {
     width: 100%;
+=======
+  .image2{
+    width:100%;
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   }
+
 }
 
 @media only screen and (max-width: 1000px) {

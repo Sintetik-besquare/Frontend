@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { observable, action, decorate } from "mobx";
 
 export default class UserStore {
@@ -19,6 +20,8 @@ export default class UserStore {
     this.last_name = last_name;
   }
 =======
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 import { observable, decorate, action } from "mobx";
 
 export default class UserStore {
@@ -32,12 +35,16 @@ export default class UserStore {
   last_name = '';
   occupation = '';
   residence = '';
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 
   setAge(age) {
     this.age = age;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   setGender(gender) {
     this.gender = gender;
@@ -46,12 +53,17 @@ export default class UserStore {
   setCountry(country) {
     this.country = country;
 =======
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   setId(id) {
     this.id = id;
   }
 
   setDateJoin(date) {
     this.date = date;
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   }
 
@@ -59,6 +71,7 @@ export default class UserStore {
     this.education = education;
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   setOccupation(occupation) {
     this.occupation = occupation;
@@ -87,6 +100,8 @@ decorate(UserStore, {
   setOccupation: action,
   updateUserDetail: action,
 =======
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   setEmail(email) {
     this.email = email;
   }
@@ -131,5 +146,8 @@ decorate(UserStore, {
   setLastName: action,
   setOccupation: action,
   setResidence: action,
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 });

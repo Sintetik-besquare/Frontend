@@ -2,9 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../../store";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useState } from "react";
 import InputFieldText from "./input-field";
 import TransactionHistory from "../../transaction history/transaction-history";
+=======
+import MobileLogin from "../../../assets/astronout.png";
+import InputFieldText from "./input-field";
+import { getTransaction } from "../../../services/transaction";
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 =======
 import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
@@ -64,8 +70,11 @@ const UserProfile = () => {
             }
           >
 <<<<<<< HEAD
+<<<<<<< HEAD
             <TransactionHistory />
 =======
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
             <div className="transaction-container">
               <h2>Transaction History ({filter})</h2>
               <div style={{display:"flex", justifyContent:"center", gap:"10px"}}>

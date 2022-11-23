@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .transaction-history-container {
   display: flex;
   flex-wrap: wrap;
@@ -83,6 +84,8 @@ h2.transaction-history-volatility {
     height: 180px;
   }
 }
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 @import "./base.scss";
 
 .transaction-container {
@@ -97,7 +100,11 @@ h2.transaction-history-volatility {
     // @include glow;
   }
   .transaction-card {
+<<<<<<< HEAD
     color: white;
+=======
+    color:white;
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
     margin: 2%;
     padding: 2%;
     border: 1px solid orangered;

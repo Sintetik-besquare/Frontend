@@ -6,7 +6,11 @@ export default class ChartStore {
   historical_price = [];
   index = "VOL100";
 <<<<<<< HEAD
+<<<<<<< HEAD
   option_type = " "; // CALL or PUT
+=======
+  option_type = " "; 
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 =======
   option_type = " "; 
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275

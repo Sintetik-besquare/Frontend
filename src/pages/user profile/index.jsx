@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import { useEffect } from "react";
 import Hero from "./components/hero";
@@ -22,6 +23,16 @@ import UserProfile from "./components/user-profile";
 import { getUserDetails } from "../../services/user-info";
 
 export const Index = () => {
+=======
+import React, { useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../../store";
+import Hero from "./components/hero";
+import UserProfile from "./components/user-profile";
+import { getUserDetails } from "../../services/user-info";
+
+export const Index = () => {
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   const { user_store } = useStores();
 
   useEffect(() => {
@@ -40,6 +51,9 @@ export const Index = () => {
         user_store.setOccupation(e.occupation);
         user_store.setResidence(e.residence);
       })
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   }, []);
 

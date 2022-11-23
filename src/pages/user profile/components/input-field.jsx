@@ -3,6 +3,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 =======
 import { useState } from "react";
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
@@ -15,6 +18,7 @@ import { CountryDropdown } from "react-country-region-selector";
 import { editUserDetails } from "../../../services/user-info.js";
 
 function InputFieldText() {
+<<<<<<< HEAD
 <<<<<<< HEAD
   //useStore from users.js
   const { user_store } = useStores();
@@ -50,6 +54,13 @@ function InputFieldText() {
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");
 
+=======
+  const { user_store } = useStores();
+  //Edit profile button function
+  const [disabled, setDisabled] = useState(true);
+  const [country, setCountry] = useState("");
+
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   const saveUserProfile = () => {
     let user_details = {
       firstname: user_store.first_name,
@@ -61,6 +72,9 @@ function InputFieldText() {
       education: user_store.education,
     };
     editUserDetails(user_details);
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   };
 
@@ -78,10 +92,14 @@ function InputFieldText() {
               <div>
                 {disabled ? (
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <input
                     disabled={disabled}
                     value={user_store.user_detail.first_name}
                   />
+=======
+                  <input disabled={disabled} value={user_store.first_name} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 =======
                   <input disabled={disabled} value={user_store.first_name} />
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
@@ -101,10 +119,14 @@ function InputFieldText() {
               <hr></hr>
               {disabled ? (
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <input
                   disabled={disabled}
                   value={user_store.user_detail.last_name}
                 />
+=======
+                <input disabled={disabled} value={user_store.last_name} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 =======
                 <input disabled={disabled} value={user_store.last_name} />
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
@@ -126,7 +148,11 @@ function InputFieldText() {
               <hr></hr>
               {disabled ? (
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <input disabled={disabled} value={user_store.user_detail.age} />
+=======
+                <input disabled={disabled} value={user_store.age} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 =======
                 <input disabled={disabled} value={user_store.age} />
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
@@ -184,10 +210,13 @@ function InputFieldText() {
           <div>
             <div className="user-update-button">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <button onClick={handleEditProfile} className="button-5">
                 {disabled ? "Edit User Profile" : "Save User Profile"}
               </button>
 =======
+=======
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               {disabled ? (
                 <button
                   onClick={() => setDisabled(!disabled)}
@@ -206,6 +235,9 @@ function InputFieldText() {
                   Save User Profile
                 </button>
               )}
+<<<<<<< HEAD
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
+=======
 >>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
             </div>
           </div>
