@@ -25,15 +25,15 @@ jobs:
         node-version: ${{ matrix.node-version }}   
         cache: 'npm'
     - run: |
-      npm cache clear --force
-      npm run build
-      tar czvf build.tar ./build      
+        npm cache clear --force
+        npm run build
+        tar czvf build.tar ./build      
 
     - name: Create .env file
-    run:  |
-      touch .env
-      echo 'REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}' >> .env
-      echo 'TOKEN=${{ secrets.TOKEN }}' >> .env
+    - run:  |
+        touch .env
+        echo 'REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}' >> .env
+        echo 'TOKEN=${{ secrets.TOKEN }}' >> .env
       
     - name: Upload build artifact
       uses: actions/upload-artifact@v3
