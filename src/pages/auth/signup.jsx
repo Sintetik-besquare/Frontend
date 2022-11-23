@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
-import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
 
@@ -13,7 +13,11 @@ const SignUp = () => {
   const [signupPromise, setSignupPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [checkbox, setCheckbox] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordConfirmShown, setPasswordConfirmShown] = useState(false);
+
   let error_message = [];
 
   useEffect(() => {
@@ -29,11 +33,12 @@ const SignUp = () => {
       }
     });
     error_message = [];
-  }, [app_store, navigate, signupPromise]);
+  }, [app_store, signupPromise]);
+  
   return (
     <div id="signup-background">
       <div id="signup">
-        <div class="signup-details-card">
+        <div className="signup-details-card">
           <h2>
             <b>
               <center>SIGN UP</center>
@@ -50,7 +55,8 @@ const SignUp = () => {
               setSignupPromise(
                 performSignup(
                   form.elements["username"].value,
-                  form.elements["password"].value
+                  form.elements["password"].value,
+                  form.elements["password_confirm"].value
                 )
               );
             }}
@@ -71,15 +77,55 @@ const SignUp = () => {
             &nbsp;
             <div className="signin-input">
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" />
+              {!passwordShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(false);
+                  }}
+                />
+              )}
+
             </div>
+            &nbsp;
+            <div className="signin-input">
+              <input
+                type={passwordConfirmShown ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="password_confirm"
+                onChange={(e) => {
+                  setPasswordConfirm(e.target.value);
+                }}
+              />
+              {!passwordConfirmShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordConfirmShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordConfirmShown(false);
+                  }}
+                />
+              )}            </div>
             &nbsp;
             <div
               style={{
@@ -139,7 +185,7 @@ const SignUp = () => {
             </center>
           </form>
         </div>
-        <div class="signup-image-card">
+        <div className="signup-image-card">
           <img src={SignupImage} alt="N/A" style={{ width: "90%" }} />
         </div>
       </div>

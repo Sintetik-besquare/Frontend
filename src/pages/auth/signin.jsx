@@ -3,40 +3,47 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import { observer } from "mobx-react-lite";
 import MobileLogin from "../../assets/Mobile login-cuate 1.svg";
-import { FaRegUserCircle, FaEyeSlash } from "react-icons/fa";
+import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { performSignin } from "../../services/auth";
+import { getBalance } from "../../services/wallet";
 
 const SigninPage = () => {
   const navigate = useNavigate();
-  const { app_store } = useStores();
+  const { app_store, chart_store } = useStores();
   const [loginPromise, setLoginPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordShown, setPasswordShown] = useState(false);
+
   let error_message = [];
-  
+
   useEffect(() => {
-    loginPromise?.then((z) => {
-      if (typeof z === "string") {
-        app_store.setAccessToken(z);
-        navigate("/trade", { replace: true });
-      } else {
-        z.forEach((e) => {
-          error_message.push(e.msg);
-        });
-        alert(error_message.join("\n \n"));
-      }
-    });
+    loginPromise
+      ?.then((z) => {
+        if (typeof z === "string") {
+          app_store.setAccessToken(z);
+          navigate("/trade", { replace: true });
+        } else {
+          z.forEach((e) => {
+            error_message.push(e.msg);
+          });
+          alert(error_message.join("\n \n"));
+        }
+      })
+      getBalance().then((e) => {
+        chart_store.setWallet(e);
+      });
     error_message = [];
-  }, [app_store, navigate, loginPromise]);
+  }, [app_store, loginPromise]);
 
   return (
     <div id="signin-background">
       <div id="signin">
-        <div class="signin-image-card">
+        <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
-        <div class="signin-details-card">
+        <div className="signin-details-card">
           <h2>
             <b>
               <center>SIGN IN</center>
@@ -61,7 +68,7 @@ const SigninPage = () => {
             <h4
               style={{
                 paddingLeft: "0rem",
-                textAlign: "center",
+                textAlign: "left",
                 marginRight: "3rem",
               }}
             >
@@ -85,7 +92,7 @@ const SigninPage = () => {
             &nbsp;
             <div className="signin-input">
               <input
-                type="password"
+                type={passwordShown ? "text" : "password"}
                 placeholder="Password"
                 name="password"
                 id="pw-input"
@@ -93,7 +100,22 @@ const SigninPage = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <FaEyeSlash id="password-icon" />
+              {!passwordShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordShown(false);
+                  }}
+                />
+              )}
+
             </div>
             &nbsp;
             <h5>Forgot password?</h5>

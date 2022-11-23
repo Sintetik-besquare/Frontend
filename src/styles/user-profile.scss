@@ -3,16 +3,19 @@
 }
 
 .user-trx-tabs-container {
-  width: 80vw;
-  margin: auto;
+  width: 100%;
+  // margin: auto;
   justify-content: center;
+  // padding:1rem;
+}
+.user-profile-page{
+  height:100vh;
 }
 
 .user-profile-container {
   background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
   display: flex;
   width: 100%;
-  height: 100%;
   justify-content: center;
 }
 
@@ -51,7 +54,7 @@ input:disabled {
 
 .user-profile-primary-card {
   width: 100%;
-  margin-left: 2em;
+  // margin-left: 2em;
   display: flex;
   justify-content: flex-start;
 
@@ -63,7 +66,7 @@ input:disabled {
 
   .span-main-details {
     margin-right: 10px;
-    font-size: 0.5em;
+    // font-size: 0.5em;
     color: grey;
   }
 }
@@ -71,7 +74,7 @@ input:disabled {
 .span-details-container {
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  // margin-left: 20px;
   justify-content: center;
 }
 
@@ -84,12 +87,12 @@ input:disabled {
 .user-profile-details-card {
   display: flex;
   flex-direction: row;
-  margin: 0 auto;
-  padding: 2rem;
+  // margin: 0 auto;
+  // padding: 2rem;
   width: 90%;
 
   .span-profile-details {
-    margin-left: 10px;
+    // margin-left: 10px;
     font-size: 1em;
     color: grey;
   }
@@ -211,13 +214,13 @@ input:disabled {
 button {
   border: none;
 }
-.content-tabs {
-  flex-grow: 1;
-}
+// .content-tabs {
+//   flex-grow: 1;
+// }
 .content {
   background-color: rgba(56, 56, 56, 1);
-  width: 100%;
-  height: 100vh;
+  // width: 100%;
+  // height: 100vh;
   display: none;
 }
 .content h2 {
@@ -230,15 +233,10 @@ button {
   margin-bottom: 5px;
 }
 .content p {
-  width: 100%;
   height: 100%;
 }
 .active-content {
   display: block;
-}
-
-.werk {
-  color: #222;
 }
 
 //Gender input CSS
@@ -260,7 +258,7 @@ select {
   .user-profile-primary-card {
     display: block;
     margin-left: 0;
-    overflow-y: hidden;
+    // overflow-y: hidden;
 
     img {
       margin: auto;

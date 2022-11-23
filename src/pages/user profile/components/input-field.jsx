@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
+=======
+import { useState } from "react";
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
 import PrimaryCard from "./user-profile-primary";
@@ -8,8 +12,10 @@ import EducationLevelSelect from "./educationlevel";
 import JobDropDown from "./joblist";
 import { getUser, updateUser } from "../../../services/users";
 import { CountryDropdown } from "react-country-region-selector";
+import { editUserDetails } from "../../../services/user-info.js";
 
 function InputFieldText() {
+<<<<<<< HEAD
   //useStore from users.js
   const { user_store } = useStores();
 
@@ -38,6 +44,24 @@ function InputFieldText() {
 
   const handleEditProfile = () => {
     setDisabled(!disabled);
+=======
+  const { user_store } = useStores();
+  //Edit profile button function
+  const [disabled, setDisabled] = useState(true);
+  const [country, setCountry] = useState("");
+
+  const saveUserProfile = () => {
+    let user_details = {
+      firstname: user_store.first_name,
+      lastname: user_store.last_name,
+      age: user_store.age,
+      gender: user_store.gender,
+      residence: user_store.residence,
+      occupation: user_store.occupation,
+      education: user_store.education,
+    };
+    editUserDetails(user_details);
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
   };
 
   return (
@@ -47,18 +71,28 @@ function InputFieldText() {
       <div className="user-profile-card">
         <PrimaryCard />
         <div className="user-profile-paper">
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">First Name</span>
               <hr></hr>
               <div>
                 {disabled ? (
+<<<<<<< HEAD
                   <input
                     disabled={disabled}
                     value={user_store.user_detail.first_name}
                   />
+=======
+                  <input disabled={disabled} value={user_store.first_name} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
                 ) : (
-                  <input placeholder="Your First Name" />
+                  <input
+                    placeholder="Your First Name"
+                    onChange={(e) => {
+                      user_store.setFirstName(e.target.value);
+                      e.preventDefault();
+                    }}
+                  />
                 )}
               </div>
             </div>
@@ -66,24 +100,45 @@ function InputFieldText() {
               <span className="span-profile-details">Last Name</span>
               <hr></hr>
               {disabled ? (
+<<<<<<< HEAD
                 <input
                   disabled={disabled}
                   value={user_store.user_detail.last_name}
                 />
+=======
+                <input disabled={disabled} value={user_store.last_name} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               ) : (
-                <input placeholder="Your Last Name" />
+                <input
+                  placeholder="Your Last Name"
+                  onChange={(e) => {
+                    user_store.setLastName(e.target.value);
+                    e.preventDefault();
+                  }}
+                />
               )}
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Age</span>
               <hr></hr>
               {disabled ? (
+<<<<<<< HEAD
                 <input disabled={disabled} value={user_store.user_detail.age} />
+=======
+                <input disabled={disabled} value={user_store.age} />
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
               ) : (
-                <input placeholder="Your Age" />
+                <input
+                  type="number"
+                  placeholder="Your Age"
+                  onChange={(e) => {
+                    user_store.setAge(parseInt(e.target.value));
+                    e.preventDefault();
+                  }}
+                />
               )}
             </div>
             <div className="user-profile-details-column">
@@ -93,7 +148,7 @@ function InputFieldText() {
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Country</span>
               <hr></hr>
@@ -101,30 +156,57 @@ function InputFieldText() {
                 <CountryDropdown
                   disabled={disabled}
                   value={country}
-                  onChange={(val) => setCountry(val)}
+                  onChange={(val) => user_store.setResidence(val)}
                 />
               </div>
             </div>
             <div className="user-profile-details-column">
               <span className="span-profile-details">Education</span>
               <hr></hr>
-              <EducationLevelSelect disabled={disabled} />
+              <EducationLevelSelect
+                disabled={disabled}
+                onChange={(val) => user_store.setEducation(val)}
+              />
             </div>
           </div>
 
-          <div class="user-profile-details-card">
+          <div className="user-profile-details-card">
             <div className="user-profile-details-column">
               <span className="span-profile-details">Occupation</span>
               <hr></hr>
-              <JobDropDown disabled={disabled} />
+              <JobDropDown
+                disabled={disabled}
+                onChange={(val) => user_store.setOccupation(val)}
+              />
             </div>
           </div>
 
           <div>
             <div className="user-update-button">
+<<<<<<< HEAD
               <button onClick={handleEditProfile} className="button-5">
                 {disabled ? "Edit User Profile" : "Save User Profile"}
               </button>
+=======
+              {disabled ? (
+                <button
+                  onClick={() => setDisabled(!disabled)}
+                  className="button_green_small"
+                >
+                  Edit User Profile
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setDisabled(!disabled);
+                    saveUserProfile();
+                  }}
+                  className="button_green_small"
+                >
+                  Save User Profile
+                </button>
+              )}
+>>>>>>> 31a50cdad367e5c142c33d808828eb066290e275
             </div>
           </div>
         </div>

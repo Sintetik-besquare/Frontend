@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import { MdOutlineClose } from "react-icons/md";
 import { FaUserCircle, FaWallet } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
-
+import { resetBalance } from "../../services/wallet";
 const NavModal = () => {
   const { app_store, chart_store } = useStores();
   const navigate = useNavigate();
@@ -23,15 +23,19 @@ const NavModal = () => {
   }
 
   function resetWallet() {
-    chart_store.resetWallet();
-    alert("wallet resetted");
+    resetBalance(true)
+    .then((e) => {
+      console.log(e)
+      chart_store.setWallet(e);
+      alert(`wallet resetted, balance is now ${e}`);
+    });
     app_store.setShowModal(false);
   }
 
   return (
     <div className="nav_modal">
       <MdOutlineClose
-        className="button_red_light"
+        className="btn_close_nav"
         onClick={() => {
           app_store.setShowModal(false);
         }}
@@ -46,7 +50,11 @@ const NavModal = () => {
         </li>
         <li
           onClick={() => {
-            if (window.confirm("Are you sure you wish to reset your wallet ?"))
+            if (
+              window.confirm(
+                "Your wallet will be resetted to 20,000$, are you sure you want to proceed? "
+              )
+            )
               resetWallet();
           }}
         >
@@ -54,7 +62,10 @@ const NavModal = () => {
         </li>
         <li
           onClick={() => {
-            if (window.confirm("Are you sure you wish to logout ?")) logout();
+            if (
+              window.confirm("You will be logged out, do you want to proceed?")
+            )
+              logout();
           }}
         >
           <MdLogout /> Logout

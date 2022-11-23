@@ -1,16 +1,17 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 import Chart from "./components/chart";
 import OrderForm from "./components/order-form";
-
+import Status from "./components/status";
 
 export const Index = () => {
-  
   return (
     <div className="trade_page">
       <Chart />
-      <OrderForm/>
+      <OrderForm />
+      <Status />
     </div>
   );
 };
 
-export default Index;
+export default observer(Index);

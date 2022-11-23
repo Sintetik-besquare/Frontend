@@ -3,15 +3,12 @@ import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
 import { BiCaretLeft } from "react-icons/bi";
-// import { MdAutoGraph } from "react-icons/md";
-// import { FiTrendingUp } from "react-icons/fi";
-import { FiMinus } from "react-icons/fi";
-import { FiBox } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
-import { FiTrendingDown } from "react-icons/fi";
 import { FiTrendingUp } from "react-icons/fi";
 import { MdAutoGraph } from "react-icons/md";
-import { MdOutlineModeEditOutline } from "react-icons/md";
+import { HiOutlineChevronDoubleDown } from "react-icons/hi";
+import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { getBalance } from "../../../services/wallet";
+import chart from "./chart";
 
 const OrderForm = () => {
   /**
@@ -21,10 +18,6 @@ const OrderForm = () => {
   const { app_store, chart_store } = useStores();
   const TOKEN = app_store.access_token;
   let error_message = [];
-  
-  useEffect(() => {
-    validate();
-  }, []);
 
   useEffect(() => {
     socket.current = io("http://localhost:3001", {
@@ -32,22 +25,46 @@ const OrderForm = () => {
         token: TOKEN,
       },
     });
+
+    socket.current.on("connect_error", (e) => {
+      console.log(e);
+    });
+
     socket.current.on("getfeed", () => {
       console.log("connected to server");
     });
+    
     socket.current.on("buy", (message) => {
       console.log(message);
+      chart_store.setSummary(message);
     });
 
     socket.current.on("iswinning", (message) => {
-      console.log(message);
+      chart_store.setIswinning(message.status);
+      // console.log(chart_store.iswinning);
     });
+
     socket.current.on("sell", (message) => {
-      console.log(message);
+      chart_store.setSummary(message);
+      chart_store.setShowSummary(true);
+      getBalance().then((e)=>{chart_store.setWallet(e)})
+
+      setTimeout(() => {
+        setTimeout(() => {
+          chart_store.setShowSummary(false);
+        }, 2000);
+        chart_store.iswinning = [];
+      }, 2000);
+      // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+  useEffect(() => {
+    getBalance()
+  }, [chart_store])
 
   function validate() {
     error_message = [];
@@ -60,31 +77,39 @@ const OrderForm = () => {
     if (chart_store.stake <= 0) {
       error_message.push(" stake cannot be 0 ");
     }
+    if (error_message.length === 0) {
+      emitOrder();
+    } else {
+      showError();
+    }
   }
 
   function showError() {
-    validate();
     alert(error_message.join("\n"));
-    error_message = [];
   }
 
   const emitOrder = () => {
     let order = {
       index: chart_store.index,
-      stake: chart_store.stake,
-      ticks: chart_store.ticks,
+      stake: parseFloat(chart_store.stake),
+      ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
-      entry_time: Math.floor(Date.now() / 1000) ,
+      entry_time: (Math.floor(Date.now() / 1000) -1),
+      // TODO: contract_type: chart_store.contract_type, (Rise/Fall) (Even/Odd)
     };
-    console.log(order)
+    console.log(order);
     socket.current.emit("order", order);
   };
 
   return (
-    <div className="form_container">
-      <div id="form_container_header">
+    <div
+      className="form_container"
+      data-aos="fade-left"
+      data-aos-duration="1000"
+    >
+      {/* <div id="form_container_header">
         <div id="trade-away">Trade Away</div>
-      </div>
+      </div> */}
       <div>
         <div className="form_row">
           <div id="pad-top">
@@ -117,25 +142,27 @@ const OrderForm = () => {
             <div id="ticks-pad">Ticks</div>
             <div id="ticks2">
               <button
+                className="button_red_small"
                 disabled={chart_store.ticks <= 0}
                 onClick={() => {
-                  chart_store.setTicks((chart_store.ticks -= 1));
+                  chart_store.setTicks(parseInt(chart_store.ticks) - 1);
                 }}
               >
                 -
               </button>
               <input
                 type="number"
-                placeholder={chart_store.ticks}
+                value={parseInt(chart_store.ticks)}
                 style={{ width: "100%" }}
                 onChange={(e) => {
-                  chart_store.setTicks(e.target.value);
+                  chart_store.setTicks(parseInt(e.target.value));
                 }}
               />
               <button
+                className="button_green_small"
                 disabled={chart_store.ticks >= 10}
                 onClick={() => {
-                  chart_store.setTicks((chart_store.ticks += 1));
+                  chart_store.setTicks(parseInt(chart_store.ticks) + 1);
                 }}
               >
                 +
@@ -149,24 +176,26 @@ const OrderForm = () => {
             <div id="ticks-pad">Stake</div>
             <div id="ticks2">
               <button
+                className="button_red_small"
                 disabled={chart_store.stake <= 0}
                 onClick={() => {
-                  chart_store.setStake((chart_store.stake -= 1));
+                  chart_store.setStake(parseFloat(chart_store.stake) - 1);
                 }}
               >
                 -
               </button>
               <input
                 type="number"
-                placeholder={chart_store.stake}
+                value={parseFloat(chart_store.stake)}
                 style={{ width: "100%" }}
                 onChange={(e) => {
-                  chart_store.setStake(e.target.value.toFixed(2));
+                  chart_store.setStake(parseFloat(e.target.value));
                 }}
               />
               <button
+                className="button_green_small"
                 onClick={() => {
-                  chart_store.setStake((chart_store.stake += 1));
+                  chart_store.setStake(parseFloat(chart_store.stake) + 1);
                 }}
               >
                 +
@@ -179,56 +208,99 @@ const OrderForm = () => {
       {app_store.is_loggedin === true &&
       chart_store.stake > 0 &&
       chart_store.ticks > 0 ? (
-        <div id="call-put-reset">
+        <div>
           <button
-            className="button_green_light"
+            className="form_row button_green_light"
             onClick={() => {
               chart_store.setOptionType("call");
-                emitOrder();
+              validate();
             }}
           >
             <div id="call-60">
               <div id="call-left">
-                <span>$123.45</span>
+                <span>${chart_store.call_payout}</span>
               </div>
             </div>
             <div id="call-40">
               <div id="call-right">
                 <span>
-                  call
-                  <FiTrendingUp id="button-icon14" />
+                  CALL
+                  <HiOutlineChevronDoubleUp id="button-icon14" />
                 </span>
               </div>
             </div>
           </button>
           <button
-            className="button_red_light"
+            className="form_row button_red_light"
             onClick={() => {
               chart_store.setOptionType("put");
-                emitOrder();
+              validate();
             }}
           >
             <div id="put-60">
               <div id="put-left">
-                <span>$123.45</span>
+                <span>${chart_store.put_payout}</span>
               </div>
             </div>
             <div id="put-40">
               <div id="put-right">
                 <span>
-                  put
-                  <FiTrendingDown id="button-icon15" />
+                  PUT
+                  <HiOutlineChevronDoubleDown id="button-icon15" />
+                </span>
+              </div>
+            </div>
+          </button>
+        </div>
+      ) : (
+        <div>
+          <button
+            className="form_row button_green_disabled"
+            onClick={() => {
+              validate();
+            }}
+          >
+            <div id="call-60">
+              <div id="call-left">
+                <span>${chart_store.call_payout}</span>
+              </div>
+            </div>
+            <div id="call-40">
+              <div id="call-right">
+                <span>
+                  CALL
+                  <HiOutlineChevronDoubleUp id="button-icon14" />
                 </span>
               </div>
             </div>
           </button>
           <button
-            className="reset"
-            onClick={(e) => {
-              chart_store.setOptionType("PUT");
+            className="form_row button_red_disabled"
+            onClick={() => {
+              validate();
             }}
           >
-            Reset Balance
+            <div id="put-60">
+              <div id="put-left">
+                <span>${chart_store.put_payout}</span>
+              </div>
+            </div>
+            <div id="put-40">
+              <div id="put-right">
+                <span>
+                  PUT
+                  <HiOutlineChevronDoubleDown id="button-icon15" />
+                </span>
+              </div>
+            </div>
+          </button>
+          {/* <button
+            className="button_orange_disabled "
+            onClick={() => {
+              validate();
+            }}
+          >
+            Reset balance
           </button>
           <div id="graph-tools" style={{ fontSize: "23px" }}>
             <div id="minus">
@@ -240,7 +312,7 @@ const OrderForm = () => {
             <div id="plus">
               <FiPlus id="button-icon5" />
             </div>
-            |
+            <TbMinusVertical id="button-icon6" />
             <div id="down">
               <FiTrendingDown id="button-icon6" />
             </div>
@@ -253,34 +325,7 @@ const OrderForm = () => {
             <div id="edit">
               <MdOutlineModeEditOutline id="button-icon9" />
             </div>
-          </div>
-        </div>
-      ) : (
-        <div>
-          <button
-            className=" button_green_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            call
-          </button>
-          <button
-            className=" button_red_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            put
-          </button>
-          <button
-            className=" reset_disabled "
-            onClick={() => {
-              validate();
-            }}
-          >
-            Reset balance
-          </button>{" "}
+          </div> */}
         </div>
       )}
     </div>
