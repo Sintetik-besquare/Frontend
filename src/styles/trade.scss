@@ -1,4 +1,7 @@
 .trade_page {
+  padding: 20px;
+  background-color: #0f0f0f;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -12,11 +15,11 @@
 }
 
 #chart-container {
-  width:85%;
+  width: 85%;
 }
 
 .form_container {
-  width:15%;
+  width: 15%;
   display: block;
   align-items: center;
   justify-content: center;
@@ -39,6 +42,36 @@
     //   background-color: #000000;
     //   border: 1px solid rgb(255, 255, 255);
     // }
+  }
+}
+#status-container {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+#iswinning {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid white;
+  margin: 5px;
+}
+
+#summary {
+  margin-top: 20px;
+  width:100%;
+  position: relative;
+  border: 1px solid white;
+  text-align: center;
+
+  .btn_close_summary {
+    font-size: larger;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
   }
 }
 
@@ -284,50 +317,6 @@ ul li:hover .slider p {
   align-content: center;
 }
 
-//all buttons are redundant, move them to base.scss because they are reused elsewhere too
-// .button_green_light {
-// display: flex;
-// flex-direction: row;
-// padding: 0;
-// height: 5rem;
-// font-family: "Poppins";
-// font-size: 1.1rem;
-// margin-bottom: 1rem;
-// background: rgb(47, 122, 31);
-// align-items: center;
-// color: #fff;
-// }
-
-// .button_red_light {
-// display: flex;
-// flex-direction: row;
-// padding: 0;
-// height: 5rem;
-// font-family: "Poppins";
-// font-size: 1.1rem;
-// margin-bottom: 9rem;
-// background: rgb(158, 34, 34);
-// color: white;
-// align-items: center;
-// }
-
-// .reset {
-// font-family: "Poppins";
-// background-color: #0f0f0f;
-// color: #fff;
-// border-width: 5px;
-// width: 8rem;
-// align-self: center;
-// border: 1px solid rgb(255, 255, 255);
-// transition: 0.7s;
-// margin-bottom: 1.5rem;
-// &:hover {
-//   background-color: $yellow;
-//   color: #000000;
-//   border: 1px solid $yellow;
-// }
-// }
-
 #call-60 {
   display: flex;
   width: 60%;
@@ -426,10 +415,10 @@ ul li:hover .slider p {
     display: block;
   }
   #chart-container {
-    width:100%;
+    width: 100%;
   }
   .form_container {
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;

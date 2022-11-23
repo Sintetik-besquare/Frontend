@@ -31,9 +31,11 @@ const SigninPage = () => {
           alert(error_message.join("\n \n"));
         }
       })
-      getBalance().then((e) => {
-        chart_store.setWallet(e);
-      });
+      .then(
+        getBalance().then((e) => {
+          chart_store.setWallet(e);
+        })
+      );
     error_message = [];
   }, [app_store, loginPromise]);
 
@@ -115,7 +117,6 @@ const SigninPage = () => {
                   }}
                 />
               )}
-
             </div>
             &nbsp;
             <h5>Forgot password?</h5>

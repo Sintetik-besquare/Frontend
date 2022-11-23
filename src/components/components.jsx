@@ -8,7 +8,7 @@ const Component = () => {
           <h1>MY REUSABLE SASS COMPONENTS</h1>
         </div>
         <div>
-          <ul className="navbar">
+          <ul className="navlink">
             <li>LINK</li>
             <li>LINK</li>
             <li>LINK</li>

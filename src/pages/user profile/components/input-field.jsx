@@ -9,16 +9,16 @@ import JobDropDown from "./joblist";
 import { CountryDropdown } from "react-country-region-selector";
 import { editUserDetails } from "../../../services/user-info.js";
 
-function InputFieldText() {
+const InputFieldText = () => {
   const { user_store } = useStores();
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState("");
 
-  const saveUserProfile = () => {
+  function saveUserProfile() {
     let user_details = {
-      firstname: user_store.first_name,
-      lastname: user_store.last_name,
+      first_name: user_store.first_name,
+      last_name: user_store.last_name,
       age: user_store.age,
       gender: user_store.gender,
       residence: user_store.residence,
