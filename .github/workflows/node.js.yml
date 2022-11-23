@@ -28,7 +28,6 @@ jobs:
     
     - name: Create build
       run:  |
-        npm cache clear --force
         npm run build --if-present --verbose
         tar czvf build.tar ./build
 
