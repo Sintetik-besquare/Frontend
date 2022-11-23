@@ -8,9 +8,10 @@ async function getHistoricalFeed() {
       console.log(response);
       return response.json();
     })
-    .then((json) => {
-      console.log(json);
-      return json;
+    .then((json) => {    
+      console.log("json.message");
+      console.log(json.message);
+      return json.message;
     });
 }
 

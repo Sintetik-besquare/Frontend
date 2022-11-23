@@ -17,7 +17,6 @@ import { getBalance } from "../../../services/wallet";
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 const LineChart = () => {
   const { app_store, chart_store } = useStores();
-  const [history, setHistory] = React.useState(chart_store.historical_price);
 
   const chart_name = "VOL100";
   chart_store.index = chart_name;
@@ -47,14 +46,18 @@ const LineChart = () => {
   };
 
   useEffect(() => {
-    getHistoricalFeed().then(setHistory);
-    history.map = (d) => {
-      setX_axis(x_axis =>[...x_axis, d[1][1]]);
-      setY_axis(y_axis => [...y_axis, d[1][3]]);
-      // y_axis.push(d[1][1]);
-      // x_axis.push(d[1][3]);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    getHistoricalFeed()
+      .then((e) => chart_store.setHistory(e))
+      .then(
+        chart_store.historical_price.map((d) => {
+          setX_axis((oldX) => [...oldX, d[1][1]]);
+          setY_axis((oldY) => [...oldY, d[1][3]]);
+          // y_axis.push(d[1][1]);
+          // x_axis.push(d[1][3]);
+        })
+      );
+      console.log(x_axis + " " + y_axis);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
