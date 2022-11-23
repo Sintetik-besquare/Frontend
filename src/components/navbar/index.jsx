@@ -21,13 +21,13 @@ const NavBar = () => {
 
   return (
     <div id="header">
-      <div className="flex-block" style={{ background: "#000000" }}>
+      <div className="flex-block navbar" style={{ background: "#000000" }}>
         <div style={{ display: "flex" }}>
-          <img src={Logo} alt="Logo" style={{ width: "10%", height: "10%" }} />
-          <h3 style={{ float: "left" }}>SINTETIK</h3>
+          <img src={Logo} alt="Logo"/>
+          {/* <h3 style={{ float: "left" }}>SINTETIK</h3> */}
         </div>
         <div>
-          <ul className="navbar">
+          <ul className="navlink">
             <HashLink smooth to="/#header" className="li">
               <li>Home</li>
             </HashLink>
@@ -48,7 +48,7 @@ const NavBar = () => {
 
         <div className="flex-end">
           {app_store.is_loggedin === true ? (
-            <li>
+            // <li>
               <button
                 className="button_red_dark"
                 onClick={() => {
@@ -57,10 +57,10 @@ const NavBar = () => {
               >
                 <FaUserCircle /> ${chart_store.wallet}
               </button>
-            </li>
+            // </li>
           ) : (
             <>
-              <li>
+              {/* <li> */}
                 <button
                   className="button_green_dark"
                   onClick={() => {
@@ -69,8 +69,8 @@ const NavBar = () => {
                 >
                   SIGN UP
                 </button>
-              </li>
-              <li>
+              {/* </li>
+              <li> */}
                 <button
                   className="button_red_dark"
                   onClick={() => {
@@ -79,7 +79,7 @@ const NavBar = () => {
                 >
                   SIGN IN
                 </button>
-              </li>
+              {/* </li> */}
             </>
           )}
         </div>

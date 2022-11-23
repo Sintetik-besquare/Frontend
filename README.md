@@ -17,7 +17,7 @@ use PascalCase for ComponentNames
 
 ### Example
 ```
-import NavBar from "./views/components/navbar.js"
+import NavBar from "./views/components/navlink.js"
 import Header from "./views/components/header.js"
 import HomePage from "./views/home/index.js"
 
