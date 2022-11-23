@@ -43,6 +43,8 @@ jobs:
       with:
         name: build
         path: build.tar
+    env:
+     CI: false
  
   deploy:
     name: Deploy the build
