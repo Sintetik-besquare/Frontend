@@ -4,6 +4,7 @@ import { useStores } from "../../../store";
 import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
 import { getTransaction } from "../../../services/transaction";
+import { observer } from "mobx-react-lite";
 
 const UserProfile = () => {
   const { app_store } = useStores();
@@ -104,4 +105,4 @@ const UserProfile = () => {
   );
 };
 
-export default UserProfile;
+export default observer(UserProfile);

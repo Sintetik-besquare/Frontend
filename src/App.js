@@ -22,14 +22,12 @@ const App = () => {
   const { app_store, user_store, chart_store } = useStores();
 
   useEffect(() => {
-    if (app_store.is_loggedin) { 
+    if (app_store.is_loggedin) {
       getBalance().then((e) => {
         chart_store.setWallet(e);
-      })
+      });
 
       getUserDetails().then((e) => {
-        console.log("e");
-        console.log(e);
         user_store.setAge(e.age);
         user_store.setId(e.client_id);
         user_store.setDateJoin(e.date_join);
@@ -42,6 +40,7 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
