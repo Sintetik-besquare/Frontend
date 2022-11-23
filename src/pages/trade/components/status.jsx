@@ -26,7 +26,7 @@ const Status = () => {
           );
         })}
       </ul>
-      ;
+
       {chart_store.showSummary === true ? (
         <div>
           <h1 style={{ color: "white" }}>

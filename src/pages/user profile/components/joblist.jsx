@@ -3,7 +3,7 @@ import React from "react";
 const JobDropDown = (props) => (
   <select
     {...props}
-    class="form-control dropdown"
+    className="form-control dropdown"
     id="occupation"
     name="occupation"
   >

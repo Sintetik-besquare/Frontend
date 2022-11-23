@@ -51,9 +51,9 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
-    setTimeout(() => {
-      this.iswinning.shift()
-    }, 2500);
+    // setTimeout(() => {
+    //   this.iswinning.shift()
+    // }, 2500);
   }
 
   setWallet(amt){

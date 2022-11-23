@@ -50,8 +50,11 @@ const OrderForm = () => {
       getBalance().then((e)=>{chart_store.setWallet(e)})
 
       setTimeout(() => {
-        chart_store.setShowSummary(false);
-      }, 5000);
+        setTimeout(() => {
+          chart_store.setShowSummary(false);
+        }, 2000);
+        chart_store.iswinning = [];
+      }, 2000);
       // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
