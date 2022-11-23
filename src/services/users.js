@@ -14,7 +14,7 @@ async function getUser() {
       return response.json();
     })
     .then((json) => {
-      console.log(json.user_details[0]);
+      // console.log(json.user_details[0]);
       return json.user_details[0];
     });
 }

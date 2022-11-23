@@ -29,6 +29,11 @@ function InputFieldText() {
     // });
   }, []);
 
+  useEffect(() => {
+    updateUser().then((z) => user_store.updateUserDetail(z));
+    console.log(user_store.user_detail);
+  }, []);
+
   useEffect(() => {}, [user_store.user_detail]);
 
   const handleEditProfile = () => {
@@ -118,7 +123,7 @@ function InputFieldText() {
           <div>
             <div className="user-update-button">
               <button onClick={handleEditProfile} className="button-5">
-                Edit User Profile
+                {disabled ? "Edit User Profile" : "Save User Profile"}
               </button>
             </div>
           </div>
