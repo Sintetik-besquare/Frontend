@@ -10,6 +10,7 @@ import {
   LineElement,
   PointElement,
 } from "chart.js";
+import Status from "./status";
 import { FiTrendingUp } from "react-icons/fi";
 import { getHistoricalFeed } from "../../../services/historical-feed";
 import { getBalance } from "../../../services/wallet";
@@ -92,6 +93,7 @@ const LineChart = () => {
 
   return (
     <div id="chart-container" data-aos="fade-right" data-aos-duration="1000">
+    <div id="status-container"><Status /></div>
       <div id="chart-header">
         <div id="balance-container">
           {app_store.is_loggedin ? (
