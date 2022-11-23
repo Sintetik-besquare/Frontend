@@ -6,8 +6,6 @@ name: Node.js CI
 on:
   push:
     branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
 
 jobs:
   build:
@@ -19,20 +17,34 @@ jobs:
         node-version: [16.x]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}    
-    
-    - name: Create .env file
-      run: |
+     - uses: actions/checkout@v2
+     - name: Create .env file
+        run:|
         touch .env
         echo 'REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}' >> .env
         echo 'TOKEN=${{ secrets.TOKEN }}' >> .env
-    - name: node version
-      run: node --version
-    - name: Install dependencies and run test
-      run: |
-        npm install --legacy-peer-deps
+        
+     - name: Use Node.js ${{ matrix.node-version }}
+       uses: actions/setup-node@v1
+       with:
+         node-version: ${{ matrix.node-version }}    
+    
+   
+        
+     - name: Upload build artifact
+       uses: actions/upload-artifact@v3
+       with:
+         name: build
+         path: build.tar
+      
+  deploy:
+      name: Deploy build
+      needs: build
+      runs-on: self-hosted
+      steps:
+        - name: Download build
+          uses: actions/download-artifact@v3
+          with:
+            name: build
+        - run: tar xzvf build.tar
         
