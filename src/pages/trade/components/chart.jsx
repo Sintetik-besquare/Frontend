@@ -28,44 +28,40 @@ const LineChart = () => {
     labels: x_axis,
     datasets: [
       {
+        data: y_axis,
         label: chart_name,
         borderColor: "white",
         backgroundColor: "white",
-        data: y_axis,
         pointStyle: "dash",
         pointBorderWidth: 0,
-      },
-    ],
-    options: {
-      interaction: {
-        intersect: false,
-      },
-      plugins: {
-        legend: false,
-      },
-      scales: {
-        x: {
-          type: "linear",
+        tension: 0.1,
+        animations: {
+          x: {
+            type: "number",
+            duration: 5,
+          },
+          y: { duration: 2 },
         },
       },
-    },
+    ],
   };
 
   useEffect(() => {
     getHistoricalFeed().then(setHistory);
-    history.map((d) => {
-      y_axis.push(d[1][1]);
-      x_axis.push(d[1][3]);
-    });
+    history.map = (d) => {
+      setX_axis(x_axis =>[...x_axis, d[1][1]]);
+      setY_axis(y_axis => [...y_axis, d[1][3]]);
+      // y_axis.push(d[1][1]);
+      // x_axis.push(d[1][3]);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    getBalance()
-      .then((e) => {
-        chart_store.setWallet(e);
-      });
-  }, [])
+    getBalance().then((e) => {
+      chart_store.setWallet(e);
+    });
+  }, []);
 
   useEffect(() => {
     const socket = io.connect("http://localhost:3002");
