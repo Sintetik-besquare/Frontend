@@ -5,36 +5,49 @@ export default class ChartStore {
   //obervables
   historical_price = [];
   index = "VOL100";
-  option_type = " "; 
+  option_type = " ";
   ticks = 0;
   stake = 0.0;
-  entry_time = (Math.floor(Date.now() / 1000)-1); //TODO: entry_time = current_time -1s
+  entry_time = Math.floor(Date.now() / 1000) - 1; //TODO: entry_time = current_time -1s
   wallet = 0;
   iswinning = [];
   summary = [];
-  showSummary = false
+  showSummary = false;
   showOrderForm = false;
-  
+  isbuying = false;
+
   //computed
-  get call_payout(){
-    return this.#payout("call").toFixed(2)
+  get call_payout() {
+    return this.#payout("call").toFixed(2);
   }
-  
-  get put_payout(){
-    return this.#payout("put").toFixed(2)
+
+  get put_payout() {
+    return this.#payout("put").toFixed(2);
   }
 
   /**
-   * 
-   * @param {"call"|"put"} type 
+   *
+   * @param {"call"|"put"} type
    * @returns {Number}
    */
-  #payout(type){
-return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / (60 * 60 * 24 * 365),0,0,type) +0.012):0
+  #payout(type) {
+    return this.ticks * this.stake
+      ? this.stake /
+          (bs_binary_option(
+            1,
+            1,
+            1,
+            this.ticks / (60 * 60 * 24 * 365),
+            0,
+            0,
+            type
+          ) +
+            0.012)
+      : 0;
   }
   //actions
 
-  setHistory(historical_price){
+  setHistory(historical_price) {
     this.historical_price = historical_price;
   }
 
@@ -56,12 +69,12 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
-    setTimeout(() => {
-      this.iswinning.shift()
-    }, 3500);
+    // setTimeout(() => {
+    //   this.iswinning.shift();
+    // }, 3500);
   }
 
-  setWallet(amt){
+  setWallet(amt) {
     this.wallet = amt;
   }
 
@@ -71,6 +84,9 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   setShowSummary(visibility) {
     this.showSummary = visibility;
+    setTimeout(() => {
+      this.showSummary = false;
+    }, 3500);
   }
 
   toggleOrderForm(visibility) {
@@ -83,6 +99,10 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   updateHistory(stream) {
     this.historical_price = stream;
+  }
+
+  setIsBuying(isbuying){
+    this.isbuying=isbuying;
   }
 }
 decorate(ChartStore, {
@@ -99,6 +119,7 @@ decorate(ChartStore, {
   showSummary: observable,
   iswinning: observable,
   showOrderForm: observable,
+  isbuying: observable,
   setIndex: action,
   setOptionType: action,
   setTicks: action,
@@ -110,4 +131,5 @@ decorate(ChartStore, {
   toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
+  setIsBuying: action,
 });

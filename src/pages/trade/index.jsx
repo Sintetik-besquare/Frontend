@@ -9,7 +9,6 @@ export const Index = () => {
     <div className="trade_page">
       <Chart />
       <OrderForm />
-      {/* <div id="status-container"><Status /></div> */}
     </div>
   );
 };
