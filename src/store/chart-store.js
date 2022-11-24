@@ -8,8 +8,8 @@ export default class ChartStore {
   option_type = " "; 
   ticks = 0;
   stake = 0.0;
-  entry_time = Math.floor(Date.now() / 1000); //TODO: entry_time = current_time -1s
-  wallet = 10000;
+  entry_time = (Math.floor(Date.now() / 1000)-1); //TODO: entry_time = current_time -1s
+  wallet = 0;
   iswinning = [];
   summary = [];
   showSummary = false
@@ -49,15 +49,15 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
     this.stake = stake;
   }
 
-  setWallet() {
-    this.wallet += 10000; //todo: get user wallet balance
-  }
-
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
     // setTimeout(() => {
     //   this.iswinning.shift()
     // }, 2500);
+  }
+
+  setWallet(amt){
+    this.wallet = amt;
   }
 
   setSummary(summary) {
@@ -73,7 +73,7 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
   }
 
   resetWallet() {
-    this.wallet += 500;
+    this.wallet = 20000;
   }
 
   updateHistory(stream) {
@@ -98,8 +98,8 @@ decorate(ChartStore, {
   setOptionType: action,
   setTicks: action,
   setState: action,
-  setWallet: action,
   setIswinning: action,
+  setWallet: action,
   setSummary: action,
   setShowSummary: action,
   toggleOrderForm: action,
