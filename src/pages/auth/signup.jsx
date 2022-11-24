@@ -37,7 +37,7 @@ const SignUp = () => {
   
   return (
     <div id="signup-background">
-      <div id="signup">
+      <div id="signup" data-aos="flip-right" data-aos-duration="1000">
         <div className="signup-details-card">
           <h2>
             <b>
@@ -141,7 +141,7 @@ const SignUp = () => {
               <h6>
                 I agree to the
                 <a
-                  href="https://www.google.com"
+                  href="error"
                   target="blank"
                   style={{ color: "red" }}
                 >

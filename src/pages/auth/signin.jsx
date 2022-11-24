@@ -41,7 +41,7 @@ const SigninPage = () => {
 
   return (
     <div id="signin-background">
-      <div id="signin">
+      <div id="signin" data-aos="flip-left" data-aos-duration="1000">
         <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>

@@ -163,32 +163,6 @@ $yellow: rgba(245, 220, 12, 1);
   background: rgb(80, 80, 80);
 }
 
-#signin {
-  background-image: linear-gradient(
-    rgba(34, 33, 40, 1),
-    rgba(200, 200, 200, 1)
-  );
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-#signin-background,
-#signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-  // background-color: $yellow;
-  padding-top: 5rem;
-  padding-bottom: 15rem;
-  display: flex;
-  justify-content: center;
-}
-
-#signin,
-#signup {
-  float: center;
-  width: 50%;
-  display: flex;
-}
-
 #home {
   height: 100%;
   background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
@@ -202,18 +176,6 @@ $yellow: rgba(245, 220, 12, 1);
 #about {
   background: opacity($color: #ffffff80);
   padding-top: 100px;
-}
-
-#company {
-  background: lightgray;
-  padding-top: 7rem;
-  padding-bottom: 30rem;
-  width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // background-size: cover;
-  // overflow: hidden;
-  // height: 100%;
 }
 
 #title {
@@ -243,5 +205,12 @@ $yellow: rgba(245, 220, 12, 1);
   }
   to {
     transform: translateY(-2000px);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #company {
+    padding-top: 35rem;
+    padding-bottom: 35rem;
   }
 }

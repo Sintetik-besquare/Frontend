@@ -4,6 +4,10 @@ import { useStores } from "../../../store";
 import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
 import { getTransaction } from "../../../services/transaction";
+import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import { VscDebugRestart } from "react-icons/vsc";
+import { FaSmileWink } from "react-icons/fa";
+
 import { observer } from "mobx-react-lite";
 
 const UserProfile = () => {
@@ -11,7 +15,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [toggleState, setToggleState] = useState(1);
   const [transaction, setTransaction] = useState([]);
-  const [filter, setFilter] = useState('Buy')
+  const [filter, setFilter] = useState('All')
 
   function login() {
     navigate("/", { replace: true });
@@ -68,16 +72,38 @@ const UserProfile = () => {
               </div>
               <hr />
               {transaction.map((t, i) => {
-                if(t.transaction_type===filter || filter === 'All')
-                return (
-                  <div key={i} className="transaction-card">
-                    {Date(t.transaction_time).toString()}
-                    <br />
-                    {t.transaction_type}: {t.transaction_amount}
-                    <br />
-                    balance: {t.balance}
-                  </div>
-                )
+                if (
+                  t.transaction_type === filter ||
+                  (filter === "All" && transaction.length !== 0)
+                  ) {
+                  return (
+                    <div className="transaction-area">
+                    <div key={i} className="transaction-card">
+                      <div className="transaction-card-top">
+                      <div className="trade-logo">
+                        Vol 100
+                      </div>
+                      {t.transaction_type === "Sell" ? t.transaction_amount === "0.00" ? 
+                      <FaSmileWink style={{color:"yellow"}}/> :
+                      <AiFillCaretUp id="rise-icon" /> : t.transaction_type === "Buy" ? 
+                      <AiFillCaretDown id="fall-icon"/> : <VscDebugRestart id="reset-icon"/>}
+                      </div>
+                      <br />
+                      {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(t.transaction_time * 1000)}
+                      <br />
+                      {t.transaction_type}: ${t.transaction_amount}
+                      <br />
+                      Balance: ${t.balance}
+                    </div>
+                    </div>
+                  );
+                } else if (transaction.length == 0) {
+                  return (
+                    <div className="transaction-card">
+                      Balance: "none"
+                    </div>
+                  )
+                }
               })}
             </div>
           </div>
