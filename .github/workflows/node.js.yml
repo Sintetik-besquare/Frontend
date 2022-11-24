@@ -37,6 +37,7 @@ jobs:
         touch .env
         echo "REACT_APP_NEWS_API_KEY='${{ secrets.REACT_APP_NEWS_API_KEY }}'" >> .env
         echo "TOKEN='${{ secrets.TOKEN }}'" >> .env
+        cat .env
 
     - name: Upload build
       uses: actions/upload-artifact@v3
