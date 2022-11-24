@@ -58,20 +58,6 @@
 // }
 // }
 
-.homepage-image{
-  width: 90%;
-  // background: radial-gradient(closest-side at 40% 50%, white, #F5DC0C);
-  // filter: drop-shadow(0 0 0.75rem lightimage2green);
-#graphic_crypto2 {
-  position: absolute;
-  margin-top: 0;
-    // width: 50%;
-    bottom: 0;
-    // top: 45rem;
-    background-image: linear-gradient(transparent, white, white);
-}
-}
-
 @media only screen and (max-width: 1500px) {
   .landing_hero_graphics {
     img {
@@ -92,6 +78,16 @@
     width:100%;
   }
 
+  .homepage-image{
+    width: 100%;
+  #graphic_crypto2 {
+    padding: 1rem;
+    height: 100%;
+    width: 100%;
+      bottom: 0;
+      background-image: linear-gradient(transparent, white, white);
+  }
+  }
 }
 
 @media only screen and (max-width: 1000px) {
