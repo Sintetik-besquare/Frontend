@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { observer } from "mobx-react-lite";
 // import { useStores } from "../../store";
 import Hero from "./components/hero";
-import UserProfile from "./components/user-profile";
+import Tabs from "./components/tabs";
 // import { getUserDetails } from "../../services/user-info";
 
 export const Index = () => {
@@ -31,9 +31,7 @@ export const Index = () => {
       <div className="user-profile-container">
         <Hero />
       </div>
-      <div>
-        <UserProfile />
-      </div>
+        <Tabs />
     </div>
   );
 };
