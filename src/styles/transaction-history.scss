@@ -13,16 +13,19 @@
     // @include glow;
   }
   .transaction-card {
-    width: max-content;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
     background-color: black;
     color:white;
     margin: 2%;
     padding: 2%;
     border: 1px solid white;
     flex-wrap: wrap;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    // box-shadow: 10px 100px 100px 100px rgba(255,255,255,0.2);
     transition: 0.3s;
     font-size: 2rem;
+    font-weight: bolder;
   }
 }
 
@@ -36,14 +39,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+.transaction-card-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .trade-logo {
-  background-color: yellow;
-  background-image: linear-gradient(yellow, darkorange);
+  // background-image: linear-gradient(yellow, darkorange);
+  background-image: linear-gradient(gray, black, gray);
   width: 40px;
   height: min-content;
-  color: black;
+  color: white;
   font-size: 1rem;
   border-radius: 50%;
   font-weight: bold;
@@ -51,7 +61,7 @@
 }
 
 #rise-icon {
-  color: green;
+  color: rgba(84, 248, 58, 1);
 }
 
 #fall-icon {

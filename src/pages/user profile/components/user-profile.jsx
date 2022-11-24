@@ -7,7 +7,8 @@ import { getTransaction } from "../../../services/transaction";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import { VscDebugRestart } from "react-icons/vsc";
 import { FaSmileWink } from "react-icons/fa";
-
+import GreenGraph from "../../../assets/green_graph.png";
+import RedGraph from "../../../assets/red_graph.png";
 import { observer } from "mobx-react-lite";
 
 const UserProfile = () => {
@@ -78,23 +79,48 @@ const UserProfile = () => {
                   ) {
                   return (
                     <div className="transaction-area">
-                    <div key={i} className="transaction-card">
-                      <div className="transaction-card-top">
-                      <div className="trade-logo">
-                        Vol 100
+                      <div key={i} className="transaction-card">
+                        <div className="transaction-card-top">
+                          <div className="trade-logo">Vol 100</div>
+                          <div>
+                            {new Intl.DateTimeFormat("en-US", {
+                              year: "numeric",
+                              month: "2-digit",
+                              day: "2-digit",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                              second: "2-digit",
+                            }).format(t.transaction_time * 1000)}
+                          </div>
+                          {t.transaction_type === "Sell" ? (
+                            t.transaction_amount === "0.00" ? (
+                              <FaSmileWink style={{ color: "yellow" }} />
+                            ) : (
+                              <AiFillCaretUp id="rise-icon" />
+                            )
+                          ) : t.transaction_type === "Buy" ? (
+                            <AiFillCaretDown id="fall-icon" />
+                          ) : (
+                            <VscDebugRestart id="reset-icon" />
+                          )}
+                        </div>
+                        <div className="transaction-card-bottom">
+                          &nbsp;
+                          <div style={{textAlign:"left"}}>
+                            {t.transaction_type}: {t.transaction_amount} USD
+                            <br />
+                            Balance: {t.balance} USD
+                          </div>
+                          <div>
+                          {t.transaction_type === "Sell" ? (
+                            t.transaction_amount === "0.00" ? 
+                          <img src={RedGraph} altpo="Logo" /> :
+                          <img src={GreenGraph} altpo="Logo" />) :
+                          "Not sell"
+                          }
+                          </div>
+                        </div>
                       </div>
-                      {t.transaction_type === "Sell" ? t.transaction_amount === "0.00" ? 
-                      <FaSmileWink style={{color:"yellow"}}/> :
-                      <AiFillCaretUp id="rise-icon" /> : t.transaction_type === "Buy" ? 
-                      <AiFillCaretDown id="fall-icon"/> : <VscDebugRestart id="reset-icon"/>}
-                      </div>
-                      <br />
-                      {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit' }).format(t.transaction_time * 1000)}
-                      <br />
-                      {t.transaction_type}: ${t.transaction_amount}
-                      <br />
-                      Balance: ${t.balance}
-                    </div>
                     </div>
                   );
                 } else if (transaction.length == 0) {
