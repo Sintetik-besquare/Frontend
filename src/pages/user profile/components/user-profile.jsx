@@ -8,8 +8,6 @@ import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import { VscDebugRestart } from "react-icons/vsc";
 import { FaSmileWink } from "react-icons/fa";
 
-
-
 import { observer } from "mobx-react-lite";
 
 const UserProfile = () => {
