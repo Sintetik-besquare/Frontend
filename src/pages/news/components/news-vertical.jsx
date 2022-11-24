@@ -1,50 +1,68 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import NewsItem from "./news-items";
+import HorizontalNewsItem from "./scratch/horizontal-news-item";
+import getNews from "../../../services/news";
 
 const NewsList = () => {
   const [articles, setArticles] = useState([]);
+  const [topheadlines, setTopheadline] = useState([]);
+
+  //Horizontal card
+  useEffect(() => {
+    getNews().then((e) => setTopheadline(e.data.value));
+  }, []);
+
+  // console.log("topheadline", topheadlines);
 
   //Get every related news
   useEffect(() => {
-    const headline = "everything";
-    const q = "economy";
-    const language = "en";
-    const pageSize = "20";
-    const APIKEY = process.env.REACT_APP_NEWS_API_KEY;
-    const getArticles = async () => {
-      const response = await axios.get(
-        `https://newsapi.org/v2/${headline}?q=${q}&pageSize?=${pageSize}&language?=${language}&apiKey=${APIKEY}`
-      );
-      setArticles(response.data.articles);
-      console.log(response);
-    };
-
-    getArticles();
+    console.log("asdas");
+    getNews().then((e) => setArticles(e.data.value));
   }, []);
+
+  console.log("articles", articles);
 
   const [cardsAvailable, setCardsAvailable] = useState(9);
   const showMoreCards = () => {
     setCardsAvailable((defaultCards) => defaultCards + 3);
   };
 
+  if (!articles && !topheadlines) return <h1>Loading..</h1>;
+
   return (
     <>
       <div className="news-container">
         <div className="news-container-grid">
+          {topheadlines
+            ?.slice()
+            .slice(0, 1)
+            .map((topheadline, i) => (
+              <HorizontalNewsItem
+                title={topheadline.name}
+                date={topheadline.datePublished}
+                description={topheadline.description}
+                url={topheadline.url}
+                urlToImage={topheadline.image.thumbnail.contentUrl}
+                key={i}
+              />
+            ))}
+        </div>
+      </div>
+      <div className="news-container">
+        <div className="news-container-grid">
           {articles
-            .slice()
+            .slice(1)
             .sort(function (a, b) {
               return new Date(b.publishedAt) - new Date(a.publishedAt);
             })
             .slice(0, cardsAvailable)
             .map((article, i) => (
               <NewsItem
-                title={article.title}
-                date={article.publishedAt}
+                title={article.name}
+                date={article.datePublished}
                 description={article.description}
                 url={article.url}
-                urlToImage={article.urlToImage}
+                urlToImage={article.image.thumbnail.contentUrl}
                 key={i}
               />
             ))}
