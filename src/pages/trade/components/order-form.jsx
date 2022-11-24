@@ -9,7 +9,7 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { getBalance } from "../../../services/wallet";
 import chart from "./chart";
-import Summary from "./summary"
+import Summary from "./summary";
 
 const OrderForm = () => {
   /**
@@ -48,6 +48,8 @@ const OrderForm = () => {
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
       chart_store.setShowSummary(true);
+      chart_store.setIsBuying(false);
+
       getBalance().then((e) => {
         chart_store.setWallet(e);
       });
@@ -55,6 +57,7 @@ const OrderForm = () => {
       setTimeout(() => {
         chart_store.iswinning = [];
       }, 2000);
+
       // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
@@ -97,15 +100,12 @@ const OrderForm = () => {
       // TODO: contract_type: chart_store.contract_type, (Rise/Fall) (Even/Odd)
     };
     console.log(order);
+    chart_store.setIsBuying(true);
     socket.current.emit("order", order);
   };
 
   return (
-    <div
-      className="form_container"
-      data-aos="fade-left"
-      data-aos-duration="1000"
-    >
+    <div className="form_container">
       {/* <div id="form_container_header">
         <div id="trade-away">Trade Away</div>
       </div> */}
@@ -206,6 +206,7 @@ const OrderForm = () => {
 
       {app_store.is_loggedin === true &&
       chart_store.stake > 0 &&
+      chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
         <div>
           <button
@@ -254,6 +255,7 @@ const OrderForm = () => {
       ) : (
         <div>
           <button
+            disabled
             className="form_row button_green_disabled"
             onClick={() => {
               validate();
@@ -274,6 +276,7 @@ const OrderForm = () => {
             </div>
           </button>
           <button
+            disabled
             className="form_row button_red_disabled"
             onClick={() => {
               validate();
@@ -327,7 +330,9 @@ const OrderForm = () => {
           </div> */}
         </div>
       )}
-      {chart_store.showSummary===true && (<Summary />)}
+      {chart_store.showSummary === true && chart_store.isbuying !== true && (
+        <Summary />
+      )}
     </div>
   );
 };
