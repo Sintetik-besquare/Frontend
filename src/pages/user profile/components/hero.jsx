@@ -5,10 +5,10 @@ import { useStores } from "../../../store";
 function Hero() {
   const { user_store } = useStores();
   return (
-    <div>
-      <h1 className="user-profile-hero">USER PROFILE</h1>
-      <h1>{user_store.email}</h1>
-      <h1>Joined on: {Date(user_store.date_join).toString()}</h1>
+    <div style={{textAlign:"center"}}>
+      <b className="user-profile-hero">USER PROFILE</b>
+      <p>{user_store.email}</p>
+      <p>Joined on: {Date(user_store.date_join).toString()}</p>
     </div>
   );
 }

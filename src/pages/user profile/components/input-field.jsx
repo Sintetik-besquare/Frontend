@@ -26,7 +26,7 @@ const InputFieldText = () => {
       education: user_store.education,
     };
     editUserDetails(user_details);
-  };
+  }
 
   return (
     <>
@@ -34,125 +34,117 @@ const InputFieldText = () => {
 
       <div className="user-profile-card">
         <PrimaryCard />
-        <div className="user-profile-paper">
-          <div className="user-profile-details-card">
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">First Name</span>
-              <hr></hr>
-              <div>
-                {disabled ? (
-                  <input disabled={disabled} value={user_store.first_name} />
-                ) : (
-                  <input
-                    placeholder="Your First Name"
-                    onChange={(e) => {
-                      user_store.setFirstName(e.target.value);
-                      e.preventDefault();
-                    }}
-                  />
-                )}
-              </div>
-            </div>
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Last Name</span>
-              <hr></hr>
+        <div className="user-profile-details-card">
+          <div>
+            <span className="span-profile-details">First Name</span>
+            <hr></hr>
+            <div>
               {disabled ? (
-                <input disabled={disabled} value={user_store.last_name} />
+                <input disabled={disabled} value={user_store.first_name} />
               ) : (
                 <input
-                  placeholder="Your Last Name"
+                  placeholder="Your First Name"
                   onChange={(e) => {
-                    user_store.setLastName(e.target.value);
+                    user_store.setFirstName(e.target.value);
                     e.preventDefault();
                   }}
                 />
               )}
             </div>
           </div>
-
-          <div className="user-profile-details-card">
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Age</span>
-              <hr></hr>
-              {disabled ? (
-                <input disabled={disabled} value={user_store.age} />
-              ) : (
-                <input
-                  type="number"
-                  placeholder="Your Age"
-                  onChange={(e) => {
-                    user_store.setAge(parseInt(e.target.value));
-                    e.preventDefault();
-                  }}
-                />
-              )}
-            </div>
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Gender</span>
-              <hr></hr>
-              <GenderInputSelect disabled={disabled} />
-            </div>
-          </div>
-
-          <div className="user-profile-details-card">
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Country</span>
-              <hr></hr>
-              <div className="dropdown">
-                <CountryDropdown
-                  disabled={disabled}
-                  value={country}
-                  onChange={(val) => user_store.setResidence(val)}
-                />
-              </div>
-            </div>
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Education</span>
-              <hr></hr>
-              <EducationLevelSelect
-                disabled={disabled}
-                onChange={(val) => user_store.setEducation(val)}
+          <div>
+            <span className="span-profile-details">Last Name</span>
+            <hr></hr>
+            {disabled ? (
+              <input disabled={disabled} value={user_store.last_name} />
+            ) : (
+              <input
+                placeholder="Your Last Name"
+                onChange={(e) => {
+                  user_store.setLastName(e.target.value);
+                  e.preventDefault();
+                }}
               />
-            </div>
-          </div>
-
-          <div className="user-profile-details-card">
-            <div className="user-profile-details-column">
-              <span className="span-profile-details">Occupation</span>
-              <hr></hr>
-              <JobDropDown
-                disabled={disabled}
-                onChange={(val) => user_store.setOccupation(val)}
-              />
-            </div>
+            )}
           </div>
 
           <div>
-            <div className="user-update-button">
-              {disabled ? (
-                <button
-                  onClick={() => setDisabled(!disabled)}
-                  className="button_green_small"
-                >
-                  Edit User Profile
-                </button>
-              ) : (
-                <button
-                  onClick={() => {
-                    setDisabled(!disabled);
-                    saveUserProfile();
-                  }}
-                  className="button_green_small"
-                >
-                  Save User Profile
-                </button>
-              )}
+            <span className="span-profile-details">Age</span>
+            <hr></hr>
+            {disabled ? (
+              <input disabled={disabled} value={user_store.age} />
+            ) : (
+              <input
+                type="number"
+                placeholder="Your Age"
+                onChange={(e) => {
+                  user_store.setAge(parseInt(e.target.value));
+                  e.preventDefault();
+                }}
+              />
+            )}
+          </div>
+          <div>
+            <span className="span-profile-details">Gender</span>
+            <hr></hr>
+            <GenderInputSelect disabled={disabled} />
+          </div>
+
+          <div>
+            <span className="span-profile-details">Country</span>
+            <hr></hr>
+            <div className="dropdown">
+              <CountryDropdown
+                disabled={disabled}
+                value={country}
+                onChange={(val) => user_store.setResidence(val)}
+              />
             </div>
+          </div>
+          <div>
+            <span className="span-profile-details">Education</span>
+            <hr></hr>
+            <EducationLevelSelect
+              disabled={disabled}
+              onChange={(val) => user_store.setEducation(val)}
+            />
+          </div>
+
+          <div>
+            <span className="span-profile-details">Occupation</span>
+            <hr></hr>
+            <JobDropDown
+              disabled={disabled}
+              onChange={(val) => user_store.setOccupation(val)}
+            />
+          </div>
+        </div>
+
+        <div>
+          <div className="user-update-button">
+            {disabled ? (
+              <button
+                onClick={() => setDisabled(!disabled)}
+                className="button_green_small"
+              >
+                Edit User Profile
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setDisabled(!disabled);
+                  saveUserProfile();
+                }}
+                className="button_green_small"
+              >
+                Save User Profile
+              </button>
+            )}
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default observer(InputFieldText);

@@ -122,7 +122,7 @@ const Tabs = () => {
                       </div>
                     </div>
                   );
-                } else if (transaction.length == 0) {
+                } else if (transaction.length === 0) {
                   return (
                     <div className="transaction-card">
                       Balance: "none"
