@@ -1,23 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import HorizontalNewsItem from "./horizontal-news-item";
+import getNews from "../../../../services/news";
 
 const HorizontalCard = () => {
   const [topheadlines, setTopheadline] = useState([]);
-
-  //Get top headline
   useEffect(() => {
-    const APIKEY = process.env.REACT_APP_NEWS_API_KEY;
-    const getArticles = async () => {
-      const response = await axios.get(
-        `https://newsapi.org/v2/top-headlines?q=economy&apiKey=${APIKEY}`
-      );
-      setTopheadline(response.data.articles);
-      console.log(response);
-    };
-
-    getArticles();
+    getNews().then((e) => setTopheadline(e.data.value));
   }, []);
+
+  console.log("topheadline", topheadlines);
 
   if (!topheadlines) return <h1>Loading..</h1>;
 
@@ -30,11 +21,11 @@ const HorizontalCard = () => {
             .slice(0, 1)
             .map((topheadline, i) => (
               <HorizontalNewsItem
-                title={topheadline.title}
-                date={topheadline.publishedAt}
+                title={topheadline.name}
+                date={topheadline.datePublished}
                 description={topheadline.description}
                 url={topheadline.url}
-                urlToImage={topheadline.urlToImage}
+                urlToImage={topheadline.image.thumbnail.contentUrl}
                 key={i}
               />
             ))}
