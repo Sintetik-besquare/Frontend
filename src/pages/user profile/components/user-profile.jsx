@@ -31,6 +31,8 @@ const InputFieldText = () => {
   return (
     <div id="user-profile">
       <div id="user-profile-form">
+      <p>{user_store.email}</p>
+      <p>Joined on: {Date(user_store.date_join).toString()}</p>
         <div>
           <span className="span-profile-details">First Name</span>
           <hr></hr>
@@ -138,7 +140,7 @@ const InputFieldText = () => {
           </div>
         </div>
       </div>
-      <img src={image} alt="a picture for the profile page " style={{width:"40%"}}/>
+      <img src={image} alt="a profile page" style={{width:"40%"}}/>
     </div>
   );
 };
