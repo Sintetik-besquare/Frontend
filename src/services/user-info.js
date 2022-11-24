@@ -22,6 +22,7 @@ async function editUserDetails(body) {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+      "Content-Type": "application/json"
     },
     body: body,
   }).then(console.log(body));

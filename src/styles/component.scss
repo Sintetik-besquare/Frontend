@@ -25,7 +25,7 @@ button {
   cursor: pointer;
 }
 
-.navbar {
+.navlink {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -50,7 +50,7 @@ button {
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 30vw !important;
+  width: 20vw !important;
   background-color: white;
   border-radius: 10px;
   z-index: 1000;
@@ -338,7 +338,7 @@ h6 {
 }
 
 @keyframes landing_hero_graphics {
-  0% {
+0% {
     transform: translate(0, 0px);
   }
   25% {
@@ -465,14 +465,31 @@ h6 {
   }
 }
 
+.navbar{
+  img {
+    width:70px;
+    height:auto;
+  }
+}
+
 @media only screen and (max-width: 900px) {
-  .navbar {
+  .navbar{
+    h1, h2, h3, p, li, button {
+      font-size: x-small;
+    }
+    img {
+      width:50px;
+      height:auto;
+    }
+  }
+
+  .navlink {
     flex-wrap: nowrap;
 
-    .li,
-    li {
+    // ul,li {
       margin: 0;
-    }
+      padding:0;
+    // }
   }
   .nav_modal {
     width: 60vw;
@@ -608,16 +625,6 @@ h6 {
 }
 
 .aboutus {
-  // position: p;
-  // top: 50%;
-  // left: 50%;
-  font-family: "Raleway";
-  font-size: 100px;
-  letter-spacing: 0.1em;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
-  text-shadow: 8px 8px #2c99ff, 20px 20px #000000;
   text-align: center;
   text-align: center;
   padding-left: 2rem;
@@ -626,6 +633,31 @@ h6 {
 .aboutus-text2 {
   font-size: 20px;
 }
+}
+
+@media only screen and (max-width: 600px) {
+  navbar{
+    h1, h2, h3, p, li, button {
+      font-size: xx-small;
+    }
+
+    .flex-end {
+      button{
+        padding:0;
+      }
+    }
+    img {
+      width:20px;
+      height:auto;
+    }
+  }
+  .nav_modal{
+    width:50vw !important;
+    ul{
+      margin:2%;
+      padding:2%;
+    }
+  }
 }
 
 .landing_hero_graphics {

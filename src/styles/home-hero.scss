@@ -2,64 +2,111 @@
     // .hero-page-flex-block {
         // padding-left: 69rem;
     // }
-        }
 
         .hero-video {
             position: absolute;
-            z-index: -1;
-            width: 100%;
+        width: 100%;
             left: 0rem;
             top: 0rem;
-            // height: 100%;
+}
+
+#company {
+    background: lightgray;
+    padding-top: 20rem;
+    padding-bottom: 25rem;
+    width: 100%;
+
+}
+  .homepage-title {
+    font-size: 15rem;
+    }
+    
+    .hero-title {
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+    font-size: 5rem;
+    // letter-spacing: 5px;
+        margin-top: -20px;
+        // padding-left: 5rem;
+        width: 100%;
+        height: 130%;
+        padding-top: 2rem;
+        line-height: 100%;
+        margin-right: 0;
+}
+
+.get-started-button {
+    background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
+    font-size: 3rem;
+}
 }
 
 @media only screen and (max-width: 2000px) {
     // .hero-page-flex-block {
-        // padding-left: 45rem;
+    // padding-left: 45rem;
     // }
-        }
-        
-.homepage-title {
-    font-size: 5rem;
+.hero-video {
+position: absolute;
+// z-index: -1;
+// width: 100%;
+left: 0rem;
+top: 0rem;
+height: 68rem;
+width: 119rem;
 }
 
-
-.hero-home {
-    height: 100%;
-    // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-    padding-top: 11rem;
-    padding-bottom: 11rem;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    // justify-content: center;
-    // background-size: cover;
-    // background-image: ;
-  }
-
-.hero-video {
-    position: absolute;
-    // z-index: -1;
-    width: 100%;
-    left: 0rem;
-    top: 0rem;
-    // height: 100%;
+.homepage-title {
+font-size: 8rem;
 }
 
 .hero-title {
-    text-align: center;
-    font-family: "Poppins", sans-serif;
-    font-weight: 900;
-    font-size: 40px;
-    // letter-spacing: 5px;
-    margin-top: -20px;
-    // padding-left: 5rem;
-    width: 100%;
-    height: 130%;
-    line-height: 100%;
-    margin-right: 0;
+text-align: center;
+font-family: "Poppins", sans-serif;
+font-weight: 900;
+font-size: 3.5rem;
+// letter-spacing: 5px;
+margin-top: -20px;
+// padding-left: 5rem;
+width: 100%;
+height: 130%;
+padding-top: 2rem;
+line-height: 100%;
+margin-right: 0;
 }
 
+.get-started-button {
+background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
+font-size: 1.5rem;
+}
+
+#company {
+background: lightgray;
+padding-top: 15rem;
+padding-bottom: 25rem;
+width: 100%;
+// display: flex;
+// justify-content: center;
+// background-size: cover;
+// overflow: hidden;
+// height: 100%;
+}
+}
+
+
+
+.hero-home {
+background-color: black;
+// background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
+padding-top: 11rem;
+padding-bottom: 11rem;
+display: grid;
+place-items: center;
+text-align: center;
+// justify-content: center;
+// background-size: cover;
+// background-image: ;
+}
 .hero-title span {
     background: -webkit-linear-gradient(white, #38495a);
     background-clip: text;
@@ -67,11 +114,6 @@
     -webkit-text-fill-color: transparent;
     line-height: normal;
     line-height: 110%;
-}
-
-.get-started-button {
-    background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
-        font-size: 1rem;
 }
 
 @media only screen and (max-width: 1500px) {
@@ -94,13 +136,19 @@
 @media only screen and (max-width: 1200px) {
     .hero-home{
         padding-top: 1rem;
-    }
+}
+.homepage-image #graphic_crypto2 {
+width: 50%;
+}
 }
 
 @media only screen and (max-width: 1100px) {
     .hero-home{
         padding-bottom: 7rem;
     }
+#company {
+    padding-top: 25rem;
+}
 }
 
 @media only screen and (max-width: 1025px) {
@@ -116,7 +164,7 @@ padding-left: 0;
 
 
 .homepage-title {
-    font-size: 3rem;
+    font-size: 8rem;
 }
 
 #graphic_crypto2 {
@@ -125,65 +173,51 @@ padding-left: 0;
 }
 
 @media only screen and (max-width: 900px) {
-    .hero-home {
-        padding-top: 8%;
-        padding-bottom: 6%;
+    .hero-video {
+            width: 75rem;
+            height: 55rem;
     }
-    .hero-page-flex-block {
-    // padding-right: 10rem;
-    padding-left: 0;
+
+    .homepage-title {
+        font-size: 5rem;
     }
-    
+
+    .hero-title {
+        font-size: 3rem;
+        }
+}
+
+@media only screen and (max-width: 600px) {
+
     .homepage-title {
         font-size: 3rem;
     }
 
     .hero-title {
-        font-size: 2rem;
-      }
+        font-size: 2.5rem;
+    }
+
+.get-started-button {
+font-size: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
-    .hero-home {
-        padding-top: 5rem;
-        padding-bottom: 2rem;
-        background-image: linear-gradient(black, grey, black);
+#company {
+    padding-top: 20rem;
+}
+}
+
+@media only screen and (max-width: 400px) {
+    #company {
+        padding-top: 15rem;
+        padding-bottom: 30rem;
     }
 
-    .hero-page-flex-block {
-    // padding-right: 10rem;
-    padding-left: 0;
-    // margin-left: 35%;
-    }
-    
-    .homepage-title {
-        font-size: 2rem;
+    .hero-title{
+        padding-top: 0rem;
     }
 
-    .homepage-heading2 {
-        font-size: 1.5rem;
+    .hero-video {
+        width: 65rem;
+        height: 40rem;
     }
-
-    .hero-title {
-        font-size: 1rem;
-        width:100%;
-    }
-
-    .get-started-button {
-        font-size: 0.5rem;
-    }
-
-    video {
-        position: absolute;
-        transform: rotate(90deg);
-      
-        transform-origin: bottom left;
-        width: 100vh;
-        height: 100vw;
-        margin-top: -100vw;
-        object-fit: cover;
-      
-        z-index: 4;
-        visibility: visible;
-      }
 }

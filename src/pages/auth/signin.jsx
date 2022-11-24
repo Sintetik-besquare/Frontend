@@ -31,15 +31,17 @@ const SigninPage = () => {
           alert(error_message.join("\n \n"));
         }
       })
-      getBalance().then((e) => {
-        chart_store.setWallet(e);
-      });
+      .then(
+        getBalance().then((e) => {
+          chart_store.setWallet(e);
+        })
+      );
     error_message = [];
   }, [app_store, loginPromise]);
 
   return (
     <div id="signin-background">
-      <div id="signin">
+      <div id="signin" data-aos="flip-left" data-aos-duration="1000">
         <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
@@ -115,7 +117,6 @@ const SigninPage = () => {
                   }}
                 />
               )}
-
             </div>
             &nbsp;
             <h5>Forgot password?</h5>

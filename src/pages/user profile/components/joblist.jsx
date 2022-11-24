@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 
 const JobDropDown = (props) => (
   <select
@@ -159,4 +160,4 @@ const JobDropDown = (props) => (
   </select>
 );
 
-export default JobDropDown;
+export default observer(JobDropDown);

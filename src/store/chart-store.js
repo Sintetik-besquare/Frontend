@@ -1,5 +1,5 @@
 import { observable, action, decorate, computed } from "mobx";
-import bs_binary_option from "../services/payout";
+import bs_binary_option from "../services/payout.js";
 
 export default class ChartStore {
   //obervables
@@ -46,6 +46,11 @@ export default class ChartStore {
       : 0;
   }
   //actions
+
+  setHistory(historical_price){
+    this.historical_price = historical_price;
+  }
+
   setIndex(index) {
     this.index = index;
   }
@@ -64,9 +69,9 @@ export default class ChartStore {
 
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
-    // setTimeout(() => {
-    //   this.iswinning.shift()
-    // }, 2500);
+    setTimeout(() => {
+      this.iswinning.shift()
+    }, 3500);
   }
 
   setWallet(amt) {
