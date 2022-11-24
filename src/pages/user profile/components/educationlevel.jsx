@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 
 const EducationLevelSelect = (props) => (
   <select {...props}>
@@ -12,4 +13,4 @@ const EducationLevelSelect = (props) => (
   </select>
 );
 
-export default EducationLevelSelect;
+export default observer(EducationLevelSelect);

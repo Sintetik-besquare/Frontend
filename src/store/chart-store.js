@@ -33,6 +33,11 @@ export default class ChartStore {
 return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / (60 * 60 * 24 * 365),0,0,type) +0.012):0
   }
   //actions
+
+  setHistory(historical_price){
+    this.historical_price = historical_price;
+  }
+
   setIndex(index) {
     this.index = index;
   }
@@ -51,9 +56,9 @@ return (this.ticks*this.stake)?this.stake /(bs_binary_option(1,1,1,this.ticks / 
 
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
-    // setTimeout(() => {
-    //   this.iswinning.shift()
-    // }, 2500);
+    setTimeout(() => {
+      this.iswinning.shift()
+    }, 3500);
   }
 
   setWallet(amt){

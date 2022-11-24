@@ -9,6 +9,7 @@ import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { getBalance } from "../../../services/wallet";
 import chart from "./chart";
+import Summary from "./summary"
 
 const OrderForm = () => {
   /**
@@ -33,7 +34,7 @@ const OrderForm = () => {
     socket.current.on("getfeed", () => {
       console.log("connected to server");
     });
-    
+
     socket.current.on("buy", (message) => {
       console.log(message);
       chart_store.setSummary(message);
@@ -47,12 +48,11 @@ const OrderForm = () => {
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
       chart_store.setShowSummary(true);
-      getBalance().then((e)=>{chart_store.setWallet(e)})
+      getBalance().then((e) => {
+        chart_store.setWallet(e);
+      });
 
       setTimeout(() => {
-        setTimeout(() => {
-          chart_store.setShowSummary(false);
-        }, 2000);
         chart_store.iswinning = [];
       }, 2000);
       // console.log(chart_store.summary);
@@ -61,10 +61,9 @@ const OrderForm = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-
   useEffect(() => {
-    getBalance()
-  }, [chart_store])
+    getBalance();
+  }, [chart_store]);
 
   function validate() {
     error_message = [];
@@ -94,7 +93,7 @@ const OrderForm = () => {
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
-      entry_time: (Math.floor(Date.now() / 1000) -1),
+      entry_time: Math.floor(Date.now() / 1000) - 1,
       // TODO: contract_type: chart_store.contract_type, (Rise/Fall) (Even/Odd)
     };
     console.log(order);
@@ -328,6 +327,7 @@ const OrderForm = () => {
           </div> */}
         </div>
       )}
+      {chart_store.showSummary===true && (<Summary />)}
     </div>
   );
 };
