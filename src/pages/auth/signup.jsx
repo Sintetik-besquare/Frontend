@@ -113,7 +113,7 @@ const SignUp = () => {
               <h6>
                 I agree to the
                 <a
-                  href="https://www.google.com"
+                  href="error"
                   target="blank"
                   style={{ color: "red" }}
                 >
