@@ -1,191 +1,148 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useStores } from "../../../store";
-import InputFieldText from "./input-field";
-import TransactionHistory from "../../transaction history/transaction-history";
-import MobileLogin from "../../../assets/astronout.png";
-import { getTransaction } from "../../../services/transaction";
-import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
-import { VscDebugRestart } from "react-icons/vsc";
-import { FaSmileWink } from "react-icons/fa";
-import GreenGraph from "../../../assets/green_graph.png";
-import RedGraph from "../../../assets/red_graph.png";
+import React from "react";
+import { useState } from "react";
 import { observer } from "mobx-react-lite";
+import { useStores } from "../../../store";
+import GenderInputSelect from "./genderinput";
+import EducationLevelSelect from "./educationlevel";
+import JobDropDown from "./joblist";
+import { CountryDropdown } from "react-country-region-selector";
+import { editUserDetails } from "../../../services/user-info.js";
+import image from "../../../assets/user-profile.png";
 
-const UserProfile = () => {
-  const { app_store } = useStores();
-  const navigate = useNavigate();
-  const [toggleState, setToggleState] = useState(1);
-  const [transaction, setTransaction] = useState([]);
-  const [filter, setFilter] = useState("All");
+const InputFieldText = () => {
+  const { user_store } = useStores();
+  //Edit profile button function
+  const [disabled, setDisabled] = useState(true);
+  const [country, setCountry] = useState("");
 
-  function login() {
-    navigate("/", { replace: true });
-    app_store.setLogin(true);
+  function saveUserProfile() {
+    let user_details = {
+      first_name: user_store.first_name,
+      last_name: user_store.last_name,
+      age: user_store.age,
+      gender: user_store.gender,
+      residence: user_store.residence,
+      occupation: user_store.occupation,
+      education: user_store.education,
+    };
+    editUserDetails(user_details);
   }
 
-  const toggleTab = (index) => {
-    setToggleState(index);
-  };
-
-  useEffect(() => {
-    getTransaction().then(setTransaction);
-  }, []);
-
   return (
-    <>
-      <div className="user-trx-tabs-container">
-        <div className="bloc-tabs">
-          <button
-            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(1)}
-          >
-            User Profile
-          </button>
-          <button
-            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(2)}
-          >
-            Transaction History
-          </button>
+    <div id="user-profile">
+      <div id="user-profile-form">
+      <p>{user_store.email}</p>
+      <p>Joined on: {Date(user_store.date_join).toString()}</p>
+        <div>
+          <span className="span-profile-details">First Name</span>
+          <hr></hr>
+          <div>
+            {disabled ? (
+              <input disabled={disabled} value={user_store.first_name} />
+            ) : (
+              <input
+                placeholder="Your First Name"
+                onChange={(e) => {
+                  user_store.setFirstName(e.target.value);
+                  e.preventDefault();
+                }}
+              />
+            )}
+          </div>
+        </div>
+        <div>
+          <span className="span-profile-details">Last Name</span>
+          <hr></hr>
+          {disabled ? (
+            <input disabled={disabled} value={user_store.last_name} />
+          ) : (
+            <input
+              placeholder="Your Last Name"
+              onChange={(e) => {
+                user_store.setLastName(e.target.value);
+                e.preventDefault();
+              }}
+            />
+          )}
         </div>
 
-        <div className="content-tabs">
-          <div
-            className={
-              toggleState === 1 ? "content  active-content" : "content"
-            }
-          >
-            <InputFieldText />
+        <div>
+          <span className="span-profile-details">Age</span>
+          <hr></hr>
+          {disabled ? (
+            <input disabled={disabled} value={user_store.age} />
+          ) : (
+            <input
+              type="number"
+              placeholder="Your Age"
+              onChange={(e) => {
+                user_store.setAge(parseInt(e.target.value));
+                e.preventDefault();
+              }}
+            />
+          )}
+        </div>
+
+        <div>
+          <span className="span-profile-details">Gender</span>
+          <hr></hr>
+          <GenderInputSelect disabled={disabled} />
+        </div>
+
+        <div>
+          <span className="span-profile-details">Country</span>
+          <hr></hr>
+          <div className="dropdown">
+            <CountryDropdown
+              disabled={disabled}
+              value={country}
+              onChange={(val) => user_store.setResidence(val)}
+            />
           </div>
+        </div>
+        <div>
+          <span className="span-profile-details">Education</span>
+          <hr></hr>
+          <EducationLevelSelect
+            disabled={disabled}
+            onChange={(val) => user_store.setEducation(val)}
+          />
+          <div>
+            <span className="span-profile-details">Occupation</span>
+            <hr></hr>
+            <JobDropDown
+              disabled={disabled}
+              onChange={(val) => user_store.setOccupation(val)}
+            />
+          </div>
+        </div>
 
-          <div
-            className={
-              toggleState === 2 ? "content  active-content" : "content"
-            }
-          >
-            <TransactionHistory />
-
-            <div className="transaction-container">
-              <h2>Transaction History ({filter})</h2>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "10px",
-                }}
+        <div>
+          <div className="user-update-button">
+            {disabled ? (
+              <button
+                onClick={() => setDisabled(!disabled)}
+                className="button_green_small"
               >
-                <button
-                  onClick={() => {
-                    setFilter("All");
-                  }}
-                >
-                  All
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("ResetBalance");
-                  }}
-                >
-                  Reset
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("Buy");
-                  }}
-                >
-                  Buy
-                </button>
-                <button
-                  onClick={() => {
-                    setFilter("Sell");
-                  }}
-                >
-                  Sell
-                </button>
-              </div>
-              <hr />
-              {transaction.map((t, i) => {
-                if (
-                  t.transaction_type === filter ||
-                  (filter === "All" && transaction.length !== 0)
-                ) {
-                  return (
-                    <div className="transaction-area">
-                      <div key={i} className="transaction-card">
-                        <div className="transaction-card-top">
-                          <div className="trade-logo">Vol 100</div>
-                          <div>
-                            {new Intl.DateTimeFormat("en-US", {
-                              year: "numeric",
-                              month: "2-digit",
-                              day: "2-digit",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                              second: "2-digit",
-                            }).format(t.transaction_time * 1000)}
-                          </div>
-                          {t.transaction_type === "Sell" ? (
-                            t.transaction_amount === "0.00" ? (
-                              <FaSmileWink style={{ color: "yellow" }} />
-                            ) : (
-                              <AiFillCaretUp id="rise-icon" />
-                            )
-                          ) : t.transaction_type === "Buy" ? (
-                            <AiFillCaretDown id="fall-icon" />
-                          ) : (
-                            <VscDebugRestart id="reset-icon" />
-                          )}
-                        </div>
-                        <div className="transaction-card-bottom">
-                          &nbsp;
-                          <div style={{textAlign:"left"}}>
-                            {t.transaction_type}: {t.transaction_amount} USD
-                            <br />
-                            Balance: {t.balance} USD
-                          </div>
-                          <div>
-                          {t.transaction_type === "Sell" ? (
-                            t.transaction_amount === "0.00" ? 
-                          <img src={RedGraph} altpo="Logo" /> :
-                          <img src={GreenGraph} altpo="Logo" />) :
-                          "Not sell"
-                          }
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                } else if (transaction.length == 0) {
-                  return (
-                    <div className="transaction-card">Balance: "none"</div>
-                  );
-                }
-              })}
-            </div>
-          </div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          >
-            <h2>Content 3</h2>
-            <hr />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
-              nostrum rerum laudantium totam unde adipisci incidunt modi alias!
-              Accusamus in quia odit aspernatur provident et ad vel distinctio
-              recusandae totam quidem repudiandae omnis veritatis nostrum
-              laboriosam architecto optio rem, dignissimos voluptatum beatae
-              aperiam voluptatem atque. Beatae rerum dolores sunt.
-            </p>
+                Edit User Profile
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setDisabled(!disabled);
+                  saveUserProfile();
+                }}
+                className="button_green_small"
+              >
+                Save User Profile
+              </button>
+            )}
           </div>
         </div>
       </div>
-      <div className="user-profile-container"></div>
-    </>
+      <img src={image} alt="a profile page" style={{width:"40%"}}/>
+    </div>
   );
 };
 
-export default observer(UserProfile);
+export default observer(InputFieldText);
