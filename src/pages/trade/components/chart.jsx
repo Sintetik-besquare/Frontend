@@ -92,7 +92,7 @@ const LineChart = () => {
   }, []);
 
   return (
-    <div id="chart-container">
+    <div id="chart-container" data-aos="fade-right" data-aos-duration="1000">
       <div id="chart-header">
         <div id="balance-container">
           {app_store.is_loggedin ? (
