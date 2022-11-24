@@ -4,19 +4,23 @@ import Sand from "../../../assets/cyberspace_gray.mp4";
 
 function Hero() {
   return (
-      <div className="hero-home">
+    <div className="hero-home">
       <div className="hero-page-flex-block">
         <video autoPlay loop muted className="hero-video">
           <source src={Sand} type="video/mp4" />
         </video>
-        <div className="hero-title" data-aos="fade-right">
+        <div
+          className="hero-title"
+          data-aos="fade-right"
+          data-aos-duration="1000"
+        >
           <span
             className="homepage-title"
             // style={{ WebkitTextFillColor: "#F5DC0C" }}
           >
             SINTETIK
           </span>
-          <br className="hide-when-small"/>
+          <br />
           <br />
           <span
             className="homepage-heading2"

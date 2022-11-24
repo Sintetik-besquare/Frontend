@@ -1,31 +1,19 @@
-import React from "react";
-import MobileLogin from "../../../assets/astronout.png";
+import React, { useState, useEffect } from "react";
+import { observer } from "mobx-react-lite";
+import { useStores } from "../../../store";
+import { getUserDetails } from "../../../services/user-info";
 
-function PrimaryCard() {
+const PrimaryCard = () => {
+  const { user_store } = useStores();
+
   return (
-    <>
-      <div className="user-profile-primary-card">
-        <div>
-          <img src={MobileLogin} alt="N/A" style={{ width: "10vw" }} />
-        </div>
-        <div className="span-details-container">
-          <h1>
-            <span className="span-main-details">email</span>
-            aaron@gmail.com
-          </h1>
-          <h1>
-            <span className="span-main-details">client id</span>
-            #Sintetik12345
-          </h1>
-          <h1>
-            <span className="span-main-details">joined since</span>
-            12 June 2020
-          </h1>
-        </div>
-      </div>
-      ;
-    </>
+    <div>
+      <h1 style={{ color: "white" }}>{user_store.email}</h1>
+      <h1 style={{ color: "white" }}>
+        Joined on: {Date(user_store.date_join).toString()}
+      </h1>
+    </div>
   );
-}
+};
 
-export default PrimaryCard;
+export default observer(PrimaryCard);

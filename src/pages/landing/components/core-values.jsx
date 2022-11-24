@@ -10,28 +10,45 @@ function CoreValues() {
             <div className="gl__card__Wrapper card4">
               <div className="gl__card__TextWrapper">
                 <div className="gl__card__TitleWrapper">
-                  <p className="gl__card__Title">Highly Capable</p>
+                  <p className="gl__card__Title" style={{ color: "black" }}>
+                    Highly Capable
+                  </p>
                 </div>
               </div>
             </div>
             <div className="gl__card__Wrapper card3">
               <div className="gl__card__TextWrapper">
                 <div className="gl__card__TitleWrapper">
-                  <p className="gl__card__Title">Working Together</p>
+                  <p
+                    className="gl__card__Title"
+                    style={{ color: "rgb(50, 50, 50)" }}
+                  >
+                    Cooperation
+                  </p>
                 </div>
               </div>
             </div>
             <div className="gl__card__Wrapper card2">
               <div className="gl__card__TextWrapper">
                 <div className="gl__card__TitleWrapper">
-                  <p className="gl__card__Title">User Centric</p>
+                  <p
+                    className="gl__card__Title"
+                    style={{ color: "whitesmoke" }}
+                  >
+                    User Centric
+                  </p>
                 </div>
               </div>
             </div>
             <div className="gl__card__Wrapper card1">
               <div className="gl__card__TextWrapper">
                 <div className="gl__card__TitleWrapper">
-                  <p className="gl__card__Title">Honesty</p>
+                  <p
+                    className="gl__card__Title"
+                    style={{ color: "rgb(255, 255, 255)" }}
+                  >
+                    Honesty
+                  </p>
                 </div>
               </div>
             </div>

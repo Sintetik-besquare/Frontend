@@ -11,12 +11,14 @@
   height: 2rem;
 }
 .Tradewith .innerTradewith {
+  font-size: 2.5rem;
   display: inline-block;
   color: gray;
   position: relative;
   white-space: nowrap;
   top: 0;
   left: 0;
+  padding-right: 2rem;
 
 
 /*animation*/
@@ -39,7 +41,7 @@
         animation-delay:3s;
 }
 @keyframes move{
-0%  { top: 2rem; }
+0%  { top: 0rem; }
 20% { top: -2rem; }
 40% { top: -2rem; }
 60% { top: -2rem; }
@@ -68,37 +70,75 @@
     80% { top: -200px; }
 }
 @keyframes move {
-    0%  { top: -1rem; }
-    20% { top: -2.7rem; }
-    40% { top: -5.2rem; }
-    60% { top: -7.7rem; }
-    80% { top: -10.2rem; }
+    0%  { top: 0rem; }
+    20% { top: -4.1rem; }
+    40% { top: -7.6rem; }
+    60% { top: -11.1rem; }
+    80% { top: -14.6rem; }
+}
+
+@media only screen and (max-width: 2570px) {
+  .Tradewith .innerTradewith {
+    font-size: 5rem;
+  }
+  .Tradewith b{
+    height: 5rem;
+  }
+
+  @keyframes move {
+    0%  { top: 0rem; }
+    20% { top: -5rem; }
+    40% { top: -10rem; }
+    60% { top: -15rem; }
+    80% { top: -20rem; }
+}
+}
+
+@media only screen and (max-width: 2000px) {
+  .Tradewith .innerTradewith {
+    font-size: 2.5rem;
+  }
+  .Tradewith b{
+    height: 2.5rem;
+  }
+
+  @keyframes move {
+    0%  { top: 0rem; }
+    20% { top: -4rem; }
+    40% { top: -7.5rem; }
+    60% { top: -11rem; }
+    80% { top: -14.5rem; }
+}
 }
 
 @media only screen and (max-width: 900px) {
   .Tradewith b{
-    height: 2rem;
+    height: 3rem;
   }
 
   @keyframes move {
     0%  { top: 0rem; }
-    20% { top: -2rem; }
-    40% { top: -4rem; }
-    60% { top: -6rem; }
-    80% { top: -8rem; }
+    20% { top: -3rem; }
+    40% { top: -6rem; }
+    60% { top: -9rem; }
+    80% { top: -12rem; }
 }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 600px) {
   .Tradewith b{
-    height: 1rem;
+    height: 2.5rem;
   }
 
   @keyframes move {
     0%  { top: 0rem; }
-    20% { top: -1rem; }
-    40% { top: -2rem; }
-    60% { top: -3rem; }
-    80% { top: -4rem; }
+    20% { top: -2.5rem; }
+    40% { top: -5rem; }
+    60% { top: -7.5rem; }
+    80% { top: -10rem; }
+}
+
+.Tradewith .innerTradewith {
+  padding-right: 0;
 }
 }

@@ -4,17 +4,17 @@ function MeetOurTeam() {
   return (
     <div style={{ position: "relative" }}>
       {/* <div className="fog">
-        <div id="foglayer_01" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
+        <div id="foglayer_01" className="fog">
+          <div className="image01"></div>
+          <div className="image02"></div>
         </div>
-        <div id="foglayer_02" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
+        <div id="foglayer_02" className="fog">
+          <div className="image01"></div>
+          <div className="image02"></div>
         </div>
-        <div id="foglayer_03" class="fog">
-          <div class="image01"></div>
-          <div class="image02"></div>
+        <div id="foglayer_03" className="fog">
+          <div className="image01"></div>
+          <div className="image02"></div>
         </div>
       </div> */}
       <div id="about-the-team" style={{ backgroundColor: "black" }}>
@@ -33,10 +33,7 @@ function MeetOurTeam() {
             return (
               <span key={i}>
                 {p.id % 2 === 0 ? (
-                  <div
-                    className="card-horizontal-right"
-                    data-aos="fade-left"
-                  >
+                  <div className="card-horizontal-right" data-aos="fade-left">
                     <img src={p.photo} alt="N/A" id="team-card-images-small" />
                     <div
                       style={{

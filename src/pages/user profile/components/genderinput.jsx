@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react-lite";
 
 const GenderInputSelect = (props) => (
   <select {...props}>
@@ -10,4 +11,4 @@ const GenderInputSelect = (props) => (
   </select>
 );
 
-export default GenderInputSelect;
+export default observer(GenderInputSelect);

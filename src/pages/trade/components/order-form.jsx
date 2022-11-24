@@ -7,7 +7,9 @@ import { FiTrendingUp } from "react-icons/fi";
 import { MdAutoGraph } from "react-icons/md";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { getBalance } from "../../../services/wallet";
 import chart from "./chart";
+import Summary from "./summary";
 
 const OrderForm = () => {
   /**
@@ -24,10 +26,17 @@ const OrderForm = () => {
         token: TOKEN,
       },
     });
+
+    socket.current.on("connect_error", (e) => {
+      console.log(e);
+    });
+
     socket.current.on("getfeed", () => {
       console.log("connected to server");
     });
+
     socket.current.on("buy", (message) => {
+      console.log(message);
       chart_store.setSummary(message);
     });
 
@@ -35,18 +44,29 @@ const OrderForm = () => {
       chart_store.setIswinning(message.status);
       // console.log(chart_store.iswinning);
     });
+
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
       chart_store.setShowSummary(true);
+      chart_store.setIsBuying(false);
+
+      getBalance().then((e) => {
+        chart_store.setWallet(e);
+      });
 
       setTimeout(() => {
-        chart_store.setShowSummary(false);
-      }, 5000);
+        chart_store.iswinning = [];
+      }, 2000);
+
       // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    getBalance();
+  }, [chart_store]);
 
   function validate() {
     error_message = [];
@@ -76,18 +96,16 @@ const OrderForm = () => {
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
-      entry_time: Math.floor(Date.now() / 1000),
+      entry_time: Math.floor(Date.now() / 1000) - 1,
+      // TODO: contract_type: chart_store.contract_type, (Rise/Fall) (Even/Odd)
     };
     console.log(order);
+    chart_store.setIsBuying(true);
     socket.current.emit("order", order);
   };
 
   return (
-    <div
-      className="form_container"
-      data-aos="fade-left"
-      data-aos-duration="1000"
-    >
+    <div className="form_container">
       {/* <div id="form_container_header">
         <div id="trade-away">Trade Away</div>
       </div> */}
@@ -188,6 +206,7 @@ const OrderForm = () => {
 
       {app_store.is_loggedin === true &&
       chart_store.stake > 0 &&
+      chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
         <div>
           <button
@@ -236,6 +255,7 @@ const OrderForm = () => {
       ) : (
         <div>
           <button
+            disabled
             className="form_row button_green_disabled"
             onClick={() => {
               validate();
@@ -256,6 +276,7 @@ const OrderForm = () => {
             </div>
           </button>
           <button
+            disabled
             className="form_row button_red_disabled"
             onClick={() => {
               validate();
@@ -308,6 +329,9 @@ const OrderForm = () => {
             </div>
           </div> */}
         </div>
+      )}
+      {chart_store.showSummary === true && chart_store.isbuying !== true && (
+        <Summary />
       )}
     </div>
   );

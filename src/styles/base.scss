@@ -2,8 +2,6 @@
 $black: black;
 $red: red;
 $green: rgb(0, 204, 0);
-$colour-4: orange;
-$colour-5: purple;
 $yellow: rgba(245, 220, 12, 1);
 
 // MIXINS
@@ -27,6 +25,16 @@ $yellow: rgba(245, 220, 12, 1);
     background-color: $button-color;
     // opacity:30%;
     color: white;
+  }
+}
+
+@mixin glow {
+  color: white;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
+
+  &:hover {
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 92px #f00,
+      0 0 102px #f00, 0 0 151px #f00;
   }
 }
 
@@ -81,7 +89,6 @@ $yellow: rgba(245, 220, 12, 1);
   width: 100%;
 }
 
-
 .button_orange_light {
   @include button-shared($yellow);
   cursor: pointer;
@@ -116,7 +123,7 @@ $yellow: rgba(245, 220, 12, 1);
   align-items: center;
 }
 
-.button_green_disabled{
+.button_green_disabled {
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -129,7 +136,7 @@ $yellow: rgba(245, 220, 12, 1);
   color: #fff;
 }
 
-.button_red_disabled{
+.button_red_disabled {
   display: flex;
   flex-direction: row;
   padding: 0;
@@ -142,7 +149,7 @@ $yellow: rgba(245, 220, 12, 1);
   align-items: center;
 }
 
-.button_orange_disabled{
+.button_orange_disabled {
   font-family: "Poppins";
   background-color: #0f0f0f;
   color: #fff;
@@ -152,32 +159,6 @@ $yellow: rgba(245, 220, 12, 1);
   transition: 0.7s;
   margin-bottom: 1.5rem;
   background: rgb(80, 80, 80);
-}
-
-#signin {
-  background-image: linear-gradient(
-    rgba(34, 33, 40, 1),
-    rgba(200, 200, 200, 1)
-  );
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-#signin-background,
-#signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-  // background-color: $yellow;
-  padding-top: 5rem;
-  padding-bottom: 15rem;
-  display: flex;
-  justify-content: center;
-}
-
-#signin,
-#signup {
-  float: center;
-  width: 50%;
-  display: flex;
 }
 
 #home {
@@ -193,18 +174,6 @@ $yellow: rgba(245, 220, 12, 1);
 #about {
   background: opacity($color: #ffffff80);
   padding-top: 100px;
-}
-
-#company {
-  background: lightgray;
-    padding-top: 7rem;
-    padding-bottom: 30rem;
-    width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // background-size: cover;
-  // overflow: hidden;
-  // height: 100%;
 }
 
 #title {
@@ -234,5 +203,12 @@ $yellow: rgba(245, 220, 12, 1);
   }
   to {
     transform: translateY(-2000px);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #company {
+    padding-top: 22rem;
+    padding-bottom: 35rem;
   }
 }

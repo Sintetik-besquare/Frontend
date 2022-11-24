@@ -1,4 +1,7 @@
 .trade_page {
+  padding: 20px;
+  background-color: #0f0f0f;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -12,11 +15,11 @@
 }
 
 #chart-container {
-  width:85%;
+  width: 85%;
 }
 
 .form_container {
-  width:15%;
+  width: 15%;
   display: block;
   align-items: center;
   justify-content: center;
@@ -41,6 +44,55 @@
     // }
   }
 }
+#chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#status-container {
+  width: 100%;
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+#iswinning {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid white;
+  margin: 5px;
+}
+
+.win-gradient {
+  background: linear-gradient($green, $black);
+}
+.lost-gradient {
+  background: linear-gradient($black, $red);
+}
+#summary {
+  margin-top: 20px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  .btn_close_summary {
+    font-size: larger;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+  }
+  table {
+    width: 100%;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    td {
+      border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+    }
+  }
+}
 
 #pad-top {
   display: flex;
@@ -51,21 +103,6 @@
 
 #ticks {
   padding-bottom: 0.3rem;
-}
-
-#chart-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 10px;
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  z-index: 0;
-  height: 57px;
 }
 
 #balance-container {
@@ -142,10 +179,6 @@
   height: 1.5rem;
   border: 1px solid rgb(0, 0, 0);
   transition: 0.7s;
-  // &:hover {
-  //   background-color: #000000;
-  //   border: 1px solid rgb(255, 255, 255);
-  // }
 }
 
 #minus:hover {
@@ -223,26 +256,26 @@ ul li.past-trades div.slider {
   background: #000000;
 }
 
-.slider {
-  position: absolute;
-  top: 0;
-  right: 51px;
-  width: 0px;
-  height: 50px;
-  border-radius: 2px;
-  transition: all 0.5s 0.3s ease;
-}
+// .slider {
+//   position: absolute;
+//   top: 0;
+//   right: 51px;
+//   width: 0px;
+//   height: 50px;
+//   border-radius: 2px;
+//   transition: all 0.5s 0.3s ease;
+// }
 
-.slider p {
-  font-family: "Poppins";
-  font-size: 16px;
-  font-weight: 900;
-  color: #fff;
-  text-align: center;
-  line-height: 50px;
-  opacity: 0;
-  transition: all 0.6s ease;
-}
+// .slider p {
+//   font-family: "Poppins";
+//   font-size: 16px;
+//   font-weight: 900;
+//   color: #fff;
+//   text-align: center;
+//   line-height: 50px;
+//   opacity: 0;
+//   transition: all 0.6s ease;
+// }
 
 ul li:hover .slider {
   width: 180px;
@@ -283,50 +316,6 @@ ul li:hover .slider p {
   margin-top: 1rem;
   align-content: center;
 }
-
-//all buttons are redundant, move them to base.scss because they are reused elsewhere too
-// .button_green_light {
-// display: flex;
-// flex-direction: row;
-// padding: 0;
-// height: 5rem;
-// font-family: "Poppins";
-// font-size: 1.1rem;
-// margin-bottom: 1rem;
-// background: rgb(47, 122, 31);
-// align-items: center;
-// color: #fff;
-// }
-
-// .button_red_light {
-// display: flex;
-// flex-direction: row;
-// padding: 0;
-// height: 5rem;
-// font-family: "Poppins";
-// font-size: 1.1rem;
-// margin-bottom: 9rem;
-// background: rgb(158, 34, 34);
-// color: white;
-// align-items: center;
-// }
-
-// .reset {
-// font-family: "Poppins";
-// background-color: #0f0f0f;
-// color: #fff;
-// border-width: 5px;
-// width: 8rem;
-// align-self: center;
-// border: 1px solid rgb(255, 255, 255);
-// transition: 0.7s;
-// margin-bottom: 1.5rem;
-// &:hover {
-//   background-color: $yellow;
-//   color: #000000;
-//   border: 1px solid $yellow;
-// }
-// }
 
 #call-60 {
   display: flex;
@@ -426,10 +415,10 @@ ul li:hover .slider p {
     display: block;
   }
   #chart-container {
-    width:100%;
+    width: 100%;
   }
   .form_container {
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -437,6 +426,12 @@ ul li:hover .slider p {
       width: 25vw;
     }
     flex-wrap: wrap;
+  }
+  #summary {
+    width: 50%;
+    color: white;
+    margin: auto;
+    margin-top: 15px;
   }
 }
 
@@ -446,5 +441,8 @@ ul li:hover .slider p {
     div {
       width: 100%;
     }
+  }
+  #summary {
+    width: 100%;
   }
 }

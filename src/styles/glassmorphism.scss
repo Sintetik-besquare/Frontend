@@ -1,6 +1,6 @@
 .core-value-div {
     display: flex; 
-    padding: 0 5rem 5rem 5rem;
+    padding: 20rem 5rem;
 }
 
 .core-value-title {
@@ -12,7 +12,8 @@
     position: relative;
     display: grid;
     place-items: center;
-    padding: 10rem 15rem;
+    padding: 10rem 10rem;
+    padding-top: 0;
     align-items: flex-start;
 }
 
@@ -37,12 +38,14 @@
     left: 310px;
     background: linear-gradient(rgb(117, 224, 230) 0%, rgb(57, 19, 184) 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
+    place-content: center;
+    text-align: center;
 }
 
 .gl__card__Wrapper {
     width: 335px;
     height: 220px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, red 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, black 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(255 255 255 / 30%) 0px 0px 0px 0.5px inset;
     cursor: pointer;
     border-radius: 30px;
@@ -62,6 +65,7 @@
 .glassify__CertificateWrapper .card1 {
     top: -200px;
     left: 0px;
+    place-content: center;
 }
 
 .glassify__CertificateWrapper:hover .card1 {
@@ -79,7 +83,7 @@
 
 .gl__card__Title {
     font-weight: 600;
-    padding: 5rem;
+    padding: 5rem 0rem;
     font-size: 3rem;
     line-height: 3rem;
     text-transform: uppercase;
@@ -109,7 +113,9 @@
 .glassify__CertificateWrapper .card2 {
     top: -50px;
     left: 200px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, blue 100%);
+    place-content: center;
+    text-align: center;
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #4D4D4D 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
@@ -120,7 +126,7 @@
 .glassify__CertificateWrapper .card3 {
     top: 100px;
     left: 400px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 0, 1) 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #CCCCCC 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
@@ -131,7 +137,7 @@
 .glassify__CertificateWrapper .card4 {
     top: 250px;
     left: 600px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, green 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, white 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
@@ -150,6 +156,13 @@
 .glassify__CertificateWrapper:hover .card4:hover {
     transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
 
+}
+
+@media only screen and (max-width: 2570px) {
+    .glassify__Wrapper {
+    padding: 20rem 35rem;
+    padding-top: 0;
+    }
 }
 
 @media only screen and (max-width: 1500px) {
@@ -187,6 +200,9 @@
     .glassify__CertificateWrapper:hover .card4:hover {
         transform: translate(-10rem, 0rem);
     
+    }
+    .glassify__Wrapper {
+        padding: 10rem 5rem;
     }
 }
 
@@ -233,7 +249,7 @@
 .gl__card__Title {
     font-size: 2rem;
     line-height: 2rem;
-    padding: 3rem;
+    padding: 3rem 0rem;
     text-align: center;
 }
 
@@ -295,7 +311,7 @@
     .gl__card__Title {
         font-size: 2rem;
         line-height: 2rem;
-        padding: 3rem;
+        padding: 3rem 0rem;
         text-align: center;
     }
     
