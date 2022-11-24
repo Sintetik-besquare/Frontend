@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStores } from "../../../store";
-import MobileLogin from "../../../assets/astronout.png";
 import InputFieldText from "./input-field";
+import TransactionHistory from "../../transaction history/transaction-history";
+import MobileLogin from "../../../assets/astronout.png";
 import { getTransaction } from "../../../services/transaction";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import { VscDebugRestart } from "react-icons/vsc";
@@ -16,7 +17,7 @@ const UserProfile = () => {
   const navigate = useNavigate();
   const [toggleState, setToggleState] = useState(1);
   const [transaction, setTransaction] = useState([]);
-  const [filter, setFilter] = useState('All')
+  const [filter, setFilter] = useState("All");
 
   function login() {
     navigate("/", { replace: true });
@@ -63,20 +64,52 @@ const UserProfile = () => {
               toggleState === 2 ? "content  active-content" : "content"
             }
           >
+            <TransactionHistory />
+
             <div className="transaction-container">
               <h2>Transaction History ({filter})</h2>
-              <div style={{display:"flex", justifyContent:"center", gap:"10px"}}>
-                <button onClick={()=>{setFilter('All')}}>All</button>
-                <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
-                <button onClick={()=>{setFilter('Buy')}}>Buy</button>
-                <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "10px",
+                }}
+              >
+                <button
+                  onClick={() => {
+                    setFilter("All");
+                  }}
+                >
+                  All
+                </button>
+                <button
+                  onClick={() => {
+                    setFilter("ResetBalance");
+                  }}
+                >
+                  Reset
+                </button>
+                <button
+                  onClick={() => {
+                    setFilter("Buy");
+                  }}
+                >
+                  Buy
+                </button>
+                <button
+                  onClick={() => {
+                    setFilter("Sell");
+                  }}
+                >
+                  Sell
+                </button>
               </div>
               <hr />
               {transaction.map((t, i) => {
                 if (
                   t.transaction_type === filter ||
                   (filter === "All" && transaction.length !== 0)
-                  ) {
+                ) {
                   return (
                     <div className="transaction-area">
                       <div key={i} className="transaction-card">
@@ -125,10 +158,8 @@ const UserProfile = () => {
                   );
                 } else if (transaction.length == 0) {
                   return (
-                    <div className="transaction-card">
-                      Balance: "none"
-                    </div>
-                  )
+                    <div className="transaction-card">Balance: "none"</div>
+                  );
                 }
               })}
             </div>
