@@ -234,12 +234,15 @@ padding-left: 0;
 @media only screen and (max-width: 600px) {
 
     .homepage-title {
-        font-size: 3rem;
+        font-size: 5rem;
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
         padding: 2rem;
+        height: 90vh;
+        padding-top: 10vh;
+        padding-bottom: 0;
     }
 
 .get-started-button {
