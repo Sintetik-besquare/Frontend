@@ -33,10 +33,7 @@ function MeetOurTeam() {
             return (
               <span key={i}>
                 {p.id % 2 === 0 ? (
-                  <div
-                    className="card-horizontal-right"
-                    data-aos="fade-left"
-                  >
+                  <div className="card-horizontal-right" data-aos="fade-left">
                     <img src={p.photo} alt="N/A" id="team-card-images-small" />
                     <div
                       style={{
