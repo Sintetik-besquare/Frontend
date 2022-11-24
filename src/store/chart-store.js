@@ -1,5 +1,5 @@
 import { observable, action, decorate, computed } from "mobx";
-import bs_binary_option from "../services/payout";
+import bs_binary_option from "../services/payout.js";
 
 export default class ChartStore {
   //obervables
