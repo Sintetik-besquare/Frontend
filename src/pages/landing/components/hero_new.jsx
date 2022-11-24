@@ -5,7 +5,6 @@ import Sand from "../../../assets/cyberspace_gray.mp4";
 function Hero() {
   return (
     <div className="hero-home">
-      <div className="hero-page-flex-block">
         <video autoPlay loop muted className="hero-video">
           <source src={Sand} type="video/mp4" />
         </video>
@@ -16,7 +15,6 @@ function Hero() {
         >
           <span
             className="homepage-title"
-            // style={{ WebkitTextFillColor: "#F5DC0C" }}
           >
             SINTETIK
           </span>
@@ -45,13 +43,6 @@ function Hero() {
               </div>
             </b>
           </div>
-          {/* <span
-            className="homepage-heading3"
-            // style={{ WebkitTextFillColor: "#2c99ff" }}
-          >
-            Trade forex, synthetics, stocks & indices, cryptocurrencies, basket
-            indices, and commodities.
-          </span> */}
           <br className="hide-when-small" />
           <br />
           <br />
@@ -66,7 +57,6 @@ function Hero() {
             <CgArrowTopRight id="button-icon2" />
           </button>
         </div>
-      </div>
     </div>
   );
 }
