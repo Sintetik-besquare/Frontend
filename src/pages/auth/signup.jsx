@@ -13,8 +13,10 @@ const SignUp = () => {
   const [signupPromise, setSignupPromise] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [checkbox, setCheckbox] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
+  const [passwordConfirmShown, setPasswordConfirmShown] = useState(false);
 
   let error_message = [];
 
@@ -53,7 +55,8 @@ const SignUp = () => {
               setSignupPromise(
                 performSignup(
                   form.elements["username"].value,
-                  form.elements["password"].value
+                  form.elements["password"].value,
+                  form.elements["password_confirm"].value
                 )
               );
             }}
@@ -98,6 +101,31 @@ const SignUp = () => {
               )}
 
             </div>
+            &nbsp;
+            <div className="signin-input">
+              <input
+                type={passwordConfirmShown ? "text" : "password"}
+                placeholder="Confirm Password"
+                name="password_confirm"
+                onChange={(e) => {
+                  setPasswordConfirm(e.target.value);
+                }}
+              />
+              {!passwordConfirmShown ? (
+                <FaEyeSlash
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordConfirmShown(true);
+                  }}
+                />
+              ) : (
+                <FaEye
+                  id="password-icon"
+                  onClick={() => {
+                    setPasswordConfirmShown(false);
+                  }}
+                />
+              )}            </div>
             &nbsp;
             <div
               style={{
