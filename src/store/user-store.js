@@ -1,16 +1,16 @@
 import { observable, decorate, action } from "mobx";
 
 export default class UserStore {
-  age = '';
-  client_id = '';
-  date_join = ''
-  education = '';
-  email = '';
-  first_name = '';
-  gender = '';
-  last_name = '';
-  occupation = '';
-  residence = '';
+  age = "";
+  client_id = "";
+  date_join = "";
+  education = "";
+  email = "";
+  first_name = "";
+  gender = "";
+  last_name = "";
+  occupation = "";
+  residence = "";
 
   setAge(age) {
     this.age = age;

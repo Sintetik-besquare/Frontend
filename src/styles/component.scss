@@ -72,6 +72,22 @@ button {
     cursor: pointer;
   }
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+*:focus {
+  outline: none;
+}
+
 
 .input {
   @include drop-shadow;
@@ -145,7 +161,6 @@ button {
   }
 }
 
-
 .card-horizontal {
   @include drop-shadow;
   display: flex;
@@ -189,7 +204,6 @@ button {
   font-family: "Poppins";
   margin-top: 0px;
   margin-bottom: 0;
-
 }
 
 .homepage-headline-bottom-half {
@@ -257,49 +271,47 @@ h6 {
 @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
-}
+  }
 
-10% {
-  transform: translate(-1px, -2px) rotate(-1deg);
-}
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
 
-20% {
-  transform: translate(-3px, 0px) rotate(1deg);
-}
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
 
-30% {
-  transform: translate(3px, 2px) rotate(0deg);
-}
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
 
-40% {
-  transform: translate(1px, -1px) rotate(1deg);
-}
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
 
-50% {
-  transform: translate(-1px, 2px) rotate(-1deg);
-}
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
 
-60% {
-  transform: translate(-3px, 1px) rotate(0deg);
-}
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
 
-70% {
-  transform: translate(3px, 1px) rotate(-1deg);
-}
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
 
-80% {
-  transform: translate(-1px, -1px) rotate(1deg);
-}
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
 
-90% {
-  transform: translate(1px, 2px) rotate(0deg);
-}
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
 
-100% {
-  transform: translate(1px, -2px) rotate(-1deg);
-}
-
-
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 .aboutus {
@@ -319,7 +331,7 @@ h6 {
 }
 
 @keyframes landing_hero_graphics {
-0% {
+  0% {
     transform: translate(0, 0px);
   }
   25% {
@@ -337,7 +349,7 @@ h6 {
 }
 
 #about-the-team {
-  background: opacity($color: #ffffff80) ;
+  background: opacity($color: #ffffff80);
   background-size: cover;
   overflow: hidden;
   // height: 100%;
@@ -400,13 +412,13 @@ h6 {
   h2 {
     font-size: 25px;
   }
-  
+
   h3,
   b,
   p {
     size: 7px;
   }
-  
+
   .valign-text-middle {
     display: flex;
     flex-direction: column;
@@ -414,18 +426,18 @@ h6 {
     margin-top: 0px;
     align-items: center;
   }
-  
-    h4 {
-      font-size: 10px;
-    }
-    h5 {
-      font-size: 8px;
-    }
-  
+
+  h4 {
+    font-size: 10px;
+  }
+  h5 {
+    font-size: 8px;
+  }
+
   h6 {
     font-size: 9px;
   }
-  
+
   #about {
     padding-top: 0;
   }
@@ -436,21 +448,26 @@ h6 {
 
 }
 
-.navbar{
+.navbar {
   img {
-    width:70px;
-    height:auto;
+    width: 70px;
+    height: auto;
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .navbar{
-    h1, h2, h3, p, li, button {
+  .navbar {
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    button {
       font-size: x-small;
     }
     img {
-      width:50px;
-      height:auto;
+      width: 50px;
+      height: auto;
     }
   }
 
@@ -458,8 +475,8 @@ h6 {
     flex-wrap: nowrap;
 
     // ul,li {
-      margin: 0;
-      padding:0;
+    margin: 0;
+    padding: 0;
     // }
   }
   .nav_modal {
@@ -496,46 +513,47 @@ h6 {
   text-align: center;
 }
 
-.homepage-headline-bottom-half {
-  font-size: 50px;
-  color: black;
-  font-family: "Poppins";
-  font-weight: 900;
-  margin-top: 0px;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 0px;
-  align-items: center;
-}
+
+  .homepage-headline-bottom-half {
+    font-size: 50px;
+    color: black;
+    font-family: "Poppins";
+    font-weight: 900;
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0px;
+    align-items: center;
+  }
 
 .hide-when-small {
   display: none;
 }
 
-.hide-when-big {
-  display: block;
-}
+  .hide-when-big {
+    display: block;
+  }
 
-#about-the-team {
-  padding-top: 0;
-}
+  #about-the-team {
+    padding-top: 0;
+  }
 
   .signin-form {
     padding-left: 5px;
   }
-h4 {
-  font-size: 10px;
-}
-h5 {
-  font-size: 8px;
-}
+  h4 {
+    font-size: 10px;
+  }
+  h5 {
+    font-size: 8px;
+  }
 
-h6 {
-  font-size: 9px;
-}
+  h6 {
+    font-size: 9px;
+  }
 
 .aboutus {
   text-align: center;
@@ -552,26 +570,31 @@ h6 {
 }
 
 @media only screen and (max-width: 600px) {
-  navbar{
-    h1, h2, h3, p, li, button {
+  navbar {
+    h1,
+    h2,
+    h3,
+    p,
+    li,
+    button {
       font-size: xx-small;
     }
 
     .flex-end {
-      button{
-        padding:0;
+      button {
+        padding: 0;
       }
     }
     img {
-      width:20px;
-      height:auto;
+      width: 20px;
+      height: auto;
     }
   }
-  .nav_modal{
-    width:50vw !important;
-    ul{
-      margin:2%;
-      padding:2%;
+  .nav_modal {
+    width: 50vw !important;
+    ul {
+      margin: 2%;
+      padding: 2%;
     }
   }
 }
