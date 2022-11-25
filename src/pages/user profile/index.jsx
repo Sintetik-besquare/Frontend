@@ -69,10 +69,10 @@ const Tabs = () => {
                 <div style={{width:"50vw"}}>
                   <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
                     <b><FiFilter /> Filter By: </b>
-                    <button onClick={()=>{setFilter('All')}}>All</button>
-                    <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
-                    <button onClick={()=>{setFilter('Buy')}}>Buy</button>
-                    <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+                    <button onClick={()=>{setFilter('All')}} className="button_yellow_small">All</button>
+                    <button onClick={()=>{setFilter("ResetBalance")}} className="button_yellow_small">Reset</button>
+                    <button onClick={()=>{setFilter('Buy')}} className="button_red_small">Buy</button>
+                    <button onClick={()=>{setFilter('Sell')}} className="button_green_small">Sell</button>
                   </div>
                   <img src={image} alt="a profile page" style={{width:"100%"}}/>
                 </div>
