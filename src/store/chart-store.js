@@ -84,9 +84,6 @@ export default class ChartStore {
 
   setShowSummary(visibility) {
     this.showSummary = visibility;
-    setTimeout(() => {
-      this.showSummary = false;
-    }, 3500);
   }
 
   toggleOrderForm(visibility) {

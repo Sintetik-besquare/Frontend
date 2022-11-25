@@ -4,12 +4,10 @@
 
 .user-trx-tabs-container {
   width: 100%;
-  // margin: auto;
   justify-content: center;
-  // padding:1rem;
 }
-.user-profile-page{
-  height:100vh;
+.user-profile-page {
+  height: 100vh;
 }
 
 .user-profile-container {
@@ -21,17 +19,53 @@
 
 .user-profile-card {
   margin-bottom: 20px;
-  height: 100%;
+  // height: 100%;
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  // flex-direction: column;
+  // width: 100%;
 
-  input {
+  input,
+  .dropdown,
+  select {
     font-size: 1em;
-    width: 250px;
+    width: 100%;
     min-height: 4vh;
     line-height: 2.4rem;
     vertical-align: middle;
+  }
+
+  .dropdown {
+    p {
+      display: none;
+    }
+  }
+}
+
+#user-profile {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  hr {
+    margin: 10px 0 10px 0;
+    border: 1px solid white;
+  }
+
+  #user-profile-form {
+    margin: auto;
+
+    .span-profile-details {
+      font-size: 1em;
+      color: white;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 5vh;
+    }
   }
 }
 
@@ -76,54 +110,6 @@ input:disabled {
   flex-direction: column;
   // margin-left: 20px;
   justify-content: center;
-}
-
-.user-profile-paper {
-  height: 80%;
-  background-color: rgba(29, 29, 29, 1);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.user-profile-details-card {
-  display: flex;
-  flex-direction: row;
-  // margin: 0 auto;
-  // padding: 2rem;
-  width: 90%;
-
-  .span-profile-details {
-    // margin-left: 10px;
-    font-size: 1em;
-    color: grey;
-  }
-}
-
-.user-profile-details-column {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-sizing: border-box;
-  width: 50%;
-
-  hr {
-    margin: 10px 0 10px 0;
-    border: 1px solid white;
-  }
-
-  .css-13y7p8r-control {
-    background: white;
-    min-width: 10vw;
-  }
-}
-
-.dropdown {
-  p {
-    display: none;
-  }
-
-  select {
-    min-width: 250px;
-  }
 }
 
 /* CSS */
@@ -239,22 +225,11 @@ button {
   display: block;
 }
 
-//Gender input CSS
-select {
-  width: 250px;
-  height: 5vh;
-}
-
 @media only screen and (min-width: 600px) {
   /* For tablets: */
 }
 
 @media only screen and (max-width: 768px) {
-  /* For desktop: */
-
-  .user-profile-paper {
-    height: 76%;
-  }
   .user-profile-primary-card {
     display: block;
     margin-left: 0;
@@ -278,14 +253,11 @@ select {
     }
   }
 
-  .user-profile-details-card {
+  #user-profile {
     display: block;
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-
-  .user-profile-details-column {
-    padding-top: 7px;
+    img {
+      width: 100%;
+    }
   }
 
   .button-5 {

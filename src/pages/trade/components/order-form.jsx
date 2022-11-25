@@ -37,6 +37,7 @@ const OrderForm = () => {
 
     socket.current.on("buy", (message) => {
       console.log(message);
+      chart_store.setShowSummary(false);
       chart_store.setSummary(message);
     });
 
