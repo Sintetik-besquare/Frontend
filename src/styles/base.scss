@@ -38,11 +38,6 @@ $yellow: rgba(245, 220, 12, 1);
   }
 }
 
-.button-black {
-  @include button-shared($black);
-  background-color: $black;
-}
-
 .button_green_dark {
   @include button-shared($green);
   background-color: $black;
@@ -119,6 +114,13 @@ $yellow: rgba(245, 220, 12, 1);
 .button_red_small {
   @include button-shared($red);
   background: rgb(158, 34, 34);
+  color: white;
+  align-items: center;
+}
+
+.button_yellow_small {
+  @include button-shared($yellow);
+  background: darkgoldenrod;
   color: white;
   align-items: center;
 }
@@ -207,8 +209,8 @@ $yellow: rgba(245, 220, 12, 1);
 }
 
 @media only screen and (max-width: 800px) {
-  #company {
-    padding-top: 22rem;
-    padding-bottom: 35rem;
-  }
+  // #company {
+  //   padding-top: 22rem;
+  //   padding-bottom: 35rem;
+  // }
 }

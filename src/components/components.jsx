@@ -19,7 +19,7 @@ const Component = () => {
 
       <div className="flex-block">
         <div>
-          <button className="button-black">SIGN UP</button>
+          <button className="">SIGN UP</button>
           <button className="button_green_dark">SIGN IN</button>
           <button className="button_red_dark">SIGN OUT</button>
           <button className="button_green_dark">BUY</button>

@@ -18,7 +18,7 @@
   white-space: nowrap;
   top: 0;
   left: 0;
-  padding-right: 2rem;
+  padding-right: 12rem;
 
 
 /*animation*/
@@ -97,10 +97,17 @@
 @media only screen and (max-width: 2000px) {
   .Tradewith .innerTradewith {
     font-size: 2.5rem;
+    padding-right: 12rem;
   }
   .Tradewith b{
     height: 2.5rem;
   }
+
+@media only screen and (max-width: 1500px) {
+  .Tradewith .innerTradewith {
+    padding-right: 8rem;
+  }
+}
 
   @keyframes move {
     0%  { top: 0rem; }
@@ -111,23 +118,45 @@
 }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
   .Tradewith b{
     height: 3rem;
   }
 
+  .Tradewith .innerTradewith {
+    padding-right: 4rem;
+  }
+
   @keyframes move {
     0%  { top: 0rem; }
-    20% { top: -3rem; }
-    40% { top: -6rem; }
-    60% { top: -9rem; }
-    80% { top: -12rem; }
+    20% { top: -3.2rem; }
+    40% { top: -6.7rem; }
+    60% { top: -10.2rem; }
+    80% { top: -13.7rem; }
+}
+}
+
+@media only screen and (max-width: 800px) {
+  .Tradewith .innerTradewith {
+    padding-right: 1rem;
+  }
+
+  @keyframes move {
+    0%  { top: 0rem; }
+    20% { top: -2.5rem; }
+    40% { top: -5.5rem; }
+    60% { top: -8.5rem; }
+    80% { top: -11.5rem; }
 }
 }
 
 @media only screen and (max-width: 600px) {
   .Tradewith b{
     height: 2.5rem;
+  }
+
+  .Tradewith .innerTradewith {
+    font-size: 1.5rem;
   }
 
   @keyframes move {
