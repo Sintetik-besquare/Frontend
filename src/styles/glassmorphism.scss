@@ -316,61 +316,74 @@
 @media only screen and (max-width: 500px) {
 
     .gl__card__Title {
-        font-size: 2rem;
+        font-size: 1.5rem;
         line-height: 2rem;
         padding: 3rem 0rem;
         text-align: center;
     }
     
     .glassify__Wrapper {
-        padding: 10rem 3rem;
+        padding: 3rem;
     }
     
     .gl__card__Wrapper {
-        width: 15rem;
-        height: 10rem;
+        width: 11rem;
+        height: 8rem;
     }
     
     .core-value-div {
         display: block; 
-        padding: 0 5rem 5rem 5rem;
+        padding: 3rem 5rem 0 5rem;
     }
     
     .glassify__CertificateWrapper .card1 {
-        top: -400px;
-        left: -90px;
+        top: -300px;
+        left: -20vw;
     }
     
     .glassify__CertificateWrapper .card2 {
         top: -200px;
-        left: -90px;
+        left: -25vw;
     }
     
     .glassify__CertificateWrapper .card3 {
-        top: 0px;
-        left: -90px;
+        top: -100px;
+        left: -30vw;
     }
     
     .glassify__CertificateWrapper .card4 {
-        top: 200px;
-        left: -90px;
+        top: 0px;
+        left: -35vw;
     }
     
     .glassify__CertificateWrapper:hover .card1:hover {
-        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+        transform: translateX(-1vw) scaleX(1.5) scaleY(1.5);
     }
     
     .glassify__CertificateWrapper:hover .card2:hover {
-        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+        transform: translateX(4vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
     }
     
     .glassify__CertificateWrapper:hover .card3:hover {
-        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+        transform: translateX(9vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
     }
     
     .glassify__CertificateWrapper:hover .card4:hover {
-        transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+        transform: translateX(14vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
     
+    }
+
+    .glassify__CertificateWrapper:hover .card1 {
+        transform: scale(1);
+    }
+    .glassify__CertificateWrapper:hover .card2 {
+        transform: translateY(0vh);
+    }
+    .glassify__CertificateWrapper:hover .card3 {
+        transform: translateY(0vh);
+    }
+    .glassify__CertificateWrapper:hover .card4 {
+        transform: translateY(0vh);
     }
     
     }
