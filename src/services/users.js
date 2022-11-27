@@ -1,7 +1,7 @@
 const token = localStorage.getItem("ACCESS_TOKEN");
 
 async function getUser() {
-  return await fetch("https://login.sintetik.xyz:3001/account/getUserDetails", {
+  return await fetch("https://login.sintetik.xyz/account/getUserDetails", {
     method: "GET",
     headers: new Headers({
       Authorization: `Bearer ${token}`,
