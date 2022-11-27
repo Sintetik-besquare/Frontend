@@ -3,7 +3,7 @@ import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
 import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import { FiTrendingUp } from "react-icons/fi";
-import ContractModal from "./contract-modal";
+import ContractModal from "./modal-contract";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();

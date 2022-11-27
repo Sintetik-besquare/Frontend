@@ -9,7 +9,7 @@ import InputTicks from "./input-ticks";
 import InputStake from "./input-stake";
 import BtnCall from "./btn-call";
 import BtnPut from "./btn-put";
-import Summary from "./summary";
+import Summary from "./modal-summary";
 
 const OrderForm = () => {
   /**

@@ -11,7 +11,7 @@ const ContractModal = () => {
 
   return (
     <div
-      className="contract-modal"
+      className="order-form-modal"
       data-aos="fade-left"
       data-aos-duration="700"
     >

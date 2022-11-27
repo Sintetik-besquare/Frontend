@@ -3,7 +3,7 @@ import React from "react";
 import { useStores } from "../../../store";
 import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import { MdAutoGraph } from "react-icons/md";
-import IndexModal from "./index-modal";
+import IndexModal from "./modal-index";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();

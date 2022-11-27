@@ -78,7 +78,8 @@
 a:hover {
   transition: 500ms;
   transform: scale(1.001);
-  box-shadow: 0 4px 30px 5px rgb(179, 180, 85);
+  text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+  transition: 0.5s;
   border-radius: 25px;
 }
 
@@ -90,8 +91,8 @@ button.news-load-btn {
   cursor: pointer;
 
   :hover {
-    color: coral;
-  }
+    text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+    transition:0.5s;  }
 }
 
 .button-40 {
