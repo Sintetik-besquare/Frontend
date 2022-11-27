@@ -5,7 +5,7 @@ import UserProfile from "./components/user-profile";
 import { getTransaction } from "../../services/transaction";
 import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
 import { VscDebugRestart } from "react-icons/vsc";
-import { FaSmileWink } from "react-icons/fa";
+import { FaFilter, FaEquals } from "react-icons/fa";
 import GreenGraph from "../../assets/green_graph.png";
 import RedGraph from "../../assets/red_graph.png";
 import { observer } from "mobx-react-lite";
@@ -67,12 +67,21 @@ const Tabs = () => {
               <div className="transaction-container">
                 <div id="transaction-columns">
                 <div style={{width:"50vw"}}>
-                  <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"10px"}}>
-                    <b><FiFilter /> Filter By: </b>
-                    <button onClick={()=>{setFilter('All')}} className="button_yellow_small">All</button>
-                    <button onClick={()=>{setFilter("ResetBalance")}} className="button_yellow_small">Reset</button>
-                    <button onClick={()=>{setFilter('Buy')}} className="button_red_small">Buy</button>
-                    <button onClick={()=>{setFilter('Sell')}} className="button_green_small">Sell</button>
+                  {/* <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"10px"}}> */}
+                    {/* <b><FiFilter /> Filter By: </b>
+                    <button onClick={()=>{setFilter('All')}}>All</button>
+                    <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
+                    <button onClick={()=>{setFilter('Buy')}}>Buy</button>
+                    <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+                  </div> */}
+                  <div className="dropdown-filter">
+                    <button className="filter"><FaFilter/> Filter by</button>
+                    <div className="filter-types">
+                    <button onClick={()=>{setFilter('All')}}>All</button>
+                    <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
+                    <button onClick={()=>{setFilter('Buy')}}>Buy</button>
+                    <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+                    </div>
                   </div>
                   <img src={image} alt="a profile page" style={{width:"100%"}}/>
                 </div>
@@ -99,7 +108,7 @@ const Tabs = () => {
                                 </div>
                                 {t.transaction_type === "Sell" ? (
                                   t.transaction_amount === "0.00" ? (
-                                    <FaSmileWink style={{ color: "yellow" }} />
+                                    <FaEquals style={{ color: "white" }} />
                                   ) : (
                                     <AiFillCaretUp id="rise-icon" />
                                   )
@@ -121,7 +130,7 @@ const Tabs = () => {
                                   t.transaction_amount === "0.00" ? 
                                 <img src={RedGraph} altpo="Logo" /> :
                                 <img src={GreenGraph} altpo="Logo" />) :
-                                "Not sell"
+                                ""
                                 }
                                 </div>
                               </div>

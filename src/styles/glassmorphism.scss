@@ -1,6 +1,8 @@
 .core-value-div {
     display: flex; 
     padding: 20rem 5rem;
+    // background-image: linear-gradient(white,black);
+    // background-image: linear-gradient($yellow,transparent);
 }
 
 .core-value-title {
@@ -154,7 +156,7 @@
 }
 
 .glassify__CertificateWrapper:hover .card4:hover {
-    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+    transform: translate(-10rem, 10rem)  scaleX(1.5) scaleY(1.5);
 
 }
 
