@@ -16,11 +16,8 @@ const NewsList = () => {
 
   //Get every related news
   useEffect(() => {
-    console.log("asdas");
     getNews().then((e) => setArticles(e.data.value));
   }, []);
-
-  console.log("articles", articles);
 
   const [cardsAvailable, setCardsAvailable] = useState(9);
   const showMoreCards = () => {
