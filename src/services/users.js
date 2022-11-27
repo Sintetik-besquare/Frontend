@@ -20,7 +20,7 @@ async function getUser() {
 }
 
 async function updateUser() {
-  return await fetch("https://login.sintetik.xyz:3001/account/editUserDetails", {
+  return await fetch("https://login.sintetik.xyz/account/editUserDetails", {
     method: "POST",
     headers: new Headers({
       Authorization: "Basic " + btoa("username:password"),
