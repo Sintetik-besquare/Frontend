@@ -1,7 +1,7 @@
 @media only screen and (max-width: 2570px) {
 
 #company {
-    background: lightgray;
+    background: rgba(0,0,0,0.9);
     height: 100%;
     display: flex;
     justify-content: space-around
@@ -14,7 +14,7 @@
   #graphic_crypto2 {
     padding: 1rem;
     height: 100%;
-    width: 100%;
+    width: 150%;
       bottom: 0;
       background-image: linear-gradient(transparent, white, white);
   }
@@ -42,14 +42,16 @@
 }
 
 .get-started-button {
-    background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
+    // background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
     font-size: 3rem;
     cursor: pointer;
+    background-color: $yellow;
+    border-radius: 10rem;
 }
 
 .aboutus-text {
     font-size: 27px;
-    color: rgb(0, 0, 0);
+    color: $yellow;
     font-family: "Poppins";
     float: right;
     text-align: right;
@@ -103,7 +105,7 @@ font-size: 1.5rem;
 // }
 
 #company {
-    background: lightgray;
+    background: rgba(0,0,0,0.9);
     height: 100%;
     display: flex;
     justify-content: space-around
@@ -191,7 +193,7 @@ padding-left: 0;
 }
 
 #graphic_crypto2 {
-    width: 50%;
+    width: 130%;
 }
 }
 
@@ -220,15 +222,21 @@ padding-left: 0;
         align-items: center;
     }
 
-    .homepage-image {
-        display: flex;
-        justify-content: center;
+    .homepage-image, .hide-when-big {
+        display: inline-block; 
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        width: 50%;
+        background-color: white;
     }
 
     #graphic_crypto2 {
-        width: 95%;
-        object-fit: scale-down;
-        border-radius: 10px;
+        padding-left: 0;
+        width: 75%; 
+        margin: 0 -50px -10px 0;
+      background-image: none;
+      background-color: white;
     }
 }
 

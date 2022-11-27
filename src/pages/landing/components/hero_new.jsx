@@ -30,15 +30,15 @@ function Hero() {
           <p>What Our Users Say About Us</p>
           <b>
             <div className="innerTradewith">
-              Enjoyable
+              "Enjoyable"
               <br />
-              Exemplary
+              "Exemplary"
               <br />
-              Exquisite
+              "Exquisite"
               <br />
-              Excellent
+              "Excellent"
               <br />
-              Exceptional
+              "Exceptional"
             </div>
           </b>
         </div>
