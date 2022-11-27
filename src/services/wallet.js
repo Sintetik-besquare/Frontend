@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "http://localhost:3001";
+const ENDPOINT_BASE = "http://login.sintetik.xyz:3001";
 
 async function getBalance() {
   return await fetch(`${ENDPOINT_BASE}/account/getBalance`, {
