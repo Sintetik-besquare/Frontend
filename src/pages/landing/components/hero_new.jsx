@@ -27,34 +27,36 @@ function Hero() {
         </span>
         <br />
         <div className="Tradewith">
-          <p>Trade Synthetics with</p>
+          <p>What Our Users Say About Us</p>
           <b>
             <div className="innerTradewith">
-              Vol 20
+              Enjoyable
               <br />
-              Vol 40
+              Exemplary
               <br />
-              Vol 60
+              Exquisite
               <br />
-              Vol 80
+              Excellent
               <br />
-              Vol 100
+              Exceptional
             </div>
           </b>
         </div>
         <br className="hide-when-small" />
         <br />
         <br />
+        <a href="trade">
         <button
           className="get-started-button"
           style={{
             // backgroundColor: "#F5DC0C",
             WebkitTextFillColor: "#000",
           }}
-        >
+          >
           <b>Get Started</b> &nbsp;
           <CgArrowTopRight id="button-icon2" />
         </button>
+          </a>
       </div>
     </div>
   );
