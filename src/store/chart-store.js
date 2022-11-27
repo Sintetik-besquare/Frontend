@@ -5,7 +5,8 @@ export default class ChartStore {
   //obervables
   historical_price = [];
   index = "VOL100";
-  option_type = " ";
+  option_type = " "; //call put
+  contract_type = "Rise/Fall"; // rise/fall odd/even
   ticks = 0;
   stake = 0.0;
   entry_time = Math.floor(Date.now() / 1000) - 1; //TODO: entry_time = current_time -1s
@@ -59,6 +60,10 @@ export default class ChartStore {
     this.option_type = option;
   }
 
+  setContractType(contract) {
+    this.contract_type = contract;
+  }
+  
   setTicks(ticks) {
     this.ticks = ticks;
   }
@@ -106,6 +111,7 @@ decorate(ChartStore, {
   historical_price: observable,
   index: observable,
   option_type: observable,
+  contract_type: observable,
   ticks: observable,
   stake: observable,
   entry_time: observable,
@@ -119,6 +125,7 @@ decorate(ChartStore, {
   isbuying: observable,
   setIndex: action,
   setOptionType: action,
+  setContractType: action,
   setTicks: action,
   setState: action,
   setIswinning: action,
