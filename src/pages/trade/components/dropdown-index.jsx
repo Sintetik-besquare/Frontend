@@ -1,23 +1,29 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
 import { useStores } from "../../../store";
-import { BiCaretLeft } from "react-icons/bi";
+import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import { MdAutoGraph } from "react-icons/md";
+import IndexModal from "./index-modal";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();
+  // const [indexModal, setIndexModal] = useState(false);
 
   return (
     <>
-      <div id="pad-top">
+      <div id="pad-top" onClick={() => chart_store.toggleIndexModal(!chart_store.showIndexModal)}>
         <div id="left">
-          <BiCaretLeft id="button-icon11" />
-        </div>
+        {chart_store.showIndexModal ? (
+            <BiCaretRight id="button-icon12" />
+            ) : (
+            <BiCaretLeft id="button-icon12" />
+          )}        </div>
         <div id="middle"> {chart_store.index}</div>
         <div id="icons-blue">
           <MdAutoGraph id="button-icon11" />
         </div>
       </div>
+      {chart_store.showIndexModal && <IndexModal />}
     </>
   );
 };

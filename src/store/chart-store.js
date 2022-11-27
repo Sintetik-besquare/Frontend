@@ -15,6 +15,8 @@ export default class ChartStore {
   summary = [];
   showSummary = false;
   showOrderForm = false;
+  showIndexModal = false;
+  showContractModal = false;
   isbuying = false;
 
   //computed
@@ -63,7 +65,7 @@ export default class ChartStore {
   setContractType(contract) {
     this.contract_type = contract;
   }
-  
+
   setTicks(ticks) {
     this.ticks = ticks;
   }
@@ -87,12 +89,22 @@ export default class ChartStore {
     this.summary = summary;
   }
 
-  setShowSummary(visibility) {
+  toggleShowSummary(visibility) {
     this.showSummary = visibility;
   }
 
   toggleOrderForm(visibility) {
     this.showOrderForm = visibility;
+  }
+
+  toggleIndexModal(visibility) {
+    this.showIndexModal = visibility;
+    this.showContractModal = false;
+  }
+
+  toggleContractModal(visibility) {
+    this.showContractModal = visibility;
+    this.showIndexModal = false;
   }
 
   resetWallet() {
@@ -103,8 +115,8 @@ export default class ChartStore {
     this.historical_price = stream;
   }
 
-  setIsBuying(isbuying){
-    this.isbuying=isbuying;
+  toggleIsBuying(isbuying) {
+    this.isbuying = isbuying;
   }
 }
 decorate(ChartStore, {
@@ -119,9 +131,11 @@ decorate(ChartStore, {
   put_payout: computed,
   wallet: observable,
   summary: observable,
-  showSummary: observable,
   iswinning: observable,
+  showSummary: observable,
   showOrderForm: observable,
+  showIndexModal: observable,
+  showContractModal: observable,
   isbuying: observable,
   setIndex: action,
   setOptionType: action,
@@ -131,9 +145,11 @@ decorate(ChartStore, {
   setIswinning: action,
   setWallet: action,
   setSummary: action,
-  setShowSummary: action,
-  toggleOrderForm: action,
   resetWallet: action,
   updateHistory: action,
-  setIsBuying: action,
+  toggleShowSummary: action,
+  toggleOrderForm: action,
+  toggleIsBuying: action,
+  toggleIndexModal: action,
+  toggleContractModal: action,
 });

@@ -11,7 +11,7 @@ const Status = () => {
       <MdOutlineClose
         className="btn_close_summary"
         onClick={() => {
-          chart_store.setShowSummary(false);
+          chart_store.toggleShowSummary(false);
         }}
       />
       <h1 style={{ margin: 0, padding: 0 }}>{chart_store.summary.status}</h1>

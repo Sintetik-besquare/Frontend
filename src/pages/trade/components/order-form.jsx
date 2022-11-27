@@ -37,7 +37,7 @@ const OrderForm = () => {
 
     socket.current.on("buy", (message) => {
       console.log(message);
-      chart_store.setShowSummary(false);
+      chart_store.toggleShowSummary(false);
       chart_store.setSummary(message);
     });
 
@@ -47,8 +47,8 @@ const OrderForm = () => {
 
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
-      chart_store.setShowSummary(true);
-      chart_store.setIsBuying(false);
+      chart_store.toggleShowSummary(true);
+      chart_store.toggleIsBuying(false);
 
       getBalance().then((e) => {
         chart_store.setWallet(e);
@@ -100,7 +100,7 @@ const OrderForm = () => {
       contract_type: chart_store.contract_type,
     };
     console.log(order);
-    chart_store.setIsBuying(true);
+    chart_store.toggleIsBuying(true);
     socket.current.emit("order", order);
   };
 

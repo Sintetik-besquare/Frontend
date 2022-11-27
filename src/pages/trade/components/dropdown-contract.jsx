@@ -1,26 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
-import { BiCaretLeft } from "react-icons/bi";
+import { BiCaretLeft, BiCaretRight } from "react-icons/bi";
 import { FiTrendingUp } from "react-icons/fi";
 import ContractModal from "./contract-modal";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();
-  const [contractModal, setContractModal] = useState(false);
 
   return (
     <>
-      <div id="pad-top" onClick={() => setContractModal(!contractModal)}>
+      <div id="pad-top" onClick={() => chart_store.toggleContractModal(!chart_store.showContractModal)}>
         <div id="left">
-          <BiCaretLeft id="button-icon12" />
+          {chart_store.showContractModal ? (
+            <BiCaretRight id="button-icon12" />
+            ) : (
+            <BiCaretLeft id="button-icon12" />
+          )}
         </div>
         <div id="middle">{chart_store.contract_type}</div>
         <div id="icons-blue">
           <FiTrendingUp id="button-icon13" />
         </div>
       </div>
-      {contractModal === true && <ContractModal />}
+      {chart_store.showContractModal && <ContractModal />}
     </>
   );
 };
