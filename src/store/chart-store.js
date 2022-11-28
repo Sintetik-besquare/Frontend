@@ -28,25 +28,20 @@ export default class ChartStore {
     return this.#payout("put").toFixed(2);
   }
 
+  get odd_payout() {
+    return this.#payout("odd").toFixed(2);
+  }
+
+  get even_payout() {
+    return this.#payout("even").toFixed(2);
+  }
   /**
    *
-   * @param {"call"|"put"} type
+   * @param {"call"|"put"|"odd"|"even"} type
    * @returns {Number}
    */
   #payout(type) {
-    return this.ticks * this.stake
-      ? this.stake /
-          (bs_binary_option(
-            1,
-            1,
-            1,
-            this.ticks / (60 * 60 * 24 * 365),
-            0,
-            0,
-            type
-          ) +
-            0.012)
-      : 0;
+    return this.ticks * this.stake ? this.stake /(bs_binary_option(1,1,1,this.ticks / (60 * 60 * 24 * 365),0,0,type) +0.012): 0;
   }
   //actions
 
@@ -129,6 +124,8 @@ decorate(ChartStore, {
   entry_time: observable,
   call_payout: computed,
   put_payout: computed,
+  odd_payout: computed,
+  even_payout: computed,
   wallet: observable,
   summary: observable,
   iswinning: observable,

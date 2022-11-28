@@ -17,7 +17,7 @@ function bs_binary_option(St, K, sigma, delta_t, r, d, option_type) {
   } else if (option_type === "put") {
     return cdfNormal(-d2, 0, 1) * Math.exp(-r * delta_t);
   } else {
-    return "wtf???";
+    return 0;
   }
 }
 

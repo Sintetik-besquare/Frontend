@@ -9,6 +9,8 @@ import InputTicks from "./input-ticks";
 import InputStake from "./input-stake";
 import BtnCall from "./btn-call";
 import BtnPut from "./btn-put";
+import BtnOdd from "./btn-odd";
+import BtnEven from "./btn-even";
 import Summary from "./modal-summary";
 
 const OrderForm = () => {
@@ -130,25 +132,52 @@ const OrderForm = () => {
       chart_store.stake > 0 &&
       chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
+
+        
         <div>
-          <button
-            className="form_row button_green_light"
-            onClick={() => {
-              chart_store.setOptionType("call");
-              validate();
-            }}
-          >
-            <BtnCall />
-          </button>
-          <button
-            className="form_row button_red_light"
-            onClick={() => {
-              chart_store.setOptionType("put");
-              validate();
-            }}
-          >
-            <BtnPut />
-          </button>
+          {chart_store.contract_type==="Rise/Fall" && 
+          <>
+            <button
+              className="form_row button_green_light"
+              onClick={() => {
+                chart_store.setOptionType("call");
+                validate();
+              }}
+            >
+              <BtnCall />
+            </button>
+            <button
+              className="form_row button_red_light"
+              onClick={() => {
+                chart_store.setOptionType("put");
+                validate();
+              }}
+            >
+              <BtnPut />
+            </button>
+          </>}
+
+          {chart_store.contract_type==="Odd/Even" && 
+          <>
+            <button
+              className="form_row button_green_light"
+              onClick={() => {
+                chart_store.setOptionType("odd");
+                validate();
+              }}
+            >
+              <BtnOdd />
+            </button>
+            <button
+              className="form_row button_red_light"
+              onClick={() => {
+                chart_store.setOptionType("even");
+                validate();
+              }}
+            >
+              <BtnEven />
+            </button>
+          </>}
         </div>
       ) : (
         <div>
@@ -159,7 +188,9 @@ const OrderForm = () => {
               validate();
             }}
           >
-            <BtnCall />
+            {chart_store.contract_type==="Rise/Fall" && <BtnCall />}
+            {chart_store.contract_type==="Odd/Even" && <BtnOdd />}
+            
           </button>
           <button
             disabled
@@ -168,7 +199,8 @@ const OrderForm = () => {
               validate();
             }}
           >
-            <BtnPut />
+            {chart_store.contract_type==="Rise/Fall" && <BtnPut />}
+            {chart_store.contract_type==="Odd/Even" && <BtnEven />}
           </button>
         </div>
       )}
