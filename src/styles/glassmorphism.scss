@@ -1,20 +1,20 @@
 .core-value-div {
-    display: flex; 
-    padding: 20rem 5rem;
-    // background-image: linear-gradient(white,black);
-    // background-image: linear-gradient($yellow,transparent);
+    // display: flex; 
+    padding: 0rem 5rem;
+    // background-image: linear-gradient(white, $yellow);
 }
 
 .core-value-title {
     display: grid;
     place-items: center;
+    margin-top:3rem;
 }
 
 .glassify__Wrapper {
     position: relative;
     display: grid;
     place-items: center;
-    padding: 10rem 10rem;
+    padding: 0rem 10rem;
     padding-top: 0;
     align-items: flex-start;
 }
@@ -65,13 +65,13 @@
 }
 
 .glassify__CertificateWrapper .card1 {
-    top: -200px;
-    left: 0px;
+    top: -10rem;
+    left: -30rem;
     place-content: center;
 }
 
 .glassify__CertificateWrapper:hover .card1 {
-    transform: translate(-10rem, 0) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    transform:  rotateY(-90deg) scaleX(0.9);
 }
 
 .gl__card__TextWrapper {
@@ -109,99 +109,107 @@
 }
 
 .glassify__CertificateWrapper:hover .card2 {
-    transform: translate(-120px, -10px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    // transform: translate(-120px, -10px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    transform:  rotateY(-90deg) scaleX(0.9);
 }
 
 .glassify__CertificateWrapper .card2 {
-    top: -50px;
-    left: 200px;
+    top: -10rem;
+    left: -5rem;
     place-content: center;
     text-align: center;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #4D4D4D 100%);
+    // background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #4D4D4D 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, black 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
 .glassify__CertificateWrapper:hover .card3 {
-    transform: translate(-90px, -20px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    // transform: translate(-90px, -20px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    transform:  rotateY(-90deg) scaleX(0.9);
 }
 
 .glassify__CertificateWrapper .card3 {
-    top: 100px;
-    left: 400px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #CCCCCC 100%);
+    top: -10rem;
+    left: 20rem;
+    // background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, #CCCCCC 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, black 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
 .glassify__CertificateWrapper:hover .card4 {
-    transform: translate(-30px, -30px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    // transform: translate(-30px, -30px) skewX(-10deg) rotateZ(-10deg) scaleX(0.9);
+    transform:  rotateY(-90deg) scaleX(0.9);
+
 }
 
 .glassify__CertificateWrapper .card4 {
-    top: 250px;
-    left: 600px;
-    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, white 100%);
+    top: -10rem;
+    left: 45rem;
+    // background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, white 100%);
+    background: radial-gradient(120% 154.37% at 100% 100%, rgba(255, 255, 255, 0.1) 0%, black 100%);
     box-shadow: rgb(39 77 153 / 20%) 0px 30px 60px, rgb(0 0 0 / 20%) 0px 0px 0px 0.5px inset;
 }
 
 .glassify__CertificateWrapper:hover .card1:hover {
-    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+    transform: scaleX(1.5) scaleY(1.5);
 }
 
 .glassify__CertificateWrapper:hover .card2:hover {
-    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+    transform: scaleX(1.5) scaleY(1.5);
 }
 
 .glassify__CertificateWrapper:hover .card3:hover {
-    transform: translate(10rem, -10rem)  scaleX(1.5) scaleY(1.5);
+    transform: scaleX(1.5) scaleY(1.5);
 }
 
 .glassify__CertificateWrapper:hover .card4:hover {
-    transform: translate(-10rem, 10rem)  scaleX(1.5) scaleY(1.5);
+    transform: scaleX(1.5) scaleY(1.5);
 
 }
 
+
 @media only screen and (max-width: 2570px) {
     .glassify__Wrapper {
-    padding: 20rem 35rem;
+    padding: 0rem 35rem;
     padding-top: 0;
     }
 }
 
 @media only screen and (max-width: 1500px) {
     .glassify__CertificateWrapper .card1 {
-        top: -400px;
-        left: 0px;
+        top: -25rem;
+        left: -15rem;
     }
 
     .glassify__CertificateWrapper .card2 {
-        top: -200px;
-        left: 100px;
+        top: -15rem;
+        left: 0rem;
     }
 
     .glassify__CertificateWrapper .card3 {
-        top: 0px;
-        left: 200px;
+        top: -5rem;
+        left: 15rem;
     }
 
     .glassify__CertificateWrapper .card4 {
-        top: 200px;
-        left: 300px;
+        top: 5rem;
+        left: 35rem;
     }
     .glassify__CertificateWrapper:hover .card1:hover {
-        transform: translate(-10rem, 0rem);
+    transform: scaleX(1.5) scaleY(1.5);
     }
     
     .glassify__CertificateWrapper:hover .card2:hover {
-        transform: translate(-10rem, 0rem);
+    transform: scaleX(1.5) scaleY(1.5);
+
     }
     
     .glassify__CertificateWrapper:hover .card3:hover {
-        transform: translate(-10rem, 0rem);
+    transform: scaleX(1.5) scaleY(1.5);
     }
     
     .glassify__CertificateWrapper:hover .card4:hover {
-        transform: translate(-10rem, 0rem);
-    
+    transform: scaleX(1.5) scaleY(1.5);
     }
     .glassify__Wrapper {
         padding: 10rem 15rem;
@@ -211,22 +219,22 @@
 @media only screen and (max-width: 1025px) {
     .glassify__CertificateWrapper .card1 {
         top: -400px;
-        left: 0px;
+        left: -10rem;
     }
 
     .glassify__CertificateWrapper .card2 {
         top: -200px;
-        left: 0px;
+        left: 0rem;
     }
 
     .glassify__CertificateWrapper .card3 {
         top: 0px;
-        left: 0px;
+        left: 10rem;
     }
 
     .glassify__CertificateWrapper .card4 {
         top: 200px;
-        left: 0px;
+        left: 20rem;
     }
     .glassify__CertificateWrapper:hover .card1:hover {
         transform: translate(-10rem, 0rem);
@@ -247,6 +255,15 @@
 }
 
 @media only screen and (max-width: 1100px) {
+.gl__card__Wrapper {
+    width: 250px;
+    height: 150px;
+}
+
+.gl__card__Title {
+    padding: 2.5rem 0;
+    font-size: 2rem;
+}
     .core-value-div {
         display: block; 
         padding: 0 5rem 5rem 5rem;
@@ -278,38 +295,38 @@
 
 .glassify__CertificateWrapper .card1 {
     top: -400px;
-    left: 90px;
+    left: -10rem;
 }
 
 .glassify__CertificateWrapper .card2 {
     top: -200px;
-    left: 90px;
+    left: 0rem;
 }
 
 .glassify__CertificateWrapper .card3 {
     top: 0px;
-    left: 90px;
+    left: 10rem;
 }
 
 .glassify__CertificateWrapper .card4 {
     top: 200px;
-    left: 90px;
+    left: 20rem;
 }
 
 .glassify__CertificateWrapper:hover .card1:hover {
-    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    transform: translate(20rem, 0rem);
 }
 
 .glassify__CertificateWrapper:hover .card2:hover {
-    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    transform: translate(10rem, 0rem);
 }
 
 .glassify__CertificateWrapper:hover .card3:hover {
-    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    transform: translate(-10rem, 0rem);
 }
 
 .glassify__CertificateWrapper:hover .card4:hover {
-    transform: translate(0rem, 0rem) scaleX(1.5) scaleY(1.5);
+    transform: translate(-20rem, 0rem);
 
 }
 
@@ -335,57 +352,53 @@
     
     .core-value-div {
         display: block; 
-        padding: 3rem 5rem 0 5rem;
+        padding: 0 5rem 4rem 5rem;
     }
     
     .glassify__CertificateWrapper .card1 {
-        top: -300px;
-        left: -20vw;
+        top: -20rem;
+        left: -7rem;
     }
-    
+
     .glassify__CertificateWrapper .card2 {
-        top: -200px;
-        left: -25vw;
+        top: -9rem;
+        left: -1rem;
     }
-    
+
     .glassify__CertificateWrapper .card3 {
-        top: -100px;
-        left: -30vw;
+        top: 2rem;
+        left: -7rem;
     }
-    
+
     .glassify__CertificateWrapper .card4 {
-        top: 0px;
-        left: -35vw;
+        top: 13rem;
+        left: -1rem;
     }
     
     .glassify__CertificateWrapper:hover .card1:hover {
-        transform: translateX(-1vw) scaleX(1.5) scaleY(1.5);
+        transform: translateX(3rem);
     }
     
     .glassify__CertificateWrapper:hover .card2:hover {
-        transform: translateX(4vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
+        transform: translateX(-3rem);
     }
     
     .glassify__CertificateWrapper:hover .card3:hover {
-        transform: translateX(9vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
+        transform: translateX(3rem);
     }
     
     .glassify__CertificateWrapper:hover .card4:hover {
-        transform: translateX(14vw) translateY(1vh) scaleX(1.5) scaleY(1.5);
+        transform: translateX(-3rem);
     
+    }
     }
 
-    .glassify__CertificateWrapper:hover .card1 {
-        transform: scale(1);
+@media only screen and (max-width: 350px) {
+    .glassify__CertificateWrapper .card2 {
+        left: -4rem;
     }
-    .glassify__CertificateWrapper:hover .card2 {
-        transform: translateY(0vh);
+
+    .glassify__CertificateWrapper .card4 {
+        left: -4rem;
     }
-    .glassify__CertificateWrapper:hover .card3 {
-        transform: translateY(0vh);
-    }
-    .glassify__CertificateWrapper:hover .card4 {
-        transform: translateY(0vh);
-    }
-    
-    }
+}

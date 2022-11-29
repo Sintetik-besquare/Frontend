@@ -209,7 +209,7 @@ input[type="number"] {
 
 .homepage-headline-bottom-half {
   top: 2rem;
-  color: black;
+  color: white;
   font-family: "Poppins";
   margin-top: 0px;
   margin-bottom: 0;
@@ -316,7 +316,7 @@ h6 {
 }
 
 .aboutus {
-  color: black;
+  color: white;
   font-family: "Poppins";
   font-size: 5rem;
   text-align: right;
@@ -380,17 +380,15 @@ h6 {
 
   .homepage-headline {
     font-size: 4rem;
-    color: black;
     font-family: "Poppins";
     font-weight: 900;
-    margin-top: 0px;
+    margin-top: 2rem;
     width: 100%;
     text-align: center;
   }
 
   .homepage-headline-bottom-half {
     font-size: 80px;
-    color: black;
     font-family: "Poppins";
     font-weight: 900;
     margin-top: 0px;
@@ -503,19 +501,17 @@ h6 {
     overflow: scroll;
   }
 
-  .homepage-headline {
-    font-size: 2.5rem;
-    color: black;
-    font-family: "Poppins";
-    font-weight: 900;
-    margin-top: 0px;
-    width: 100%;
-    text-align: center;
-  }
+.homepage-headline {
+  font-size: 2.5rem;
+  font-family: "Poppins";
+  font-weight: 900;
+  margin-top: 0px;
+  width: 100%;
+  text-align: center;
+}
 
   .homepage-headline-bottom-half {
     font-size: 50px;
-    color: black;
     font-family: "Poppins";
     font-weight: 900;
     margin-top: 0px;
