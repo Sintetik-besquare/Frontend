@@ -5,20 +5,34 @@ function cdfNormal(x, mean, standardDeviation) {
   return (1 - mathjs.erf((mean - x) / (Math.sqrt(2) * standardDeviation))) / 2;
 }
 
-function bs_binary_option(St, K, sigma, delta_t, r, d, option_type) {
+function bs_binary_option(St, K, sigma, delta_t, r, d, option_type, contract_type) {
   var d1, d2;
   d1 =
     (1 / (sigma * Math.sqrt(delta_t))) *
     (Math.log(St / K) + (r - d + Math.pow(sigma, 2) / 2) * delta_t);
   d2 = d1 - sigma * Math.sqrt(delta_t);
 
-  if (option_type === "call") {
-    return cdfNormal(d2, 0, 1) * Math.exp(-r * delta_t);
-  } else if (option_type === "put") {
-    return cdfNormal(-d2, 0, 1) * Math.exp(-r * delta_t);
-  } else {
-    return "wtf???";
-  }
+  if(contract_type === "Rise/fall"){
+    if (option_type === "call") {
+      return cdfNormal(d2, 0, 1) * Math.exp(-r * delta_t);
+    } else if (option_type === "put"){
+      return cdfNormal(-d2, 0, 1) * Math.exp(-r * delta_t);
+    };
+  } else if (contract_type === "Even/odd") {
+    //call and put have the same payout
+    return 0.5 * Math.exp(-r * delta_t);
+  } else if (contract_type === "Matches/differs") {
+    if (option_type === "matches"){
+      // probability of matching is 0.1
+      return 0.1 * Math.exp(-r * delta_t);
+    } else if (option_type === "differs") {
+      // probability of differing is 0.9
+      return 0.9 * Math.exp(-r * delta_t)
+    }
+  } 
+  // else {
+  //   return 0;
+  // }
 }
 
 export default bs_binary_option;

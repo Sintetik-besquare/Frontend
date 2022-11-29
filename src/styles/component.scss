@@ -35,13 +35,12 @@ button {
     text-decoration: none;
     list-style: none;
     color: white;
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
     padding: 0px 10px;
   }
 
   .li:hover {
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 92px #f00,
-      0 0 102px #f00, 0 0 151px #f00;
+    text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
+    transition: 0.5s;
   }
 }
 
@@ -51,16 +50,19 @@ button {
   top: 10px;
   right: 10px;
   width: 20vw !important;
-  background-color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
   z-index: 1000;
 
   .btn_close_nav {
     @include button-shared($red);
     position: absolute;
-    top: 0;
-    right: 0;
-    border-radius: 5px;
+    top: 5px;
+    right: 5px;
+    padding:5px;
+    border-radius: 7px;
   }
 
   li {
@@ -87,7 +89,6 @@ input[type="number"] {
 *:focus {
   outline: none;
 }
-
 
 .input {
   @include drop-shadow;
@@ -317,8 +318,8 @@ h6 {
 .aboutus {
   color: white;
   font-family: "Poppins";
-  font-size:5rem;
-  text-align:right;
+  font-size: 5rem;
+  text-align: right;
 }
 
 .landing_hero_graphics {
@@ -398,7 +399,7 @@ h6 {
     margin-top: 0px;
     align-items: center;
   }
-  
+
   // .aboutus-text {
   //   color: rgb(0, 0, 0);
   //   font-family: "Poppins";
@@ -443,7 +444,6 @@ h6 {
   #about-the-team {
     padding-top: 0;
   }
-
 }
 
 .navbar {
@@ -510,7 +510,6 @@ h6 {
   text-align: center;
 }
 
-
   .homepage-headline-bottom-half {
     font-size: 50px;
     font-family: "Poppins";
@@ -525,9 +524,9 @@ h6 {
     align-items: center;
   }
 
-.hide-when-small {
-  display: none;
-}
+  .hide-when-small {
+    display: none;
+  }
 
   .hide-when-big {
     display: block;
@@ -551,18 +550,17 @@ h6 {
     font-size: 9px;
   }
 
-.aboutus {
-  text-align: center;
-  text-align: center;
-  padding-left: 2rem;
-}
+  .aboutus {
+    text-align: center;
+    text-align: center;
+    padding-left: 2rem;
+  }
 
-.about-us-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
+  .about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media only screen and (max-width: 600px) {

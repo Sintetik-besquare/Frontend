@@ -28,16 +28,6 @@ $yellow: rgba(245, 220, 12, 1);
   }
 }
 
-@mixin glow {
-  color: white;
-  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 151px #f00;
-
-  &:hover {
-    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 92px #f00,
-      0 0 102px #f00, 0 0 151px #f00;
-  }
-}
-
 .button_green_dark {
   @include button-shared($green);
   background-color: $black;

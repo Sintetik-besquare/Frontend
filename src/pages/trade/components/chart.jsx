@@ -10,7 +10,7 @@ import {
   LineElement,
   PointElement,
 } from "chart.js";
-import Status from "./status";
+import Status from "./modal-status";
 import { FiTrendingUp } from "react-icons/fi";
 // import { getHistoricalFeed } from "../../../services/historical-feed";
 import { getBalance } from "../../../services/wallet";

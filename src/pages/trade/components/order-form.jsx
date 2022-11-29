@@ -2,14 +2,19 @@ import React, { useRef, useEffect } from "react";
 import io from "socket.io-client";
 import { useStores } from "../../../store";
 import { observer } from "mobx-react-lite";
-import { BiCaretLeft } from "react-icons/bi";
-import { FiTrendingUp } from "react-icons/fi";
-import { MdAutoGraph } from "react-icons/md";
-import { HiOutlineChevronDoubleDown } from "react-icons/hi";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { getBalance } from "../../../services/wallet";
-import chart from "./chart";
-import Summary from "./summary";
+import DropdownContract from "./dropdown-contract";
+import DropdownIndex from "./dropdown-index";
+import InputTicks from "./input-ticks";
+import InputStake from "./input-stake";
+import BtnCall from "./btn-call";
+import BtnPut from "./btn-put";
+import BtnOdd from "./btn-odd";
+import BtnEven from "./btn-even";
+import BtnMatch from "./btn-match";
+import BtnDiffer from "./btn-differ";
+import LastDigitPrediction from "./last-digit-prediction";
+import Summary from "./modal-summary";
 
 const OrderForm = () => {
   /**
@@ -37,19 +42,20 @@ const OrderForm = () => {
 
     socket.current.on("buy", (message) => {
       console.log(message);
-      chart_store.setShowSummary(false);
+      chart_store.toggleShowSummary(false);
       chart_store.setSummary(message);
+      chart_store.toggleIndexModal(false);
+      chart_store.toggleContractModal(false);
     });
 
     socket.current.on("iswinning", (message) => {
       chart_store.setIswinning(message.status);
-      // console.log(chart_store.iswinning);
     });
 
     socket.current.on("sell", (message) => {
       chart_store.setSummary(message);
-      chart_store.setShowSummary(true);
-      chart_store.setIsBuying(false);
+      chart_store.toggleShowSummary(true);
+      chart_store.toggleIsBuying(false);
 
       getBalance().then((e) => {
         chart_store.setWallet(e);
@@ -72,13 +78,17 @@ const OrderForm = () => {
   function validate() {
     error_message = [];
     if (app_store.is_loggedin === false) {
-      error_message.push("please login first ");
+      error_message.push("please login first");
     }
     if (chart_store.ticks <= 0 || chart_store.ticks > 10) {
-      error_message.push(" ticks must be a value between 1 to 10 ");
+      error_message.push("ticks must be a value between 1 to 10");
     }
     if (chart_store.stake <= 0) {
-      error_message.push(" stake cannot be 0 ");
+      error_message.push("stake cannot be 0");
+    }
+    if (chart_store.contract_type === "Matches/differs") {
+      if (!chart_store.lastDigitPrediction)
+        error_message.push("you must choose a last digit prediction to match or differ");
     }
     if (error_message.length === 0) {
       emitOrder();
@@ -97,112 +107,41 @@ const OrderForm = () => {
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
+      contract_type: chart_store.contract_type,
       entry_time: Math.floor(Date.now() / 1000) - 1,
-      // TODO: contract_type: chart_store.contract_type, (Rise/Fall) (Even/Odd)
+      digit: chart_store.lastDigitPrediction,
     };
     console.log(order);
-    chart_store.setIsBuying(true);
+    chart_store.toggleIsBuying(true);
     socket.current.emit("order", order);
   };
 
   return (
     <div className="form_container">
-      {/* <div id="form_container_header">
-        <div id="trade-away">Trade Away</div>
-      </div> */}
       <div>
         <div className="form_row">
-          <div id="pad-top">
-            <div id="left">
-              <BiCaretLeft id="button-icon11" />
-            </div>
-            <div id="middle"> {chart_store.index}</div>
-            <div id="icons-blue">
-              <MdAutoGraph id="button-icon11" />
-            </div>
-          </div>
+          <DropdownIndex />
         </div>
 
         <div className="form_row">
-          <div id="pad-top">
-            <div id="left">
-              <BiCaretLeft id="button-icon12" />
-            </div>
-            <div id="middle">Rise / Fall</div>
-            <div id="icons-blue">
-              <FiTrendingUp id="button-icon13" />
-            </div>
-          </div>
+          <DropdownContract />
         </div>
       </div>
 
       <div>
         <div className="form_row">
-          <div id="ticks">
-            <div id="ticks-pad">Ticks</div>
-            <div id="ticks2">
-              <button
-                className="button_red_small"
-                disabled={chart_store.ticks <= 0}
-                onClick={() => {
-                  chart_store.setTicks(parseInt(chart_store.ticks) - 1);
-                }}
-              >
-                -
-              </button>
-              <input
-                type="number"
-                value={parseInt(chart_store.ticks)}
-                style={{ width: "100%" }}
-                onChange={(e) => {
-                  chart_store.setTicks(parseInt(e.target.value));
-                }}
-              />
-              <button
-                className="button_green_small"
-                disabled={chart_store.ticks >= 10}
-                onClick={() => {
-                  chart_store.setTicks(parseInt(chart_store.ticks) + 1);
-                }}
-              >
-                +
-              </button>
-            </div>
-          </div>
+          <InputTicks />
         </div>
 
         <div className="form_row">
-          <div id="ticks">
-            <div id="ticks-pad">Stake</div>
-            <div id="ticks2">
-              <button
-                className="button_red_small"
-                disabled={chart_store.stake <= 0}
-                onClick={() => {
-                  chart_store.setStake(parseFloat(chart_store.stake) - 1);
-                }}
-              >
-                -
-              </button>
-              <input
-                type="number"
-                value={parseFloat(chart_store.stake)}
-                style={{ width: "100%" }}
-                onChange={(e) => {
-                  chart_store.setStake(parseFloat(e.target.value));
-                }}
-              />
-              <button
-                className="button_green_small"
-                onClick={() => {
-                  chart_store.setStake(parseFloat(chart_store.stake) + 1);
-                }}
-              >
-                +
-              </button>
-            </div>
-          </div>
+          <InputStake />
         </div>
+
+        {chart_store.contract_type === "Matches/differs" && (
+          <div className="form_row">
+            <LastDigitPrediction />
+          </div>
+        )}
       </div>
 
       {app_store.is_loggedin === true &&
@@ -210,125 +149,97 @@ const OrderForm = () => {
       chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
         <div>
-          <button
-            className="form_row button_green_light"
-            onClick={() => {
-              chart_store.setOptionType("call");
-              validate();
-            }}
-          >
-            <div id="call-60">
-              <div id="call-left">
-                <span>${chart_store.call_payout}</span>
-              </div>
-            </div>
-            <div id="call-40">
-              <div id="call-right">
-                <span>
-                  CALL
-                  <HiOutlineChevronDoubleUp id="button-icon14" />
-                </span>
-              </div>
-            </div>
-          </button>
-          <button
-            className="form_row button_red_light"
-            onClick={() => {
-              chart_store.setOptionType("put");
-              validate();
-            }}
-          >
-            <div id="put-60">
-              <div id="put-left">
-                <span>${chart_store.put_payout}</span>
-              </div>
-            </div>
-            <div id="put-40">
-              <div id="put-right">
-                <span>
-                  PUT
-                  <HiOutlineChevronDoubleDown id="button-icon15" />
-                </span>
-              </div>
-            </div>
-          </button>
+          {chart_store.contract_type === "Rise/fall" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("call");
+                  validate();
+                }}
+              >
+                <BtnCall />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("put");
+                  validate();
+                }}
+              >
+                <BtnPut />
+              </button>
+            </>
+          )}
+
+          {chart_store.contract_type === "Even/odd" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("odd");
+                  validate();
+                }}
+              >
+                <BtnOdd />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("even");
+                  validate();
+                }}
+              >
+                <BtnEven />
+              </button>
+            </>
+          )}
+
+          {chart_store.contract_type === "Matches/differs" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("matches");
+                  validate();
+                }}
+              >
+                <BtnMatch />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("differs");
+                  validate();
+                }}
+              >
+                <BtnDiffer />
+              </button>
+            </>
+          )}
         </div>
       ) : (
         <div>
           <button
-            disabled
             className="form_row button_green_disabled"
             onClick={() => {
               validate();
             }}
           >
-            <div id="call-60">
-              <div id="call-left">
-                <span>${chart_store.call_payout}</span>
-              </div>
-            </div>
-            <div id="call-40">
-              <div id="call-right">
-                <span>
-                  CALL
-                  <HiOutlineChevronDoubleUp id="button-icon14" />
-                </span>
-              </div>
-            </div>
+            {chart_store.contract_type === "Rise/fall" && <BtnCall />}
+            {chart_store.contract_type === "Even/odd" && <BtnOdd />}
+            {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
           </button>
           <button
-            disabled
             className="form_row button_red_disabled"
             onClick={() => {
               validate();
             }}
           >
-            <div id="put-60">
-              <div id="put-left">
-                <span>${chart_store.put_payout}</span>
-              </div>
-            </div>
-            <div id="put-40">
-              <div id="put-right">
-                <span>
-                  PUT
-                  <HiOutlineChevronDoubleDown id="button-icon15" />
-                </span>
-              </div>
-            </div>
+            {chart_store.contract_type === "Rise/fall" && <BtnPut />}
+            {chart_store.contract_type === "Even/odd" && <BtnEven />}
+            {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
           </button>
-          {/* <button
-            className="button_orange_disabled "
-            onClick={() => {
-              validate();
-            }}
-          >
-            Reset balance
-          </button>
-          <div id="graph-tools" style={{ fontSize: "23px" }}>
-            <div id="minus">
-              <FiMinus id="button-icon3" />
-            </div>
-            <div id="cube">
-              <FiBox id="button-icon4" />
-            </div>
-            <div id="plus">
-              <FiPlus id="button-icon5" />
-            </div>
-            <TbMinusVertical id="button-icon6" />
-            <div id="down">
-              <FiTrendingDown id="button-icon6" />
-            </div>
-            <div id="up">
-              <FiTrendingUp id="button-icon7" />
-            </div>
-            <div id="graph">
-              <MdAutoGraph id="button-icon8" />
-            </div>
-            <div id="edit">
-              <MdOutlineModeEditOutline id="button-icon9" />
-            </div>
-          </div> */}
         </div>
       )}
       {chart_store.showSummary === true && chart_store.isbuying !== true && (
