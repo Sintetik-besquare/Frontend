@@ -37,6 +37,14 @@ export default class ChartStore {
   get even_payout() {
     return this.#payout("Even/odd", "even").toFixed(2);
   }
+
+  get match_payout() {
+    return this.#payout("Matches/differs", "matches").toFixed(2);
+  }
+
+  get differ_payout() {
+    return this.#payout("Matches/differs", "differs").toFixed(2);
+  }
   /**
    *
    * @param {"Rise/fall"|"Even/odd" | "Matches/differs"} contract
@@ -138,6 +146,8 @@ decorate(ChartStore, {
   put_payout: computed,
   odd_payout: computed,
   even_payout: computed,
+  match_payout:computed,
+  differ_payout: computed,
   wallet: observable,
   payoutSummary: observable,
   orderSummary: observable,

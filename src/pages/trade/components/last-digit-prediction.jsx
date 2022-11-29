@@ -5,9 +5,7 @@ import { useStores } from "../../../store";
 const LastDigitPrediction = () => {
   const { chart_store } = useStores();
 
-
   const setActive = (digit) => {
-    console.log(`digit: ${digit}`)
     chart_store.setLastDigitPrediction(digit);
   };
 
