@@ -9,6 +9,13 @@ button {
   border-radius: 0rem;
 }
 
+.lbl-error{
+  display:flex;;
+  align-items:center; 
+  justify-content:space-between;
+   gap:10px;
+}
+
 .hide-when-big {
   display: none;
 }

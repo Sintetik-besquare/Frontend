@@ -6,6 +6,7 @@ import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
 import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
+import ErrorMsg from "../../components/error-msg"
 
 const SignUp = () => {
   const { app_store } = useStores();
@@ -63,6 +64,7 @@ const SignUp = () => {
           >
             <h4>Let's get started shall we...</h4>
             &nbsp;
+            <ErrorMsg msg="test" />
             <div className="signin-input">
               <input
                 type="text"
@@ -75,6 +77,7 @@ const SignUp = () => {
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
+            <ErrorMsg msg="test" />
             <div className="signin-input">
               <input
                 type={passwordShown ? "text" : "password"}
@@ -102,6 +105,7 @@ const SignUp = () => {
 
             </div>
             &nbsp;
+            <ErrorMsg msg="test" />
             <div className="signin-input">
               <input
                 type={passwordConfirmShown ? "text" : "password"}

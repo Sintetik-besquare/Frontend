@@ -149,10 +149,6 @@
   padding-top: 10px;
 }
 
-#ticks {
-  padding-bottom: 0.3rem;
-}
-
 #balance-container {
   display: flex;
   flex-direction: column;
@@ -164,7 +160,7 @@
   color: white;
 }
 
-#ticks2 {
+ #input-row {
   display: flex;
   flex-direction: row;
   margin-top: 10px;

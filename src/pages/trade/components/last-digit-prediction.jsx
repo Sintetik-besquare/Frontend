@@ -13,7 +13,7 @@ const LastDigitPrediction = () => {
 
   return (
     <div>
-      <div id="ticks-pad">Last digit prediction</div>
+      <div  >Last digit prediction</div>
       <div className="match-diff-btn-row">
         {digits.map((buttonLabel, i) => (
           <button

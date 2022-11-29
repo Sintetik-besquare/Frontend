@@ -7,6 +7,7 @@ import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
 import { BiExit } from "react-icons/bi";
 import { performSignin } from "../../services/auth";
 import { getBalance } from "../../services/wallet";
+import ErrorMsg from "../../components/error-msg"
 
 const SigninPage = () => {
   const navigate = useNavigate();
@@ -79,6 +80,7 @@ const SigninPage = () => {
               Good to see you again.
             </h4>
             &nbsp;
+            <ErrorMsg msg="test" />
             <div className="signin-input">
               <input
                 type="text"
@@ -92,6 +94,7 @@ const SigninPage = () => {
               <FaRegUserCircle id="username-icon" />
             </div>
             &nbsp;
+            <ErrorMsg msg="test" />
             <div className="signin-input">
               <input
                 type={passwordShown ? "text" : "password"}
