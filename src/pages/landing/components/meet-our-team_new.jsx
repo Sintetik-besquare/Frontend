@@ -10,7 +10,7 @@ function MeetOurTeam() {
         <h1
           className="homepage-headline-bottom-half"
           data-aos="fade-left"
-          style={{ color: "white" }}
+          style={{ color: "$yellow" }}
         >
           Meet The Team
         </h1>
