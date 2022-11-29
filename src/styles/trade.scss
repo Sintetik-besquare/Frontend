@@ -27,6 +27,7 @@
     width: 100%;
   }
   .form_row {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,12 +39,30 @@
     width: 100%;
     transition: 0.7s;
     color: rgb(255, 255, 255);
-    // &:hover {
-    //   background-color: #000000;
-    //   border: 1px solid rgb(255, 255, 255);
-    // }
+    &:hover {
+      cursor: pointer;
+      text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+      transition: 0.3s;
+    }
+  }
+
+  .order-form-modal {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: absolute;
+    right: 300px;
+    button {
+      width: 100%;
+      background: none;
+      color: white;
+      &:hover {
+        cursor: pointer;
+        text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+        transition: 0.3s;
+      }
+    }
   }
 }
+
 #chart-header {
   display: flex;
   justify-content: space-between;
@@ -61,7 +80,7 @@
   position: relative;
   text-align: center;
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   margin: 5px;
 }
 
@@ -427,6 +446,13 @@ ul li:hover .slider p {
     }
     flex-wrap: wrap;
   }
+
+  .order-form-modal {
+    position: absolute;
+    left: 0;
+    top: 50px;
+  }
+
   #summary {
     width: 50%;
     color: white;

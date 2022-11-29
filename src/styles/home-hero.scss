@@ -44,6 +44,7 @@
 .get-started-button {
     background-color: -webkit-linear-gradient(white, rgb(228, 114, 99));
     font-size: 3rem;
+    cursor: pointer;
 }
 
 .aboutus-text {
@@ -225,9 +226,8 @@ padding-left: 0;
     }
 
     #graphic_crypto2 {
-        width: 90%;
+        width: 95%;
         object-fit: scale-down;
-        margin-top: 1rem;
         border-radius: 10px;
     }
 }
@@ -235,7 +235,7 @@ padding-left: 0;
 @media only screen and (max-width: 600px) {
 
     .homepage-title {
-        font-size: 5rem;
+        font-size: 4rem;
     }
 
     .hero-title {
@@ -259,7 +259,7 @@ font-size: 1rem;
 // }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
     // #company {
     //     padding-top: 11rem;
     //     padding-bottom: 30rem;
@@ -280,6 +280,6 @@ font-size: 1rem;
     }
 
     .aboutus-text{
-        font-size: 0.5rem;
+        font-size: 1rem;
     }
 }
