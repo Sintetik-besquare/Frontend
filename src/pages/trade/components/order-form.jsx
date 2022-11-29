@@ -41,6 +41,8 @@ const OrderForm = () => {
       console.log(message);
       chart_store.toggleShowSummary(false);
       chart_store.setSummary(message);
+      chart_store.toggleIndexModal(false);
+      chart_store.toggleContractModal(false);
     });
 
     socket.current.on("iswinning", (message) => {
@@ -132,52 +134,52 @@ const OrderForm = () => {
       chart_store.stake > 0 &&
       chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
-
-        
         <div>
-          {chart_store.contract_type==="Rise/fall" && 
-          <>
-            <button
-              className="form_row button_green_light"
-              onClick={() => {
-                chart_store.setOptionType("call");
-                validate();
-              }}
-            >
-              <BtnCall />
-            </button>
-            <button
-              className="form_row button_red_light"
-              onClick={() => {
-                chart_store.setOptionType("put");
-                validate();
-              }}
-            >
-              <BtnPut />
-            </button>
-          </>}
+          {chart_store.contract_type === "Rise/fall" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("call");
+                  validate();
+                }}
+              >
+                <BtnCall />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("put");
+                  validate();
+                }}
+              >
+                <BtnPut />
+              </button>
+            </>
+          )}
 
-          {chart_store.contract_type==="Even/odd" && 
-          <>
-            <button
-              className="form_row button_green_light"
-              onClick={() => {
-                chart_store.setOptionType("odd");
-                validate();
-              }}
-            >
-              <BtnOdd />
-            </button>
-            <button
-              className="form_row button_red_light"
-              onClick={() => {
-                chart_store.setOptionType("even");
-                validate();
-              }}
-            >
-              <BtnEven />
-            </button>
-          </>}
+          {chart_store.contract_type === "Even/odd" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("odd");
+                  validate();
+                }}
+              >
+                <BtnOdd />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("even");
+                  validate();
+                }}
+              >
+                <BtnEven />
+              </button>
+            </>
+          )}
         </div>
       ) : (
         <div>
@@ -188,9 +190,8 @@ const OrderForm = () => {
               validate();
             }}
           >
-            {chart_store.contract_type==="Rise/fall" && <BtnCall />}
-            {chart_store.contract_type==="Even/odd" && <BtnOdd />}
-            
+            {chart_store.contract_type === "Rise/fall" && <BtnCall />}
+            {chart_store.contract_type === "Even/odd" && <BtnOdd />}
           </button>
           <button
             disabled
@@ -199,8 +200,8 @@ const OrderForm = () => {
               validate();
             }}
           >
-            {chart_store.contract_type==="Rise/fall" && <BtnPut />}
-            {chart_store.contract_type==="Even/odd" && <BtnEven />}
+            {chart_store.contract_type === "Rise/fall" && <BtnPut />}
+            {chart_store.contract_type === "Even/odd" && <BtnEven />}
           </button>
         </div>
       )}

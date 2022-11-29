@@ -23,7 +23,7 @@ const DropdownContract = () => {
           <FiTrendingUp id="button-icon13" />
         </div>
       </div>
-      {chart_store.showContractModal && <ContractModal />}
+      {chart_store.showContractModal && chart_store.isbuying === false ? <ContractModal /> : <></>}
     </>
   );
 };
