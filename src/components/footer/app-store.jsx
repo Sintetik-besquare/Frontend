@@ -1,11 +1,12 @@
 import Apple from "../../assets/app-store.png";
 import Google from "../../assets/google-play-badge.png";
 import Huawei from "../../assets/app-gallery.png"
+import { size } from "mathjs";
 
 function App_Store() {
   return (
     <div className="app-stores-container">
-        <b>Download Our App Now.</b>
+        <b style={{textDecoration: "underline yellow", fontSize:"1.5rem"}}>Download Our App Now</b>
       <div className="app-stores-list">
           <a href="https://apps.apple.com/us/app/among-us/id1351168404" target="_blank">
           <img src={Apple} alt="N/A" className="apple-image-card"/>
