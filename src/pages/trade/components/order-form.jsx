@@ -100,6 +100,9 @@ const OrderForm = () => {
   }
 
   const emitOrder = () => {
+    if (chart_store.contract_type!=="Matcher/differs"){
+      chart_store.lastDigitPrediction=0
+    }
     let order = {
       index: chart_store.index,
       stake: parseFloat(chart_store.stake),
