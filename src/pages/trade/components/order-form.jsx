@@ -11,6 +11,9 @@ import BtnCall from "./btn-call";
 import BtnPut from "./btn-put";
 import BtnOdd from "./btn-odd";
 import BtnEven from "./btn-even";
+import BtnMatch from "./btn-match";
+import BtnDiffer from "./btn-differ";
+import LastDigitPrediction from "./last-digit-prediction";
 import Summary from "./modal-summary";
 
 const OrderForm = () => {
@@ -75,13 +78,17 @@ const OrderForm = () => {
   function validate() {
     error_message = [];
     if (app_store.is_loggedin === false) {
-      error_message.push("please login first ");
+      error_message.push("please login first");
     }
     if (chart_store.ticks <= 0 || chart_store.ticks > 10) {
-      error_message.push(" ticks must be a value between 1 to 10 ");
+      error_message.push("ticks must be a value between 1 to 10");
     }
     if (chart_store.stake <= 0) {
-      error_message.push(" stake cannot be 0 ");
+      error_message.push("stake cannot be 0");
+    }
+    if (chart_store.contract_type === "Match/differ") {
+      if (!chart_store.lastDigitPrediction)
+        error_message.push("you must choose a last digit prediction to match or differ");
     }
     if (error_message.length === 0) {
       emitOrder();
@@ -102,6 +109,7 @@ const OrderForm = () => {
       option_type: chart_store.option_type,
       entry_time: Math.floor(Date.now() / 1000) - 1,
       contract_type: chart_store.contract_type,
+      lastDigitPrediction: chart_store.lastDigitPrediction,
     };
     console.log(order);
     chart_store.toggleIsBuying(true);
@@ -128,6 +136,12 @@ const OrderForm = () => {
         <div className="form_row">
           <InputStake />
         </div>
+
+        {chart_store.contract_type === "Match/differ" && (
+          <div className="form_row">
+            <LastDigitPrediction />
+          </div>
+        )}
       </div>
 
       {app_store.is_loggedin === true &&
@@ -180,11 +194,33 @@ const OrderForm = () => {
               </button>
             </>
           )}
+
+          {chart_store.contract_type === "Match/differ" && (
+            <>
+              <button
+                className="form_row button_green_light"
+                onClick={() => {
+                  chart_store.setOptionType("match");
+                  validate();
+                }}
+              >
+                <BtnMatch />
+              </button>
+              <button
+                className="form_row button_red_light"
+                onClick={() => {
+                  chart_store.setOptionType("differ");
+                  validate();
+                }}
+              >
+                <BtnDiffer />
+              </button>
+            </>
+          )}
         </div>
       ) : (
         <div>
           <button
-            disabled
             className="form_row button_green_disabled"
             onClick={() => {
               validate();
@@ -192,9 +228,9 @@ const OrderForm = () => {
           >
             {chart_store.contract_type === "Rise/fall" && <BtnCall />}
             {chart_store.contract_type === "Even/odd" && <BtnOdd />}
+            {chart_store.contract_type === "Match/differ" && <BtnMatch />}
           </button>
           <button
-            disabled
             className="form_row button_red_disabled"
             onClick={() => {
               validate();
@@ -202,6 +238,7 @@ const OrderForm = () => {
           >
             {chart_store.contract_type === "Rise/fall" && <BtnPut />}
             {chart_store.contract_type === "Even/odd" && <BtnEven />}
+            {chart_store.contract_type === "Match/differ" && <BtnDiffer />}
           </button>
         </div>
       )}

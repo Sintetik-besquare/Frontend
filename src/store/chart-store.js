@@ -9,6 +9,7 @@ export default class ChartStore {
   contract_type = "Rise/fall"; // Rise/fall Even/odd
   ticks = 0;
   stake = 0.0;
+  lastDigitPrediction = null;
   entry_time = Math.floor(Date.now() / 1000) - 1; //TODO: entry_time = current_time -1s
   wallet = 0;
   iswinning = [];
@@ -71,6 +72,10 @@ export default class ChartStore {
     this.stake = stake;
   }
 
+  setLastDigitPrediction(digit){
+    this.lastDigitPrediction = digit;
+  }
+
   setIswinning(iswinning) {
     this.iswinning.push(iswinning);
     // setTimeout(() => {
@@ -89,7 +94,7 @@ export default class ChartStore {
   toggleShowSummary(visibility) {
     this.showSummary = visibility;
   }
-
+  
   toggleOrderForm(visibility) {
     this.showOrderForm = visibility;
   }
@@ -103,6 +108,7 @@ export default class ChartStore {
     this.showContractModal = visibility;
     this.showIndexModal = false;
   }
+
 
   resetWallet() {
     this.wallet = 20000;
