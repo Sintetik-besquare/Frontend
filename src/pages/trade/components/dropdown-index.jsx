@@ -13,7 +13,7 @@ const DropdownContract = () => {
     <>
       <div id="pad-top" onClick={() => chart_store.toggleIndexModal(!chart_store.showIndexModal)}>
         <div id="left">
-        {chart_store.showIndexModal ? (
+        {chart_store.showIndexModal && !chart_store.isbuying ? (
             <BiCaretRight id="button-icon12" />
             ) : (
             <BiCaretLeft id="button-icon12" />

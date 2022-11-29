@@ -135,7 +135,7 @@ const OrderForm = () => {
 
         
         <div>
-          {chart_store.contract_type==="Rise/Fall" && 
+          {chart_store.contract_type==="Rise/fall" && 
           <>
             <button
               className="form_row button_green_light"
@@ -157,7 +157,7 @@ const OrderForm = () => {
             </button>
           </>}
 
-          {chart_store.contract_type==="Odd/Even" && 
+          {chart_store.contract_type==="Even/odd" && 
           <>
             <button
               className="form_row button_green_light"
@@ -188,8 +188,8 @@ const OrderForm = () => {
               validate();
             }}
           >
-            {chart_store.contract_type==="Rise/Fall" && <BtnCall />}
-            {chart_store.contract_type==="Odd/Even" && <BtnOdd />}
+            {chart_store.contract_type==="Rise/fall" && <BtnCall />}
+            {chart_store.contract_type==="Even/odd" && <BtnOdd />}
             
           </button>
           <button
@@ -199,8 +199,8 @@ const OrderForm = () => {
               validate();
             }}
           >
-            {chart_store.contract_type==="Rise/Fall" && <BtnPut />}
-            {chart_store.contract_type==="Odd/Even" && <BtnEven />}
+            {chart_store.contract_type==="Rise/fall" && <BtnPut />}
+            {chart_store.contract_type==="Even/odd" && <BtnEven />}
           </button>
         </div>
       )}
