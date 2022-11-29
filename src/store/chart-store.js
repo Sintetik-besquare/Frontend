@@ -13,7 +13,8 @@ export default class ChartStore {
   entry_time = Math.floor(Date.now() / 1000) - 1; //TODO: entry_time = current_time -1s
   wallet = 0;
   iswinning = [];
-  summary = [];
+  payoutSummary = [];
+  orderSummary = [];
   showSummary = false;
   showOrderForm = false;
   showIndexModal = false;
@@ -35,6 +36,14 @@ export default class ChartStore {
 
   get even_payout() {
     return this.#payout("Even/odd", "even").toFixed(2);
+  }
+
+  get match_payout() {
+    return this.#payout("Matches/differs", "matches").toFixed(2);
+  }
+
+  get differ_payout() {
+    return this.#payout("Matches/differs", "differs").toFixed(2);
   }
   /**
    *
@@ -87,10 +96,12 @@ export default class ChartStore {
     this.wallet = amt;
   }
 
-  setSummary(summary) {
-    this.summary = summary;
+  setPayoutSummary(summary) {
+    this.payoutSummary = summary;
   }
-
+  setOrderSummary(summary) {
+    this.orderSummary = summary;
+  }
   toggleShowSummary(visibility) {
     this.showSummary = visibility;
   }
@@ -129,13 +140,17 @@ decorate(ChartStore, {
   contract_type: observable,
   ticks: observable,
   stake: observable,
+  lastDigitPrediction: observable,
   entry_time: observable,
   call_payout: computed,
   put_payout: computed,
   odd_payout: computed,
   even_payout: computed,
+  match_payout:computed,
+  differ_payout: computed,
   wallet: observable,
-  summary: observable,
+  payoutSummary: observable,
+  orderSummary: observable,
   iswinning: observable,
   showSummary: observable,
   showOrderForm: observable,
@@ -147,9 +162,11 @@ decorate(ChartStore, {
   setContractType: action,
   setTicks: action,
   setState: action,
+  setLastDigitPrediction: action,
   setIswinning: action,
   setWallet: action,
-  setSummary: action,
+  setPayoutSummary: action,
+  setOrderSummary: action,
   resetWallet: action,
   updateHistory: action,
   toggleShowSummary: action,

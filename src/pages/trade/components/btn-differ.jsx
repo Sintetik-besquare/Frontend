@@ -10,7 +10,7 @@ const BtnOdd = () => {
     <>
       <div id="call-60">
         <div id="call-left">
-          <span>${chart_store.odd_payout}</span>
+          <span>${chart_store.differ_payout}</span>
         </div>
       </div>
       <div id="call-40">

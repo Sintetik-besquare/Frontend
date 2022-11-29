@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import io from "socket.io-client";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
@@ -17,10 +17,8 @@ import { getBalance } from "../../../services/wallet";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
 const LineChart = () => {
+  const socket = useRef();
   const { app_store, chart_store } = useStores();
-
-  const chart_name = "VOL100";
-  chart_store.index = chart_name;
 
   const [x_axis, setX_axis] = React.useState([]);
   const [y_axis, setY_axis] = React.useState([]);
@@ -29,7 +27,7 @@ const LineChart = () => {
     datasets: [
       {
         data: y_axis,
-        label: chart_name,
+        label: chart_store.index,
         borderColor: "white",
         backgroundColor: "white",
         pointStyle: "dash",
@@ -68,7 +66,7 @@ const LineChart = () => {
   }, []);
 
   useEffect(() => {
-    const socket = io.connect("http://localhost:3002");
+    socket.current = io("http://localhost:3002");
     /**
      *
      * @param {any[]} z
@@ -80,16 +78,24 @@ const LineChart = () => {
       }
       return z;
     };
-    socket.on("connect_error", (e) => {
+    socket.current.on("connect_error", (e) => {
       console.log(e);
     });
 
-    socket.on("getfeed", (price) => {
+    socket.current.on("getfeed", (price) => {
       setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
       setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
     });
-    return () => socket.disconnect(true); //prevent spam
-  }, []);
+    // socket.current.emit("select", chart_store.index);
+    return () => socket.current.disconnect(true); //prevent spam
+  },[]);
+
+
+  useEffect(() => {
+    socket.current.emit("select", chart_store.index);
+    setX_axis([])
+    setY_axis([])
+  }, [chart_store.index]);
 
   return (
     <div id="chart-container" data-aos="fade-right" data-aos-duration="1000">

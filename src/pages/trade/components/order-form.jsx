@@ -41,9 +41,7 @@ const OrderForm = () => {
     });
 
     socket.current.on("buy", (message) => {
-      console.log(message);
       chart_store.toggleShowSummary(false);
-      chart_store.setSummary(message);
       chart_store.toggleIndexModal(false);
       chart_store.toggleContractModal(false);
     });
@@ -53,7 +51,7 @@ const OrderForm = () => {
     });
 
     socket.current.on("sell", (message) => {
-      chart_store.setSummary(message);
+      chart_store.setPayoutSummary(message);
       chart_store.toggleShowSummary(true);
       chart_store.toggleIsBuying(false);
 
@@ -87,7 +85,7 @@ const OrderForm = () => {
       error_message.push("stake cannot be 0");
     }
     if (chart_store.contract_type === "Matches/differs") {
-      if (!chart_store.lastDigitPrediction)
+      if (chart_store.lastDigitPrediction===null)
         error_message.push("you must choose a last digit prediction to match or differ");
     }
     if (error_message.length === 0) {
@@ -102,6 +100,9 @@ const OrderForm = () => {
   }
 
   const emitOrder = () => {
+    if (chart_store.contract_type!=="Matcher/differs"){
+      chart_store.lastDigitPrediction=0
+    }
     let order = {
       index: chart_store.index,
       stake: parseFloat(chart_store.stake),
@@ -111,8 +112,9 @@ const OrderForm = () => {
       entry_time: Math.floor(Date.now() / 1000) - 1,
       digit: chart_store.lastDigitPrediction,
     };
-    console.log(order);
     chart_store.toggleIsBuying(true);
+    chart_store.setOrderSummary(order);
+    console.log(chart_store.orderSummary);
     socket.current.emit("order", order);
   };
 
