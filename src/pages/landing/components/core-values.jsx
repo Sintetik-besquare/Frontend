@@ -33,7 +33,7 @@ function CoreValues() {
                 <div className="gl__card__TitleWrapper">
                   <p
                     className="gl__card__Title"
-                    style={{ color: "whitesmoke" }}
+                    style={{ color: "white" }}
                   >
                     User Centric
                   </p>
@@ -45,7 +45,7 @@ function CoreValues() {
                 <div className="gl__card__TitleWrapper">
                   <p
                     className="gl__card__Title"
-                    style={{ color: "rgb(255, 255, 255)" }}
+                    style={{ color: "white" }}
                   >
                     Honesty
                   </p>

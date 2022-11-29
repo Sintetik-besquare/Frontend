@@ -4,7 +4,7 @@ import Crypto2 from "../../../assets/spacemen.png";
 function OurCompany() {
   return (
     <div id="company">
-      <div className="homepage-image, hide-when-small" data-aos="fade-right">
+      <div className="homepage-image, hide-when-small" data-aos="fade-up">
         <img src={Graph} altpo="Logo" id="graphic_crypto2" />
       </div>
       <div className="about-us-container" style={{width:"120vw", padding:"3rem"}}>
@@ -19,10 +19,10 @@ function OurCompany() {
         <img src={Graph} altpo="Logo" id="graphic_crypto2" />
       </div>
         <h2 className="aboutus-text" data-aos="fade-up">
-            SINTETIK is one of the world's largest online brokers. We offer CFDs
-            and other derivatives on forex, indices, cryptocurrencies,
-            commodities, and synthetics to millions of registered users across
-            the globe.
+          SINTETIK is a website based off of its parent company Deriv.com 
+          as we offer clients the opportunity to trade with synthetic indices.
+          By providing risk-free demo accounts, users can obtain 
+          valuable experience on synthetics along the way.
         </h2>
       </div>
     </div>
