@@ -86,7 +86,7 @@ const OrderForm = () => {
     if (chart_store.stake <= 0) {
       error_message.push("stake cannot be 0");
     }
-    if (chart_store.contract_type === "Match/differ") {
+    if (chart_store.contract_type === "Matches/differs") {
       if (!chart_store.lastDigitPrediction)
         error_message.push("you must choose a last digit prediction to match or differ");
     }
@@ -107,9 +107,9 @@ const OrderForm = () => {
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
       option_type: chart_store.option_type,
-      entry_time: Math.floor(Date.now() / 1000) - 1,
       contract_type: chart_store.contract_type,
-      lastDigitPrediction: chart_store.lastDigitPrediction,
+      entry_time: Math.floor(Date.now() / 1000) - 1,
+      digit: chart_store.lastDigitPrediction,
     };
     console.log(order);
     chart_store.toggleIsBuying(true);
@@ -137,7 +137,7 @@ const OrderForm = () => {
           <InputStake />
         </div>
 
-        {chart_store.contract_type === "Match/differ" && (
+        {chart_store.contract_type === "Matches/differs" && (
           <div className="form_row">
             <LastDigitPrediction />
           </div>
@@ -195,12 +195,12 @@ const OrderForm = () => {
             </>
           )}
 
-          {chart_store.contract_type === "Match/differ" && (
+          {chart_store.contract_type === "Matches/differs" && (
             <>
               <button
                 className="form_row button_green_light"
                 onClick={() => {
-                  chart_store.setOptionType("match");
+                  chart_store.setOptionType("matches");
                   validate();
                 }}
               >
@@ -209,7 +209,7 @@ const OrderForm = () => {
               <button
                 className="form_row button_red_light"
                 onClick={() => {
-                  chart_store.setOptionType("differ");
+                  chart_store.setOptionType("differs");
                   validate();
                 }}
               >
@@ -228,7 +228,7 @@ const OrderForm = () => {
           >
             {chart_store.contract_type === "Rise/fall" && <BtnCall />}
             {chart_store.contract_type === "Even/odd" && <BtnOdd />}
-            {chart_store.contract_type === "Match/differ" && <BtnMatch />}
+            {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
           </button>
           <button
             className="form_row button_red_disabled"
@@ -238,7 +238,7 @@ const OrderForm = () => {
           >
             {chart_store.contract_type === "Rise/fall" && <BtnPut />}
             {chart_store.contract_type === "Even/odd" && <BtnEven />}
-            {chart_store.contract_type === "Match/differ" && <BtnDiffer />}
+            {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
           </button>
         </div>
       )}

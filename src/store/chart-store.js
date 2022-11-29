@@ -5,8 +5,8 @@ export default class ChartStore {
   //obervables
   historical_price = [];
   index = "VOL100";
-  option_type = " "; //call put
-  contract_type = "Rise/fall"; // Rise/fall Even/odd
+  option_type = " "; //call put odd even matches differs
+  contract_type = "Rise/fall"; // Rise/fall Even/odd Matches/differs
   ticks = 0;
   stake = 0.0;
   lastDigitPrediction = null;
@@ -38,8 +38,8 @@ export default class ChartStore {
   }
   /**
    *
-   * @param {"Rise/fall"|"Even/odd"} contract
-   * @param {"call"|"put"|"odd"|"even"} option
+   * @param {"Rise/fall"|"Even/odd" | "Matches/differs"} contract
+   * @param {"call"|"put"|"odd"|"even"|"matches"|"differs"} option
    * @returns {Number}
    */
   #payout(contract, option) {

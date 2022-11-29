@@ -43,6 +43,10 @@ const Status = () => {
           <td>{chart_store.stake}</td>
         </tr>
         <tr>
+          <td>Contract:</td>
+          <td>{chart_store.contract_type}</td>
+        </tr>
+        <tr>
           <td>Option:</td>
           <td>{chart_store.option_type}</td>
         </tr>

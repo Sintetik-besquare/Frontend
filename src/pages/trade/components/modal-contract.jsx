@@ -18,7 +18,7 @@ const ContractModal = () => {
       <button disabled onClick={() => contract("Multiplier")}  style={{color:"grey"}}>Multiplier</button>
       <button onClick={() => contract("Rise/fall")}>Rise / Fall</button>
       <button onClick={() => contract("Even/odd")}>Odd / Even</button>
-      <button onClick={() => contract("Match/differ")}>Match / Differ</button>
+      <button onClick={() => contract("Matches/differs")}>Match / Differ</button>
       <button disabled onClick={() => contract("Higher/Lower")} style={{color:"grey"}}>Higher / Lower</button>
       <button disabled onClick={() => contract("Touch/NoTouch")} style={{color:"grey"}}>Touch / NoTouch</button>
       <button disabled onClick={() => contract("Over/Under")} style={{color:"grey"}}>Over / Under</button>
