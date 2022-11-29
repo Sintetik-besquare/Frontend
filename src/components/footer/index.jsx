@@ -2,6 +2,7 @@ import React from "react";
 import Info from "./info";
 import Socials from "./socials";
 import Form from "./form";
+import App_Store from "./app-store";
 
 export const Footer = () => {
   return (
@@ -14,7 +15,7 @@ export const Footer = () => {
           <Socials />
         </div>
         <div>
-          <Form />
+          <App_Store />
         </div>
       </div>
     </div>
