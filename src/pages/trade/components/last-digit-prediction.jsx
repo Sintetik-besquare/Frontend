@@ -1,18 +1,17 @@
 import { observer } from "mobx-react-lite";
-import React, { useState } from "react";
+import React from "react";
 import { useStores } from "../../../store";
 
 const LastDigitPrediction = () => {
   const { chart_store } = useStores();
 
-  const [clickedId, setClickedId] = useState(-1);
 
   const setActive = (digit) => {
-    setClickedId(digit);
+    console.log(`digit: ${digit}`)
     chart_store.setLastDigitPrediction(digit);
   };
 
-  const digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <div>
@@ -23,7 +22,7 @@ const LastDigitPrediction = () => {
             key={i}
             name={buttonLabel}
             onClick={() => setActive(i)}
-            className={i === clickedId ? "active" : ""}
+            className={i === chart_store.lastDigitPrediction ? "active" : ""}
           >
             {buttonLabel}
           </button>
