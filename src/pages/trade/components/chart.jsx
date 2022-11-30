@@ -83,7 +83,6 @@ const LineChart = () => {
     });
 
     socket.current.on("feed", (price) => {
-      console.log(price)
       setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
       setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
     });
