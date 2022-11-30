@@ -36,7 +36,7 @@ const OrderForm = () => {
       console.log(e);
     });
 
-    socket.current.on("getfeed", () => {
+    socket.current.on("feed", () => {
       console.log("connected to server");
     });
 
