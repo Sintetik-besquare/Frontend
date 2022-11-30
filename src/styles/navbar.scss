@@ -2,11 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: transparent;
-    position: absolute;
-    z-index: 1;
+    background-color: black;
+    position: relative;
     width: 100%;
-    opacity: 0.8;
     img {
       width: 60px;
       height: auto;
