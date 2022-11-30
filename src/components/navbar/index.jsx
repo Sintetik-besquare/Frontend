@@ -21,12 +21,18 @@ const NavBar = () => {
 
   return (
     <div id="header">
-      <div className="flex-block navbar" style={{ background: "#000000" }}>
-        <div style={{ display: "flex" }}>
+      <div className="navbar" style={{ background: "#000000" }}>
+      <input type="checkbox" className="navbar-checkbox hide-when-big" name="" id=""/>
+          <div class="hamburger-lines">
+              <span class="line line1"></span>
+              <span class="line line2"></span>
+              <span class="line line3"></span>
+          </div>
+        <div className="hide-when-small">
           <img src={Logo} alt="Logo"/>
-          <h3 style={{ float: "left" }}>SINTETIK</h3>
+          {/* <h3 style={{ float: "left" }}>SINTETIK</h3> */}
         </div>
-        <div>
+        <div className="navbar-menu-list">
           <ul className="navlink">
             <HashLink smooth to="/#header" className="li">
               <li>Home</li>
