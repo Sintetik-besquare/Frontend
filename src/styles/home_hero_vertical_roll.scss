@@ -124,7 +124,7 @@
   }
 
   .Tradewith .innerTradewith {
-    padding-right: 4rem;
+    padding-right: 0;
   }
 
   @keyframes move {
@@ -140,7 +140,6 @@
 
   .Tradewith .innerTradewith {
     font-size: 2rem;
-    padding-right: 0rem;
   }
 
   .Tradewith b{
@@ -160,6 +159,7 @@
 @media only screen and (max-width: 600px) {
   .Tradewith b{
     height: 2.5rem;
+    margin-right: 6.5rem;
   }
 
   .Tradewith .innerTradewith {
@@ -173,4 +173,16 @@
     60% { top: -7.5rem; }
     80% { top: -10rem; }
 }
+}
+
+@media only screen and (max-width: 400px) {
+  .Tradewith b{
+    margin-right: 5rem;
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .Tradewith b{
+    margin-right: 3rem;
+  }
 }
