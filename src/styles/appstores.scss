@@ -1,0 +1,28 @@
+.app-stores-container {
+    text-align: center;
+}
+
+.app-stores-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.apple-image-card{
+    position: relative;
+    width: 10rem;
+    margin: 0.5rem;
+}
+
+
+.google-image-card {
+    position: relative;
+    width: 10rem;
+    margin: 0.5rem;
+}
+
+.huawei-image-card {
+    position: relative;
+    width: 10rem;
+    margin: 0.5rem;
+}

@@ -5,9 +5,6 @@ import Sand from "../../../assets/cyberspace_gray.mp4";
 function Hero() {
   return (
     <div className="hero-home" style={{backgroundColor:"black", position: "relative" }}>
-      {/* <video autoPlay loop muted className="hero-video">
-          <source src={Sand} type="video/mp4" />
-        </video> */}
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
@@ -23,37 +20,41 @@ function Hero() {
           className="homepage-heading2"
           style={{ WebkitTextFillColor: "#FFF" }}
         >
-          It Just Gets Better and Better
+          A New Way of Trading
         </span>
         <br />
         <div className="Tradewith">
           <p>What Our Users Say About Us</p>
           <b>
             <div className="innerTradewith">
-              Enjoyable
+              "Exciting"
               <br />
-              Exemplary
+              "Exemplary"
               <br />
-              Exquisite
+              "Exquisite"
               <br />
-              Excellent
+              "Excellent"
               <br />
-              Exceptional
+              "Exceptional"
             </div>
           </b>
         </div>
         <br className="hide-when-small" />
         <br />
         <br />
-        <a href="trade">
+        <a href="trade" style={{all:"unset"}}>
         <button
           className="get-started-button"
           style={{
             // backgroundColor: "#F5DC0C",
-            WebkitTextFillColor: "#000",
+            // WebkitTextFillColor: "white",
           }}
           >
-          <b>Get Started</b> &nbsp;
+            <span> </span>
+            <span> </span>
+            <span> </span>
+            <span> </span>
+          <b className="home-hero-button">Get Started</b> &nbsp;
           <CgArrowTopRight id="button-icon2" />
         </button>
           </a>

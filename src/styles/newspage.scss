@@ -78,7 +78,7 @@
 a:hover {
   transition: 500ms;
   transform: scale(1.001);
-  text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+   text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
   transition: 0.5s;
   border-radius: 25px;
 }
@@ -91,7 +91,7 @@ button.news-load-btn {
   cursor: pointer;
 
   :hover {
-    text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+     text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
     transition:0.5s;  }
 }
 

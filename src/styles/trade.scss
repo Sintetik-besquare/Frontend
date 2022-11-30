@@ -41,12 +41,13 @@
     color: rgb(255, 255, 255);
     &:hover {
       cursor: pointer;
-      text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+      text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
       transition: 0.3s;
     }
   }
 
   .order-form-modal {
+    background-color: $black;
     border: 1px solid rgba(255, 255, 255, 0.2);
     position: absolute;
     right: 300px;
@@ -56,9 +57,37 @@
       color: white;
       &:hover {
         cursor: pointer;
-        text-shadow: -0.5px -0.5px 0 white, 0.5px 0.5px white;
+        text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
         transition: 0.3s;
+        background-color: $black;
       }
+    }
+  }
+
+  .match-diff-btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    button {
+      border: 1px solid white;
+      background-color: #000000;
+      width: 19%;
+      height: auto;
+      color: white;
+      border-radius: 5px;
+
+      &:hover {
+        cursor: pointer;
+        box-shadow: 1px 2px white;
+        transition: 0.3s;
+        font-weight: bolder;
+      }
+    }
+
+    .active {
+      background-color: rgba(255, 255, 255, 0.2);
     }
   }
 }

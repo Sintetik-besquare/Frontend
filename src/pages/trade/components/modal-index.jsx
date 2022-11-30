@@ -7,6 +7,7 @@ const IndexModal = () => {
 
   const index = (type) => {
     chart_store.setIndex(type)
+    console.log(chart_store.index)
   }
 
   return (
@@ -18,7 +19,7 @@ const IndexModal = () => {
       <button disabled onClick={() => index("VOL10")} style={{color:"grey"}}>Volatility 10</button>
       <button disabled onClick={() => index("VOL50")}  style={{color:"grey"}}>Volatility 50</button>
       <button onClick={() => index("VOL100")}>Volatility 100</button>
-      <button disabled onClick={() => index("VOL200")} style={{color:"grey"}}>Volatility 200</button>
+      <button onClick={() => index("VOL200")}>Volatility 200</button>
       <button disabled onClick={() => index("VOL300")} style={{color:"grey"}}>Volatility 300</button>
     </div>
   );
