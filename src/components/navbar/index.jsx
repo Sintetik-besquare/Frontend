@@ -24,7 +24,7 @@ const NavBar = () => {
       <div className="flex-block navbar" style={{ background: "#000000" }}>
         <div style={{ display: "flex" }}>
           <img src={Logo} alt="Logo"/>
-          {/* <h3 style={{ float: "left" }}>SINTETIK</h3> */}
+          <h3 style={{ float: "left" }}>SINTETIK</h3>
         </div>
         <div>
           <ul className="navlink">

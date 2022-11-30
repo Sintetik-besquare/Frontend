@@ -27,7 +27,7 @@ function Hero() {
           <p>What Our Users Say About Us</p>
           <b>
             <div className="innerTradewith">
-              "Enjoyable"
+              "Exciting"
               <br />
               "Exemplary"
               <br />

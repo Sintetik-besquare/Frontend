@@ -27,7 +27,7 @@ const NavModal = () => {
     .then((e) => {
       console.log(e)
       chart_store.setWallet(e);
-      alert(`wallet resetted, balance is now ${e}`);
+      alert(`wallet has been reset, balance is now ${e}`);
     });
     app_store.setShowModal(false);
   }
@@ -52,7 +52,7 @@ const NavModal = () => {
           onClick={() => {
             if (
               window.confirm(
-                "Your wallet will be resetted to 20,000$, are you sure you want to proceed? "
+                "Your wallet will be reset to 20,000$, are you sure you want to proceed? "
               )
             )
               resetWallet();
