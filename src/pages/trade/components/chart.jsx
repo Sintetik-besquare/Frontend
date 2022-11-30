@@ -82,7 +82,8 @@ const LineChart = () => {
       console.log(e);
     });
 
-    socket.current.on("getfeed", (price) => {
+    socket.current.on("feed", (price) => {
+      console.log(price)
       setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
       setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
     });
@@ -92,7 +93,7 @@ const LineChart = () => {
 
 
   useEffect(() => {
-    socket.current.emit("select", chart_store.index);
+    socket.current.emit("index", {index:chart_store.index});
     setX_axis([])
     setY_axis([])
   }, [chart_store.index]);
