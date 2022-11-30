@@ -6,6 +6,7 @@ const getNews = () => {
     url: "https://bing-news-search1.p.rapidapi.com/news/search",
     params: {
       q: "economy",
+      count: "30",
       freshness: "Day",
       textFormat: "Raw",
       safeSearch: "Off",

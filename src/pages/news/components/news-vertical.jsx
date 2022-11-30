@@ -16,11 +16,8 @@ const NewsList = () => {
 
   //Get every related news
   useEffect(() => {
-    console.log("asdas");
     getNews().then((e) => setArticles(e.data.value));
   }, []);
-
-  console.log("articles", articles);
 
   const [cardsAvailable, setCardsAvailable] = useState(9);
   const showMoreCards = () => {
@@ -51,7 +48,7 @@ const NewsList = () => {
       <div className="news-container">
         <div className="news-container-grid">
           {articles
-            .slice(1)
+            .slice(2)
             .sort(function (a, b) {
               return new Date(b.publishedAt) - new Date(a.publishedAt);
             })
@@ -62,7 +59,7 @@ const NewsList = () => {
                 date={article.datePublished}
                 description={article.description}
                 url={article.url}
-                urlToImage={article.image.thumbnail.contentUrl}
+                urlToImage={article.image?.thumbnail?.contentUrl}
                 key={i}
               />
             ))}
