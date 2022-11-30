@@ -66,7 +66,7 @@ const SignUp = () => {
             <div className="signin-input">
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Email"
                 name="username"
                 onChange={(e) => {
                   setUsername(e.target.value);
@@ -139,7 +139,7 @@ const SignUp = () => {
                 }}
               />
               <h6>
-                I agree to the
+                I agree to the {" "}
                 <a
                   href="error"
                   target="blank"
@@ -177,7 +177,7 @@ const SignUp = () => {
             </center>
             <center>
               <h6>
-                Already have an account?
+                Already have an account? {" "}
                 <a href="signin" style={{ color: "red" }}>
                   Sign in
                 </a>

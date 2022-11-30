@@ -1,16 +1,8 @@
-import Logo from "../../assets/logo-sintetik.png";
-
 function Info() {
   return (
-    <div>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img src={Logo} alt="logo" style={{ width: "20%" }} />
-        <div>
-          <h1>SINTETIK</h1>
-          <p>The Right Way of Trading</p>
-        </div>
-      </div>
-      <p style={{ textAlign: "justify" }}>
+    <div style={{textAlign:"center"}}>
+      <b style={{textDecoration: "underline yellow", fontSize:"1.5rem"}}>About Us</b>
+      <p style={{ textAlign: "justify", color:"dimgrey"}}>
         It is a long established fact that a reader will be distracted by the
         readable content of a page when looking at its layout. The point of
         using Lorem Ipsum is that it has a more-or-less normal distribution of

@@ -82,7 +82,7 @@ const SigninPage = () => {
             <div className="signin-input">
               <input
                 type="text"
-                placeholder="Username"
+                placeholder="Email"
                 name="username"
                 id="uname-input"
                 onChange={(e) => {

@@ -11,10 +11,8 @@ import { MdLocationPin, MdEmail } from "react-icons/md";
 function Socials() {
   return (
     <div style={{ textAlign: "center" }}>
-      <p>
-        <b>Find us</b>
-      </p>
-      <div className="">
+        <b style={{textDecoration: "underline yellow", fontSize:"1.5rem"}}>Find us</b>
+      <div style={{marginTop:"1em", color:"dimgrey"}}>
         <FaInstagram />
         <FaLinkedin />
         <FaTwitterSquare />
@@ -22,13 +20,13 @@ function Socials() {
         <FaFacebookSquare />
       </div>
 
-      <p>
+      <p style={{color:"dimgrey"}}>
         <FaPhoneAlt /> 0123456789
       </p>
-      <p>
+      <p style={{color:"dimgrey"}}>
         <MdEmail /> sintetik.my@gmail.com
       </p>
-      <p>
+      <p style={{color:"dimgrey"}}>
         <MdLocationPin /> 10th Floor, Block C Megan Avenue 1 189 Jalan Tun
         Razak, Kuala Lumpur
       </p>
