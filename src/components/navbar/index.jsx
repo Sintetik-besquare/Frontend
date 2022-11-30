@@ -33,10 +33,12 @@ const NavBar = () => {
           <span class="line line2"></span>
           <span class="line line3"></span>
         </div>
-        <div className="hide-when-small">
-          <img src={Logo} alt="Logo" />
-          {/* <h3 style={{ float: "left" }}>SINTETIK</h3> */}
+        <a href="/">
+        <div className="navbar-logo">
+          <img src={Logo} alt="Logo"/>
+          <h3 style={{ float: "right" }}>SINTETIK</h3>
         </div>
+        </a>
         <div className="navbar-menu-list">
           <ul className="navlink">
             <HashLink smooth to="/#header" className="li">

@@ -32,14 +32,14 @@ $yellow: rgba(245, 220, 12, 1);
   @include button-shared($green);
   background-color: $black;
   cursor: pointer;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
 }
 
 .button_red_dark {
   @include button-shared($red);
   background-color: $black;
   cursor: pointer;
-  margin: 1rem;
+  margin: 1rem 0.5rem;
 }
 
 .button_green_light {

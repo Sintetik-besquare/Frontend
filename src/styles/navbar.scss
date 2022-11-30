@@ -3,12 +3,12 @@
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    position: fixed;
+    position: absolute;
     z-index: 1;
     width: 100%;
     opacity: 0.8;
     img {
-      width: 70px;
+      width: 60px;
       height: auto;
     }
   }
@@ -29,7 +29,7 @@
       list-style: none;
       color: white;
       padding: 0px 10px;
-      font-size: 1.5rem;
+      font-size: 1.1rem;
     }
   
     .li:hover {
@@ -40,6 +40,11 @@
 
   .hamburger-lines {
     display: none;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
   }
 
 @media only screen and (max-width: 900px) {
@@ -142,5 +147,9 @@
     
       .navbar-checkbox:checked ~ .hamburger-lines .line3 {
         transform: rotate(-35deg);
+      }
+
+      .navbar-logo {
+        display:none;
       }
 }
