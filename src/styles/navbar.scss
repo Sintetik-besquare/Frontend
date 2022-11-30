@@ -17,7 +17,7 @@
     width: 50%;
 }
 
-.navlink {
+.navbar-menu-list .navlink {
     order: 2;
     display: flex;
     justify-content: space-evenly;
@@ -29,6 +29,7 @@
       list-style: none;
       color: white;
       padding: 0px 10px;
+      font-size: 1.5rem;
     }
   
     .li:hover {
@@ -104,16 +105,17 @@
         opacity: 0;
       }
 
-    .navlink {
-        padding-top: 100px;
+    .navbar-menu-list .navlink {
+        padding-top: 300px;
         background: black;
-        height: 100vh;
+        height: 200vh;
         max-width: 300px;
         transform: translate(-150%);
         display: flex;
         flex-direction: column;
         margin-left: -40px;
         padding-left: 50px;
+        justify-content: center;
         transition: transform 0.5s ease-in-out;
         box-shadow: 5px 0px 10px 0px darkgrey;
 
@@ -140,9 +142,5 @@
     
       .navbar-checkbox:checked ~ .hamburger-lines .line3 {
         transform: rotate(-35deg);
-      }
-
-      .navbar-menu-list {
-        padding-top: 55rem;
       }
 }
