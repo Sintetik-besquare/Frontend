@@ -67,7 +67,7 @@ const LineChart = () => {
 
   useEffect(() => {
 
-    const socket = io.connect("https://api.sintetik.xyz");
+    socket.current = io.connect("https://api.sintetik.xyz");
     /**
      *
      * @param {any[]} z
