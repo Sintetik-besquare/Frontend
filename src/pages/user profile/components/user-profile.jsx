@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
@@ -15,7 +15,6 @@ const InputFieldText = () => {
 
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
-  const [country, setCountry] = useState("");
 
   var t = new Date();
   var formatted = moment(t).format("DD/MM/YYYY hh:mm:ss");
