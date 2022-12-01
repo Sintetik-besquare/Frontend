@@ -27,6 +27,27 @@
   padding: 1rem 0;
 }
 
+.footer-info {
+  padding: 1rem 5rem;
+  // border-right: thin solid grey;
+}
+
+.footer-socials {
+  padding: 1rem 3rem;
+  border-left: thin solid grey;
+  border-right: thin solid grey;
+}
+
+.footer-socials-icons {
+  margin-top: 1em;
+  color:dimgrey;
+  font-size: 2.5rem;
+}
+
+.footer-apps-store {
+  // border-left: thin solid grey;
+}
+
 .block-flex{
   display:block
 }
@@ -68,5 +89,17 @@
   // }
   .footer-flex {
     flex-direction: column;
+  }
+
+  .footer-info {
+    padding: 0;
+  }
+
+  .footer-socials {
+    padding: 0;
+  }
+
+  .footer-socials-icons {
+    font-size: 1.5rem;
   }
 }
