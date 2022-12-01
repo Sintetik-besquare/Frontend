@@ -54,7 +54,7 @@ button {
   color: white;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  z-index: 1000;
+  z-index: 999;
 
   .btn_close_nav {
     @include button-shared($red);
