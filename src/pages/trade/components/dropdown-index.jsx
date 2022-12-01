@@ -8,6 +8,14 @@ import IndexModal from "./modal-index";
 const DropdownContract = () => {
   const { chart_store } = useStores();
   // const [indexModal, setIndexModal] = useState(false);
+  const ref=React.useCallback((e)=>{
+    if(e){
+      //focus the thingy
+      e.focus();
+      //self distruct when it. loses the focus
+      e.addEventListener('blur',()=>chart_store.toggleIndexModal(false))
+    }
+  },[chart_store]);
 
   return (
     <>
@@ -23,7 +31,7 @@ const DropdownContract = () => {
           <MdAutoGraph id="button-icon11" />
         </div>
       </div>
-      {chart_store.showIndexModal && <IndexModal />}
+      {chart_store.showIndexModal && <IndexModal ref={ref} />}
     </>
   );
 };

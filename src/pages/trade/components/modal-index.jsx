@@ -2,12 +2,11 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { useStores } from "../../../store";
 
-const IndexModal = () => {
+const IndexModal = (_,ref) => {
   const { chart_store } = useStores();
 
   const index = (type) => {
     chart_store.setIndex(type)
-    console.log(chart_store.index)
   }
 
   return (
@@ -15,6 +14,8 @@ const IndexModal = () => {
       className="order-form-modal"
       data-aos="fade-left"
       data-aos-duration="700"
+      tabIndex={0}
+      ref={ref}
     >
       <button onClick={() => index("VOL20")}>Volatility 20</button>
       <button onClick={() => index("VOL40")}>Volatility 40</button>
@@ -26,4 +27,4 @@ const IndexModal = () => {
   );
 };
 
-export default observer(IndexModal);
+export default observer(IndexModal, { forwardRef: true });
