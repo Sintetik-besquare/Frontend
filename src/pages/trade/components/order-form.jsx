@@ -100,7 +100,7 @@ const OrderForm = () => {
   }
 
   const emitOrder = () => {
-    if (chart_store.contract_type!=="Matcher/differs"){
+    if (chart_store.contract_type!=="Matches/differs"){
       chart_store.lastDigitPrediction=0
     }
     let order = {

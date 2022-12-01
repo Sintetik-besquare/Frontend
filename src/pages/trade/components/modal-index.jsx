@@ -16,11 +16,12 @@ const IndexModal = () => {
       data-aos="fade-left"
       data-aos-duration="700"
     >
-      <button disabled onClick={() => index("VOL10")} style={{color:"grey"}}>Volatility 10</button>
-      <button disabled onClick={() => index("VOL50")}  style={{color:"grey"}}>Volatility 50</button>
+      <button onClick={() => index("VOL20")}>Volatility 20</button>
+      <button onClick={() => index("VOL40")}>Volatility 40</button>
+      <button onClick={() => index("VOL60")}>Volatility 60</button>
+      <button onClick={() => index("VOL80")}>Volatility 80</button>
       <button onClick={() => index("VOL100")}>Volatility 100</button>
       <button onClick={() => index("VOL200")}>Volatility 200</button>
-      <button disabled onClick={() => index("VOL300")} style={{color:"grey"}}>Volatility 300</button>
     </div>
   );
 };
