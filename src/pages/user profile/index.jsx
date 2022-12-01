@@ -21,56 +21,48 @@ const Tabs = () => {
   };
 
   return (
-    <>
-      <div className="user-trx-tabs-container">
-        <div className="bloc-tabs">
-          <button
-            className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(1)}
-          >
-            User Profile
-          </button>
-          <button
-            className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(2)}
-          >
-            Transaction History
-          </button>
-          <button
-            className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
-            onClick={() => toggleTab(3)}
-          >
-            Contract Summary
-          </button>
+    <div className="user-trx-tabs-container">
+      <div className="bloc-tabs">
+        <button
+          className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(1)}
+        >
+          User Profile
+        </button>
+        <button
+          className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(2)}
+        >
+          Transaction History
+        </button>
+        <button
+          className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(3)}
+        >
+          Contract Summary
+        </button>
+      </div>
+
+      <div className="content-tabs">
+        <div
+          className={toggleState === 1 ? "content  active-content" : "content"}
+        >
+          <UserProfile />
         </div>
 
-        <div className="content-tabs">
-          <div
-            className={
-              toggleState === 1 ? "content  active-content" : "content"
-            }
-          >
-            <UserProfile />
-          </div>
+        <div
+          className={toggleState === 2 ? "content  active-content" : "content"}
+        >
+          <TransactionHistory />
+        </div>
 
-          <div
-            className={
-              toggleState === 2 ? "content  active-content" : "content"
-            }
-          >
-            <TransactionHistory />
-          </div>
-
-          <div
-            className={
-              toggleState === 3 ? "content  active-content" : "content"
-            }
-          >
-            <ContractSummary />
-          </div>
+        <div
+          className={toggleState === 3 ? "content  active-content" : "content"}
+        >
+          <ContractSummary />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -23,13 +23,15 @@ function TransactionHistory() {
               <th>Transaction Amount</th>
               <th>Balance</th>
               <th>Transaction Time</th>
-              <th className="dropdown-filter">
+              <th>
+                <div className="dropdown-filter">
                 <div className="filter">Transaction Type<FaFilter /></div>
                 <div className="filter-types">
                   <button onClick={()=>{setFilter('All')}}>All</button>
                   <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
                   <button onClick={()=>{setFilter('Buy')}}>Buy</button>
                   <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+                </div>
                 </div>
               </th>
             </tr>

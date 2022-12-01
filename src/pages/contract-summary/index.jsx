@@ -24,7 +24,8 @@ function ContractSummary() {
               <th>option type</th>
               <th>stake</th>
               <th>payout</th>
-              <th className="dropdown-filter">
+              <th>
+              <div className="dropdown-filter">
                 <div className="filter">
                   symbol
                   <FaFilter />
@@ -37,6 +38,7 @@ function ContractSummary() {
                     <button onClick={()=>{setFilter('VOL100')}}>VOL100</button>
                     <button onClick={()=>{setFilter('VOL200')}}>VOL200</button>
                   </div>
+                </div>
                 </div>
               </th>
             </tr>
