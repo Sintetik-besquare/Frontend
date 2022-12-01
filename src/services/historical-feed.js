@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https://api.sintetik.xyz";
+const ENDPOINT_BASE = "http://localhost:3002";
 
 async function getHistoricalFeed() {
   return await fetch(`${ENDPOINT_BASE}/feed/historical/vol100`, {
