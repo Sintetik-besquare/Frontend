@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "AARON BRANDONIC ANDREW",
-        "role":"lorem ipsum dolor sit amet",
+        "role":"I designed the overall look and theme of the brand, generated assets, and ensure the product usability. I contributed in the Frontend development of the home and trading page and carried out quality assurance testing",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
             "QUALITY ASSURANCE",
@@ -15,7 +15,7 @@
                 "link": ""
             },
             "GH": {
-                "icon": "",
+                "icon": "https://github.com/aaronbrandonicandrew",
                 "link": ""
             }
         }
@@ -23,7 +23,7 @@
     {
         "id": 2,
         "name": "AFIQ MOHD SALLEH",
-        "role":"lorem ipsum dolor sit amet",
+        "role":"I am in charge of CI/CD which includes deploying and integrating the Frontend and Backend deployment. I helped in the development of the news feed and refactoring of the user profile and transaction history page",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
             "OPTION1",
@@ -33,18 +33,18 @@
         "socials": {
             "LN": {
                 "icon": "",
-                "link": "https://www.linkedin.com/in/username/"
+                "link": "https://www.linkedin.com/in/afiqmosalleh/"
             },
             "GH": {
                 "icon": "",
-                "link": "https://github.com/username"
+                "link": "https://github.com/MoAfiq"
             }
         }
     },
     {
         "id": 3,
         "name": "GOH SI YU",
-        "role":"lorem ipsum dolor sit amet",
+        "role":"My main role is generating and testing the trading algorithm and payout. I also helped develop the home, login, and logout page of sintetik.xyz and ensured the site responsiveness",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
             "TRADING",
@@ -54,39 +54,39 @@
         "socials": {
             "LN": {
                 "icon": "",
-                "link": "https://www.linkedin.com/in/username/"
+                "link": "https://www.linkedin.com/in/siyugoh?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACIxRE4BuQl9kcduKzPYajTIcaeVVEM2OwE&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BtYoIoJiNQ9S6pFrdQEb7Dw%3D%3D"
             },
             "GH": {
                 "icon": "",
-                "link": "https://github.com/username"
+                "link": "https://github.com/siyu-besquare"
             }
         }
     },
     {
         "id": 4,
         "name": "LIM KAI LING",
-        "role":"lorem ipsum dolor sit amet",
+        "role":"I maintain the backend codebase for the project, which includes generating endpoints for the Frontend use and integrating trading algorithm from Trading",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
-            "OPTION1",
-            "OPTION2",
-            "OPTION3"
+            "BI",
+            "BACKEND",
+            "CYBERSECURITY"
         ],
         "socials": {
             "LN": {
                 "icon": "",
-                "link": "https://www.linkedin.com/in/username/"
+                "link": "https://www.linkedin.com/in/kathleen-lim-7896091a4?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAC_JyRkBtH-atwWhTDRSSpjy23j3ZJ2r4SA&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BFEcrrMwXTaq0evMHd7ZXyg%3D%3D"
             },
             "GH": {
                 "icon": "",
-                "link": "https://github.com/username"
+                "link": "https://github.com/KaiLing-Kath"
             }
         }
     },
     {
         "id": 5,
         "name": "KEOY SHON TZU",
-        "role":"Throughout the DRC I am in charge of the FrontEnd development. I used ReactJs, Mobx for State Management, and Redis Pub Sub for caching",
+        "role":"I delegate and maintain the Frontend codebase for the group. My main contribution is on the trading page, responsive design, and the non-ui part of Frontend such as stores and services",
         "photo": "https://media-exp1.licdn.com/dms/image/C5603AQHbIyHfyFHgGA/profile-displayphoto-shrink_800_800/0/1661476112338?e=1672876800&v=beta&t=gClh0lX5op_iEFemz8Iy5BxpOTpR53n9eRGcxs4aAzs",
         "interest": [
             "FRONTEND",
@@ -100,7 +100,7 @@
             },
             "GH": {
                 "icon": "",
-                "link": "https://github.com/username"
+                "link": "https://github.com/shontzu"
             }
         }
     }

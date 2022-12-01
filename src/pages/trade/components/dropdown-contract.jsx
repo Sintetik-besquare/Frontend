@@ -7,6 +7,14 @@ import ContractModal from "./modal-contract";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();
+  const ref=React.useCallback((e)=>{
+    if(e){
+      //focus the thingy
+      e.focus();
+      //self distruct when it. loses the focus
+      e.addEventListener('blur',()=>chart_store.toggleContractModal(false))
+    }
+  },[chart_store]);
 
   return (
     <>
@@ -23,7 +31,7 @@ const DropdownContract = () => {
           <FiTrendingUp id="button-icon13" />
         </div>
       </div>
-      {chart_store.showContractModal && chart_store.isbuying === false ? <ContractModal /> : <></>}
+      {chart_store.showContractModal && chart_store.isbuying === false ? <ContractModal  ref={ref} /> : <></>}
     </>
   );
 };
