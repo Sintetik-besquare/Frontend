@@ -132,7 +132,7 @@ const InputFieldText = () => {
                 <div className="dropdown">
                   <CountryDropdown
                     disabled={disabled}
-                    value={country}
+                    value={user_store.residence}
                     onChange={(val) => user_store.setResidence(val)}
                   />
                 </div>
