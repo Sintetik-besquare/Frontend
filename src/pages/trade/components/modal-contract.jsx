@@ -2,7 +2,7 @@ import { observer } from "mobx-react-lite";
 import React from "react";
 import { useStores } from "../../../store";
 
-const ContractModal = (_,ref) => {
+const ContractModal = () => {
   const { chart_store } = useStores();
 
   const contract = (type) => {
@@ -14,8 +14,6 @@ const ContractModal = (_,ref) => {
       className="order-form-modal"
       data-aos="fade-left"
       data-aos-duration="700"
-      tabIndex={0}
-      ref={ref}
     >
       <button disabled onClick={() => contract("Multiplier")}  style={{color:"grey"}}>Multiplier</button>
       <button onClick={() => contract("Rise/fall")}>Rise / Fall</button>
@@ -28,4 +26,4 @@ const ContractModal = (_,ref) => {
   );
 };
 
-export default observer(ContractModal, { forwardRef: true });
+export default observer(ContractModal);
