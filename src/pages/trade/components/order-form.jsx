@@ -107,7 +107,7 @@ const OrderForm = () => {
       index: chart_store.index,
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
-      option_type: chart_store.option_type,
+      option_type: chart_store.option_type.toString(),
       contract_type: chart_store.contract_type,
       entry_time: Math.floor(Date.now() / 1000) - 1,
       digit: chart_store.lastDigitPrediction,
