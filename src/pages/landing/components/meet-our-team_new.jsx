@@ -4,9 +4,9 @@ function MeetOurTeam() {
   return (
     <div style={{ position: "relative" }}>
       <div id="about-the-team" style={{ backgroundColor: "black" }}>
-      <div id="stars"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
         <h1
           className="homepage-headline-bottom-half"
           data-aos="fade-left"
@@ -14,8 +14,8 @@ function MeetOurTeam() {
         >
           Meet The Team
         </h1>
-        <div className="container meet-the-team-page">
-          {people.map((p,i) => {
+        <div className="container">
+          {people.map((p, i) => {
             return (
               <span key={i}>
                 {p.id % 2 === 0 ? (
@@ -56,10 +56,7 @@ function MeetOurTeam() {
                     </div>
                   </div>
                 ) : (
-                  <div
-                    className="card-horizontal-left"
-                    data-aos="fade-right"
-                  >
+                  <div className="card-horizontal-left" data-aos="fade-right">
                     <img
                       src={p.photo}
                       alt="N/A"
