@@ -16,9 +16,6 @@ const InputFieldText = () => {
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
 
-  var t = new Date();
-  var formatted = moment(t).format("DD/MM/YYYY hh:mm:ss");
-
   const getCircularReplacer = () => {
     const seen = new WeakSet();
     return (key, value) => {
@@ -55,7 +52,16 @@ const InputFieldText = () => {
           <p className="email">{user_store.email}</p>
           <p className="join">
             Joined on<br></br>
-            <span className="join-span">{user_store.date_join}</span>
+            <span className="join-span">
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+              }).format(user_store.date_join * 1000)}
+            </span>
           </p>
           <p className="join">
             Client ID<br></br>
