@@ -10,14 +10,14 @@ import GreenGraph from "../../assets/green_graph.png";
 import RedGraph from "../../assets/red_graph.png";
 import { observer } from "mobx-react-lite";
 import image from "../../assets/user-profile.png";
-import { FiFilter } from 'react-icons/fi';
+import { FiFilter } from "react-icons/fi";
 
 const Tabs = () => {
   const { app_store } = useStores();
   const navigate = useNavigate();
   const [toggleState, setToggleState] = useState(1);
   const [transaction, setTransaction] = useState([]);
-  const [filter, setFilter] = useState('All')
+  const [filter, setFilter] = useState("All");
 
   function login() {
     navigate("/", { replace: true });
@@ -64,92 +64,122 @@ const Tabs = () => {
               toggleState === 2 ? "content  active-content" : "content"
             }
           >
-              <div className="transaction-container">
-                <div id="transaction-columns">
-                <div style={{width:"50vw"}}>
+            <div className="transaction-container">
+              <div id="transaction-columns">
+                <div style={{ width: "50vw" }}>
                   {/* <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"10px"}}> */}
-                    {/* <b><FiFilter /> Filter By: </b>
+                  {/* <b><FiFilter /> Filter By: </b>
                     <button onClick={()=>{setFilter('All')}}>All</button>
                     <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
                     <button onClick={()=>{setFilter('Buy')}}>Buy</button>
                     <button onClick={()=>{setFilter('Sell')}}>Sell</button>
                   </div> */}
                   <div className="dropdown-filter">
-                    <button className="filter"><FaFilter/> Filter by</button>
+                    <button className="filter">
+                      <FaFilter /> Filter by
+                    </button>
                     <div className="filter-types">
-                    <button onClick={()=>{setFilter('All')}}>All</button>
-                    <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
-                    <button onClick={()=>{setFilter('Buy')}}>Buy</button>
-                    <button onClick={()=>{setFilter('Sell')}}>Sell</button>
+                      <button
+                        onClick={() => {
+                          setFilter("All");
+                        }}
+                      >
+                        All
+                      </button>
+                      <button
+                        onClick={() => {
+                          setFilter("ResetBalance");
+                        }}
+                      >
+                        Reset
+                      </button>
+                      <button
+                        onClick={() => {
+                          setFilter("Buy");
+                        }}
+                      >
+                        Buy
+                      </button>
+                      <button
+                        onClick={() => {
+                          setFilter("Sell");
+                        }}
+                      >
+                        Sell
+                      </button>
                     </div>
                   </div>
-                  <img src={image} alt="a profile page" style={{width:"100%"}}/>
+                  <img
+                    src={image}
+                    alt="a profile page"
+                    style={{ width: "100%" }}
+                  />
                 </div>
-                  <div id="history-list">
-                    {transaction.map((t, i) => {
-                      if (
-                        t.transaction_type === filter ||
-                        (filter === "All" && transaction.length !== 0)
-                        ) {
-                        return (
-                          <div className="transaction-area">
-                            <div key={i} className="transaction-card">
-                              <div className="transaction-card-top">
-                                <div className="trade-logo">Vol 100</div>
-                                <div>
-                                  {new Intl.DateTimeFormat("en-US", {
-                                    year: "numeric",
-                                    month: "2-digit",
-                                    day: "2-digit",
-                                    hour: "2-digit",
-                                    minute: "2-digit",
-                                    second: "2-digit",
-                                  }).format(t.transaction_time * 1000)}
-                                </div>
+                <div id="history-list">
+                  {transaction.map((t, i) => {
+                    if (
+                      t.transaction_type === filter ||
+                      (filter === "All" && transaction.length !== 0)
+                    ) {
+                      return (
+                        <div className="transaction-area">
+                          <div key={i} className="transaction-card">
+                            <div className="transaction-card-top">
+                              <div className="trade-logo">Vol 100</div>
+                              <div>
+                                {new Intl.DateTimeFormat("en-US", {
+                                  year: "numeric",
+                                  month: "2-digit",
+                                  day: "2-digit",
+                                  hour: "2-digit",
+                                  minute: "2-digit",
+                                  second: "2-digit",
+                                }).format(t.transaction_time * 1000)}
+                              </div>
+                              {t.transaction_type === "Sell" ? (
+                                t.transaction_amount === "0.00" ? (
+                                  <FaEquals style={{ color: "white" }} />
+                                ) : (
+                                  <AiFillCaretUp id="rise-icon" />
+                                )
+                              ) : t.transaction_type === "Buy" ? (
+                                <AiFillCaretDown id="fall-icon" />
+                              ) : (
+                                <VscDebugRestart id="reset-icon" />
+                              )}
+                            </div>
+                            <div className="transaction-card-bottom">
+                              &nbsp;
+                              <div style={{ textAlign: "left" }}>
+                                {t.transaction_type}: {t.transaction_amount} USD
+                                <br />
+                                Balance: {t.balance} USD
+                              </div>
+                              <div>
                                 {t.transaction_type === "Sell" ? (
                                   t.transaction_amount === "0.00" ? (
-                                    <FaEquals style={{ color: "white" }} />
+                                    <img src={RedGraph} altpo="Logo" />
                                   ) : (
-                                    <AiFillCaretUp id="rise-icon" />
+                                    <img src={GreenGraph} altpo="Logo" />
                                   )
-                                ) : t.transaction_type === "Buy" ? (
-                                  <AiFillCaretDown id="fall-icon" />
                                 ) : (
-                                  <VscDebugRestart id="reset-icon" />
+                                  ""
                                 )}
-                              </div>
-                              <div className="transaction-card-bottom">
-                                &nbsp;
-                                <div style={{textAlign:"left"}}>
-                                  {t.transaction_type}: {t.transaction_amount} USD
-                                  <br />
-                                  Balance: {t.balance} USD
-                                </div>
-                                <div>
-                                {t.transaction_type === "Sell" ? (
-                                  t.transaction_amount === "0.00" ? 
-                                <img src={RedGraph} altpo="Logo" /> :
-                                <img src={GreenGraph} altpo="Logo" />) :
-                                ""
-                                }
-                                </div>
                               </div>
                             </div>
                           </div>
-                        );
-                      } else if (transaction.length === 0) {
-                        return (
-                          <div className="transaction-card">
-                            Balance: "none"
-                          </div>
-                        )
-                      }
-                    })}
-                  </div>
+                        </div>
+                      );
+                    } else if (transaction.length === 0) {
+                      return (
+                        <div className="transaction-card">Balance: "none"</div>
+                      );
+                    }
+                  })}
                 </div>
               </div>
+            </div>
           </div>
-
         </div>
       </div>
     </>

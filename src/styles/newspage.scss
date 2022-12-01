@@ -1,3 +1,8 @@
+.news-hero {
+  margin-top: 0;
+  text-align: center;
+}
+
 .news-page-background {
   background-image: linear-gradient(
     rgba(34, 33, 40, 1),
@@ -78,7 +83,7 @@
 a:hover {
   transition: 500ms;
   transform: scale(1.001);
-   text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
+  text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
   transition: 0.5s;
   border-radius: 25px;
 }
@@ -91,8 +96,9 @@ button.news-load-btn {
   cursor: pointer;
 
   :hover {
-     text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
-    transition:0.5s;  }
+    text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
+    transition: 0.5s;
+  }
 }
 
 .button-40 {
