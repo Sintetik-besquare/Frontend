@@ -7,8 +7,8 @@ export default class UserStore {
   education = "";
   email = "";
   first_name = "";
-  gender = "";
   last_name = "";
+  gender = "";
   occupation = "";
   residence = "";
 
@@ -17,11 +17,11 @@ export default class UserStore {
   }
 
   setId(id) {
-    this.id = id;
+    this.client_id = id;
   }
 
   setDateJoin(date) {
-    this.date = date;
+    this.date_join = date;
   }
 
   setEducation(education) {
