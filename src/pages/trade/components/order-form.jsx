@@ -26,7 +26,7 @@ const OrderForm = () => {
   let error_message = [];
 
   useEffect(() => {
-    socket.current = io("https://login.sintetik.xyz", {
+    socket.current = io("http://localhost:3001", {
       query: {
         token: TOKEN,
       },
@@ -78,10 +78,10 @@ const OrderForm = () => {
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
     }
-    if (chart_store.ticks <= 0 || chart_store.ticks > 10) {
+    if (chart_store.ticks <= 0 || chart_store.ticks > 10 || isNaN(chart_store.ticks)) {
       error_message.push("ticks must be a value between 1 to 10");
     }
-    if (chart_store.stake <= 0) {
+    if (chart_store.stake <= 0 || isNaN(chart_store.stake)) {
       error_message.push("stake cannot be 0");
     }
     if (chart_store.contract_type === "Matches/differs") {
@@ -107,7 +107,7 @@ const OrderForm = () => {
       index: chart_store.index,
       stake: parseFloat(chart_store.stake),
       ticks: parseInt(chart_store.ticks),
-      option_type: chart_store.option_type,
+      option_type: chart_store.option_type.toString(),
       contract_type: chart_store.contract_type,
       entry_time: Math.floor(Date.now() / 1000) - 1,
       digit: chart_store.lastDigitPrediction,

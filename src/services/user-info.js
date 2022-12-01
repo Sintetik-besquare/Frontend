@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https://login.sintetik.xyz";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {
@@ -22,7 +22,7 @@ async function editUserDetails(body) {
     method: "PATCH",
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: body,
   }).then(console.log(body));

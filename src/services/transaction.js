@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https://login.sintetik.xyz";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getTransaction() {
   return await fetch(`${ENDPOINT_BASE}/account/getTransaction`, {
@@ -12,7 +12,7 @@ async function getTransaction() {
       return response.json();
     })
     .then((json) => {
-      // console.log(json.transaction);
+      console.log(json.transaction);
       return json.transaction;
     });
 }
@@ -29,8 +29,8 @@ async function getContractSummary() {
         return response.json();
       })
       .then((json) => {
-        console.log(json);
-        return json;
+        console.log(json.contract_summary);
+        return json.contract_summary;
       });
   }
   

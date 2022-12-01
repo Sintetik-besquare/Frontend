@@ -7,7 +7,6 @@ const IndexModal = () => {
 
   const index = (type) => {
     chart_store.setIndex(type)
-    console.log(chart_store.index)
   }
 
   return (

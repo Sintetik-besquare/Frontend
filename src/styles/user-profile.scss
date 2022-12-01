@@ -6,9 +6,6 @@
   width: 100%;
   justify-content: center;
 }
-.user-profile-page {
-  height: 100vh;
-}
 
 .user-profile-container {
   background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
@@ -43,18 +40,81 @@
   }
 }
 
-#user-profile {
+.user-profile-flex {
   display: flex;
-  justify-content: space-evenly;
+  margin-left: 20%;
+  margin-right: 10%;
+  margin-top: 0;
+  min-height: 80vh;
+  flex-direction: row;
+}
+
+.left-profile {
+  background-color: rgb(112, 128, 144);
+  width: 30vw;
+  padding-top: 5%;
+
+  center {
+    font-size: 2em;
+    font-family: "Poppins";
+    color: $yellow;
+  }
+
+  img {
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  p.email {
+    color: $yellow;
+  }
+
+  p.join {
+    padding-top: 5%;
+    font-weight: 100;
+
+    span.join-span {
+      font-weight: 950;
+    }
+  }
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(51, 51, 51);
+  padding: 20px;
   align-items: center;
+
+  .basic-info-header {
+    display: inline-block;
+    align-self: flex-start;
+    margin-bottom: 0;
+    margin-left: 25px;
+  }
+
+  p,
+  span {
+    font-family: "poppins";
+  }
 
   hr {
     margin: 10px 0 10px 0;
     border: 1px solid white;
   }
 
-  #user-profile-form {
-    margin: auto;
+  .user-profile-form {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 0;
 
     .span-profile-details {
       font-size: 1em;
@@ -65,18 +125,43 @@
     select {
       width: 100%;
       height: 5vh;
+      border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: groove;
+      border-radius: 5px;
     }
   }
 }
 
-.user-update-button {
+.right-side-profile {
   display: flex;
-  width: 100%;
-  position: relative;
+  flex-direction: column;
+  width: 80%;
 
-  button {
-    position: absolute;
-    right: 10%;
+  h3 {
+    color: $yellow;
+  }
+}
+
+.form-margin {
+  margin-bottom: 15px;
+}
+
+.name-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 10px;
+
+  .firstname {
+    max-width: 45%;
+    float: left;
+  }
+
+  .lastname {
+    max-width: 45%;
+    float: right;
   }
 }
 
@@ -113,15 +198,21 @@ input:disabled {
 }
 
 /* CSS */
+.user-profile-button {
+  padding-top: 20px;
+}
+
 .button-5 {
+  position: relative;
+  left: 30%;
   align-items: center;
   background-clip: padding-box;
-  background-color: #fa6400;
+  background-color: $yellow;
+  color: rgb(51, 51, 51);
   border: 1px solid transparent;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
   box-sizing: border-box;
-  color: #fff;
   cursor: pointer;
   display: inline-flex;
   font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
@@ -145,7 +236,7 @@ input:disabled {
 
 .button-5:hover,
 .button-5:focus {
-  background-color: #fb8332;
+  background-color: rgba(255, 255, 102, 0.881);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
@@ -154,7 +245,7 @@ input:disabled {
 }
 
 .button-5:active {
-  background-color: #c85000;
+  background-color: $yellow;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
 }
@@ -200,13 +291,8 @@ input:disabled {
 button {
   border: none;
 }
-// .content-tabs {
-//   flex-grow: 1;
-// }
+
 .content {
-  background-color: rgba(56, 56, 56, 1);
-  // width: 100%;
-  // height: 100vh;
   display: none;
 }
 .content h2 {
@@ -218,9 +304,7 @@ button {
   background: #222;
   margin-bottom: 5px;
 }
-.content p {
-  height: 100%;
-}
+
 .active-content {
   display: block;
 }
@@ -265,16 +349,6 @@ button {
     left: 30%;
   }
 
-  .user-update-button {
-    display: block;
-    padding-top: 20px;
-  }
-
-  .user-update-button button {
-    position: relative;
-    left: 23%;
-  }
-
   .bloc-tabs {
     overflow: scroll;
   }
@@ -283,8 +357,6 @@ button {
     bottom: 5px;
     left: 0;
   }
-
-  .user-trx-tabs-container {
-    height: 110vh;
-  }
 }
+
+//

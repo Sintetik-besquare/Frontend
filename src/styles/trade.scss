@@ -4,7 +4,7 @@
   display: flex;
   align-items: flex-start;
   background-color: #0f0f0f;
-  width:100%;
+  width: 100%;
 }
 
 #chart-container {
@@ -40,11 +40,13 @@
   }
 
   .order-form-modal {
-    background-color: rgba(0,0,0,0.5);
+    z-index: 1001;
+    background-color: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
-    top:0;
-    right: 350px;
+    top: 0;
+    right: 16vw;
+
     button {
       width: 100%;
       background: none;
@@ -452,7 +454,7 @@ ul li:hover .slider p {
   padding: 10px 8px;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1400px) {
   .trade_page {
     display: block;
   }
@@ -472,8 +474,8 @@ ul li:hover .slider p {
 
   .order-form-modal {
     position: absolute;
-    left: 0;
-    top: 50px;
+    left: 50px;
+
     background-color: $black;
   }
 
@@ -494,5 +496,8 @@ ul li:hover .slider p {
   }
   #summary {
     width: 100%;
+  }
+  .order-form-modal {
+    width:300px;
   }
 }
