@@ -10,34 +10,40 @@ function ContractSummary() {
 
   return (
     <>
-      <table>
-        <tr>
-          <th>contract id</th>
-          <th>contract type</th>
-          <th>duration</th>
-          <th>entry spot</th>
-          <th>exit spot</th>
-          <th>option type</th>
-          <th>stake</th>
-          <th>payout</th>
-          <th>symbol</th>
-        </tr>
-        {transaction.map((t, i) => {
-          return (
-            <tr key={i}>
-              <td>{t.contract_id}</td>
-              <td>{t.contract_type}</td>
-              <td>{t.duration}</td>
-              <td>{t.entry_spot}</td>
-              <td>{t.exit_spot}</td>
-              <td>{t.optoin_type}</td>
-              <td>{t.stake}</td>
-              <td>{t.payout}</td>
-              <td>{t.symbol}</td>
+      <div className="table-wrapper">
+        <table className="fl-table">
+          <thead>
+            <tr>
+              <th>Contract ID</th>
+              <th>Contract Type</th>
+              <th>Duration</th>
+              <th>Entry Spot</th>
+              <th>Exit Spot</th>
+              <th>Option Type</th>
+              <th>Stake</th>
+              <th>Payout</th>
+              <th>Symbol</th>
             </tr>
-          );
-        })}
-      </table>
+          </thead>
+          <tbody>
+            {transaction.map((t, i) => {
+              return (
+                <tr key={i}>
+                  <td>{t.contract_id}</td>
+                  <td>{t.contract_type}</td>
+                  <td>{t.duration}</td>
+                  <td>{t.entry_spot}</td>
+                  <td>{t.exit_spot}</td>
+                  <td>{t.option_type.toUpperCase()}</td>
+                  <td>{t.stake}</td>
+                  <td>{t.payout}</td>
+                  <td>{t.symbol}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }

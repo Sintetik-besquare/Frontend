@@ -1,6 +1,5 @@
 import React from "react";
 import { getTransaction } from "../../services/transaction";
-import { FaFilter } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 function TransactionHistory() {
@@ -15,15 +14,17 @@ function TransactionHistory() {
 
   return (
     <>
-      <table>
-        <tr>
-          <th>contract id</th>
-          <th>transaction_id</th>
-          <th>transaction_amount</th>
-          <th>balance</th>
-          <th>transaction_time</th>
-          <th className="dropdown-filter"> 
-              <div className="filter">transaction_type<FaFilter/></div>
+      <div className="table-wrapper">
+        <table className="fl-table">
+          <thead>
+            <tr>
+              <th>Contract ID</th>
+              <th>Transaction ID</th>
+              <th>Transaction Amount</th>
+              <th>Balance</th>
+              <th>Transaction Time</th>
+              <th className="dropdown-filter"> 
+              <div className="filter">Transaction Type<FaFilter/></div>
               <div className="filter-types">
                 <button onClick={()=>{setFilter('All')}}>All</button>
                 <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
@@ -31,36 +32,44 @@ function TransactionHistory() {
                 <button onClick={()=>{setFilter('Sell')}}>Sell</button>
               </div>
           </th>
-        </tr>
-        {transaction.map((t, i) => {
-
+            </tr>
+          </thead>
+          <tbody>
+            {transaction.map((t, i) => {
+    
        if (t.transaction_type === filter ||(filter === "All" && transaction.length !== 0)) {
          return (
-           <tr key={i}>
-             <td>{t.contract_id}</td>
-             <td>{t.transaction_id}</td>
-             <td>{t.transaction_amount}</td>
-             <td>{t.balance}</td>
-             <td>
-               {new Intl.DateTimeFormat("en-US", {
-                 year: "numeric",
-                 month: "2-digit",
-                 day: "2-digit",
-                 hour: "2-digit",
-                 minute: "2-digit",
-                 second: "2-digit",
-               }).format(t.transaction_time * 1000)}
-             </td>
-             <td>{t.transaction_type}</td>
-           </tr>
-         );
-      } else {
+               <tr key={i}>
+                 <td>{t.contract_id}</td>
+                 <td>{t.transaction_id}</td>
+                 {/* <td className={t.transaction_amount >= -1 ? "green" : "red"}>
+                    {t.transaction_amount}  */}
+                  <td className={t.transaction_amount >= -1 ? "green" : "red"}>
+                    {t.transaction_amount}
+                  </td>
+                 <td>{t.balance}</td>
+                 <td>
+                   {new Intl.DateTimeFormat("en-US", {
+                     year: "numeric",
+                     month: "2-digit",
+                     day: "2-digit",
+                     hour: "2-digit",
+                     minute: "2-digit",
+                     second: "2-digit",
+                   }).format(t.transaction_time * 1000)}
+                 </td>
+                 <td>{t.transaction_type}</td>
+               </tr>
+             );
+          } else {
         return (<></>)
       }
 
 
         })}
-      </table>
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
