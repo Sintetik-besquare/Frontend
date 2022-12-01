@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
 import UserProfile from "./components/user-profile";
 import { observer } from "mobx-react-lite";
-import ContractSummary from "../contract summary";
+import ContractSummary from "../contract-summary";
 import TransactionHistory from "../transaction history/transaction-history.jsx";
 
 const Tabs = () => {
