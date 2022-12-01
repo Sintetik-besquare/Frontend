@@ -12,12 +12,12 @@ function Socials() {
   return (
     <div style={{ textAlign: "center" }}>
         <b style={{textDecoration: "underline yellow", fontSize:"1.5rem"}}>Find us</b>
-      <div style={{marginTop:"1em", color:"dimgrey"}}>
-        <FaInstagram />
-        <FaLinkedin />
-        <FaTwitterSquare />
-        <FaTelegramPlane />
-        <FaFacebookSquare />
+      <div className="footer-socials-icons">
+        <FaInstagram style={{margin:"0 1rem"}} />
+        <FaLinkedin style={{margin:"0 1rem"}} />
+        <FaTwitterSquare style={{margin:"0 1rem"}} />
+        <FaTelegramPlane style={{margin:"0 1rem"}} />
+        <FaFacebookSquare style={{margin:"0 1rem"}} />
       </div>
 
       <p style={{color:"dimgrey"}}>

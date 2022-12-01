@@ -53,8 +53,10 @@
 }
 
 #root {
-  overflow-x: hidden;
-  height: 100%;
+    // background-color: lightgrey;
+    overflow-x: hidden;
+    height: 100%;
+    overflow-y: hidden;
 }
 
 @media only screen and (max-width: 900px) {

@@ -2,29 +2,21 @@ import React from "react";
 import Info from "./info";
 import Socials from "./socials";
 import Form from "./form";
-import AppStore from "./app-store";
-import Logo from "../../assets/logo-sintetik.png";
+import App_Store from "./app-store";
 
 
 export const Footer = () => {
   return (
-    <div className="footer">
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <img src={Logo} alt="logo" style={{ width: "5%" }} />
-        <div>
-          <h1 style={{margin:0}}>SINTETIK</h1>
-          <p  style={{margin:0}}>The Right Way of Trading</p>
-        </div>
-      </div>
+    <div className="footer" style={{ background: "black", color: "white" }}>
       <div className="flex-block footer-flex">
-        <div>
+        <div className="footer-info">
           <Info />
         </div>
-        <div>
+        <div className="footer-socials">
           <Socials />
         </div>
-        <div>
-          <AppStore />
+        <div className="footer-apps-store">
+          <App_Store />
         </div>
       </div>
     </div>

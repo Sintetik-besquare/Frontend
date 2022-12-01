@@ -21,12 +21,25 @@ const NavBar = () => {
 
   return (
     <div id="header">
-      <div className="flex-block navbar" style={{ background: "#000000" }}>
-        <div style={{ display: "flex" }}>
-          <img src={Logo} alt="Logo"/>
-          {/* <h3 style={{ float: "left" }}>SINTETIK</h3> */}
+      <div className="navbar" style={{ background: "#000000" }}>
+        <input
+          type="checkbox"
+          className="navbar-checkbox hide-when-big"
+          name=""
+          id=""
+        />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
         </div>
-        <div>
+        <a href="/">
+        <div className="navbar-logo">
+          <img src={Logo} alt="Logo"/>
+          <h3 style={{ float: "right" }}>SINTETIK</h3>
+        </div>
+        </a>
+        <div className="navbar-menu-list">
           <ul className="navlink">
             <HashLink smooth to="/#header" className="li">
               <li>Home</li>
@@ -49,36 +62,36 @@ const NavBar = () => {
         <div className="flex-end">
           {app_store.is_loggedin === true ? (
             // <li>
+            <button
+              className="button_red_dark"
+              onClick={() => {
+                app_store.setShowModal(true);
+              }}
+            >
+              <FaUserCircle /> ${chart_store.wallet}
+            </button>
+          ) : (
+            // </li>
+            <>
+              {/* <li> */}
+              <button
+                className="button_green_dark"
+                onClick={() => {
+                  signup();
+                }}
+              >
+                SIGN UP
+              </button>
+              {/* </li>
+              <li> */}
               <button
                 className="button_red_dark"
                 onClick={() => {
-                  app_store.setShowModal(true);
+                  signin();
                 }}
               >
-                <FaUserCircle /> ${chart_store.wallet}
+                SIGN IN
               </button>
-            // </li>
-          ) : (
-            <>
-              {/* <li> */}
-                <button
-                  className="button_green_dark"
-                  onClick={() => {
-                    signup();
-                  }}
-                >
-                  SIGN UP
-                </button>
-              {/* </li>
-              <li> */}
-                <button
-                  className="button_red_dark"
-                  onClick={() => {
-                    signin();
-                  }}
-                >
-                  SIGN IN
-                </button>
               {/* </li> */}
             </>
           )}
