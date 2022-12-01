@@ -1,71 +1,55 @@
 .card-horizontal-left {
-    margin: 0;
-    width: 50rem;
-    margin-bottom: 5rem;
-  background-image: linear-gradient(to bottom right,black, grey, black);
-    // -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    @include drop-shadow;
-        display: flex;
-        // justify-content: space-between;
-        // align-items: center;
-        height: 350px;
-        // width: 100%;
-        // margin: auto;
-        // margin-top: 100px;
-        margin-bottom: 100px;
-        border-radius: 1rem;
-        // background-color: black;
-        align-items: center;
-    
-        img {
-            height: 100%;
-            width: 40%;
-            object-fit: cover;
-            border-radius: 1rem;
-        }
-    
-        div {
-            width: 60%;
-        }
+  margin: 0;
+  width: 100%;
+  margin-bottom: 5rem;
+  background-image: linear-gradient(to bottom right, black, grey, black);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  @include drop-shadow;
+  display: flex;
+  height: 350px;
+  margin-bottom: 100px;
+  border-radius: 1rem;
+  align-items: center;
+
+  img {
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  div {
+    width: 60%;
+  }
 }
 
 .card-horizontal-right {
-    width: 50rem;
-    margin-bottom: 5rem;
-    float: right;
-    margin-left: 100%;
-  background-image: linear-gradient(to bottom left,black, grey, black);
-    // -webkit-box-reflect: below 0 linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    @include drop-shadow;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 350px;
-        // width: 100%;
-        // margin: auto;
-        // margin-top: 100px;
-        margin-bottom: 100px;
-        border-radius: 1rem;
-        // background-color: black;
-    
-        img {
-            height: 100%;
-            width: 40%;
-            object-fit: cover;
-            border-radius: 1rem;
-        }
-    
-        div {
-            width: 60%;
-        }
-}
+  width: 100%;
+  margin-bottom: 5rem;
+  float: right;
+  margin-left: 100%;
+  background-image: linear-gradient(to bottom left, black, grey, black);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+  @include drop-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px;
+  margin-bottom: 100px;
+  border-radius: 1rem;
 
-.meet-the-team-page {
-    padding: 5rem;
-    padding-top: 2rem;
-    background-color: black;
+  img {
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  div {
+    width: 60%;
+  }
 }
 
 #root {
@@ -76,44 +60,26 @@
 }
 
 @media only screen and (max-width: 900px) {
+  #team-card-images-small {
+    width: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-    #team-card-images-small {
-        width: 100%;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+  .member-name {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .card-horizontal-left,
+  .card-horizontal-right {
+    height: fit-content;
+    justify-content: justify;
+    width: 100%;
+    font-size: smaller;
+    flex-direction: column;
+    img{
+        height:20vh;
     }
-
-    .member-name {
-        text-align: center;
-        justify-content: center;
-    }
-
-    .card-horizontal-left {
-        height: fit-content;
-        justify-content: justify;
-        width: 60%;
-        font-size: smaller;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        flex-direction: column;
-
-        // div{
-        //     margin: 0 9rem;
-        // }
-    }
-
-    .card-horizontal-right {
-        height: fit-content;
-        justify-content: justify;
-        width: 60%;
-        font-size: smaller;
-        margin-left: 1rem;
-        margin-right: 1rem;
-        flex-direction: column;
-    }
-
-    .meet-the-team-page {
-        padding: 1rem;
-    }
-
+  }
 }

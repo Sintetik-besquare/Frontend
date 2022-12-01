@@ -66,8 +66,16 @@ const LineChart = () => {
   }, []);
 
   useEffect(() => {
+    socket.current = io("http://localhost:3002");
+    socket.current.on("connect_error", (e) => {
+      console.log(e);
+    });
 
-    const socket = io.connect("https://api.sintetik.xyz");
+    // socket.current.emit("select", chart_store.index);
+    return () => socket.current.disconnect(true); //prevent spam
+  }, []);
+
+  useEffect(() => {
     /**
      *
      * @param {any[]} z
@@ -79,24 +87,20 @@ const LineChart = () => {
       }
       return z;
     };
-    socket.current.on("connect_error", (e) => {
-      console.log(e);
-    });
-
-    socket.current.on("feed", (price) => {
-      console.log(price)
-      setX_axis((oldX) => limit([...oldX, JSON.parse(price).timestamp]));
-      setY_axis((oldY) => limit([...oldY, JSON.parse(price).price]));
-    });
-    // socket.current.emit("select", chart_store.index);
-    return () => socket.current.disconnect(true); //prevent spam
-  },[]);
-
-
-  useEffect(() => {
-    socket.current.emit("index", {index:chart_store.index});
-    setX_axis([])
-    setY_axis([])
+    socket.current.emit("index", { index: chart_store.index });
+    setX_axis([]);
+    setY_axis([]);
+    const append = (price) => {
+      const o = JSON.parse(price);
+      if (o.symbol_name !== chart_store.index) {
+        return;
+      }
+      // console.log(price);
+      setX_axis((oldX) => limit([...oldX, o.timestamp]));
+      setY_axis((oldY) => limit([...oldY, o.price]));
+    };
+    socket.current.off("feed");
+    socket.current.on("feed", append);
   }, [chart_store.index]);
 
   return (

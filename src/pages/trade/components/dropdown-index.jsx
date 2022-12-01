@@ -7,7 +7,6 @@ import IndexModal from "./modal-index";
 
 const DropdownContract = () => {
   const { chart_store } = useStores();
-  // const [indexModal, setIndexModal] = useState(false);
 
   return (
     <>
