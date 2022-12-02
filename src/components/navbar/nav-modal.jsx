@@ -20,6 +20,7 @@ const NavModal = () => {
     localStorage.clear();
     app_store.setShowModal(false);
     app_store.setLogin(false);
+    navigate("/", { replace: true });
   }
 
   function resetWallet() {
