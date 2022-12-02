@@ -6,8 +6,8 @@ const IndexModal = () => {
   const { chart_store } = useStores();
 
   const index = (type) => {
-    chart_store.setIndex(type)
-  }
+    chart_store.setIndex(type);
+  };
 
   return (
     <div

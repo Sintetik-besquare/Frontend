@@ -11,7 +11,7 @@ function App_Store() {
           <a href="https://apps.apple.com/us/app/among-us/id1351168404" target="_blank">
           <img src={Apple} alt="N/A" className="apple-image-card"/>
           </a>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+          <a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">
           <img src={Google} alt="N/A" className="google-image-card"/>
           </a>
           <a href="https://media.tenor.com/yEqIPzZ6QrIAAAAC/trump-china-chynah.gif" target="_blank">
