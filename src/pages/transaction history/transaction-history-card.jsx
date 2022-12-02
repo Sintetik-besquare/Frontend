@@ -31,8 +31,8 @@ const TransactionHistoryCard = () => {
 
   return (
     <>
-      <div class="transaction-history-container">
-        <div class="box orange">
+      <div className="transaction-history-container">
+        <div className="box orange">
           <h2 className="transaction-history-volatility">
             Volatility ${volatility}
             <span className={payout === 1 ? "red" : "green"}>Win</span>
