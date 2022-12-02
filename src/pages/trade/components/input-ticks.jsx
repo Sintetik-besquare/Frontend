@@ -27,15 +27,19 @@ const InputTicks = () => {
               chart_store.setTicks(parseInt(e.target.value));
             }}
           />
-          <button
-            className="button_green_small"
-            disabled={chart_store.ticks >= 10}
-            onClick={() => {
-              chart_store.setTicks(parseInt(chart_store.ticks) + 1);
-            }}
-          >
-            +
-          </button>
+          {chart_store.ticks >= 10 ? (
+            <button disabled style={{color:"white"}}>+</button>
+          ) : (
+            <button
+              className="button_green_small"
+              disabled={chart_store.ticks === 10}
+              onClick={() => {
+                chart_store.setTicks(parseInt(chart_store.ticks) + 1);
+              }}
+            >
+              +
+            </button>
+          )}
         </div>
       </div>
     </div>
