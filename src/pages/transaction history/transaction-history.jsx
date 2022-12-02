@@ -18,14 +18,14 @@ function TransactionHistory() {
         <table className="fl-table">
           <thead>
             <tr>
-              <th>Contract ID</th>
               <th>Transaction ID</th>
-              <th>Transaction Amount</th>
+              <th>Contract ID</th>
+              <th>Amount</th>
               <th>Balance</th>
-              <th>Transaction Time</th>
+              <th>Time</th>
               <th>
                 <div className="dropdown-filter">
-                <div className="filter">Transaction Type<FaFilter /></div>
+                <div className="filter">Transaction <FaFilter /></div>
                 <div className="filter-types">
                   <button onClick={()=>{setFilter('All')}}>All</button>
                   <button onClick={()=>{setFilter("ResetBalance")}}>Reset</button>
@@ -44,8 +44,8 @@ function TransactionHistory() {
               ) {
                 return (
                   <tr key={i}>
-                    <td>{t.contract_id}</td>
                     <td>{t.transaction_id}</td>
+                    <td>{t.contract_id}</td>
                     {/* <td className={t.transaction_amount >= -1 ? "green" : "red"}>
                     {t.transaction_amount}  */}
                     <td

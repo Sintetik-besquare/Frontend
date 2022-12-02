@@ -76,6 +76,7 @@ const LineChart = () => {
   }, []);
 
   useEffect(() => {
+
     /**
      *
      * @param {any[]} z
@@ -101,6 +102,7 @@ const LineChart = () => {
     };
     socket.current.off("feed");
     socket.current.on("feed", append);
+
   }, [chart_store.index]);
 
   return (

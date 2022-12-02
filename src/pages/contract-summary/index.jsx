@@ -16,19 +16,11 @@ function ContractSummary() {
         <table className="fl-table">
           <thead>
             <tr>
-              <th>contract id</th>
-              <th>contract type</th>
-              <th>duration</th>
-              <th>entry spot</th>
-              <th>exit spot</th>
-              <th>option type</th>
-              <th>stake</th>
-              <th>payout</th>
+              <th>Contract id</th>
               <th>
-              <div className="dropdown-filter">
+                <div className="dropdown-filter">
                 <div className="filter">
-                  symbol
-                  <FaFilter />
+                  Symbol <FaFilter />
                   <div className="filter-types">
                     <button onClick={()=>{setFilter('All')}}>All</button>
                     <button onClick={()=>{setFilter("VOL20")}}>VOL20</button>
@@ -41,6 +33,13 @@ function ContractSummary() {
                 </div>
                 </div>
               </th>
+              <th>Contract</th>
+              <th>Option</th>
+              <th>Duration</th>
+              <th>Stake</th>
+              <th>Entry</th>
+              <th>Exit</th>
+              <th>Payout</th>
             </tr>
           </thead>
           <tbody>
@@ -52,14 +51,16 @@ function ContractSummary() {
                 return (
                   <tr key={i}>
                     <td>{t.contract_id}</td>
+                    <td>{t.symbol}</td>
                     <td>{t.contract_type}</td>
+                    <td>{t.option_type}</td>
                     <td>{t.duration}</td>
+                    <td>{t.stake}</td>
                     <td>{t.entry_spot}</td>
                     <td>{t.exit_spot}</td>
                     <td>{t.option_type}</td>
                     <td>{t.stake}</td>
                     <td>{t.payout}</td>
-                    <td>{t.symbol}</td>
                   </tr>
                 );
               } else {
