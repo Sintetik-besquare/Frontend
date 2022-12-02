@@ -40,7 +40,7 @@
   }
 
   .order-form-modal {
-    z-index: 1001;
+    z-index: 1000;
     background-color: rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
@@ -470,13 +470,12 @@ ul li:hover .slider p {
       width: 25vw;
     }
     flex-wrap: wrap;
-  }
 
-  .order-form-modal {
-    position: absolute;
-    left: 50px;
-
-    background-color: $black;
+    .order-form-modal {
+      position:absolute;
+      top: 54px; // the height of .form-row
+      left:0;
+    }
   }
 
   #summary {
@@ -498,6 +497,11 @@ ul li:hover .slider p {
     width: 100%;
   }
   .order-form-modal {
+    top: 50px;
     width:300px;
+  }
+  .trade_page {
+    min-height:100vh;
+    height:100%;
   }
 }

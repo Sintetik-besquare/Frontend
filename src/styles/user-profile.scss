@@ -309,11 +309,11 @@ button {
   display: block;
 }
 
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-}
-
 @media only screen and (max-width: 768px) {
+  .user-profile-flex {
+    margin: 0;
+    width: 100vw;
+  }
   .user-profile-primary-card {
     display: block;
     margin-left: 0;
