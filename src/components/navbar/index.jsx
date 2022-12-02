@@ -33,12 +33,13 @@ const NavBar = () => {
           <span className="line line2"></span>
           <span className="line line3"></span>
         </div>
-        <a href="/">
-        <div className="navbar-logo">
-          <img src={Logo} alt="Logo"/>
+        <div
+          className="navbar-logo"
+          onClick={() => navigate("/", { replace: true })}
+        >
+          <img src={Logo} alt="Logo" />
           <h3 style={{ float: "right" }}>SINTETIK</h3>
         </div>
-        </a>
         <div className="navbar-menu-list">
           <ul className="navlink">
             <HashLink smooth to="/#header" className="li">

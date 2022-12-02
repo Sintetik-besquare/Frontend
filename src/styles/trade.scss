@@ -4,15 +4,16 @@
   display: flex;
   align-items: flex-start;
   background-color: #0f0f0f;
+  justify-content: space-around;
   width: 100%;
 }
 
 #chart-container {
-  width: 85%;
+  width: 84%;
 }
 
 .form_container {
-  width: 15%;
+  width: 14%;
   display: block;
   align-items: center;
   justify-content: center;
@@ -36,6 +37,9 @@
       cursor: pointer;
       text-shadow: 0.2px 0.2px 0 white, 0.6px 0.6px white;
       transition: 0.3s;
+    }
+    input {
+      text-align: center;
     }
   }
 
@@ -300,27 +304,6 @@ ul li.past-trades div.slider {
   background: #000000;
 }
 
-// .slider {
-//   position: absolute;
-//   top: 0;
-//   right: 51px;
-//   width: 0px;
-//   height: 50px;
-//   border-radius: 2px;
-//   transition: all 0.5s 0.3s ease;
-// }
-
-// .slider p {
-//   font-family: "Poppins";
-//   font-size: 16px;
-//   font-weight: 900;
-//   color: #fff;
-//   text-align: center;
-//   line-height: 50px;
-//   opacity: 0;
-//   transition: all 0.6s ease;
-// }
-
 ul li:hover .slider {
   width: 180px;
   transition: all 0.5s ease;
@@ -335,10 +318,6 @@ ul li:hover .slider p {
   font-size: larger;
   font-family: "Poppins";
   margin-bottom: 1rem;
-}
-
-#middle {
-  padding-left: 2.5rem;
 }
 
 #left {
@@ -472,9 +451,9 @@ ul li:hover .slider p {
     flex-wrap: wrap;
 
     .order-form-modal {
-      position:absolute;
+      position: absolute;
       top: 54px; // the height of .form-row
-      left:0;
+      left: 0;
     }
   }
 
@@ -498,10 +477,10 @@ ul li:hover .slider p {
   }
   .order-form-modal {
     top: 50px;
-    width:300px;
+    width: 300px;
   }
   .trade_page {
-    min-height:100vh;
-    height:100%;
+    min-height: 100vh;
+    height: 100%;
   }
 }
