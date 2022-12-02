@@ -35,11 +35,3 @@ jobs:
     - name: Create build
       run:  |
         npm install --legacy-peer-deps
-        npm run build --if-present --verbose
-        tar czvf build.tar ./build
-
-    - name: Decompress build
-      uses: actions/upload-artifact@v3
-    - run: tar xzvf build.tar
-
-
