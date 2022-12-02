@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { TbSquare } from "react-icons/tb";
 import { useStores } from "../../../store";
 
 const BtnEven = () => {
@@ -8,18 +8,9 @@ const BtnEven = () => {
 
   return (
     <>
-      <div id="call-60">
-        <div id="call-left">
-          <span>${chart_store.even_payout}</span>
-        </div>
-      </div>
+      <div id="call-60">${chart_store.even_payout}</div>
       <div id="call-40">
-        <div id="call-right">
-          <span>
-            EVEN
-            <HiOutlineChevronDoubleUp id="button-icon14" />
-          </span>
-        </div>
+        EVEN <TbSquare id="button-icon" />
       </div>
     </>
   );
