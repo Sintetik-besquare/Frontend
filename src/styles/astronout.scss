@@ -1,3 +1,5 @@
+@import "./base.scss";
+
 #error-page-bg {
   background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
   // padding-top: 700px;
@@ -119,6 +121,7 @@
   position: absolute;
   left: 100px;
   top: 400px;
+  z-index: 5;
   transform: translateY(-60%);
   font-family: "Righteous", cursive;
   color: #363e49;
@@ -137,7 +140,8 @@
 }
 
 .error__button {
-  min-width: 7em;
+  font-family: "Poppins";
+  min-width: 10em;
   margin-top: 3em;
   margin-right: 0.5em;
   padding: 0.5em 2em;
@@ -148,31 +152,35 @@
   color: #576375;
   cursor: pointer;
   transition-duration: 0.2s;
-  font-size: 0.75em;
+  font-size: 1em;
   font-family: "Righteous", cursive;
 }
 
 .error__button:hover {
-  color: #21252c;
+  color: #576375;
 }
 
 .error__button--active {
-  background-color: #e67e22;
-  border: 2px solid #e67e22;
-  color: white;
+  background-color: $yellow;
+  border: 2px solid $yellow;
+  color: $black;
 }
 
 .error__button--active:hover {
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.5);
-  color: white;
+  color: $black;
+}
+
+.noon-container {
+  z-index: 1;
 }
 
 .astronaut {
   position: absolute;
   width: 185px;
   height: 300px;
-  left: 40%;
-  top: 40%;
+  left: 500px;
+  top: 500px;
   transform: translate(-50%, -50%) rotate(20deg) scale(1.2);
 }
 
