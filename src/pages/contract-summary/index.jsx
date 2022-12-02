@@ -56,7 +56,7 @@ function ContractSummary() {
                     <td>{t.duration}</td>
                     <td>{t.entry_spot}</td>
                     <td>{t.exit_spot}</td>
-                    <td>{t.optoin_type}</td>
+                    <td>{t.option_type}</td>
                     <td>{t.stake}</td>
                     <td>{t.payout}</td>
                     <td>{t.symbol}</td>
