@@ -26,7 +26,7 @@ const OrderForm = () => {
   let error_message = [];
 
   useEffect(() => {
-    socket.current = io("http://login.sintetik.xyz", {
+    socket.current = io("https://login.sintetik.xyz", {
       query: {
         token: TOKEN,
       },
