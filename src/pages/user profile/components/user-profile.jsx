@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStores } from "../../../store";
@@ -50,23 +50,28 @@ const InputFieldText = () => {
           <center>Profile</center>
           <img src={Astronout} alt="a profile page" style={{ width: "40%" }} />
           <p className="email">{user_store.email}</p>
-          <p className="join">
-            Joined on<br></br>
-            <span className="join-span">
-              {new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "2-digit",
-                day: "2-digit",
-                hour: "2-digit",
-                minute: "2-digit",
-                second: "2-digit",
-              }).format(user_store.date_join * 1000)}
-            </span>
-          </p>
-          <p className="join">
-            Client ID<br></br>
-            <span className="join-span">{user_store.client_id}</span>
-          </p>
+          {user_store.date_join !== "" && (
+            <p className="join">
+              Joined on<br></br>
+              <span className="join-span">
+                {new Intl.DateTimeFormat("en-US", {
+                  year: "numeric",
+                  month: "2-digit",
+                  day: "2-digit",
+                  hour: "2-digit",
+                  minute: "2-digit",
+                  second: "2-digit",
+                }).format(user_store.date_join * 1000)}
+              </span>
+            </p>
+          )}
+
+          {user_store.client_id !== "" && (
+            <p className="join">
+              Client ID<br></br>
+              <span className="join-span">{user_store.client_id}</span>
+            </p>
+          )}
         </div>
         <div className="user-profile">
           <div className="basic-info-header"></div>

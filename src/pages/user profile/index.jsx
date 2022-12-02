@@ -9,7 +9,7 @@ import TransactionHistory from "../transaction history/transaction-history.jsx";
 const Tabs = () => {
   const { app_store } = useStores();
   const navigate = useNavigate();
-  const [toggleState, setToggleState] = useState(2);
+  const [toggleState, setToggleState] = useState(1);
 
   function login() {
     navigate("/", { replace: true });
