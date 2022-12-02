@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { TbEqualNot } from "react-icons/tb";
 import { useStores } from "../../../store";
 
 const BtnOdd = () => {
@@ -8,18 +8,9 @@ const BtnOdd = () => {
 
   return (
     <>
-      <div id="call-60">
-        <div id="call-left">
-          <span>${chart_store.differ_payout}</span>
-        </div>
-      </div>
+      <div id="call-60">${chart_store.differ_payout}</div>
       <div id="call-40">
-        <div id="call-right">
-          <span>
-            DIFFER
-            <HiOutlineChevronDoubleUp id="button-icon14" />
-          </span>
-        </div>
+        DIFFER <TbEqualNot id="button-icon" />
       </div>
     </>
   );

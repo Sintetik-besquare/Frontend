@@ -1,10 +1,15 @@
 import Crypto from "../../../assets/uwu.png";
 import { CgArrowTopRight } from "react-icons/cg";
 import Sand from "../../../assets/cyberspace_gray.mp4";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+  const navigate = useNavigate();
   return (
-    <div className="hero-home" style={{backgroundColor:"black", position: "relative" }}>
+    <div
+      className="hero-home"
+      style={{ backgroundColor: "black", position: "relative" }}
+    >
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
@@ -42,22 +47,17 @@ function Hero() {
         <br className="hide-when-small" />
         <br />
         <br />
-        <a href="trade" style={{all:"unset"}}>
         <button
           className="get-started-button"
-          style={{
-            // backgroundColor: "#F5DC0C",
-            // WebkitTextFillColor: "white",
-          }}
-          >
-            <span> </span>
-            <span> </span>
-            <span> </span>
-            <span> </span>
+          onClick={() => navigate("/trade", { replace: true })}
+        >
+          <span> </span>
+          <span> </span>
+          <span> </span>
+          <span> </span>
           <b className="home-hero-button">Get Started</b> &nbsp;
           <CgArrowTopRight id="button-icon2" />
         </button>
-          </a>
       </div>
     </div>
   );

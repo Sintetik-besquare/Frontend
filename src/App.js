@@ -14,6 +14,7 @@ import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
 import UserProfile from "./pages/user profile/index";
 import Error from "./pages/error/index";
+import Password from "./pages/auth/forgot-password"
 
 import { getUserDetails } from "./services/user-info";
 import { getBalance } from "./services/wallet";
@@ -54,6 +55,7 @@ const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgotpw" element={<Password />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="*" element={<Error />} />
         </Routes>

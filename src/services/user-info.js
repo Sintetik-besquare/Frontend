@@ -28,21 +28,15 @@ async function editUserDetails(body) {
   }).then(console.log(body));
 }
 
-async function passwordReset() {
+async function passwordReset(body) {
   return await fetch(`${ENDPOINT_BASE}/user/password-reset`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+      "Content-Type": "application/json",
     },
-  })
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((json) => {
-      console.log(json);
-      return json;
-    });
+    body: body,
+  }).then(console.log(body));
 }
 
 export { getUserDetails, editUserDetails, passwordReset };

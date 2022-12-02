@@ -8,18 +8,9 @@ const BtnCall = () => {
 
   return (
     <>
-      <div id="call-60">
-        <div id="call-left">
-          <span>${chart_store.call_payout}</span>
-        </div>
-      </div>
+      <div id="call-60">${chart_store.call_payout}</div>
       <div id="call-40">
-        <div id="call-right">
-          <span>
-            CALL
-            <HiOutlineChevronDoubleUp id="button-icon14" />
-          </span>
-        </div>
+        CALL <HiOutlineChevronDoubleUp id="button-icon" />
       </div>
     </>
   );
