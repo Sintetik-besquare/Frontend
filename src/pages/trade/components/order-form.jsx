@@ -6,6 +6,7 @@ import { getBalance } from "../../../services/wallet";
 import DropdownContract from "./dropdown-contract";
 import DropdownIndex from "./dropdown-index";
 import InputTicks from "./input-ticks";
+import InputTicksSlider from "./input-ticks-slider";
 import InputStake from "./input-stake";
 import BtnCall from "./btn-call";
 import BtnPut from "./btn-put";
@@ -132,7 +133,8 @@ const OrderForm = () => {
 
       <div>
         <div className="form_row">
-          <InputTicks />
+          {/* <InputTicks /> */}
+          <InputTicksSlider />
         </div>
 
         <div className="form_row">

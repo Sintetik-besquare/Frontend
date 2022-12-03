@@ -29,9 +29,9 @@ const LineChart = () => {
         data: y_axis,
         label: chart_store.index,
         borderColor: "white",
-        backgroundColor: "white",
-        pointStyle: "dash",
+        // pointStyle: "dash",
         pointBorderWidth: 0,
+        borderWidth:1,
         tension: 0.1,
         animations: {
           x: {
