@@ -31,7 +31,7 @@ const LineChart = () => {
         borderColor: "white",
         // pointStyle: "dash",
         pointBorderWidth: 0,
-        borderWidth:1,
+        borderWidth: 1,
         tension: 0.1,
         animations: {
           x: {
@@ -76,7 +76,6 @@ const LineChart = () => {
   }, []);
 
   useEffect(() => {
-
     /**
      *
      * @param {any[]} z
@@ -102,7 +101,6 @@ const LineChart = () => {
     };
     socket.current.off("feed");
     socket.current.on("feed", append);
-
   }, [chart_store.index]);
 
   return (
@@ -138,13 +136,11 @@ const LineChart = () => {
               }
               style={{ marginLeft: "20px" }}
             >
-              {" "}
-              {(
-                ((y_axis[y_axis.length - 1] - y_axis[y_axis.length - 2]) *
-                  100) /
-                y_axis[y_axis.length - 2]
-              ).toPrecision(5)}
-              %
+              {isNaN(((y_axis[y_axis.length - 2]))) ? 
+              "0" 
+              : 
+              (((y_axis[y_axis.length - 1] - y_axis[y_axis.length - 2]) * 100) /y_axis[y_axis.length - 2]).toPrecision(5)
+              }%
             </font>
           </div>
         </div>
