@@ -51,13 +51,13 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/app" element={<Landing />} />
-          <Route path="/error" element={<Error />} />
           <Route path="/trade" element={<Trade />} />
           <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpw" element={<Password />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>

@@ -11,7 +11,7 @@ import {
   PointElement,
 } from "chart.js";
 import Status from "./modal-status";
-import { FiTrendingUp } from "react-icons/fi";
+import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
 // import { getHistoricalFeed } from "../../../services/historical-feed";
 import { getBalance } from "../../../services/wallet";
 
@@ -96,7 +96,7 @@ const LineChart = () => {
       if (o.symbol_name !== chart_store.index) {
         return;
       }
-      // console.log(price);
+      // console.log(o.price);
       setX_axis((oldX) => limit([...oldX, o.timestamp]));
       setY_axis((oldY) => limit([...oldY, o.price]));
     };
@@ -121,9 +121,31 @@ const LineChart = () => {
           )}
 
           <div id="trend-percentage" style={{ fontSize: "18px" }}>
-            <FiTrendingUp id="button-icon10" />
-            <font> $1,234,23</font> {/* are you sure you wanna hardcode this?*/}
-            <font> (2.4%)</font> {/* are you sure you wanna hardcode this?*/}
+            <div>
+              {y_axis[y_axis.length - 1] - y_axis[y_axis.length - 2] >= 0 ? (
+                <FiTrendingUp id="button-icon10" className="green" />
+              ) : (
+                <FiTrendingDown id="button-icon10" className="red" />
+              )}
+            </div>
+
+            <font>{y_axis[y_axis.length - 1]}</font>
+            <font
+              className={
+                y_axis[y_axis.length - 1] - y_axis[y_axis.length - 2] >= 0
+                  ? "green"
+                  : "red"
+              }
+              style={{ marginLeft: "20px" }}
+            >
+              {" "}
+              {(
+                ((y_axis[y_axis.length - 1] - y_axis[y_axis.length - 2]) *
+                  100) /
+                y_axis[y_axis.length - 2]
+              ).toPrecision(5)}
+              %
+            </font>
           </div>
         </div>
         <div id="status-container">

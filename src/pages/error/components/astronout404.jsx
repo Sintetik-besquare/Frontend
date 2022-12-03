@@ -1,8 +1,14 @@
 import React from "react";
 import { useRef, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const Astronout = () => {
   const ref = useRef(null);
+  const navigate = useNavigate();
+
+  function homepage() {
+    navigate("/", { replace: true });
+  }
 
   useEffect(() => {
     function drawVisor() {
@@ -92,10 +98,12 @@ const Astronout = () => {
       </div>
 
       <div className="astronout-container">
-        <div className="moon"></div>
-        <div className="moon__crater moon__crater1"></div>
-        <div className="moon__crater moon__crater2"></div>
-        <div className="moon__crater moon__crater3"></div>
+        <div className="noon-container">
+          <div className="moon"></div>
+          <div className="moon__crater moon__crater1"></div>
+          <div className="moon__crater moon__crater2"></div>
+          <div className="moon__crater moon__crater3"></div>
+        </div>
 
         <div className="star star1"></div>
         <div className="star star2"></div>
@@ -109,7 +117,12 @@ const Astronout = () => {
           <div className="error__description">
             It looks like one of the developers fell asleep
           </div>
-          <button className="error__button error__button--active" >Homepage</button>
+          <button
+            className="error__button error__button--active"
+            onClick={homepage}
+          >
+            Homepage
+          </button>
         </div>
 
         <div className="astronaut">
@@ -130,7 +143,7 @@ const Astronout = () => {
           <div className="astronaut__wrist-right"></div>
 
           <div className="astronaut__cord">
-            <canvas ref={ref} id="cord" height="500px" width="500px"></canvas>
+            <canvas ref={ref} id="cord" height="500px" width="200px"></canvas>
           </div>
 
           <div className="astronaut__head">
