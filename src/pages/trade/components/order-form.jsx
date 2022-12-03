@@ -79,6 +79,9 @@ const OrderForm = () => {
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
     }
+    if(chart_store.stake > chart_store.wallet){
+      error_message.push(`your stake $${chart_store.stake} exceeded the balance in your wallet $${chart_store.wallet}`)
+    }
     if (chart_store.ticks <= 0 || chart_store.ticks > 10 || isNaN(chart_store.ticks)) {
       error_message.push("ticks must be a value between 1 to 10");
     }
