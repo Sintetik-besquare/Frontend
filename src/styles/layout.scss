@@ -48,9 +48,10 @@
   // border-left: thin solid grey;
 }
 
-.block-flex{
-  display:block
-}
+// .block-flex{
+//   display:block;
+//   width:100%;
+// }
 
 .flex-end {
   display: flex;
@@ -71,11 +72,11 @@
 
 
 @media only screen and (max-width: 1000px) {
-  .block-flex{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+  // .block-flex{
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+  // }
   .cards-container {
     flex-wrap: wrap;
   }

@@ -23,12 +23,12 @@
     {
         "id": 2,
         "name": "AFIQ MOHD SALLEH",
-        "role":"I am in charge of CI/CD which includes deploying and integrating the Frontend and Backend deployment. I helped in the development of the news feed and refactoring of the user profile and transaction history page",
+        "role":"I am in charge of server maintenance and CI/CD which includes deploying and integrating the Frontend and Backend. I am also involved in developing the news feed and refactoring the user profile and transaction history page",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
-            "OPTION1",
-            "OPTION2",
-            "OPTION3"
+            "CYBERSECURITY",
+            "DEVOPS",
+            "TRADING"
         ],
         "socials": {
             "LN": {
@@ -65,11 +65,11 @@
     {
         "id": 4,
         "name": "LIM KAI LING",
-        "role":"I maintain the backend codebase for the project, which includes generating endpoints for the Frontend use and integrating trading algorithm from Trading",
+        "role":"I maintain the backend codebase for the project, which includes generating endpoints for the Frontend use and integrating trading algorithms. On top of that, I develop a BI dashboard to look for trading patterns of users on Sintetik",
         "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
         "interest": [
-            "BI",
             "BACKEND",
+            "BUSINESS INTELLIGENCE",
             "CYBERSECURITY"
         ],
         "socials": {
@@ -86,7 +86,7 @@
     {
         "id": 5,
         "name": "KEOY SHON TZU",
-        "role":"I delegate and maintain the Frontend codebase for the group. My main contribution is on the trading page, responsive design, and the non-ui part of Frontend such as stores and services",
+        "role":"I maintain the Frontend codebase for the group. My main contribution is on the trading page, responsive design, and the non-ui part of Frontend such as stores and services",
         "photo": "https://media-exp1.licdn.com/dms/image/C5603AQHbIyHfyFHgGA/profile-displayphoto-shrink_800_800/0/1661476112338?e=1672876800&v=beta&t=gClh0lX5op_iEFemz8Iy5BxpOTpR53n9eRGcxs4aAzs",
         "interest": [
             "FRONTEND",

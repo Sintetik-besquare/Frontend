@@ -79,18 +79,26 @@ const OrderForm = () => {
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
     }
-    if(chart_store.stake > chart_store.wallet){
-      error_message.push(`your stake $${chart_store.stake} exceeded the balance in your wallet $${chart_store.wallet}`)
+    if (chart_store.stake > chart_store.wallet) {
+      error_message.push(
+        `your stake $${chart_store.stake} exceeded the balance in your wallet $${chart_store.wallet}`
+      );
     }
-    if (chart_store.ticks <= 0 || chart_store.ticks > 10 || isNaN(chart_store.ticks)) {
+    if (
+      chart_store.ticks <= 0 ||
+      chart_store.ticks > 10 ||
+      isNaN(chart_store.ticks)
+    ) {
       error_message.push("ticks must be a value between 1 to 10");
     }
     if (chart_store.stake <= 0 || isNaN(chart_store.stake)) {
       error_message.push("stake cannot be 0");
     }
     if (chart_store.contract_type === "Matches/differs") {
-      if (chart_store.lastDigitPrediction===null)
-        error_message.push("you must choose a last digit prediction to match or differ");
+      if (chart_store.lastDigitPrediction === null)
+        error_message.push(
+          "you must choose a last digit prediction to match or differ"
+        );
     }
     if (error_message.length === 0) {
       emitOrder();
@@ -104,8 +112,8 @@ const OrderForm = () => {
   }
 
   const emitOrder = () => {
-    if (chart_store.contract_type!=="Matches/differs"){
-      chart_store.lastDigitPrediction=0
+    if (chart_store.contract_type !== "Matches/differs") {
+      chart_store.lastDigitPrediction = 0;
     }
     let order = {
       index: chart_store.index,
@@ -124,7 +132,7 @@ const OrderForm = () => {
 
   return (
     <div className="form_container">
-      <div>
+      <div className="block-flex">
         <div className="form_row">
           <DropdownIndex />
         </div>
@@ -155,98 +163,114 @@ const OrderForm = () => {
       chart_store.stake > 0 &&
       chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
-        <div>
+        <>
           {chart_store.contract_type === "Rise/fall" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("call");
-                  validate();
-                }}
-              >
-                <BtnCall />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("put");
-                  validate();
-                }}
-              >
-                <BtnPut />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className="button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("call");
+                    validate();
+                  }}
+                >
+                  <BtnCall />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("put");
+                    validate();
+                  }}
+                >
+                  <BtnPut />
+                </button>
+              </div>
+            </div>
           )}
 
           {chart_store.contract_type === "Even/odd" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("odd");
-                  validate();
-                }}
-              >
-                <BtnOdd />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("even");
-                  validate();
-                }}
-              >
-                <BtnEven />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className="button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("odd");
+                    validate();
+                  }}
+                >
+                  <BtnOdd />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("even");
+                    validate();
+                  }}
+                >
+                  <BtnEven />
+                </button>
+              </div>
+            </div>
           )}
 
           {chart_store.contract_type === "Matches/differs" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("matches");
-                  validate();
-                }}
-              >
-                <BtnMatch />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("differs");
-                  validate();
-                }}
-              >
-                <BtnDiffer />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className=" button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("matches");
+                    validate();
+                  }}
+                >
+                  <BtnMatch />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("differs");
+                    validate();
+                  }}
+                >
+                  <BtnDiffer />
+                </button>
+              </div>
+            </div>
           )}
-        </div>
+        </>
       ) : (
-        <div>
-          <button
-            className="form_row button_green_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            {chart_store.contract_type === "Rise/fall" && <BtnCall />}
-            {chart_store.contract_type === "Even/odd" && <BtnOdd />}
-            {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
-          </button>
-          <button
-            className="form_row button_red_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            {chart_store.contract_type === "Rise/fall" && <BtnPut />}
-            {chart_store.contract_type === "Even/odd" && <BtnEven />}
-            {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
-          </button>
+        <div className="block-flex">
+          <div className="form_row">
+            <button
+              className=" button_green_disabled"
+              onClick={() => {
+                validate();
+              }}
+            >
+              {chart_store.contract_type === "Rise/fall" && <BtnCall />}
+              {chart_store.contract_type === "Even/odd" && <BtnOdd />}
+              {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
+            </button>
+          </div>
+          <div className="form_row">
+            <button
+              className=" button_red_disabled"
+              onClick={() => {
+                validate();
+              }}
+            >
+              {chart_store.contract_type === "Rise/fall" && <BtnPut />}
+              {chart_store.contract_type === "Even/odd" && <BtnEven />}
+              {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
+            </button>
+          </div>
         </div>
       )}
       {chart_store.showSummary === true && chart_store.isbuying !== true && (

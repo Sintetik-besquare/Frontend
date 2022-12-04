@@ -41,8 +41,7 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [app_store.is_loggedin, chart_store, user_store]);
 
   return (
     <div>
