@@ -53,7 +53,7 @@ $yellow: rgba(245, 220, 12, 1);
   background: rgb(47, 122, 31);
   align-items: center;
   color: #fff;
-  width: 195%;
+  width: 100%;
 }
 
 .button_red_light {
@@ -123,6 +123,7 @@ $yellow: rgba(245, 220, 12, 1);
   background: rgb(80, 80, 80);
   align-items: center;
   color: #fff;
+  width: 100%;
 }
 
 .button_red_disabled {
@@ -135,6 +136,7 @@ $yellow: rgba(245, 220, 12, 1);
   background: rgb(80, 80, 80);
   color: white;
   align-items: center;
+  width: 100%;
 }
 
 .button_orange_disabled {
