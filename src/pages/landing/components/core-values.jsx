@@ -2,7 +2,7 @@ function CoreValues() {
   return (
     <div className="core-value-div">
       <div className="core-value-title">
-        <h1 className="homepage-headline" data-aos="fade-right">Our Core Values</h1>
+        <h2 className="homepage-headline" data-aos="fade-right">Our Core Values</h2>
       </div>
       <div className="glassify__Wrapper" data-aos="fade-up">
         <div className="glassify__ContentWrapper">

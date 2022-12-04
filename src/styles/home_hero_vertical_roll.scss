@@ -1,165 +1,244 @@
-
 .Tradewith {
   font-family: Poppins;
+  text-align: center;
+  p {
+    font-size: 3rem;
+  }
 }
 
 .Tradewith b {
-  float: right;
-  margin-right: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   position: relative;
-  height: 2rem;
+  height: 3rem;
+  top:25px;
+  .innerTradewith {
+    font-size: 3rem;
+    color: $yellow;
+    // text-shadow: 0 0 3px #ffe205, 0 0 7px #ffe205, 0 0 20px #edd205;
+    position: relative;
+    white-space: nowrap;
+    top: 0;
+  }
 }
 .Tradewith .innerTradewith {
-  font-size: 2.5rem;
-  display: inline-block;
-  color: $yellow;
-  position: relative;
-  white-space: nowrap;
-  top: 0;
-  left: 0;
-  padding-right: 12rem;
-
-
-/*animation*/
--webkit-animation:move 10s;
-   -moz-animation:move 10s;
-    -ms-animation:move 10s;
-     -o-animation:move 10s;
-        animation:move 10s;
-/*animation-iteration-count*/
--webkit-animation-iteration-count:infinite;
-   -moz-animation-iteration-count:infinite;
-    -ms-animation-iteration-count:infinite;
-     -o-animation-iteration-count:infinite;
-        animation-iteration-count:infinite;
-/*animation-delay*/
--webkit-animation-delay:3s;
-   -moz-animation-delay:3s;
-    -ms-animation-delay:3s;
-     -o-animation-delay:3s;
-        animation-delay:3s;
+  /*animation*/
+  -webkit-animation: move 10s;
+  -moz-animation: move 10s;
+  -ms-animation: move 10s;
+  -o-animation: move 10s;
+  animation: move 10s;
+  /*animation-iteration-count*/
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  /*animation-delay*/
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
+  -ms-animation-delay: 3s;
+  -o-animation-delay: 3s;
+  animation-delay: 3s;
 }
-@keyframes move{
-0%  { top: 0rem; }
-20% { top: -2rem; }
-40% { top: -2rem; }
-60% { top: -2rem; }
-80% { top: -2rem; }
+@keyframes move {
+  0% {
+    top: 0rem;
+  }
+  20% {
+    top: -2rem;
+  }
+  40% {
+    top: -2rem;
+  }
+  60% {
+    top: -2rem;
+  }
+  80% {
+    top: -2rem;
+  }
 }
 
 @-webkit-keyframes move {
-    0%  { top: 0px; }
-    20% { top: -50px; }
-    40% { top: -100px; }
-    60% { top: -150px; }
-    80% { top: -200px; }
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
 }
 @-moz-keyframes move {
-    0%  { top: 0px; }
-    20% { top: -50px; }
-    40% { top: -100px; }
-    60% { top: -150px; }
-    80% { top: -200px; }
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
 }
 @-o-keyframes move {
-    0%  { top: 0px; }
-    20% { top: -50px; }
-    40% { top: -100px; }
-    60% { top: -150px; }
-    80% { top: -200px; }
+  0% {
+    top: 0px;
+  }
+  20% {
+    top: -50px;
+  }
+  40% {
+    top: -100px;
+  }
+  60% {
+    top: -150px;
+  }
+  80% {
+    top: -200px;
+  }
 }
 @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -4.1rem; }
-    40% { top: -7.6rem; }
-    60% { top: -11.1rem; }
-    80% { top: -14.6rem; }
+  0% {
+    top: 0rem;
+  }
+  20% {
+    top: -4.1rem;
+  }
+  40% {
+    top: -7.6rem;
+  }
+  60% {
+    top: -11.1rem;
+  }
+  80% {
+    top: -14.6rem;
+  }
 }
 
 @media only screen and (max-width: 2570px) {
   .Tradewith .innerTradewith {
     font-size: 4rem;
   }
-  .Tradewith b{
+  .Tradewith b {
     height: 5rem;
   }
 
   @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -5rem; }
-    40% { top: -10rem; }
-    60% { top: -15rem; }
-    80% { top: -20rem; }
-}
+    0% {
+      top: 0rem;
+    }
+    20% {
+      top: -5rem;
+    }
+    40% {
+      top: -10rem;
+    }
+    60% {
+      top: -15rem;
+    }
+    80% {
+      top: -20rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 2000px) {
   .Tradewith .innerTradewith {
     font-size: 2.5rem;
-    padding-right: 9rem;
   }
-  .Tradewith b{
+  .Tradewith b {
     height: 2.5rem;
   }
 
-@media only screen and (max-width: 1500px) {
-  .Tradewith .innerTradewith {
-    padding-right: 4rem;
-  }
-}
-
   @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -4rem; }
-    40% { top: -7.5rem; }
-    60% { top: -11rem; }
-    80% { top: -14.5rem; }
-}
+    0% {
+      top: 0rem;
+    }
+    20% {
+      top: -4rem;
+    }
+    40% {
+      top: -7.5rem;
+    }
+    60% {
+      top: -11rem;
+    }
+    80% {
+      top: -14.5rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 1200px) {
-  .Tradewith b{
+  .Tradewith b {
     height: 3rem;
   }
 
-  .Tradewith .innerTradewith {
-    padding-right: 0;
-  }
-
   @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -3.2rem; }
-    40% { top: -6.7rem; }
-    60% { top: -10.2rem; }
-    80% { top: -13.7rem; }
-}
+    0% {
+      top: 0rem;
+    }
+    20% {
+      top: -3.2rem;
+    }
+    40% {
+      top: -6.7rem;
+    }
+    60% {
+      top: -10.2rem;
+    }
+    80% {
+      top: -13.7rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {
-
   .Tradewith .innerTradewith {
     font-size: 2rem;
   }
 
-  .Tradewith b{
+  .Tradewith b {
     height: 2rem;
   }
 
-
   @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -3.5rem; }
-    40% { top: -6.5rem; }
-    60% { top: -9.5rem; }
-    80% { top: -12.5rem; }
-}
+    0% {
+      top: 0rem;
+    }
+    20% {
+      top: -3.5rem;
+    }
+    40% {
+      top: -6.5rem;
+    }
+    60% {
+      top: -9.5rem;
+    }
+    80% {
+      top: -12.5rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {
-  .Tradewith b{
+  .Tradewith b {
     height: 2.5rem;
-    margin-right: 6.5rem;
   }
 
   .Tradewith .innerTradewith {
@@ -167,22 +246,32 @@
   }
 
   @keyframes move {
-    0%  { top: 0rem; }
-    20% { top: -2.5rem; }
-    40% { top: -5rem; }
-    60% { top: -7.5rem; }
-    80% { top: -10rem; }
-}
+    0% {
+      top: 0rem;
+    }
+    20% {
+      top: -2.5rem;
+    }
+    40% {
+      top: -5rem;
+    }
+    60% {
+      top: -7.5rem;
+    }
+    80% {
+      top: -10rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 400px) {
-  .Tradewith b{
+  .Tradewith b {
     margin-right: 5rem;
   }
 }
 
 @media only screen and (max-width: 350px) {
-  .Tradewith b{
+  .Tradewith b {
     margin-right: 3rem;
   }
 }

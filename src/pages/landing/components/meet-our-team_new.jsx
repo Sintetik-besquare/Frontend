@@ -7,13 +7,13 @@ function MeetOurTeam() {
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
-        <h1
+        <h2
           className="homepage-headline-bottom-half"
           data-aos="fade-left"
           style={{ color: "$yellow" }}
         >
           Meet The Team
-        </h1>
+        </h2>
         <div className="container">
           {people.map((p, i) => {
             return (
@@ -34,11 +34,9 @@ function MeetOurTeam() {
                           color: "white",
                         }}
                       >
-                        {p.name} <br></br> 00{p.id}
+                        00{p.id}: {p.name}
                       </h3>
-                      <p className="member-name" style={{ color: "white" }}>
-                        {p.role}
-                      </p>
+                      <p>{p.role}</p>
                       <ul
                         className="tags"
                         style={{
