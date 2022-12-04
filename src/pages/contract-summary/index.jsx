@@ -58,8 +58,6 @@ function ContractSummary() {
                     <td>{t.stake}</td>
                     <td>{t.entry_spot}</td>
                     <td>{t.exit_spot}</td>
-                    <td>{t.option_type}</td>
-                    <td>{t.stake}</td>
                     <td>{t.payout}</td>
                   </tr>
                 );
