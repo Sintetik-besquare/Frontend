@@ -49,7 +49,7 @@ function TransactionHistory() {
               <tr key={i}>
                 <td>{t.transaction_id}</td>
                 <td>{t.contract_id}</td>
-                <td className={t.transaction_amount >= -1 ? "green" : "red"}>
+                <td className={t.transaction_amount > 0 ? "green" : "red"}>
                   {t.transaction_amount}
                 </td>
                 <td>{t.balance}</td>
