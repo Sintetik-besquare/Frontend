@@ -211,7 +211,6 @@
 }
 
 @media only screen and (max-width: 1025px) {
-
   .hero-page-flex-block {
     padding-left: 0;
   }
@@ -226,16 +225,13 @@
 }
 
 @media only screen and (max-width: 900px) {
-  // .hero-video {
-  //         width: 75rem;
-  //         height: 55rem;
-  // }
-
   .home-hero-button {
     font-size: 1rem;
   }
 
   .homepage-title {
+    margin: 0;
+    width: 100%;
     font-size: 5rem !important;
   }
 
@@ -281,7 +277,7 @@
 
   .hero-title {
     font-size: 2.5rem;
-    padding: 2rem;
+    padding: 0;
     height: 90vh;
     padding-top: 10vh;
     padding-bottom: 0;
@@ -294,27 +290,9 @@
   .hero-home {
     height: 100%;
   }
-
-  // #company {
-  //     padding-top: 20rem;
-  // }
 }
 
 @media only screen and (max-width: 500px) {
-  // #company {
-  //     padding-top: 11rem;
-  //     padding-bottom: 30rem;
-  // }
-
-  // .hero-title{
-  //     padding-top: 0rem;
-  // }
-
-  // .hero-video {
-  //     width: 65rem;
-  //     height: 40rem;
-  // }
-
   .aboutus {
     font-size: 3rem;
     padding-left: 0;
