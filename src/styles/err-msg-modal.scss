@@ -1,0 +1,30 @@
+#error-msg-container {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  #error-msg-modal {
+    position: fixed;
+    top: 100px;
+    width: 50vw;
+    padding:10px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    text-align: center;
+    p {
+      color: yellow;
+    }
+    button {
+      @include button-shared($red);
+      position: absolute;
+      background: transparent;
+      top: 5px;
+      right: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      height: 25px;
+      width: 25px;
+    }
+  }
+}

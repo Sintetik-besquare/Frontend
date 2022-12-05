@@ -6,6 +6,11 @@ export default class AppStore {
   show_modal = false;
   access_token = null;
   show_forgot_password = false;
+  error_messages = [];
+  show_error_message = false;
+  // confirm_message = [];
+  // show_confirm_message = false;
+  // confirm = false;
 
   constructor() {
     this.access_token = localStorage.getItem("ACCESS_TOKEN");
@@ -39,8 +44,13 @@ decorate(AppStore, {
   show_modal: observable,
   access_token: observable,
   show_forgot_password: observable,
+  error_messages: observable,
+  show_error_message: observable,
+  // confirm_message: observable,
+  // confirm: observable,
   setLogin: action,
   deposit: action,
   setShowModal: action,
   setShowForgotPassword: action,
+  // show_confirm_message: action,
 });

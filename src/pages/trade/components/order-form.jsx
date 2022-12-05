@@ -24,6 +24,7 @@ const OrderForm = () => {
   const { app_store, chart_store } = useStores();
   const TOKEN = app_store.access_token;
   let error_message = [];
+  error_message = [];
 
   useEffect(() => {
     socket.current = io("http://localhost:3001", {
@@ -97,11 +98,11 @@ const OrderForm = () => {
   };
 
   function showError() {
-    alert(error_message.join("\n"));
-  }
+    app_store.error_messages=error_message;
+    app_store.show_error_message=true;
+  } 
 
   function validate() {
-    error_message = [];
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
     }

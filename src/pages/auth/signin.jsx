@@ -16,8 +16,6 @@ const SigninPage = () => {
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
-  let error_message = [];
-
   useEffect(() => {
     loginPromise
       ?.then((z) => {
@@ -26,9 +24,9 @@ const SigninPage = () => {
           navigate("/trade", { replace: true });
         } else {
           z.forEach((e) => {
-            error_message.push(e.msg);
+            app_store.error_messages.push(e.msg);
           });
-          alert(error_message.join("\n \n"));
+          app_store.show_error_message=true;
         }
       })
       .then(
@@ -36,7 +34,6 @@ const SigninPage = () => {
           chart_store.setWallet(e);
         })
       );
-    error_message = [];
   }, [app_store, loginPromise]);
 
   return (
