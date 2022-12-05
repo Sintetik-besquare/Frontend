@@ -78,8 +78,15 @@
     width: 100%;
     font-size: smaller;
     flex-direction: column;
+    div{
+      width: 90%;
+    }
     img{
-        height:20vh;
+        height:40vh;
+    }
+    img:hover{
+      object-fit: contain;
+      transition: 1s;
     }
   }
 }

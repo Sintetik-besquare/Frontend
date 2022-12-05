@@ -3,7 +3,7 @@
         "id": 1,
         "name": "AARON BRANDONIC ANDREW",
         "role":"I designed the overall look and theme of the brand, generated assets, and ensure the product usability. I contributed in the Frontend development of the home and trading page and carried out quality assurance testing",
-        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "photo": "https://user-images.githubusercontent.com/108507236/205550717-f93874a9-1740-49fd-aaad-34427d15e4c4.png",
         "interest": [
             "QUALITY ASSURANCE",
             "PRODUCT DESIGN",
@@ -24,7 +24,7 @@
         "id": 2,
         "name": "AFIQ MOHD SALLEH",
         "role":"I am in charge of server maintenance and CI/CD which includes deploying and integrating the Frontend and Backend. I am also involved in developing the news feed and refactoring the user profile and transaction history page",
-        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "photo": "https://user-images.githubusercontent.com/108507236/205550724-b6474c34-ef42-4ed7-a944-f591d2c0b5c7.png",
         "interest": [
             "CYBERSECURITY",
             "DEVOPS",
@@ -45,7 +45,7 @@
         "id": 3,
         "name": "GOH SI YU",
         "role":"My main role is generating and testing the trading algorithm and payout. I also helped develop the home, login, and logout page of sintetik.xyz and ensured the site responsiveness",
-        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "photo": "https://user-images.githubusercontent.com/108507236/205550732-737f7f9e-d6a3-4cc0-ad4f-5ca6f7656d21.png",
         "interest": [
             "TRADING",
             "BUSINESS INTELLIGENCE",
@@ -54,7 +54,7 @@
         "socials": {
             "LN": {
                 "icon": "",
-                "link": "https://www.linkedin.com/in/siyugoh?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAACIxRE4BuQl9kcduKzPYajTIcaeVVEM2OwE&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BtYoIoJiNQ9S6pFrdQEb7Dw%3D%3D"
+                "link": "https://user-images.githubusercontent.com/108507236/205550732-737f7f9e-d6a3-4cc0-ad4f-5ca6f7656d21.png"
             },
             "GH": {
                 "icon": "",
@@ -66,7 +66,7 @@
         "id": 4,
         "name": "LIM KAI LING",
         "role":"I maintain the backend codebase for the project, which includes generating endpoints for the Frontend use and integrating trading algorithms. On top of that, I develop a BI dashboard to look for trading patterns of users on Sintetik",
-        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80",
+        "photo": "https://user-images.githubusercontent.com/108507236/205550727-17035252-ece9-45c7-85e6-e868337742d8.png",
         "interest": [
             "BACKEND",
             "BUSINESS INTELLIGENCE",
@@ -87,7 +87,7 @@
         "id": 5,
         "name": "KEOY SHON TZU",
         "role":"I maintain the Frontend codebase for the group. My main contribution is on the trading page, responsive design, and the non-ui part of Frontend such as stores and services",
-        "photo": "https://media-exp1.licdn.com/dms/image/C5603AQHbIyHfyFHgGA/profile-displayphoto-shrink_800_800/0/1661476112338?e=1672876800&v=beta&t=gClh0lX5op_iEFemz8Iy5BxpOTpR53n9eRGcxs4aAzs",
+        "photo": "https://user-images.githubusercontent.com/108507236/205550730-3335a063-c67f-4567-8470-8634b129c42d.png",
         "interest": [
             "FRONTEND",
             "TRADING",
