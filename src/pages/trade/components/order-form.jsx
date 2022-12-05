@@ -103,6 +103,7 @@ const OrderForm = () => {
   } 
 
   function validate() {
+    error_message=[]
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
     }
