@@ -45,6 +45,7 @@ const OrderForm = () => {
       chart_store.toggleIndexModal(false);
       chart_store.toggleContractModal(false);
       if (message.status === false) {
+        error_message=[]
         error_message.push(message.errors);
         showError();
         chart_store.toggleIsBuying(false);
