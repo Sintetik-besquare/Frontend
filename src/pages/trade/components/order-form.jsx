@@ -44,6 +44,10 @@ const OrderForm = () => {
       chart_store.toggleShowSummary(false);
       chart_store.toggleIndexModal(false);
       chart_store.toggleContractModal(false);
+      if (message.status === false) {
+        error_message.push(message.errors);
+        chart_store.toggleIsBuying(false);
+      }
     });
 
     socket.current.on("iswinning", (message) => {
@@ -165,7 +169,8 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("call");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnCall />
@@ -176,7 +181,8 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("put");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnPut />
@@ -192,7 +198,8 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("odd");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnOdd />
@@ -203,7 +210,8 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("even");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnEven />
@@ -219,7 +227,8 @@ const OrderForm = () => {
                   className=" button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("matches");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnMatch />
@@ -230,7 +239,8 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("differs");
-                    validate();emitOrder();
+                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnDiffer />
