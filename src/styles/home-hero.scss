@@ -176,22 +176,6 @@
 }
 
 @media only screen and (max-width: 2000px) {
-  // .hero-page-flex-block {
-  // padding-left: 45rem;
-  // }
-
-  .hero-video {
-    position: absolute;
-    object-fit: cover;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-  }
-
-  .homepage-title {
-    font-size: 8rem;
-  }
-
   .hero-title {
     text-align: center;
     font-family: "Poppins", sans-serif;
@@ -218,33 +202,22 @@
     place-items: center;
     padding-left: 4.5rem;
   }
-
+  .homepage-title {
+    font-size: 10rem !important;
+  }
   .aboutus-text {
     font-size: 1.5rem;
   }
 }
 
-@media only screen and (max-width: 1200px) {
-  //     .hero-home{
-  //         padding-top: 1rem;
-  // }
-  // .homepage-image #graphic_crypto2 {
-  // width: 50%;
-  // }
-}
-
 @media only screen and (max-width: 1025px) {
-  // .hero-home {
-  //     padding-top: 7rem;
-  //     padding-bottom: 2rem;
-  // }
+
   .hero-page-flex-block {
-    // padding-right: 10rem;
     padding-left: 0;
   }
 
   .homepage-title {
-    font-size: 8rem;
+    font-size: 8rem !important;
   }
 
   #graphic_crypto2 {
@@ -263,7 +236,7 @@
   }
 
   .homepage-title {
-    font-size: 5rem;
+    font-size: 5rem !important;
   }
 
   .hero-title {
@@ -303,7 +276,7 @@
 
 @media only screen and (max-width: 600px) {
   .homepage-title {
-    font-size: 4rem;
+    font-size: 4rem !important;
   }
 
   .hero-title {

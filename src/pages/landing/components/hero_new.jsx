@@ -38,7 +38,8 @@ function Hero() {
           </b>
         </div>
         </div>
-        <br className="hide-when-small" />
+        <br />
+        <br />
         <button
           className="get-started-button"
           onClick={() => navigate("/trade", { replace: true })}
