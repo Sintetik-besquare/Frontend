@@ -46,7 +46,7 @@ const OrderForm = () => {
       chart_store.toggleContractModal(false);
       if (message.status === false) {
         error_message=[]
-        error_message.push(message.errors);
+        error_message.push(`${message.errors}: this could have hapened due to poor internet connection or our server may have been overloaded`);
         showError();
         chart_store.toggleIsBuying(false);
       }
