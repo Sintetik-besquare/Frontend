@@ -46,11 +46,7 @@ const SigninPage = () => {
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
         <div className="signin-details-card">
-          <h2>
-            <b>
-              <center>SIGN IN</center>
-            </b>
-          </h2>
+          <h1>SIGN IN</h1>
           <form
             className="signin-form"
             onSubmit={function (e) {
@@ -67,13 +63,7 @@ const SigninPage = () => {
               );
             }}
           >
-            <h4
-              style={{
-                paddingLeft: "0rem",
-                textAlign: "left",
-                marginRight: "3rem",
-              }}
-            >
+            <h4>
               Welcome back!
               <br />
               Good to see you again.
