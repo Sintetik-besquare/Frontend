@@ -74,6 +74,7 @@ const OrderForm = () => {
   useEffect(() => {
     getBalance();
   }, [chart_store]);
+
   const emitOrder = () => {
     if (chart_store.contract_type !== "Matches/differs") {
       chart_store.lastDigitPrediction = 0;
@@ -92,10 +93,18 @@ const OrderForm = () => {
     console.log(chart_store.orderSummary);
     socket.current.emit("order", order);
   };
+
+  function showError() {
+    alert(error_message.join("\n"));
+  }
+
   function validate() {
     error_message = [];
     if (app_store.is_loggedin === false) {
       error_message.push("please login first");
+    }
+    if (chart_store.isbuying) {
+      error_message.push("slow down!");
     }
     if (chart_store.stake > chart_store.wallet) {
       error_message.push(
@@ -120,11 +129,9 @@ const OrderForm = () => {
     }
     if (error_message.length !== 0) {
       showError();
+    } else {
+      emitOrder();
     }
-  }
-
-  function showError() {
-    alert(error_message.join("\n"));
   }
 
   return (
@@ -168,7 +175,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("call");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnCall />
@@ -180,7 +186,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("put");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnPut />
@@ -197,7 +202,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("odd");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnOdd />
@@ -209,7 +213,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("even");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnEven />
@@ -226,7 +229,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("matches");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnMatch />
@@ -238,7 +240,6 @@ const OrderForm = () => {
                   onClick={() => {
                     chart_store.setOptionType("differs");
                     validate();
-                    emitOrder();
                   }}
                 >
                   <BtnDiffer />
