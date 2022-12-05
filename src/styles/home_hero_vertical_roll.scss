@@ -17,7 +17,6 @@
   .innerTradewith {
     font-size: 3rem;
     color: $yellow;
-    // text-shadow: 0 0 3px #ffe205, 0 0 7px #ffe205, 0 0 20px #edd205;
     position: relative;
     white-space: nowrap;
     top: 0;
@@ -261,17 +260,5 @@
     80% {
       top: -10rem;
     }
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .Tradewith b {
-    margin-right: 5rem;
-  }
-}
-
-@media only screen and (max-width: 350px) {
-  .Tradewith b {
-    margin-right: 3rem;
   }
 }
