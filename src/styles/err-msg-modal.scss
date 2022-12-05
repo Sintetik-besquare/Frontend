@@ -7,14 +7,11 @@
     position: fixed;
     top: 100px;
     width: 50vw;
-    padding:10px;
+    padding: 10px;
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     text-align: center;
-    p {
-      color: yellow;
-    }
     button {
       @include button-shared($red);
       position: absolute;
@@ -38,11 +35,17 @@
     position: fixed;
     top: 100px;
     width: 50vw;
-    padding:10px;
+    padding: 10px;
     background: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     text-align: center;
-
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      button {
+        width: 40%;
+      }
+    }
   }
 }

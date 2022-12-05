@@ -23,8 +23,10 @@ const ErrorMsg = (msg) => {
           {app_store.confirm_messages.map((msg, i) => {
             return <p key={i}>{msg}</p>;
           })}
-          <button onClick={() => cancel()}>No</button>
-          <button onClick={() => confirm()}>Yes</button>{" "}
+          <div>
+            <button className="button_red_small" onClick={() => cancel()}>No</button>
+            <button className="button_green_small" onClick={() => confirm()}>Yes</button>{" "}
+          </div>
         </div>
       </div>
     )
