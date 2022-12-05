@@ -12,7 +12,6 @@ import {
 } from "chart.js";
 import Status from "./modal-status";
 import { FiTrendingUp, FiTrendingDown } from "react-icons/fi";
-// import { getHistoricalFeed } from "../../../services/historical-feed";
 import { getBalance } from "../../../services/wallet";
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement);
@@ -44,21 +43,6 @@ const LineChart = () => {
     ],
   };
 
-  // useEffect(() => {
-  //   getHistoricalFeed()
-  //     .then((e) => chart_store.setHistory(e))
-  //     .then(
-  //       chart_store.historical_price.map((d) => {
-  //         setX_axis((oldX) => [...oldX, d[1][1]]);
-  //         setY_axis((oldY) => [...oldY, d[1][3]]);
-  //         // y_axis.push(d[1][1]);
-  //         // x_axis.push(d[1][3]);
-  //       })
-  //     );
-  //     console.log(x_axis + " " + y_axis);
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
   useEffect(() => {
     getBalance().then((e) => {
       chart_store.setWallet(e);
@@ -71,7 +55,6 @@ const LineChart = () => {
       console.log(e);
     });
 
-    // socket.current.emit("select", chart_store.index);
     return () => socket.current.disconnect(true); //prevent spam
   }, []);
 
@@ -95,7 +78,6 @@ const LineChart = () => {
       if (o.symbol_name !== chart_store.index) {
         return;
       }
-      // console.log(o.price);
       setX_axis((oldX) => limit([...oldX, o.timestamp]));
       setY_axis((oldY) => limit([...oldY, o.price]));
     };

@@ -74,7 +74,24 @@ const OrderForm = () => {
   useEffect(() => {
     getBalance();
   }, [chart_store]);
-
+  const emitOrder = () => {
+    if (chart_store.contract_type !== "Matches/differs") {
+      chart_store.lastDigitPrediction = 0;
+    }
+    let order = {
+      index: chart_store.index,
+      stake: parseFloat(chart_store.stake),
+      ticks: parseInt(chart_store.ticks),
+      option_type: chart_store.option_type.toString(),
+      contract_type: chart_store.contract_type,
+      entry_time: Math.floor(Date.now() / 1000) - 1,
+      digit: chart_store.lastDigitPrediction,
+    };
+    chart_store.toggleIsBuying(true);
+    chart_store.setOrderSummary(order);
+    console.log(chart_store.orderSummary);
+    socket.current.emit("order", order);
+  };
   function validate() {
     error_message = [];
     if (app_store.is_loggedin === false) {
@@ -109,25 +126,6 @@ const OrderForm = () => {
   function showError() {
     alert(error_message.join("\n"));
   }
-
-  const emitOrder = () => {
-    if (chart_store.contract_type !== "Matches/differs") {
-      chart_store.lastDigitPrediction = 0;
-    }
-    let order = {
-      index: chart_store.index,
-      stake: parseFloat(chart_store.stake),
-      ticks: parseInt(chart_store.ticks),
-      option_type: chart_store.option_type.toString(),
-      contract_type: chart_store.contract_type,
-      entry_time: Math.floor(Date.now() / 1000) - 1,
-      digit: chart_store.lastDigitPrediction,
-    };
-    chart_store.toggleIsBuying(true);
-    chart_store.setOrderSummary(order);
-    console.log(chart_store.orderSummary);
-    socket.current.emit("order", order);
-  };
 
   return (
     <div className="form_container">
