@@ -5,7 +5,6 @@ import { observer } from "mobx-react-lite";
 import { getBalance } from "../../../services/wallet";
 import DropdownContract from "./dropdown-contract";
 import DropdownIndex from "./dropdown-index";
-import InputTicks from "./input-ticks";
 import InputTicksSlider from "./input-ticks-slider";
 import InputStake from "./input-stake";
 import BtnCall from "./btn-call";
@@ -98,9 +97,7 @@ const OrderForm = () => {
           "you must choose a last digit prediction to match or differ"
         );
     }
-    if (error_message.length === 0) {
-      emitOrder();
-    } else {
+    if (error_message.length !== 0) {
       showError();
     }
   }
@@ -168,7 +165,7 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("call");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnCall />
@@ -179,7 +176,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("put");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnPut />
@@ -195,7 +192,7 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("odd");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnOdd />
@@ -206,7 +203,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("even");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnEven />
@@ -222,7 +219,7 @@ const OrderForm = () => {
                   className=" button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("matches");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnMatch />
@@ -233,7 +230,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("differs");
-                    validate();
+                    validate();emitOrder();
                   }}
                 >
                   <BtnDiffer />

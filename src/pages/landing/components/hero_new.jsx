@@ -23,7 +23,6 @@ function Hero() {
         <span>A New Way of Trading</span>
         <br />
         <div className="Tradewith">
-          {/* <p>What Our Users Say About Us:</p> */}
           <b>
             <div className="innerTradewith">
               "Exciting"
