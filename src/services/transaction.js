@@ -26,6 +26,7 @@ async function getContractSummary() {
       return response.json();
     })
     .then((json) => {
+      console.log(json.contract_summary)
       return json.contract_summary;
     });
 }

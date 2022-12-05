@@ -46,6 +46,7 @@ function ContractSummary() {
               <th>Entry</th>
               <th>Exit</th>
               <th>Payout</th>
+              <th>Digit</th>
             </tr>
           </thead>
           {filtered.map((t, i) => {
@@ -61,6 +62,7 @@ function ContractSummary() {
                   <td>{t.entry_spot}</td>
                   <td>{t.exit_spot}</td>
                   <td>{t.payout}</td>
+                  <td>{t.digit === null ? "-" : t.digit}</td>
                 </tr>
               </tbody>
             );
