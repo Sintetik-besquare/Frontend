@@ -65,6 +65,7 @@ function ContractSummary() {
               </tbody>
             );
           })}
+
         </table>
         {filtered.length === 0 ? (
           <span style={{textAlign:"center", display:"flex", alignItems:"center", justifyContent:"center", height:"90%"}}>
