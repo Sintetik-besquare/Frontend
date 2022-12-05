@@ -8,18 +8,9 @@ const BtnPut = () => {
 
   return (
     <>
-      <div id="put-60">
-        <div id="put-left">
-          <span>${chart_store.put_payout}</span>
-        </div>
-      </div>
+      <div id="put-60">${chart_store.put_payout}</div>
       <div id="put-40">
-        <div id="put-right">
-          <span>
-            PUT
-            <HiOutlineChevronDoubleDown id="button-icon15" />
-          </span>
-        </div>
+        PUT <HiOutlineChevronDoubleDown id="button-icon15" />
       </div>
     </>
   );

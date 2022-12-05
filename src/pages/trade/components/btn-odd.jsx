@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import React from "react";
-import { HiOutlineChevronDoubleUp } from "react-icons/hi";
+import { TbTriangle } from "react-icons/tb";
 import { useStores } from "../../../store";
 
 const BtnOdd = () => {
@@ -8,18 +8,9 @@ const BtnOdd = () => {
 
   return (
     <>
-      <div id="call-60">
-        <div id="call-left">
-          <span>${chart_store.odd_payout}</span>
-        </div>
-      </div>
+      <div id="call-60">${chart_store.odd_payout}</div>
       <div id="call-40">
-        <div id="call-right">
-          <span>
-            ODD
-            <HiOutlineChevronDoubleUp id="button-icon14" />
-          </span>
-        </div>
+        ODD <TbTriangle id="button-icon" />
       </div>
     </>
   );

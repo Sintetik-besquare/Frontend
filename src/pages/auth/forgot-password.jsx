@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useStores } from "../../store";
+import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
-import { FaRegUserCircle, FaEyeSlash, FaEye } from "react-icons/fa";
+import { FaEyeSlash, FaEye } from "react-icons/fa";
 import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
 
-const SignUp = () => {
+const ForgotPassword = () => {
   const { app_store } = useStores();
   const navigate = useNavigate();
+
   const [signupPromise, setSignupPromise] = useState(null);
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordConfirmShown, setPasswordConfirmShown] = useState(false);
 
@@ -33,15 +32,15 @@ const SignUp = () => {
       }
     });
     error_message = [];
-  }, [app_store, signupPromise]);
+  }, [signupPromise]);
 
   return (
-    <div id="signup-background">
+    <div id="container-forgotPW">
       <div id="signup" data-aos="flip-right" data-aos-duration="1000">
         <div className="signup-details-card">
           <h2>
             <b>
-              <center>SIGN UP</center>
+              <center>RESET PASSWORD</center>
             </b>
           </h2>
           <form
@@ -61,24 +60,12 @@ const SignUp = () => {
               );
             }}
           >
-            <h4>Let's get started shall we...</h4>
-            &nbsp;
-            <div className="signin-input">
-              <input
-                type="text"
-                placeholder="Email"
-                name="username"
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-              />
-              <FaRegUserCircle id="username-icon" />
-            </div>
+            <h4>I knew you would forget...</h4>
             &nbsp;
             <div className="signin-input">
               <input
                 type={passwordShown ? "text" : "password"}
-                placeholder="Password"
+                placeholder="New Password"
                 name="password"
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -104,7 +91,7 @@ const SignUp = () => {
             <div className="signin-input">
               <input
                 type={passwordConfirmShown ? "text" : "password"}
-                placeholder="Confirm Password"
+                placeholder="Confirm New Password"
                 name="password_confirm"
                 onChange={(e) => {
                   setPasswordConfirm(e.target.value);
@@ -127,60 +114,35 @@ const SignUp = () => {
               )}{" "}
             </div>
             &nbsp;
-            <div
-              style={{
-                display: "flex",
-              }}
-            >
-              <input
-                type="checkbox"
-                onClick={() => {
-                  setCheckbox(!checkbox);
-                }}
-              />
-              <h6>
-                I agree to the
-                <a href="error" target="blank" style={{ color: "red" }}>
-                  terms & conditions
-                </a>
-              </h6>
-            </div>
-            &nbsp;
             <center>
-              {username === "" || password === "" || checkbox === false ? (
+              {passwordConfirm === "" || password === "" ? (
                 <>
                   <button
                     style={{ backgroundColor: "black", color: "gray" }}
                     disabled
                   >
-                    <b>Register</b>
-                    <div>
-                      <FiUpload id="button-icon" />
-                    </div>
+                    <b>Reset Password</b>
                   </button>
+                  <p
+                    style={{ color: "red", cursor: "pointer" }}
+                    onClick={() => navigate("/signin", { replace: true })}
+                  >
+                    Sign in
+                  </p>
                 </>
               ) : (
                 <>
                   <button className="form_row button_green_dark" name="submit">
-                    <b>Register</b>
-                    <div>
-                      <FiUpload id="button-icon" />
-                    </div>
+                    <b>Reset Password</b>
                   </button>
+                  <p
+                    style={{ color: "red", cursor: "pointer" }}
+                    onClick={() => navigate("/signin", { replace: true })}
+                  >
+                    Sign in
+                  </p>
                 </>
               )}
-              &nbsp;
-            </center>
-            <center>
-              <h6>
-                Already have an account?
-                <p
-                  style={{ color: "red", cursor: "pointer" }}
-                  onClick={() => navigate("/signin", { replace: true })}
-                >
-                  Sign in
-                </p>
-              </h6>
             </center>
           </form>
         </div>
@@ -192,4 +154,4 @@ const SignUp = () => {
   );
 };
 
-export default observer(SignUp);
+export default observer(ForgotPassword);

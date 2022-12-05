@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https://login.sintetik.xyz";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getBalance() {
   return await fetch(`${ENDPOINT_BASE}/account/getBalance`, {
@@ -8,12 +8,9 @@ async function getBalance() {
     method: "GET",
   })
     .then((response) => {
-      // console.log(response);
       return response.json();
     })
     .then((json) => {
-      // console.log("json.balance")
-      // console.log(json.balance);
       return json.balance;
     });
 }
@@ -28,11 +25,9 @@ async function resetBalance(reset_balance) {
     method: "PATCH",
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .then((json) => {
-      console.log(json);
       return json.balance;
     });
 }

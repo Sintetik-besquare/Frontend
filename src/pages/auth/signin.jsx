@@ -40,7 +40,7 @@ const SigninPage = () => {
   }, [app_store, loginPromise]);
 
   return (
-    <div id="signin-background">
+    <div className="signin-background">
       <div id="signin" data-aos="flip-left" data-aos-duration="1000">
         <div className="signin-image-card">
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
@@ -119,7 +119,12 @@ const SigninPage = () => {
               )}
             </div>
             &nbsp;
-            <h5>Forgot password?</h5>
+            <h5
+              // onClick={() => navigate("/forgotpw", { replace: true })}
+              style={{ cursor: "pointer" }}
+            >
+              Forgot password?
+            </h5>
             &nbsp;
             <center>
               {username === "" || password === "" ? (
@@ -148,10 +153,13 @@ const SigninPage = () => {
             </center>
             <center>
               <h6>
-                Need an account?{" "}
-                <a href="signup" style={{ color: "red" }}>
+                Need an account?
+                <p
+                  style={{ color: "red", cursor: "pointer" }}
+                  onClick={() => navigate("/signup", { replace: true })}
+                >
                   Create one here
-                </a>
+                </p>
               </h6>
             </center>
           </form>

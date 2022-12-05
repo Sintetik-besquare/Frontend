@@ -1,34 +1,32 @@
 #password-icon,
 #username-icon {
-    color: rgba(187, 187, 187, 0.8);
-    background-color: rgba(29, 29, 29, 1);
-    font-size: 20px;
+  color: rgba(187, 187, 187, 0.8);
+  background-color: rgba(29, 29, 29, 1);
+  font-size: 20px;
 }
 
 #button-icon {
-    font-size: 20px;
+  font-size: 20px;
 }
 
-
 .signin-input {
-    @include drop-shadow;
-    border: 1px solid rgba(187, 187, 187, 0.8);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 5px;
-    width: 100%;
-  
-    input {
-      width: 60%;
-      padding: 1rem;
-      border: none;
-      outline: none;
-      background-color: rgba(29, 29, 29, 1);
-      color: rgba(187, 187, 187, 0.8);
-    }
-  }
+  @include drop-shadow;
+  border: 1px solid rgba(187, 187, 187, 0.8);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  width: 100%;
 
+  input {
+    width: 60%;
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background-color: rgba(29, 29, 29, 1);
+    color: rgba(187, 187, 187, 0.8);
+  }
+}
 
 .signin-image-card,
 .signup-image-card {
@@ -65,42 +63,55 @@
   border-bottom-right-radius: 10px;
 }
 
-#signin-background,
+.signin-background,
 #signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
-    background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
-    // background-color: $yellow;
+  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
   padding-top: 5rem;
   padding-bottom: 15rem;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 
 #signin,
 #signup {
   float: center;
-    width: 50%;
+  height: 50%;
   display: flex;
 }
 
-@media only screen and (max-width: 800px) {
+#container-forgotPW {
+  background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  top:0;
+  #modal-forgotPW {
+    background-color: white;
+    width: 50%;
+    height:50%;
+  }
+}
 
-.signin-input {
+@media only screen and (max-width: 800px) {
+  .signin-input {
     width: 80%;
-  
+
     input {
-        padding-top: 6px;
-          padding-bottom: 6px;
-            width: 40%;
-            font-size: 12px;
-          }
-          }
+      padding-top: 6px;
+      padding-bottom: 6px;
+      width: 40%;
+      font-size: 12px;
+    }
+  }
   .signin-image-card,
   .signup-image-card {
     display: none;
   }
-  
-  
+
   .signin-details-card,
   .signup-details-card {
     width: 100%;
@@ -112,22 +123,23 @@
   #password-icon {
     font-size: 12px;
   }
-  
+
   #username-icon {
     font-size: 12px;
   }
-  
-  #signin-background,
+
+  .signin-background,
   #signup-background {
-    padding: 0rem;
+    padding: 0;
     width: 100%;
   }
-  
+
   #signin,
   #signup {
     width: 100%;
+    min-height: 100vh;
   }
-  
+
   .signin-form {
     padding-left: 3rem;
   }

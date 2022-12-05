@@ -8,8 +8,6 @@ const HorizontalCard = () => {
     getNews().then((e) => setTopheadline(e.data.value));
   }, []);
 
-  console.log("topheadline", topheadlines);
-
   if (!topheadlines) return <h1>Loading..</h1>;
 
   return (

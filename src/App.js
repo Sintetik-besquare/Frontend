@@ -6,7 +6,6 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Nav from "./components/navbar";
-// import Footer from "./components/footer";
 import Landing from "./pages/landing/index.jsx";
 import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
@@ -14,6 +13,7 @@ import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
 import UserProfile from "./pages/user profile/index";
 import Error from "./pages/error/index";
+import Password from "./pages/auth/forgot-password"
 
 import { getUserDetails } from "./services/user-info";
 import { getBalance } from "./services/wallet";
@@ -40,8 +40,7 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [app_store.is_loggedin, chart_store, user_store]);
 
   return (
     <div>
@@ -54,10 +53,10 @@ const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgotpw" element={<Password />} />
           <Route path="/profile" element={<UserProfile />} />
           <Route path="*" element={<Error />} />
         </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
