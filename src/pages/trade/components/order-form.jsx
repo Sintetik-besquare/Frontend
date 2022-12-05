@@ -63,8 +63,6 @@ const OrderForm = () => {
       setTimeout(() => {
         chart_store.iswinning = [];
       }, 2000);
-
-      // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -144,7 +142,6 @@ const OrderForm = () => {
 
       <div>
         <div className="form_row">
-          {/* <InputTicks /> */}
           <InputTicksSlider />
         </div>
 

@@ -8,11 +8,9 @@ async function getUserDetails() {
     },
   })
     .then((response) => {
-      //   console.log(response);
       return response.json();
     })
     .then((json) => {
-      console.log(json.user_details[0]);
       return json.user_details[0];
     });
 }
@@ -25,7 +23,7 @@ async function editUserDetails(body) {
       "Content-Type": "application/json",
     },
     body: body,
-  }).then(console.log(body));
+  });
 }
 
 async function passwordReset(body) {
@@ -36,7 +34,7 @@ async function passwordReset(body) {
       "Content-Type": "application/json",
     },
     body: body,
-  }).then(console.log(body));
+  });
 }
 
 export { getUserDetails, editUserDetails, passwordReset };

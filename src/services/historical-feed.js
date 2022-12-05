@@ -5,12 +5,9 @@ async function getHistoricalFeed() {
     method: "GET",
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
-    .then((json) => {    
-      console.log("json.message");
-      console.log(json.message);
+    .then((json) => {  
       return json.message;
     });
 }

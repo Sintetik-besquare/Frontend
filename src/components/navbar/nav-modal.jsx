@@ -26,7 +26,6 @@ const NavModal = () => {
   function resetWallet() {
     resetBalance(true)
     .then((e) => {
-      console.log(e)
       chart_store.setWallet(e);
       alert(`wallet has been reset, balance is now ${e}`);
     });
