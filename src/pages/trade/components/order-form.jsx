@@ -46,6 +46,7 @@ const OrderForm = () => {
       chart_store.toggleContractModal(false);
       if (message.status === false) {
         error_message.push(message.errors);
+        showError();
         chart_store.toggleIsBuying(false);
       }
     });
