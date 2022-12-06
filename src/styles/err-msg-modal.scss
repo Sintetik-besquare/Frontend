@@ -1,21 +1,22 @@
 #error-msg-container {
-  position:fixed;
-  top:0;
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   #error-msg-modal {
+    z-index: 1000;
     position: relative;
     width: 600px;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     text-align: center;
-    p{
-      color:white;
+    p {
+      color: white;
     }
     button {
       @include button-shared($red);
@@ -32,8 +33,9 @@
 }
 
 #confirm-msg-container {
-  position:fixed;
-  top:0;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -42,8 +44,8 @@
   #confirm-msg-modal {
     width: 600px;
     padding: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 5px;
     text-align: center;
     div {
