@@ -8,9 +8,7 @@ async function getUserDetails() {
     },
   })
     .then((response) => {
-      //   console.log(response);
       if (!response.ok) {
-        console.log(response.error);
         return;
       }
       return response.json();
@@ -31,7 +29,6 @@ async function editUserDetails(body) {
   });
   const json = await res.json();
   if (!res.ok) {
-    console.log(json.errors)
     return json.errors;
   }
 }

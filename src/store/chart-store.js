@@ -10,7 +10,7 @@ export default class ChartStore {
   ticks = 0;
   stake = 0.0;
   lastDigitPrediction = null;
-  entry_time = Math.floor(Date.now() / 1000) - 1; //TODO: entry_time = current_time -1s
+  entry_time = Math.floor(Date.now() / 1000) - 1;
   wallet = 0;
   iswinning = [];
   payoutSummary = [];

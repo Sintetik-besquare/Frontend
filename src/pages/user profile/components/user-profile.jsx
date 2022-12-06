@@ -48,7 +48,6 @@ const InputFieldText = () => {
       json.map((j) => {
         app_store.error_messages.push(j.msg);
       });
-      console.log(app_store.error_messages);
       app_store.show_error_message = true;
     } else {
       app_store.error_messages.push("Your profile has been updated");

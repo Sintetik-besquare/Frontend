@@ -42,12 +42,15 @@ const OrderForm = () => {
     });
 
     socket.current.on("buy", (message) => {
+      chart_store.toggleIsBuying(true);
       chart_store.toggleShowSummary(false);
       chart_store.toggleIndexModal(false);
       chart_store.toggleContractModal(false);
       if (message.status === false) {
-        error_message=[]
-        error_message.push(`${message.errors}: this could have hapened due to poor internet connection or our server may have been overloaded`);
+        error_message = []
+        error_message.push(message.errors);
+        app_store.error_messages = error_message;
+        // app_store.error_messages.push(message.errors);
         showError();
         chart_store.toggleIsBuying(false);
       }
@@ -93,14 +96,13 @@ const OrderForm = () => {
     };
     chart_store.toggleIsBuying(true);
     chart_store.setOrderSummary(order);
-    console.log(chart_store.orderSummary);
     socket.current.emit("order", order);
   };
 
   function showError() {
-    app_store.error_messages=error_message;
-    app_store.show_error_message=true;
-  } 
+    app_store.error_messages = error_message;
+    app_store.show_error_message = true;
+  }
 
   function validate() {
     error_message=[]
@@ -178,7 +180,7 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("call");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnCall />
@@ -189,7 +191,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("put");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnPut />
@@ -205,7 +207,7 @@ const OrderForm = () => {
                   className="button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("odd");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnOdd />
@@ -216,7 +218,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("even");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnEven />
@@ -232,7 +234,7 @@ const OrderForm = () => {
                   className=" button_green_light"
                   onClick={() => {
                     chart_store.setOptionType("matches");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnMatch />
@@ -243,7 +245,7 @@ const OrderForm = () => {
                   className=" button_red_light"
                   onClick={() => {
                     chart_store.setOptionType("differs");
-                    validate();
+                    emitOrder();
                   }}
                 >
                   <BtnDiffer />
@@ -258,6 +260,7 @@ const OrderForm = () => {
             <button
               className=" button_green_disabled"
               onClick={() => {
+                chart_store.setOptionType("call");
                 validate();
               }}
             >
@@ -270,6 +273,7 @@ const OrderForm = () => {
             <button
               className=" button_red_disabled"
               onClick={() => {
+                chart_store.setOptionType("put");
                 validate();
               }}
             >
