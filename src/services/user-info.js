@@ -1,5 +1,4 @@
-
-const ENDPOINT_BASE = "https://login.sintetik.xyz";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {
@@ -9,6 +8,11 @@ async function getUserDetails() {
     },
   })
     .then((response) => {
+      //   console.log(response);
+      if (!response.ok) {
+        console.log(response.error);
+        return;
+      }
       return response.json();
     })
     .then((json) => {
@@ -17,14 +21,19 @@ async function getUserDetails() {
 }
 
 async function editUserDetails(body) {
-  return await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
+  const res = await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
     method: "PATCH",
     headers: {
-      Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
+      Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
       "Content-Type": "application/json",
     },
     body: body,
   });
+  const json = await res.json();
+  if (!res.ok) {
+    console.log(json.errors)
+    return json.errors;
+  }
 }
 
 async function passwordReset(body) {

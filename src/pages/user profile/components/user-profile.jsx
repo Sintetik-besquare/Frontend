@@ -7,11 +7,11 @@ import { CountryDropdown } from "react-country-region-selector";
 import { editUserDetails } from "../../../services/user-info.js";
 import EducationLevelSelect from "./educationlevel";
 import GenderInputSelect from "./genderinput";
-import moment from "moment/moment";
 import Astronout from "../../../assets/profile.png";
 
 const InputFieldText = () => {
-  const { user_store } = useStores();
+  const { app_store, user_store } = useStores();
+  const [error, setError] = useState(null);
 
   //Edit profile button function
   const [disabled, setDisabled] = useState(true);
@@ -29,7 +29,7 @@ const InputFieldText = () => {
     };
   };
 
-  function saveUserProfile() {
+  async function saveUserProfile() {
     let user_details = {
       firstname: user_store.first_name,
       lastname: user_store.last_name,
@@ -39,8 +39,22 @@ const InputFieldText = () => {
       residence: user_store.residence,
       occupation: user_store.occupation,
     };
-    editUserDetails(JSON.stringify(user_details, getCircularReplacer()));
-    // editUserDetails(user_details);
+    let json = await editUserDetails(
+      JSON.stringify(user_details, getCircularReplacer())
+    );
+
+    setError(json);
+    if (json) {
+      json.map((j) => {
+        app_store.error_messages.push(j.msg);
+      });
+      console.log(app_store.error_messages);
+      app_store.show_error_message = true;
+    } else {
+      app_store.error_messages.push("Your profile has been updated");
+      app_store.show_error_message = true;
+      window.location.reload(false);
+    }
   }
 
   return (
@@ -50,28 +64,24 @@ const InputFieldText = () => {
           <center>Profile</center>
           <img src={Astronout} alt="a profile page" style={{ width: "40%" }} />
           <p className="email">{user_store.email}</p>
-          {user_store.date_join !== "" && (
-            <p className="join">
-              Joined on<br></br>
-              <span className="join-span">
-                {new Intl.DateTimeFormat("en-US", {
-                  year: "numeric",
-                  month: "2-digit",
-                  day: "2-digit",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  second: "2-digit",
-                }).format(user_store.date_join * 1000)}
-              </span>
-            </p>
-          )}
+          <p className="join">
+            Joined on<br></br>
+            <span className="join-span">
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "2-digit",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+              }).format(user_store.date_join * 1000)}
+            </span>
+          </p>
 
-          {user_store.client_id !== "" && (
-            <p className="join">
-              Client ID<br></br>
-              <span className="join-span">{user_store.client_id}</span>
-            </p>
-          )}
+          <p className="join">
+            Client ID<br></br>
+            <span className="join-span">{user_store.client_id}</span>
+          </p>
         </div>
         <div className="user-profile">
           <div className="basic-info-header"></div>
@@ -130,6 +140,7 @@ const InputFieldText = () => {
                   />
                 )}
               </div>
+
               <div className="form-margin">
                 <span className="span-profile-details">Gender</span>
                 <GenderInputSelect

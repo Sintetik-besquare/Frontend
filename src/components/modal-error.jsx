@@ -2,7 +2,7 @@ import React from "react";
 import { useStores } from "../store";
 import { observer } from "mobx-react-lite";
 
-const ErrorMsg = (err) => {
+const ErrorMsg = () => {
   const { app_store } = useStores();
 
   function closeErrorModal() {
