@@ -13,13 +13,13 @@ const NavModal = () => {
 
   function viewProfile() {
     navigate("/profile", { replace: true });
-    app_store.setShowModal(false);
+    app_store.show_modal = false;
   }
 
   function logout() {
     app_store.setAccessToken("");
     localStorage.clear();
-    app_store.setShowModal(false);
+    app_store.show_modal = false;
     app_store.setLogin(false);
     navigate("/", { replace: true });
   }
@@ -43,7 +43,7 @@ const NavModal = () => {
       );
       app_store.show_error_message = true;
     });
-    app_store.setShowModal(false);
+    app_store.show_modal = false;
   }
 
   return (
@@ -51,7 +51,7 @@ const NavModal = () => {
       <MdOutlineClose
         className="btn_close_nav"
         onClick={() => {
-          app_store.setShowModal(false);
+          app_store.show_modal = false;
         }}
       />
       <ul>
@@ -69,6 +69,7 @@ const NavModal = () => {
             );
             app_store.code = 1;
             app_store.show_confirm_message = true;
+            app_store.show_modal = false;
           }}
         >
           <FaWallet /> Reset Wallet
@@ -80,6 +81,7 @@ const NavModal = () => {
             );
             app_store.code = 2;
             app_store.show_confirm_message = true;
+            app_store.show_modal = false;
           }}
         >
           <MdLogout /> Logout
