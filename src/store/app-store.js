@@ -7,10 +7,10 @@ export default class AppStore {
   access_token = null;
   show_forgot_password = false;
   error_messages = [];
-  confirm_messages = [];
+  confirm_messages = '';
   show_error_message = false;
   show_confirm_message = false;
-  code = 0;
+  reset = 0;
   confirm = false;
 
   constructor() {

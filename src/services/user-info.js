@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https//localhost:3001";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {

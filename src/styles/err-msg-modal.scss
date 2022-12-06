@@ -14,6 +14,9 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     text-align: center;
+    p{
+      color:white;
+    }
     button {
       @include button-shared($red);
       position: absolute;
