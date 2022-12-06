@@ -13,12 +13,12 @@ import Signup from "./pages/auth/signup";
 import Signin from "./pages/auth/signin";
 import UserProfile from "./pages/user profile/index";
 import Error from "./pages/error/index";
-import Password from "./pages/auth/forgot-password"
+import Password from "./pages/auth/forgot-password";
 
 import { getUserDetails } from "./services/user-info";
 import { getBalance } from "./services/wallet";
-import ErrorMsg from "./components/modal-error"
-import ConfirmMsg from "./components/modal-confirm"
+import ErrorMsg from "./components/modal-error";
+import ConfirmMsg from "./components/modal-confirm";
 
 const App = () => {
   const { app_store, user_store, chart_store } = useStores();
@@ -61,8 +61,7 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <ErrorMsg msg={app_store.error_messages} />
-      <ConfirmMsg msg={app_store.confirm_messages} />
-      {/* <ConfirmMsg msg={app_store.confirm_message} /> */}
+      <ConfirmMsg />
     </div>
   );
 };

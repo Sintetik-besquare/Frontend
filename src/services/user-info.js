@@ -1,3 +1,4 @@
+
 const ENDPOINT_BASE = "https://login.sintetik.xyz";
 
 async function getUserDetails() {
