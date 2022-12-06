@@ -1,3 +1,5 @@
+import { typeOf } from "mathjs";
+
 const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getUserDetails() {
@@ -9,6 +11,10 @@ async function getUserDetails() {
   })
     .then((response) => {
       //   console.log(response);
+      if (!response.ok) {
+        console.log(response.error);
+        return;
+      }
       return response.json();
     })
     .then((json) => {
@@ -18,14 +24,23 @@ async function getUserDetails() {
 }
 
 async function editUserDetails(body) {
-  return await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
-    method: "PATCH",
-    headers: {
-      Authorization: `Bearer ${window.localStorage.getItem("ACCESS_TOKEN")}`,
-      "Content-Type": "application/json",
-    },
-    body: body,
-  }).then(console.log(body));
+  try {
+    const res = await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
+      method: "PATCH",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    const json = await res.json();
+    console.log(json);
+  } catch (error) {
+    throw new Error(error);
+  }
+  // if (!res.ok) {
+  //   console.log("json errors", json.errors);
+  // }
 }
 
 async function passwordReset(body) {
