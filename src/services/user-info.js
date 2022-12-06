@@ -1,4 +1,4 @@
-const ENDPOINT_BASE = "https//localhost:3001";
+const ENDPOINT_BASE = "http://localhost:3001";
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {
@@ -21,23 +21,23 @@ async function getUserDetails() {
 }
 
 async function editUserDetails(body) {
-  try {
-    const res = await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
-    const json = await res.json();
-    console.log(json);
-  } catch (error) {
-    throw new Error(error);
+  const error_message = [];
+  const res = await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("ACCESS_TOKEN")}`,
+      "Content-Type": "application/json",
+    },
+    body: body,
+  });
+  const json = await res.json();
+  error_message.push(json.errors);
+  console.log("error_message", error_message);
+  console.log("ERRORSSSS", json.errors);
+
+  if (!res.ok) {
+    return json.errors;
   }
-  // if (!res.ok) {
-  //   console.log("json errors", json.errors);
-  // }
 }
 
 async function passwordReset(body) {
