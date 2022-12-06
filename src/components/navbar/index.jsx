@@ -19,34 +19,31 @@ const NavBar = () => {
     navigate("/signup", { replace: true });
   }
 
+  function closeAllModals() {
+    app_store.show_error_message = false;
+    app_store.show_confirm_message = false;
+  }
   return (
-    <div
-      className="navbar"
-      style={{ background: "#000000" }}
-      onClick={() => {
-        app_store.show_error_message = false;
-        app_store.show_confirm_message = false;
-      }}
-    >
+    <div className="navbar" style={{ background: "#000000" }}>
       <input
         type="checkbox"
         className="navbar-checkbox hide-when-big"
         name=""
         id=""
       />
-      <div className="hamburger-lines">
+      <div className="hamburger-lines" onClick={()=>closeAllModals()}>
         <span className="line line1"></span>
         <span className="line line2"></span>
         <span className="line line3"></span>
       </div>
       <div
         className="navbar-logo"
-        onClick={() => navigate("/", { replace: true })}
+        onClick={() => {closeAllModals(); navigate("/", { replace: true })}}
       >
         <img src={Logo} alt="Logo" />
         <h3>SINTETIK</h3>
       </div>
-      <div className="navbar-menu-list">
+      <div className="navbar-menu-list" onClick={()=>closeAllModals()}>
         <ul className="navlink">
           <HashLink smooth to="/#header" className="li">
             <li>Home</li>
