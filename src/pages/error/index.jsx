@@ -5,6 +5,7 @@ function ErrorPage() {
   return (
     <>
       <Astronout />
+      where are you trying to go?
     </>
   );
 }

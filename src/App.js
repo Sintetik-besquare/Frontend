@@ -42,8 +42,7 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
-  }, [app_store.is_loggedin, chart_store, user_store]);  
-
+  }, [app_store.is_loggedin, chart_store, user_store]);
 
   return (
     <div>
@@ -57,7 +56,11 @@ const App = () => {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpw" element={<Password />} />
-          <Route path="/profile" element={<UserProfile />} />
+          {app_store.is_loggedin ? (
+            <Route path="/profile" element={<UserProfile />} />
+          ) : (
+            <Route path="/profile" element={<Error />} />
+          )}
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
