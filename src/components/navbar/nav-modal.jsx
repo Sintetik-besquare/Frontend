@@ -14,6 +14,8 @@ const NavModal = () => {
   function viewProfile() {
     navigate("/profile", { replace: true });
     app_store.show_modal = false;
+    app_store.show_error_message = false;
+    app_store.show_confirm_message = false;
   }
 
   return (
