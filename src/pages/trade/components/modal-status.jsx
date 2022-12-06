@@ -16,11 +16,20 @@ const Status = () => {
           color: "white",
           margin: 0,
           padding: 0,
+          fontSize: "x-small",
         }}
       >
         {chart_store.iswinning.map((e, i) => {
           return (
-            <li key={i} style={{ width: "10%" }} id="iswinning">
+            <li
+              key={i}
+              style={
+                e === "Win"
+                  ? { color: "green", border:"1px solid green"}
+                  : {color: "red", border:"1px solid red"}
+              }
+              id="iswinning"
+            >
               {e}
             </li>
           );
