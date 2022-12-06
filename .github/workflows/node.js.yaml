@@ -26,14 +26,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         
-    - name: Create .env file and check whether it exists or not
-      id: check_files
-      uses: andstor/file-existence-action@v2
-      with: 
-        files: "./.env"
-        
-    - name: File exists
-      if: steps.check_files.output.files_exists == 'false'
+    - name: Create .env file 
       run:  |
         touch .env
         echo "REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}" >> .env  
