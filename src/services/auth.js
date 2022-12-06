@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-const ENDPOINT_BASE = "http://localhost:3001";
+const ENDPOINT_BASE = "https://login.sintetik.xyz";
 function useLoader(provider, initial = null, deps = []) {
   const [value, setValue] = React.useState(initial);
   useEffect(

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 const ENDPOINT_BASE = "http://localhost:3001";
+=======
+
+const ENDPOINT_BASE = "https://login.sintetik.xyz";
+>>>>>>> c6e6481ebea2aae87e1ea06b25938de83070db2f
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {

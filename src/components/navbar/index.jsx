@@ -59,12 +59,13 @@ const NavBar = () => {
         </ul>
       </div>
 
-      <div style={{marginRight:"10px"}}>
-       {app_store.is_loggedin === true ? (
+      <div style={{ marginRight: "10px" }}>
+        {app_store.is_loggedin === true ? (
           <button
             className="button_red_dark"
             onClick={() => {
-              app_store.setShowModal(true);
+              app_store.show_modal = true;
+              app_store.show_confirm_message = false;
             }}
           >
             <FaUserCircle /> ${chart_store.wallet}

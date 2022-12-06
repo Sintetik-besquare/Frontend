@@ -7,10 +7,10 @@ export default class AppStore {
   access_token = null;
   show_forgot_password = false;
   error_messages = [];
-  confirm_messages = [];
+  confirm_messages = '';
   show_error_message = false;
   show_confirm_message = false;
-  code = 0;
+  reset = 0;
   confirm = false;
 
   constructor() {
@@ -21,23 +21,12 @@ export default class AppStore {
     return (this.is_loggedin = isLogin);
   }
 
-  deposit() {
-    return (this.is_deposited = !this.is_deposited);
-  }
-
-  setShowModal(show) {
-    return (this.show_modal = show);
-  }
-
   setAccessToken(token) {
     this.access_token = token;
     localStorage.setItem("ACCESS_TOKEN", token);
     this.is_loggedin = !!token;
   }
 
-  setShowForgotPassword(show) {
-    this.show_forgot_password = show;
-  }
 }
 decorate(AppStore, {
   is_loggedin: observable,
@@ -52,7 +41,4 @@ decorate(AppStore, {
   code: observable,
   confirm: observable,
   setLogin: action,
-  deposit: action,
-  setShowModal: action,
-  setShowForgotPassword: action,
 });
