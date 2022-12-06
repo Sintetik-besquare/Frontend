@@ -162,14 +162,14 @@ const InputFieldText = () => {
                 <span className="span-profile-details">Education</span>
                 <EducationLevelSelect
                   disabled={disabled}
-                  education={user_store.education}
+                  value={user_store.education}
                 />
               </div>
               <div>
                 <span className="span-profile-details">Occupation</span>
                 <JobDropDown
                   disabled={disabled}
-                  occupation={user_store.occupation}
+                  value={user_store.occupation}
                 />
               </div>
               <div className="user-profile-button">
