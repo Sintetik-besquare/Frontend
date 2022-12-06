@@ -17,6 +17,8 @@ import Password from "./pages/auth/forgot-password"
 
 import { getUserDetails } from "./services/user-info";
 import { getBalance } from "./services/wallet";
+import ErrorMsg from "./components/modal-error"
+import ConfirmMsg from "./components/modal-confirm"
 
 const App = () => {
   const { app_store, user_store, chart_store } = useStores();
@@ -58,6 +60,9 @@ const App = () => {
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
+      <ErrorMsg msg={app_store.error_messages} />
+      <ConfirmMsg msg={app_store.confirm_messages} />
+      {/* <ConfirmMsg msg={app_store.confirm_message} /> */}
     </div>
   );
 };

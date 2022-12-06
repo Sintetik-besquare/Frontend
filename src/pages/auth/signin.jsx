@@ -16,8 +16,6 @@ const SigninPage = () => {
   const [password, setPassword] = useState("");
   const [passwordShown, setPasswordShown] = useState(false);
 
-  let error_message = [];
-
   useEffect(() => {
     loginPromise
       ?.then((z) => {
@@ -26,9 +24,9 @@ const SigninPage = () => {
           navigate("/trade", { replace: true });
         } else {
           z.forEach((e) => {
-            error_message.push(e.msg);
+            app_store.error_messages.push(e.msg);
           });
-          alert(error_message.join("\n \n"));
+          app_store.show_error_message=true;
         }
       })
       .then(
@@ -36,7 +34,6 @@ const SigninPage = () => {
           chart_store.setWallet(e);
         })
       );
-    error_message = [];
   }, [app_store, loginPromise]);
 
   return (
@@ -46,11 +43,7 @@ const SigninPage = () => {
           <img src={MobileLogin} alt="N/A" style={{ width: "90%" }} />
         </div>
         <div className="signin-details-card">
-          <h2>
-            <b>
-              <center>SIGN IN</center>
-            </b>
-          </h2>
+          <h1>SIGN IN</h1>
           <form
             className="signin-form"
             onSubmit={function (e) {
@@ -67,13 +60,7 @@ const SigninPage = () => {
               );
             }}
           >
-            <h4
-              style={{
-                paddingLeft: "0rem",
-                textAlign: "left",
-                marginRight: "3rem",
-              }}
-            >
+            <h4>
               Welcome back!
               <br />
               Good to see you again.

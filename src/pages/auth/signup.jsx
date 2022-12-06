@@ -18,8 +18,6 @@ const SignUp = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordConfirmShown, setPasswordConfirmShown] = useState(false);
 
-  let error_message = [];
-
   useEffect(() => {
     signupPromise?.then((z) => {
       if (typeof z === "string") {
@@ -27,23 +25,18 @@ const SignUp = () => {
         navigate("/trade", { replace: true });
       } else {
         z.forEach((e) => {
-          error_message.push(e.msg);
+          app_store.error_messages.push(e.msg);
         });
-        alert(error_message.join("\n \n"));
+        app_store.show_error_message=true;
       }
     });
-    error_message = [];
   }, [app_store, signupPromise]);
 
   return (
     <div id="signup-background">
       <div id="signup" data-aos="flip-right" data-aos-duration="1000">
         <div className="signup-details-card">
-          <h2>
-            <b>
-              <center>SIGN UP</center>
-            </b>
-          </h2>
+          <h1>SIGN UP</h1>
           <form
             className="signin-form"
             onSubmit={function (e) {

@@ -64,7 +64,7 @@ const NavBar = () => {
           <button
             className="button_red_dark"
             onClick={() => {
-              app_store.setShowModal(true);
+              app_store.show_modal=true;
             }}
           >
             <FaUserCircle /> ${chart_store.wallet}

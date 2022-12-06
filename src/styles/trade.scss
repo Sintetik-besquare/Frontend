@@ -15,7 +15,7 @@
 .form_container {
   width: 14%;
   display: block;
-  align-items:center;
+  align-items: center;
   justify-content: center;
   div {
     width: 100%;
@@ -144,9 +144,10 @@
 #iswinning {
   position: relative;
   text-align: center;
-  padding: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
   margin: 5px;
+  width: 10%;
+  border-radius: 2px;
 }
 
 .win-gradient {
@@ -510,7 +511,6 @@ ul li:hover .slider p {
     height: 100%;
   }
 }
-
 
 font.red {
   color: red;

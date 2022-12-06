@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import SignupImage from "../../assets/Sign up-cuate (1) 1.svg";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
-import { FiUpload } from "react-icons/fi";
 import { performSignup } from "../../services/auth";
 
 const ForgotPassword = () => {
@@ -17,7 +16,6 @@ const ForgotPassword = () => {
   const [passwordShown, setPasswordShown] = useState(false);
   const [passwordConfirmShown, setPasswordConfirmShown] = useState(false);
 
-  let error_message = [];
 
   useEffect(() => {
     signupPromise?.then((z) => {
@@ -26,12 +24,11 @@ const ForgotPassword = () => {
         navigate("/trade", { replace: true });
       } else {
         z.forEach((e) => {
-          error_message.push(e.msg);
+          app_store.error_messages.push(e.msg);
         });
-        alert(error_message.join("\n \n"));
+        app_store.show_error_message=true;
       }
     });
-    error_message = [];
   }, [signupPromise]);
 
   return (
