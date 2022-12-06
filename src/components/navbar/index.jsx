@@ -20,7 +20,14 @@ const NavBar = () => {
   }
 
   return (
-    <div className="navbar" style={{ background: "#000000" }}>
+    <div
+      className="navbar"
+      style={{ background: "#000000" }}
+      onClick={() => {
+        app_store.show_error_message = false;
+        app_store.show_confirm_message = false;
+      }}
+    >
       <input
         type="checkbox"
         className="navbar-checkbox hide-when-big"
@@ -59,12 +66,13 @@ const NavBar = () => {
         </ul>
       </div>
 
-      <div style={{ marginRight: "10px" }}>
+      <div>
         {app_store.is_loggedin === true ? (
           <button
             className="button_red_dark"
             onClick={() => {
               app_store.show_modal = true;
+              app_store.show_error_message = false;
               app_store.show_confirm_message = false;
             }}
           >
@@ -73,6 +81,7 @@ const NavBar = () => {
         ) : (
           <>
             <button
+              style={{ marginRight: "10px" }}
               className="button_green_dark"
               onClick={() => {
                 signup();
@@ -82,6 +91,7 @@ const NavBar = () => {
             </button>
 
             <button
+              style={{ marginRight: "10px" }}
               className="button_red_dark"
               onClick={() => {
                 signin();

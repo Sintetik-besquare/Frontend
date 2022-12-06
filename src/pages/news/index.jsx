@@ -6,7 +6,7 @@ export const Index = () => {
   return (
     <>
       <div className="news-page-background">
-        <h2 style={{textAlign:"center"}}>Latest News</h2>
+        <h1 style={{textAlign:"center", fontSize:"5rem"}}>Latest News</h1>
         <div data-aos="zoom-in" data-aos-duration="2000">
           <NewsList />
         </div>

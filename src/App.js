@@ -42,7 +42,8 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
-  }, [app_store.is_loggedin, chart_store, user_store]);
+  }, [app_store.is_loggedin, chart_store, user_store]);  
+
 
   return (
     <div>
