@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import { getBalance } from "../../../services/wallet";
 import DropdownContract from "./dropdown-contract";
 import DropdownIndex from "./dropdown-index";
-import InputTicks from "./input-ticks";
+import InputTicksSlider from "./input-ticks-slider";
 import InputStake from "./input-stake";
 import BtnCall from "./btn-call";
 import BtnPut from "./btn-put";
@@ -24,6 +24,7 @@ const OrderForm = () => {
   const { app_store, chart_store } = useStores();
   const TOKEN = app_store.access_token;
   let error_message = [];
+  error_message = [];
 
   useEffect(() => {
     socket.current = io("http://localhost:3001", {
@@ -44,6 +45,12 @@ const OrderForm = () => {
       chart_store.toggleShowSummary(false);
       chart_store.toggleIndexModal(false);
       chart_store.toggleContractModal(false);
+      if (message.status === false) {
+        error_message=[]
+        error_message.push(`${message.errors}: this could have hapened due to poor internet connection or our server may have been overloaded`);
+        showError();
+        chart_store.toggleIsBuying(false);
+      }
     });
 
     socket.current.on("iswinning", (message) => {
@@ -62,8 +69,6 @@ const OrderForm = () => {
       setTimeout(() => {
         chart_store.iswinning = [];
       }, 2000);
-
-      // console.log(chart_store.summary);
     });
     return () => socket.current.disconnect(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -73,35 +78,9 @@ const OrderForm = () => {
     getBalance();
   }, [chart_store]);
 
-  function validate() {
-    error_message = [];
-    if (app_store.is_loggedin === false) {
-      error_message.push("please login first");
-    }
-    if (chart_store.ticks <= 0 || chart_store.ticks > 10 || isNaN(chart_store.ticks)) {
-      error_message.push("ticks must be a value between 1 to 10");
-    }
-    if (chart_store.stake <= 0 || isNaN(chart_store.stake)) {
-      error_message.push("stake cannot be 0");
-    }
-    if (chart_store.contract_type === "Matches/differs") {
-      if (chart_store.lastDigitPrediction===null)
-        error_message.push("you must choose a last digit prediction to match or differ");
-    }
-    if (error_message.length === 0) {
-      emitOrder();
-    } else {
-      showError();
-    }
-  }
-
-  function showError() {
-    alert(error_message.join("\n"));
-  }
-
   const emitOrder = () => {
-    if (chart_store.contract_type!=="Matches/differs"){
-      chart_store.lastDigitPrediction=0
+    if (chart_store.contract_type !== "Matches/differs") {
+      chart_store.lastDigitPrediction = 0;
     }
     let order = {
       index: chart_store.index,
@@ -118,9 +97,50 @@ const OrderForm = () => {
     socket.current.emit("order", order);
   };
 
+  function showError() {
+    app_store.error_messages=error_message;
+    app_store.show_error_message=true;
+  } 
+
+  function validate() {
+    error_message=[]
+    if (app_store.is_loggedin === false) {
+      error_message.push("please login first");
+    }
+    if (chart_store.isbuying) {
+      error_message.push("slow down!");
+    }
+    if (chart_store.stake > chart_store.wallet) {
+      error_message.push(
+        `your stake $${chart_store.stake} exceeded the balance in your wallet $${chart_store.wallet}`
+      );
+    }
+    if (
+      chart_store.ticks <= 0 ||
+      chart_store.ticks > 10 ||
+      isNaN(chart_store.ticks)
+    ) {
+      error_message.push("ticks must be a value between 1 to 10");
+    }
+    if (chart_store.stake <= 0 || isNaN(chart_store.stake)) {
+      error_message.push("stake cannot be 0");
+    }
+    if (chart_store.contract_type === "Matches/differs") {
+      if (chart_store.lastDigitPrediction === null)
+        error_message.push(
+          "you must choose a last digit prediction to match or differ"
+        );
+    }
+    if (error_message.length !== 0) {
+      showError();
+    } else {
+      emitOrder();
+    }
+  }
+
   return (
     <div className="form_container">
-      <div>
+      <div className="block-flex">
         <div className="form_row">
           <DropdownIndex />
         </div>
@@ -132,7 +152,7 @@ const OrderForm = () => {
 
       <div>
         <div className="form_row">
-          <InputTicks />
+          <InputTicksSlider />
         </div>
 
         <div className="form_row">
@@ -150,98 +170,114 @@ const OrderForm = () => {
       chart_store.stake > 0 &&
       chart_store.isbuying !== true &&
       chart_store.ticks > 0 ? (
-        <div>
+        <>
           {chart_store.contract_type === "Rise/fall" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("call");
-                  validate();
-                }}
-              >
-                <BtnCall />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("put");
-                  validate();
-                }}
-              >
-                <BtnPut />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className="button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("call");
+                    validate();
+                  }}
+                >
+                  <BtnCall />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("put");
+                    validate();
+                  }}
+                >
+                  <BtnPut />
+                </button>
+              </div>
+            </div>
           )}
 
           {chart_store.contract_type === "Even/odd" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("odd");
-                  validate();
-                }}
-              >
-                <BtnOdd />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("even");
-                  validate();
-                }}
-              >
-                <BtnEven />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className="button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("odd");
+                    validate();
+                  }}
+                >
+                  <BtnOdd />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("even");
+                    validate();
+                  }}
+                >
+                  <BtnEven />
+                </button>
+              </div>
+            </div>
           )}
 
           {chart_store.contract_type === "Matches/differs" && (
-            <>
-              <button
-                className="form_row button_green_light"
-                onClick={() => {
-                  chart_store.setOptionType("matches");
-                  validate();
-                }}
-              >
-                <BtnMatch />
-              </button>
-              <button
-                className="form_row button_red_light"
-                onClick={() => {
-                  chart_store.setOptionType("differs");
-                  validate();
-                }}
-              >
-                <BtnDiffer />
-              </button>
-            </>
+            <div className="block-flex">
+              <div className="form_row">
+                <button
+                  className=" button_green_light"
+                  onClick={() => {
+                    chart_store.setOptionType("matches");
+                    validate();
+                  }}
+                >
+                  <BtnMatch />
+                </button>
+              </div>
+              <div className="form_row">
+                <button
+                  className=" button_red_light"
+                  onClick={() => {
+                    chart_store.setOptionType("differs");
+                    validate();
+                  }}
+                >
+                  <BtnDiffer />
+                </button>
+              </div>
+            </div>
           )}
-        </div>
+        </>
       ) : (
-        <div>
-          <button
-            className="form_row button_green_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            {chart_store.contract_type === "Rise/fall" && <BtnCall />}
-            {chart_store.contract_type === "Even/odd" && <BtnOdd />}
-            {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
-          </button>
-          <button
-            className="form_row button_red_disabled"
-            onClick={() => {
-              validate();
-            }}
-          >
-            {chart_store.contract_type === "Rise/fall" && <BtnPut />}
-            {chart_store.contract_type === "Even/odd" && <BtnEven />}
-            {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
-          </button>
+        <div className="block-flex">
+          <div className="form_row">
+            <button
+              className=" button_green_disabled"
+              onClick={() => {
+                validate();
+              }}
+            >
+              {chart_store.contract_type === "Rise/fall" && <BtnCall />}
+              {chart_store.contract_type === "Even/odd" && <BtnOdd />}
+              {chart_store.contract_type === "Matches/differs" && <BtnMatch />}
+            </button>
+          </div>
+          <div className="form_row">
+            <button
+              className=" button_red_disabled"
+              onClick={() => {
+                validate();
+              }}
+            >
+              {chart_store.contract_type === "Rise/fall" && <BtnPut />}
+              {chart_store.contract_type === "Even/odd" && <BtnEven />}
+              {chart_store.contract_type === "Matches/differs" && <BtnDiffer />}
+            </button>
+          </div>
         </div>
       )}
       {chart_store.showSummary === true && chart_store.isbuying !== true && (

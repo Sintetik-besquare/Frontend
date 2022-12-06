@@ -1,6 +1,4 @@
-import { typeOf } from "mathjs";
-
-const ENDPOINT_BASE = "http://localhost:3001";
+const ENDPOINT_BASE = "https//localhost:3001";
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {
@@ -18,7 +16,6 @@ async function getUserDetails() {
       return response.json();
     })
     .then((json) => {
-      console.log(json.user_details[0]);
       return json.user_details[0];
     });
 }
@@ -51,7 +48,7 @@ async function passwordReset(body) {
       "Content-Type": "application/json",
     },
     body: body,
-  }).then(console.log(body));
+  });
 }
 
 export { getUserDetails, editUserDetails, passwordReset };

@@ -28,7 +28,7 @@ const Status = () => {
         </tr>
         <tr>
           <td>Exit:</td>
-          <td>{chart_store.payoutSummary.exit_price}$ </td>
+          <td>{chart_store.payoutSummary.exit_price.toFixed(2)}$ </td>
         </tr>
         <tr>
           <td>Payout:</td>
@@ -54,13 +54,6 @@ const Status = () => {
           <td>Option:</td>
           <td>{chart_store.orderSummary.option_type}</td>
         </tr>
-
-        {/* {chart_store.contract_type==="Matches/differs" && (
-          <tr>
-            <td>Digit:</td>
-            <td>{chart_store.lastDigitPrediction}</td>
-          </tr>
-        )} */}
       </table>
     </div>
   );

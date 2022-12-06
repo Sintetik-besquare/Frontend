@@ -32,14 +32,12 @@ $yellow: rgba(245, 220, 12, 1);
   @include button-shared($green);
   background-color: $black;
   cursor: pointer;
-  margin: 1rem 0.5rem;
 }
 
 .button_red_dark {
   @include button-shared($red);
   background-color: $black;
   cursor: pointer;
-  margin: 1rem 0.5rem;
 }
 
 .button_green_light {
@@ -52,7 +50,6 @@ $yellow: rgba(245, 220, 12, 1);
   height: 5rem;
   font-family: "Poppins";
   font-size: 1.1rem;
-  margin-bottom: 1rem;
   background: rgb(47, 122, 31);
   align-items: center;
   color: #fff;
@@ -69,7 +66,6 @@ $yellow: rgba(245, 220, 12, 1);
   height: 5rem;
   font-family: "Poppins";
   font-size: 1.1rem;
-  margin-bottom: 9rem;
   background: rgb(158, 34, 34);
   color: white;
   align-items: center;
@@ -124,10 +120,10 @@ $yellow: rgba(245, 220, 12, 1);
   height: 5rem;
   font-family: "Poppins";
   font-size: 1.1rem;
-  margin-bottom: 1rem;
   background: rgb(80, 80, 80);
   align-items: center;
   color: #fff;
+  width: 100%;
 }
 
 .button_red_disabled {
@@ -137,10 +133,10 @@ $yellow: rgba(245, 220, 12, 1);
   height: 5rem;
   font-family: "Poppins";
   font-size: 1.1rem;
-  margin-bottom: 9rem;
   background: rgb(80, 80, 80);
   color: white;
   align-items: center;
+  width: 100%;
 }
 
 .button_orange_disabled {

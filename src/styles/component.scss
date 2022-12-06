@@ -114,6 +114,10 @@ input[type="number"] {
   padding-left: 25%;
   padding-right: 25%;
   padding-bottom: 5%;
+
+  p{
+    text-align: justify;
+  }
 }
 
 .card {
@@ -182,7 +186,7 @@ input[type="number"] {
 }
 
 .homepage-headline {
-  top: 4rem;
+  font-size: 5rem;
   color: black;
   font-family: "Poppins";
   margin-top: 0px;
@@ -204,10 +208,9 @@ input[type="number"] {
 .poppins-bold-white-40px2,
 h1,
 h2 {
-  font-size: 60px;
   color: #fff;
   font-family: "Poppins";
-  font-weight: 900;
+  // font-weight: 900;
 }
 
 h3,
@@ -382,17 +385,10 @@ h6 {
     align-items: center;
   }
 
-  // .aboutus-text {
-  //   color: rgb(0, 0, 0);
-  //   font-family: "Poppins";
-  //   font-weight: 900;
-  //   margin-left: 10px;
+  // h1,
+  // h2 {
+  //   font-size: 25px;
   // }
-
-  h1,
-  h2 {
-    font-size: 25px;
-  }
 
   h3,
   b,

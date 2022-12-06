@@ -49,6 +49,7 @@
   background-color: rgba(29, 29, 29, 1);
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  text-align:center;
 }
 
 .signup-details-card {
@@ -65,18 +66,18 @@
 
 .signin-background,
 #signup-background {
-  // background-image: linear-gradient(rgba(34, 33, 40, 1), rgba(200, 200, 200, 1));
   background-image: linear-gradient(rgba(200, 200, 200, 1), $yellow);
   padding-top: 5rem;
   padding-bottom: 15rem;
   display: flex;
   justify-content: center;
+  min-height: 100vh;
 }
 
 #signin,
 #signup {
   float: center;
-  width: 50%;
+  height: 50%;
   display: flex;
 }
 
@@ -130,13 +131,14 @@
 
   .signin-background,
   #signup-background {
-    padding: 0rem;
+    padding: 0;
     width: 100%;
   }
 
   #signin,
   #signup {
     width: 100%;
+    min-height: 100vh;
   }
 
   .signin-form {

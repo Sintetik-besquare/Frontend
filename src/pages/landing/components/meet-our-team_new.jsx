@@ -8,7 +8,7 @@ function MeetOurTeam() {
         <div id="stars2"></div>
         <div id="stars3"></div>
         <h1
-          className="homepage-headline-bottom-half"
+          className="homepage-headline-bottom-half aboutus"
           data-aos="fade-left"
           style={{ color: "$yellow" }}
         >
@@ -34,11 +34,9 @@ function MeetOurTeam() {
                           color: "white",
                         }}
                       >
-                        {p.name} <br></br> 00{p.id}
+                        00{p.id}: {p.name}
                       </h3>
-                      <p className="member-name" style={{ color: "white" }}>
-                        {p.role}
-                      </p>
+                      <p>{p.role}</p>
                       <ul
                         className="tags"
                         style={{

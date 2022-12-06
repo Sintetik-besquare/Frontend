@@ -6,7 +6,6 @@ import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Nav from "./components/navbar";
-// import Footer from "./components/footer";
 import Landing from "./pages/landing/index.jsx";
 import Trade from "./pages/trade/index.jsx";
 import News from "./pages/news/index.jsx";
@@ -18,6 +17,8 @@ import Password from "./pages/auth/forgot-password"
 
 import { getUserDetails } from "./services/user-info";
 import { getBalance } from "./services/wallet";
+import ErrorMsg from "./components/modal-error"
+import ConfirmMsg from "./components/modal-confirm"
 
 const App = () => {
   const { app_store, user_store, chart_store } = useStores();
@@ -41,8 +42,7 @@ const App = () => {
         user_store.setResidence(e.residence);
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [app_store.is_loggedin, chart_store, user_store]);
 
   return (
     <div>
@@ -59,8 +59,10 @@ const App = () => {
           <Route path="/profile" element={<UserProfile />} />
           <Route path="*" element={<Error />} />
         </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
+      <ErrorMsg msg={app_store.error_messages} />
+      <ConfirmMsg msg={app_store.confirm_messages} />
+      {/* <ConfirmMsg msg={app_store.confirm_message} /> */}
     </div>
   );
 };

@@ -1,172 +1,168 @@
 @media only screen and (max-width: 2570px) {
-
-#company {
+  #company {
     background-color: black;
     height: 100%;
     display: flex;
-    justify-content: space-around
-}
-
-.homepage-image{
-    width: 100%;
-  }
-
-  #graphic_crypto2 {
-    padding: 1rem;
-    height: 100%;
-    width: 150%;
-      bottom: 0;
-      background-image: linear-gradient(transparent, white, white);
+    justify-content: space-around;
   }
 
   .homepage-title {
-    font-size: 15rem;
-    }
-    
-    .hero-title {
+    background: -webkit-linear-gradient(
+      #737472,
+      white,
+      white,
+      #a0a0a0,
+      white,
+      white
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: normal;
+    line-height: 110%;
+    font-size: 15rem !important;
+    margin: 10vh;
+  }
+
+  .hero-title {
     text-align: center;
     font-family: "Poppins", sans-serif;
     font-weight: 900;
     font-size: 5rem;
-    padding: 5rem;
-    // width: 100%;
-    // height: 130%;
-    line-height: 100%;
-}
+    padding-top: 5vh;
+  }
 
-.hero-video {
-    position: absolute;
-    width: 100%;
-    height: 95%;
-    object-fit: cover;
-}
+  .hero-title span {
+    color: white;
+    line-height: normal;
+    font-size: 3rem;
+  }
 
-.home-hero-button {
+  .home-hero-button {
     font-size: 2rem;
-}
+  }
 
-.get-started-button {
+  .get-started-button {
     background-color: black;
     font-size: 2rem;
     cursor: pointer;
     position: relative;
     padding: 10px 40px;
-	box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
-	color: white;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.4);
+    color: white;
     overflow: hidden;
-}
+  }
 
-.get-started-button span:nth-child(1) {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 100%;
-	height: 3px;
-	background: linear-gradient(to right, black, $yellow);
-	animation: animate1 2s linear infinite;
-}
+  .get-started-button span:nth-child(1) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, black, $yellow);
+    animation: animate1 2s linear infinite;
+  }
 
-@keyframes animate1 {
-	0% {
-		transform: translateX(-100%);
-	}
-	100% {
-		transform: translateX(100%);
-	}
-}
+  @keyframes animate1 {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
 
-.get-started-button span:nth-child(2) {
-	position: absolute;
-	top: 0;
-	right: 0;
-	height: 100%;
-	width: 3px;
-	background: linear-gradient(to bottom, black, $yellow);
-	animation: animate2 2s linear infinite;
-	animation-delay: 1s;
-}
-@keyframes animate2 {
-	0% {
-		transform: translateY(-100%);
-	}
-	100% {
-		transform: translateY(100%);
-	}
-}
+  .get-started-button span:nth-child(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to bottom, black, $yellow);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+  }
+  @keyframes animate2 {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
 
-.get-started-button span:nth-child(3) {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	width: 100%;
-	height: 3px;
-	background: linear-gradient(to left, black, $yellow);
-	animation: animate3 2s linear infinite;
-}
+  .get-started-button span:nth-child(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, black, $yellow);
+    animation: animate3 2s linear infinite;
+  }
 
-@keyframes animate3 {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
-}
+  @keyframes animate3 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 
-.get-started-button span:nth-child(4) {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 3px;
-	background: linear-gradient(to top, black, $yellow);
-	animation: animate4 2s linear infinite;
-	animation-delay: 1s;
-}
+  .get-started-button span:nth-child(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background: linear-gradient(to top, black, $yellow);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1s;
+  }
 
-@keyframes animate4 {
-	0% {
-		transform: translateY(100%);
-	}
-	100% {
-		transform: translateY(-100%);
-	}
-}
+  @keyframes animate4 {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
+  }
 
-.get-started-button:hover span:nth-child(1) {
+  .get-started-button:hover span:nth-child(1) {
     animation: animate1 0.5s linear infinite;
-	background: linear-gradient(to right, $yellow, white);
+    background: linear-gradient(to right, $yellow, white);
+  }
 
-}
-
-.get-started-button:hover span:nth-child(2) {
+  .get-started-button:hover span:nth-child(2) {
     animation: animate2 0.5s linear infinite;
     animation-delay: 0.25s;
-	background: linear-gradient(to right, $yellow, white);
-}
+    background: linear-gradient(to right, $yellow, white);
+  }
 
-.get-started-button:hover span:nth-child(3) {
+  .get-started-button:hover span:nth-child(3) {
     animation: animate3 0.5s linear infinite;
-	background: linear-gradient(to right, $yellow, white);
-}
+    background: linear-gradient(to right, $yellow, white);
+  }
 
-.get-started-button:hover span:nth-child(4) {
+  .get-started-button:hover span:nth-child(4) {
     animation: animate4 0.5s linear infinite;
     animation-delay: 0.25s;
-	background: linear-gradient(to right, $yellow, white);
-}
+    background: linear-gradient(to right, $yellow, white);
+  }
 
-.get-started-button:hover {
+  .get-started-button:hover {
     background-color: $yellow;
     color: black;
     transition: 1s ease-in-out;
-}
+  }
 
-.get-started-button:hover .home-hero-button {
+  .get-started-button:hover .home-hero-button {
     color: black;
-}
+  }
 
-.aboutus-text {
+  .aboutus-text {
     font-size: 27px;
     color: $yellow;
     font-family: "Poppins";
@@ -176,211 +172,133 @@
     font-size: 3rem;
     width: 40vw;
     line-height: 150%;
-}
-}
-
-@media only screen and (max-width: 2000px) {
-    // .hero-page-flex-block {
-    // padding-left: 45rem;
-    // }
-
-.hero-video {
-    position: absolute;
-    object-fit: cover;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-}
-
-.homepage-title {
-font-size: 8rem;
-}
-
-.hero-title {
-text-align: center;
-font-family: "Poppins", sans-serif;
-font-weight: 900;
-font-size: 3.5rem;
-line-height: 100%;
-}
-
-.get-started-button {
-font-size: 1.5rem;
-}
-
-.aboutus-text {
-    font-size: 2rem;
   }
 }
 
+@media only screen and (max-width: 2000px) {
+  .hero-title {
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    line-height: 100%;
+  }
 
+  .get-started-button {
+    font-size: 1.5rem;
+  }
 
-// .hero-home {
-// background-color: black;
-// // background: radial-gradient(ellipse at bottom, #000000 0%, #090a0f 100%);
-// padding-top: 11rem;
-// padding-bottom: 11rem;
-// display: grid;
-// place-items: center;
-// text-align: center;
-// // justify-content: center;
-// // background-size: cover;
-// // background-image: ;
-// }
-
-.hero-home {
-    height: 95vh;
+  .aboutus-text {
+    font-size: 2rem;
+  }
 }
-
-.hero-title span {
-    background: -webkit-linear-gradient(white, #38495a);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: normal;
-    line-height: 110%;
+.hero-home {
+  height: 95vh;
 }
 
 @media only screen and (max-width: 1500px) {
-
-    .hero-page-flex-block {
-        display: flex;
-        place-items: center;
-        padding-left: 4.5rem;
-        // margin-left: 30%;
-    }
-
-    .aboutus-text{
-        font-size: 1.5rem;
-    }
-}
-
-@media only screen and (max-width: 1200px) {
-//     .hero-home{
-//         padding-top: 1rem;
-// }
-// .homepage-image #graphic_crypto2 {
-// width: 50%;
-// }
+  .hero-page-flex-block {
+    display: flex;
+    place-items: center;
+    padding-left: 4.5rem;
+  }
+  .homepage-title {
+    font-size: 10rem !important;
+  }
+  .aboutus-text {
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (max-width: 1025px) {
+  .hero-page-flex-block {
+    padding-left: 0;
+  }
 
-// .hero-home {
-//     padding-top: 7rem;
-//     padding-bottom: 2rem;
-// }
-.hero-page-flex-block {
-// padding-right: 10rem;
-padding-left: 0;
-}
+  .homepage-title {
+    font-size: 8rem !important;
+  }
 
-
-.homepage-title {
-    font-size: 8rem;
-}
-
-#graphic_crypto2 {
+  #graphic_crypto2 {
     width: 130%;
-}
+  }
 }
 
 @media only screen and (max-width: 900px) {
-    // .hero-video {
-    //         width: 75rem;
-    //         height: 55rem;
-    // }
+  .home-hero-button {
+    font-size: 1rem;
+  }
 
-    .home-hero-button {
-        font-size: 1rem;
-    }
+  .homepage-title {
+    margin: 0;
+    width: 100%;
+    font-size: 5rem !important;
+  }
 
-    .homepage-title {
-        font-size: 5rem;
-    }
+  .hero-title {
+    font-size: 3rem;
+  }
 
-    .hero-title {
-        font-size: 3rem;
-        }
-    
-    .aboutus-text{
-        text-align: center;
-        font-size: 1.5rem;
-    }
+  .aboutus-text {
+    font-size: 1.5rem;
+    width: 90vw;
+  }
 
-    #company {
-    background: rgba(0,0,0,0.9);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  #company {
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .homepage-image, .hide-when-big {
-        display: inline-block; 
-        position: relative;
-        overflow: hidden;
-        border-radius: 50%;
-        width: 50%;
-        background-color: white;
-    }
+  .homepage-image,
+  .hide-when-big {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 50%;
+    background-color: white;
+  }
 
-    #graphic_crypto2 {
-        padding-left: 0;
-        width: 75%; 
-        margin: 0 -50px -10px 0;
-      background-image: none;
-      background-color: white;
-    }
+  #graphic_crypto2 {
+    padding-left: 0;
+    width: 75%;
+    margin: 0 -50px -10px 0;
+    background-image: none;
+    background-color: white;
+  }
 }
 
 @media only screen and (max-width: 600px) {
+  .homepage-title {
+    font-size: 4rem !important;
+  }
 
-    .homepage-title {
-        font-size: 4rem;
-    }
+  .hero-title {
+    font-size: 2.5rem;
+    padding: 0;
+    height: 90vh;
+    padding-top: 10vh;
+    padding-bottom: 0;
+  }
 
-    .hero-title {
-        font-size: 2.5rem;
-        padding: 2rem;
-        height: 90vh;
-        padding-top: 10vh;
-        padding-bottom: 0;
-    }
+  .get-started-button {
+    font-size: 1rem;
+  }
 
-.get-started-button {
-font-size: 1rem;
-}
-
-.hero-home {
+  .hero-home {
     height: 100%;
-}
-
-// #company {
-//     padding-top: 20rem;
-// }
+  }
 }
 
 @media only screen and (max-width: 500px) {
-    // #company {
-    //     padding-top: 11rem;
-    //     padding-bottom: 30rem;
-    // }
+  .aboutus {
+    font-size: 3rem;
+    padding-left: 0;
+  }
 
-    // .hero-title{
-    //     padding-top: 0rem;
-    // }
-
-    // .hero-video {
-    //     width: 65rem;
-    //     height: 40rem;
-    // }
-
-    .aboutus {
-        font-size: 3rem;
-        padding-left: 0;
-    }
-
-    .aboutus-text{
-        font-size: 1rem;
-    }
+  .aboutus-text {
+    font-size: 1rem;
+  }
 }

@@ -18,18 +18,11 @@ function Hero() {
         data-aos="fade-right"
         data-aos-duration="1000"
       >
-        <span className="homepage-title">SINTETIK</span>
-        <br />
-        <br />
-        <span
-          className="homepage-heading2"
-          style={{ WebkitTextFillColor: "#FFF" }}
-        >
-          A New Way of Trading
-        </span>
+        <h1 className="homepage-title">SINTETIK</h1>
+        <div>
+        <span>A New Way of Trading</span>
         <br />
         <div className="Tradewith">
-          <p>What Our Users Say About Us</p>
           <b>
             <div className="innerTradewith">
               "Exciting"
@@ -44,7 +37,7 @@ function Hero() {
             </div>
           </b>
         </div>
-        <br className="hide-when-small" />
+        </div>
         <br />
         <br />
         <button

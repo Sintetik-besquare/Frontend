@@ -8,12 +8,9 @@ async function getBalance() {
     method: "GET",
   })
     .then((response) => {
-      // console.log(response);
       return response.json();
     })
     .then((json) => {
-      // console.log("json.balance")
-      // console.log(json.balance);
       return json.balance;
     });
 }
@@ -28,11 +25,9 @@ async function resetBalance(reset_balance) {
     method: "PATCH",
   })
     .then((response) => {
-      console.log(response);
       return response.json();
     })
     .then((json) => {
-      console.log(json);
       return json.balance;
     });
 }
