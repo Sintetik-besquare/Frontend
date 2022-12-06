@@ -22,6 +22,7 @@ const ErrorMsg = () => {
       clearStore();
     } else if (app_store.reset === 2) {
       //logout
+      window.location.replace("/");
       app_store.setAccessToken("");
       localStorage.clear();
       app_store.show_modal = false;

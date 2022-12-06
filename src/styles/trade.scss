@@ -51,7 +51,7 @@
     min-width: 100%;
     margin: auto;
   }
-
+  
   .customSlider-track {
     top: 8px;
     height: 4px;
@@ -62,6 +62,7 @@
   }
 
   .customSlider-thumb {
+    z-index:0 !important;
     cursor: pointer;
     background: $yellow;
     width: 20px;
@@ -69,7 +70,7 @@
     border-radius: 100%;
     outline: none;
   }
-
+  
   .customSlider-mark {
     cursor: pointer;
     top: 6px;

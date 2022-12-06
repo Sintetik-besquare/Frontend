@@ -16,36 +16,6 @@ const NavModal = () => {
     app_store.show_modal = false;
   }
 
-  // function logout() {
-  // app_store.setAccessToken("");
-  // localStorage.clear();
-  // app_store.show_modal = false;
-  // app_store.setLogin(false);
-  // navigate("/", { replace: true });
-  // }
-
-  // useEffect(() => {
-  //   if (app_store.confirm === true) {
-  //     if (app_store.confirm === 1) {
-  //       resetWallet();
-  //     } else {
-  //       logout();
-  //     }
-  //     app_store.confirm = false;
-  //   }
-  // }, [app_store.confirm]);
-
-  // function resetWallet() {
-  //   resetBalance(true).then((e) => {
-  //     chart_store.setWallet(e);
-  //     app_store.error_messages.push(
-  //       `wallet has been reset, balance is now ${e}`
-  //     );
-  //     app_store.show_error_message = true;
-  //   });
-  //   app_store.show_modal = false;
-  // }
-
   return (
     <div className="nav_modal">
       <MdOutlineClose
@@ -64,7 +34,8 @@ const NavModal = () => {
         </li>
         <li
           onClick={() => {
-            app_store.confirm_messages ="Your wallet will be reset to 20000.00$, are you sure you want to proceed?";
+            app_store.confirm_messages =
+              "Your wallet will be reset to 20000.00$, are you sure you want to proceed?";
             app_store.reset = 1;
             app_store.show_confirm_message = true;
             app_store.show_modal = false;
@@ -74,7 +45,8 @@ const NavModal = () => {
         </li>
         <li
           onClick={() => {
-            app_store.confirm_messages ="You will be logged out, do you want to proceed?";
+            app_store.confirm_messages =
+              "You will be logged out, do you want to proceed?";
             app_store.reset = 2;
             app_store.show_confirm_message = true;
             app_store.show_modal = false;
