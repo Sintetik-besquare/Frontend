@@ -23,6 +23,7 @@ const SigninPage = () => {
           app_store.setAccessToken(z);
           navigate("/trade", { replace: true });
         } else {
+          app_store.error_messages = [];
           z.forEach((e) => {
             app_store.error_messages.push(e.msg);
           });
