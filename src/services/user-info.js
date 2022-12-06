@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 const ENDPOINT_BASE = "http://localhost:3001";
-=======
-
-const ENDPOINT_BASE = "https://login.sintetik.xyz";
->>>>>>> c6e6481ebea2aae87e1ea06b25938de83070db2f
 
 async function getUserDetails() {
   return await fetch(`${ENDPOINT_BASE}/account/getUserDetails`, {
@@ -26,7 +21,6 @@ async function getUserDetails() {
 }
 
 async function editUserDetails(body) {
-  const error_message = [];
   const res = await fetch(`${ENDPOINT_BASE}/account/editUserDetails`, {
     method: "PATCH",
     headers: {
@@ -36,11 +30,8 @@ async function editUserDetails(body) {
     body: body,
   });
   const json = await res.json();
-  error_message.push(json.errors);
-  console.log("error_message", error_message);
-  console.log("ERRORSSSS", json.errors);
-
   if (!res.ok) {
+    console.log(json.errors)
     return json.errors;
   }
 }

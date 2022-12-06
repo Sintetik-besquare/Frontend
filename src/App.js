@@ -60,7 +60,7 @@ const App = () => {
           <Route path="*" element={<Error />} />
         </Routes>
       </BrowserRouter>
-      <ErrorMsg msg={app_store.error_messages} />
+      <ErrorMsg />
       <ConfirmMsg />
     </div>
   );

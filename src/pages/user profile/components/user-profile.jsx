@@ -46,13 +46,13 @@ const InputFieldText = () => {
     setError(json);
     if (json) {
       json.map((j) => {
-        const error_message = app_store.error_messages.push(j.msg);
-        return error_message;
+        app_store.error_messages.push(j.msg);
       });
       console.log(app_store.error_messages);
-      alert(app_store.error_messages);
+      app_store.show_error_message = true;
     } else {
-      alert("Your profile has been updated");
+      app_store.error_messages.push("Your profile has been updated");
+      app_store.show_error_message = true;
       window.location.reload(false);
     }
   }
@@ -64,7 +64,6 @@ const InputFieldText = () => {
           <center>Profile</center>
           <img src={Astronout} alt="a profile page" style={{ width: "40%" }} />
           <p className="email">{user_store.email}</p>
-          {/* {user_store.date_join !== "" && ( */}
           <p className="join">
             Joined on<br></br>
             <span className="join-span">
@@ -78,14 +77,11 @@ const InputFieldText = () => {
               }).format(user_store.date_join * 1000)}
             </span>
           </p>
-          {/* // )} */}
 
-          {/* {user_store.client_id !== "" && ( */}
           <p className="join">
             Client ID<br></br>
             <span className="join-span">{user_store.client_id}</span>
           </p>
-          {/* )} */}
         </div>
         <div className="user-profile">
           <div className="basic-info-header"></div>
