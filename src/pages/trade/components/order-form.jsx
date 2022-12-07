@@ -50,7 +50,6 @@ const OrderForm = () => {
         error_message = []
         error_message.push(message.errors);
         app_store.error_messages = error_message;
-        // app_store.error_messages.push(message.errors);
         showError();
         chart_store.toggleIsBuying(false);
       }

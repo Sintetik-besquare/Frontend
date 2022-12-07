@@ -108,7 +108,6 @@ const SigninPage = () => {
             </div>
             &nbsp;
             <h5
-              // onClick={() => navigate("/forgotpw", { replace: true })}
               style={{ cursor: "pointer" }}
             >
               Forgot password?

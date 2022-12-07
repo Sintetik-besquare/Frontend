@@ -28,7 +28,6 @@ const LineChart = () => {
         data: y_axis,
         label: chart_store.index,
         borderColor: "white",
-        // pointStyle: "dash",
         pointBorderWidth: 0,
         borderWidth: 1,
         tension: 0.1,

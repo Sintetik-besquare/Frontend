@@ -12,8 +12,6 @@ const NewsList = () => {
     getNews().then((e) => setTopheadline(e.data.value));
   }, []);
 
-  // console.log("topheadline", topheadlines);
-
   //Get every related news
   useEffect(() => {
     getNews().then((e) => setArticles(e.data.value));
