@@ -31,6 +31,12 @@ jobs:
       uses: andstor/file-existence-action@v2
       with: 
         files: ".env"
+        
+    - name: Fill .env
+      run:  |
+        touch .env
+        echo "REACT_APP_NEWS_API_KEY=${{ secrets.REACT_APP_NEWS_API_KEY }}" >> .env  
+        echo "TOKEN=${{ secrets.TOKEN }}" >> .env
     
     - name: Create build
       run:  |
